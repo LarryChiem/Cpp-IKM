@@ -9,9 +9,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'Python Practice Exam',
+        name: 'C++ Practice Exam',
         short_name: 'Python Practice',
-        description: '54-question Python practice exam with timer and explanations.',
+        description: '54-question C++ Practice Exam with timer and explanations.',
         theme_color: '#111111',
         background_color: '#f6f7f9',
         display: 'standalone',

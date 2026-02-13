@@ -15,6 +15,24 @@ const LS_SEEN = "ppe_seen_v1";
 const LS_QUEUE = "ppe_queue_v1";
 const LS_QUEUE_POS = "ppe_queue_pos_v1";
 
+async function loadQuestions() {
+  const files = [
+    "/question_banks/questions_cpp17_core.json",
+    "/question_banks/questions_cpp17_stl.json",
+    "/question_banks/questions_cpp20_ranges_span.json",
+    "/question_banks/questions_cpp20_concepts_concurrency.json"
+  ];
+
+  const banks = await Promise.all(files.map(f => fetch(f).then(r => r.json())));
+  const all = banks.flat();
+
+  // Optional: detect duplicate IDs
+  // const seen = new Set();
+  // for (const q of all) { if (seen.has(q.id)) throw new Error("Duplicate id: " + q.id); seen.add(q.id); }
+
+  return all;
+}
+
 
 function loadSeenSet() {
   try {
@@ -31,149 +49,23 @@ function saveSeenSet(set) {
 
 // crude but effective “is this code?” check
 function looksLikeCode(text) {
-  if (!text || typeof text !== "string") return false;
-  if (!text.includes("\n")) return false;
-
-  // Strong punctuation signal for C-like code
-  const punctHint = (text.includes("{") && text.includes("}")) || text.includes(";") || text.includes("::");
-
-  const cppHints = [
-    "#include",
-    "std::",
-    "template",
-    "typename",
-    "constexpr",
-    "consteval",
-    "constinit",
-    "concept",
-    "requires",
-    "namespace",
-    "using ",
-    "struct ",
-    "class ",
-    "enum ",
-    "->",
-    "noexcept",
-    "co_await",
-    "co_yield",
-    "co_return",
-    "std::ranges",
-    "std::views",
-    "std::span",
-    "std::jthread"
-  ];
-
-  const pyHints = ["def ", "class ", "for ", "if ", "import ", "return ", "print("];
-
-  const hasCpp = cppHints.some(h => text.includes(h));
-  const hasPy = pyHints.some(h => text.includes(h));
-
-  return (hasCpp && punctHint) || (!hasCpp && hasPy);
+  return (
+    text.includes("\n") &&
+    (text.includes("def ") ||
+      text.includes("class ") ||
+      text.includes("for ") ||
+      text.includes("if ") ||
+      text.includes("import ") ||
+      text.includes("return ") ||
+      text.includes("print("))
+  );
 }
-
-function detectCodeLanguage(text) {
-  if (!text || typeof text !== "string") return "text";
-  const cppStrong = ["#include", "std::", "template", "concept", "requires", "namespace", "::", "->"];
-  const pyStrong = ["def ", "import ", "print(", "elif ", "None", "True", "False"];
-  const isCpp = cppStrong.some(h => text.includes(h));
-  const isPy = pyStrong.some(h => text.includes(h));
-  if (isCpp && !isPy) return "cpp";
-  if (isPy && !isCpp) return "python";
-  // Default for this project going forward: C++
-  return "cpp";
-}
-
-async function loadQuestionsFromBanks() {
-  // Preferred: manifest listing all bank JSON files.
-  // NOTE: In a static site (GitHub Pages), the browser cannot list directories.
-  // So we load a manifest at /question_banks/index.json.
-  try {
-    const manifestRes = await fetch("/question_banks/index.json");
-    if (manifestRes.ok) {
-      const manifest = await manifestRes.json();
-      const files = Array.isArray(manifest.files) ? manifest.files : [];
-      if (files.length) {
-        const banks = await Promise.all(
-          files.map((name) =>
-            fetch(`/question_banks/${name}`).then((r) => {
-              if (!r.ok) throw new Error(`Failed to load ${name}`);
-              return r.json();
-            })
-          )
-        );
-        return banks.flat().map(normalizeQuestionShape);
-      }
-    }
-  } catch (e) {
-    // Fall through to other strategies
-  }
-
-  // Fallback 1: legacy single-bank questions.json
-  const legacyRes = await fetch("/questions.json");
-  if (!legacyRes.ok) throw new Error("Failed to load /questions.json (and no manifest found).");
-  const legacy = await legacyRes.json();
-  return (Array.isArray(legacy) ? legacy : []).map(normalizeQuestionShape);
-}
-
-function normalizeQuestionShape(q) {
-  const rawOptions = Array.isArray(q?.options) ? q.options : [];
-  const normalizedOptions = rawOptions.map((opt, i) => {
-    if (typeof opt === "string") {
-      return {
-        id: LETTERS[i],
-        text: opt,
-        isCorrect: Array.isArray(q?.correct) ? q.correct.includes(i) : false,
-        explanation: q?.explanations?.[String(i)] ?? "",
-      };
-    }
-    return {
-      id: opt?.id ?? LETTERS[i],
-      text: typeof opt?.text === "string" ? opt.text : String(opt?.text ?? ""),
-      isCorrect:
-        typeof opt?.isCorrect === "boolean"
-          ? opt.isCorrect
-          : Array.isArray(q?.correct)
-          ? q.correct.includes(i)
-          : false,
-      explanation:
-        typeof opt?.explanation === "string"
-          ? opt.explanation
-          : q?.explanations?.[String(i)] ?? "",
-    };
-  });
-
-  const correct = normalizedOptions
-    .map((opt, i) => (opt.isCorrect ? i : -1))
-    .filter((i) => i >= 0);
-
-  const explanations = {};
-  normalizedOptions.forEach((opt, i) => {
-    if (opt.explanation) explanations[String(i)] = opt.explanation;
-  });
-
-  return {
-    ...q,
-    options: normalizedOptions,
-    correct,
-    explanations,
-  };
-}
-
-function assertUniqueQuestionIds(questions) {
-  const seen = new Set();
-  for (const q of questions) {
-    if (!q || !q.id) throw new Error("Question missing required `id` field.");
-    if (seen.has(q.id)) throw new Error(`Duplicate question id detected: ${q.id}`);
-    seen.add(q.id);
-  }
-}
-
 
 export function PromptText({ text }) {
   if (looksLikeCode(text)) {
     return (
       <SyntaxHighlighter
-        language="cpp"
+        language="python"
         style={oneLight}
         customStyle={{
           margin: 0,
@@ -445,10 +337,9 @@ export default function App() {
     async function load() {
       setLoading(true)
       try {
-        const data = await loadQuestionsFromBanks()
-        assertUniqueQuestionIds(Array.isArray(data) ? data : [])
-        setBank(dedupeByPrompt(Array.isArray(Array.isArray(data) ? data : [])
-? data : []))
+        const res = await fetch('./questions.json')
+        const data = await res.json()
+        setBank(dedupeByPrompt(Array.isArray(data) ? data : []))
       } catch (e) {
         console.error(e)
         setBank([])
@@ -669,7 +560,7 @@ const q = exam[idx]
     <div className="wrap">
       <header className="top">
         <div>
-          <h1>C++ 17/20 Practice Exam</h1>
+          <h1>C++ Practice Exam</h1>
           <p className="sub">54 questions • 135 min • mobile-friendly</p>
         </div>
         <div className="pillRow">
@@ -735,7 +626,7 @@ const q = exam[idx]
                       <input
                         type="checkbox"
                         checked={selectedTopics.includes(t)}
-
+                        
                         onChange={(e) => {
                           const next = new Set(selectedTopics.length ? selectedTopics : [])
                           if (e.target.checked) next.add(t)
@@ -852,11 +743,10 @@ const q = exam[idx]
                 <h3>Explanation</h3>
                 {(q.options || []).map((opt, oi) => {
                   const isC = (q.correct || []).includes(oi)
-                  const optText = typeof opt === 'string' ? opt : (opt?.text ?? '')
-                  const why = q.explanations?.[String(oi)] ?? opt?.explanation ?? q.explanation ?? 'No explanation provided.'
+                  const why = q.explanations?.[String(oi)] ?? 'No explanation provided.'
                   return (
                     <div key={oi} className="exRow">
-                      <div className="mono"><b>{LETTERS[oi]}.</b> {optText}</div>
+                      <div className="mono"><b>{LETTERS[oi]}.</b> {opt}</div>
                       <div className={isC ? 'good' : 'bad'}>
                         <b>{isC ? 'CORRECT' : 'WRONG'}:</b> {why}
                       </div>

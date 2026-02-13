@@ -1,4 +1,4 @@
-# Python Practice Exam (Web)
+# C++ Practice Exam (Web)
 
 Mobile-friendly website (React + Vite) that loads your question bank from `public/questions.json`.
 
