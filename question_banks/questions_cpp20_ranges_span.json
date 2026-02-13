@@ -1,0 +1,182 @@
+[
+  {
+    "id": "cpp20-range-001",
+    "prompt": "C++20 ranges: Which header primarily provides ranges algorithms like `std::ranges::sort`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "<ranges>", "isCorrect": true, "explanation": "Ranges live primarily in <ranges> (with some algorithms in <algorithm> too, but ranges utilities are in <ranges>)." },
+      { "id": "B", "text": "<iterator>", "isCorrect": false, "explanation": "Iterators are in <iterator>; ranges are not primarily there." },
+      { "id": "C", "text": "<tuple>", "isCorrect": false, "explanation": "Unrelated." },
+      { "id": "D", "text": "<optional>", "isCorrect": false, "explanation": "Unrelated." }
+    ],
+    "explanation": "C++20 ranges add `std::ranges::*` algorithms and views.",
+    "tags": ["c++20", "ranges"],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-002",
+    "prompt": "C++20: What is `std::span<T>`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "An owning container like vector", "isCorrect": false, "explanation": "span does not own memory." },
+      { "id": "B", "text": "A non-owning view over a contiguous sequence", "isCorrect": true, "explanation": "span is pointer+size, for contiguous memory." },
+      { "id": "C", "text": "A thread-safe smart pointer", "isCorrect": false, "explanation": "Unrelated." },
+      { "id": "D", "text": "A type-erased container", "isCorrect": false, "explanation": "That’s closer to any." }
+    ],
+    "explanation": "span is great for passing arrays/vectors without copying, but it can dangle if the backing storage dies.",
+    "tags": ["c++20", "span", "lifetime"],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-003",
+    "prompt": "C++20 ranges: Which is a key difference between `std::sort` and `std::ranges::sort`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "ranges::sort can take a range directly (not just iterators)", "isCorrect": true, "explanation": "ranges algorithms can accept ranges and projections." },
+      { "id": "B", "text": "std::sort is stable but ranges::sort is not", "isCorrect": false, "explanation": "std::sort is not stable; stable_sort is stable." },
+      { "id": "C", "text": "ranges::sort works only on std::vector", "isCorrect": false, "explanation": "It works on ranges meeting requirements." },
+      { "id": "D", "text": "std::sort is deprecated in C++20", "isCorrect": false, "explanation": "std::sort is not deprecated." }
+    ],
+    "explanation": "Ranges algorithms improve ergonomics and add projections.",
+    "tags": ["c++20", "ranges", "algorithms"],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-004",
+    "prompt": "C++20 views are best described as:",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "Always owning containers", "isCorrect": false, "explanation": "Views are typically non-owning, lazy adaptors." },
+      { "id": "B", "text": "Lazy, composable range adaptors that often don't allocate", "isCorrect": true, "explanation": "Views compose pipelines like filter/transform." },
+      { "id": "C", "text": "Compile-time only constructs that cannot run", "isCorrect": false, "explanation": "Views are runtime objects too." },
+      { "id": "D", "text": "Thread synchronization primitives", "isCorrect": false, "explanation": "Unrelated." }
+    ],
+    "explanation": "Views enable pipeline-style range transformations with lazy evaluation.",
+    "tags": ["c++20", "ranges", "views"],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-005",
+    "prompt": "C++20: Why can `std::span` be safer than taking raw pointer + length parameters?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "It owns the data, guaranteeing lifetime", "isCorrect": false, "explanation": "span does not own." },
+      { "id": "B", "text": "It packages pointer+size into one object, reducing mismatch bugs", "isCorrect": true, "explanation": "It makes passing contiguous ranges less error-prone." },
+      { "id": "C", "text": "It prevents out-of-bounds access automatically", "isCorrect": false, "explanation": "span does not enforce bounds automatically; it just carries size." },
+      { "id": "D", "text": "It is always null-terminated", "isCorrect": false, "explanation": "That's for strings, not span." }
+    ],
+    "explanation": "span improves API clarity and reduces pointer/length mismatch mistakes.",
+    "tags": ["c++20", "span"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-006",
+    "prompt": "C++20: Which pipeline is valid ranges code (conceptually)?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "v | std::views::filter(pred) | std::views::transform(f)", "isCorrect": true, "explanation": "This is the common ranges pipeline style." },
+      { "id": "B", "text": "v >> std::views::filter(pred)", "isCorrect": false, "explanation": "Ranges pipelines use |, not >>." },
+      { "id": "C", "text": "std::views::filter(v, pred)", "isCorrect": false, "explanation": "filter is a view adaptor typically used via pipe or adaptor closure." },
+      { "id": "D", "text": "v | std::ranges::sort", "isCorrect": false, "explanation": "sort is an algorithm, not a view adaptor." }
+    ],
+    "explanation": "Views compose; algorithms typically consume ranges rather than forming pipelines with |.",
+    "tags": ["c++20", "ranges", "views"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-007",
+    "prompt": "C++20: Which statement about projections in ranges algorithms is true?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "Projections let you transform elements for comparison without changing the elements", "isCorrect": true, "explanation": "E.g., sort by a member: projection extracts the key." },
+      { "id": "B", "text": "Projections replace comparators entirely and cannot be used together", "isCorrect": false, "explanation": "You can use both comparator and projection." },
+      { "id": "C", "text": "Projections force heap allocation", "isCorrect": false, "explanation": "No such requirement." },
+      { "id": "D", "text": "Projections are only for numeric types", "isCorrect": false, "explanation": "They work for any type." }
+    ],
+    "explanation": "Ranges algorithms often accept both comparator and projection parameters.",
+    "tags": ["c++20", "ranges", "projections"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-008",
+    "prompt": "C++20: When can a `std::string_view` or `std::span` dangle?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "Never; they always extend lifetime", "isCorrect": false, "explanation": "They do not own or extend lifetime." },
+      { "id": "B", "text": "If they refer to memory whose lifetime ends (e.g., a temporary string or destroyed vector)", "isCorrect": true, "explanation": "Non-owning views must not outlive their backing storage." },
+      { "id": "C", "text": "Only if they are copied", "isCorrect": false, "explanation": "Copying a view copies the pointer+size; it doesn't fix lifetime." },
+      { "id": "D", "text": "Only on Windows", "isCorrect": false, "explanation": "Lifetime rules are platform-independent." }
+    ],
+    "explanation": "Views are lightweight but require careful lifetime management.",
+    "tags": ["c++20", "lifetime", "views"],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-009",
+    "prompt": "C++20: Which is true about `std::ranges::for_each`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "It requires random-access iterators", "isCorrect": false, "explanation": "for_each works with input/forward ranges based on requirements." },
+      { "id": "B", "text": "It can accept a range directly rather than begin/end iterators", "isCorrect": true, "explanation": "Ranges algorithms often accept ranges." },
+      { "id": "C", "text": "It returns void always", "isCorrect": false, "explanation": "Many algorithms return useful results/iterators; ranges versions often return structs." },
+      { "id": "D", "text": "It is deprecated", "isCorrect": false, "explanation": "Not deprecated." }
+    ],
+    "explanation": "Ranges algorithms are range-friendly and often return richer results.",
+    "tags": ["c++20", "ranges", "algorithms"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-010",
+    "prompt": "C++20: `std::span<const T>` is best used to:",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "Express ownership of immutable heap data", "isCorrect": false, "explanation": "span does not own." },
+      { "id": "B", "text": "Pass a read-only view of a contiguous sequence without copying", "isCorrect": true, "explanation": "This is a common API pattern for read-only buffers." },
+      { "id": "C", "text": "Replace std::unique_ptr<T>", "isCorrect": false, "explanation": "Ownership and viewing are different." },
+      { "id": "D", "text": "Guarantee no out-of-bounds access", "isCorrect": false, "explanation": "span carries size but does not enforce bounds by itself." }
+    ],
+    "explanation": "span<const T> communicates non-owning, read-only contiguous access.",
+    "tags": ["c++20", "span"],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-011",
+    "prompt": "C++20: Which is true about `std::ranges::views::iota`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "It creates a vector of integers immediately", "isCorrect": false, "explanation": "iota_view is lazy; it does not allocate a vector by itself." },
+      { "id": "B", "text": "It creates a lazy range of incrementing values", "isCorrect": true, "explanation": "iota produces a sequence lazily." },
+      { "id": "C", "text": "It requires heap allocation", "isCorrect": false, "explanation": "Views often avoid allocation." },
+      { "id": "D", "text": "It only works with int", "isCorrect": false, "explanation": "It works with incrementable types meeting requirements." }
+    ],
+    "explanation": "iota is useful for generating sequences in pipelines without allocation.",
+    "tags": ["c++20", "ranges", "views"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-range-012",
+    "prompt": "C++20: Which is correct about `std::ranges::begin(r)` compared to `std::begin(r)`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "They are identical and interchangeable in all cases", "isCorrect": false, "explanation": "Ranges versions follow ranges customization points and constraints." },
+      { "id": "B", "text": "ranges::begin participates in ranges customization point and can work with range types that model the concept", "isCorrect": true, "explanation": "It’s a CPO designed for ranges." },
+      { "id": "C", "text": "ranges::begin is only for std containers", "isCorrect": false, "explanation": "It’s for any type modeling a range." },
+      { "id": "D", "text": "ranges::begin is deprecated", "isCorrect": false, "explanation": "Not deprecated." }
+    ],
+    "explanation": "Ranges uses CPOs and concepts to provide more uniform, constrained behavior.",
+    "tags": ["c++20", "ranges"],
+    "difficulty": "hard",
+    "standard": "C++20"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "id": "cpp20-cc-001",
+    "prompt": "C++20 concepts: What is the primary purpose of concepts?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "Make templates run faster at runtime", "isCorrect": false, "explanation": "Concepts mostly improve compile-time constraints/diagnostics and overload selection." },
+      { "id": "B", "text": "Constrain template parameters and improve error messages/overload resolution", "isCorrect": true, "explanation": "Concepts express requirements on template arguments." },
+      { "id": "C", "text": "Replace virtual functions", "isCorrect": false, "explanation": "Different mechanism (compile-time vs runtime polymorphism)." },
+      { "id": "D", "text": "Allow garbage collection", "isCorrect": false, "explanation": "Unrelated." }
+    ],
+    "explanation": "Concepts let you specify template requirements explicitly and get clearer diagnostics.",
+    "tags": ["c++20", "concepts", "templates"],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-002",
+    "prompt": "C++20: Which is a valid way to constrain a template with a concept `C`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "template <C T> void f(T);", "isCorrect": true, "explanation": "This uses an abbreviated template parameter with a concept." },
+      { "id": "B", "text": "template <typename T: C> void f(T);", "isCorrect": false, "explanation": "That syntax is not C++." },
+      { "id": "C", "text": "template <typename T> void f(T) where C<T>;", "isCorrect": false, "explanation": "C++ uses requires-clauses, not 'where'." },
+      { "id": "D", "text": "concept template <typename T> C;", "isCorrect": false, "explanation": "Incorrect declaration order." }
+    ],
+    "explanation": "C++20 supports `template<C T>` and `template<typename T> requires C<T>` forms.",
+    "tags": ["c++20", "concepts"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-003",
+    "prompt": "C++20: What does a `requires` expression do inside a concept definition?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "Runs the requirements at runtime", "isCorrect": false, "explanation": "Requires expressions are compile-time checks." },
+      { "id": "B", "text": "Checks that certain expressions are well-formed and optionally their types/constraints", "isCorrect": true, "explanation": "It tests syntactic/semantic validity at compile time." },
+      { "id": "C", "text": "Allocates memory for template instantiation", "isCorrect": false, "explanation": "Unrelated." },
+      { "id": "D", "text": "Forces inlining of constrained functions", "isCorrect": false, "explanation": "Unrelated." }
+    ],
+    "explanation": "Requires expressions validate operations and properties of types at compile time.",
+    "tags": ["c++20", "concepts"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-004",
+    "prompt": "C++20: `std::jthread` differs from `std::thread` primarily because:",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "jthread is copyable, thread is not", "isCorrect": false, "explanation": "Both are move-only." },
+      { "id": "B", "text": "jthread automatically joins in its destructor and supports cooperative stopping", "isCorrect": true, "explanation": "jthread joins on destruction and integrates stop_token." },
+      { "id": "C", "text": "jthread is deprecated", "isCorrect": false, "explanation": "It’s new in C++20." },
+      { "id": "D", "text": "jthread can only run lambdas", "isCorrect": false, "explanation": "It can run any callable like std::thread." }
+    ],
+    "explanation": "jthread is safer by default (RAII join) and supports stop requests.",
+    "tags": ["c++20", "concurrency", "jthread"],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-005",
+    "prompt": "C++20: `std::stop_token` is used to:",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "Force-kill a thread immediately", "isCorrect": false, "explanation": "C++ provides cooperative stopping, not forced termination." },
+      { "id": "B", "text": "Support cooperative cancellation where code checks for stop requests", "isCorrect": true, "explanation": "Threads can poll stop_requested() or use stop callbacks." },
+      { "id": "C", "text": "Make mutex locking faster", "isCorrect": false, "explanation": "Unrelated." },
+      { "id": "D", "text": "Replace atomics", "isCorrect": false, "explanation": "Unrelated." }
+    ],
+    "explanation": "stop_token enables cooperative cancellation patterns in C++20.",
+    "tags": ["c++20", "concurrency", "stop_token"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-006",
+    "prompt": "C++20: What is `std::latch`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "A mutex type", "isCorrect": false, "explanation": "latch is not a mutex." },
+      { "id": "B", "text": "A one-shot counter-based synchronization primitive that lets threads wait until the counter reaches zero", "isCorrect": true, "explanation": "Threads can arrive by count_down and wait on it." },
+      { "id": "C", "text": "A repeating barrier that can be reused", "isCorrect": false, "explanation": "That describes std::barrier." },
+      { "id": "D", "text": "A future/promise mechanism", "isCorrect": false, "explanation": "Unrelated." }
+    ],
+    "explanation": "latch is one-shot; barrier is reusable across phases.",
+    "tags": ["c++20", "concurrency", "latch"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-007",
+    "prompt": "C++20: What is `std::barrier`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "A one-shot counter that can only be used once", "isCorrect": false, "explanation": "That is closer to latch." },
+      { "id": "B", "text": "A reusable synchronization point where participating threads arrive and wait for a phase to complete", "isCorrect": true, "explanation": "barrier can be used for repeated phases." },
+      { "id": "C", "text": "A type of atomic variable", "isCorrect": false, "explanation": "Unrelated." },
+      { "id": "D", "text": "A file I/O primitive", "isCorrect": false, "explanation": "Unrelated." }
+    ],
+    "explanation": "barrier synchronizes a fixed number of participants across phases.",
+    "tags": ["c++20", "concurrency", "barrier"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-008",
+    "prompt": "C++20: `std::atomic_ref<T>` is best described as:",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "An owning atomic that allocates storage for T", "isCorrect": false, "explanation": "atomic_ref does not own or allocate." },
+      { "id": "B", "text": "A way to perform atomic operations on an existing object of type T (with alignment/requirements)", "isCorrect": true, "explanation": "It references an existing object and allows atomic ops on it." },
+      { "id": "C", "text": "A replacement for std::mutex", "isCorrect": false, "explanation": "Atomic operations are not a mutex substitute for complex invariants." },
+      { "id": "D", "text": "A pointer that makes T thread-safe automatically", "isCorrect": false, "explanation": "Atomicity applies to specific operations and usage patterns." }
+    ],
+    "explanation": "atomic_ref lets you treat an existing object as atomic without changing its type.",
+    "tags": ["c++20", "concurrency", "atomic_ref"],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-009",
+    "prompt": "C++20: Which is true about concepts and overload resolution?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "Constraints are checked after choosing an overload", "isCorrect": false, "explanation": "Constraints participate in determining viability and ordering." },
+      { "id": "B", "text": "Constrained templates can be preferred over less constrained ones when both match", "isCorrect": true, "explanation": "More constrained can be considered more specialized." },
+      { "id": "C", "text": "Concepts only work with class templates, not functions", "isCorrect": false, "explanation": "Concepts apply broadly." },
+      { "id": "D", "text": "Concepts are runtime checks", "isCorrect": false, "explanation": "They are compile-time constraints." }
+    ],
+    "explanation": "Constraints affect viability and partial ordering, improving overload selection clarity.",
+    "tags": ["c++20", "concepts", "overload-resolution"],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-010",
+    "prompt": "C++20: Which statement about `std::chrono` calendar/timezone additions is correct?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "C++20 added calendar types like year_month_day in <chrono>", "isCorrect": true, "explanation": "C++20 expanded chrono with calendar/date/time zone support (library support may vary)." },
+      { "id": "B", "text": "C++20 removed chrono durations", "isCorrect": false, "explanation": "Durations remain." },
+      { "id": "C", "text": "These features require <filesystem>", "isCorrect": false, "explanation": "They are in <chrono>." },
+      { "id": "D", "text": "They are C++17 features", "isCorrect": false, "explanation": "Calendar/time zone additions are C++20." }
+    ],
+    "explanation": "C++20 chrono significantly expanded date/time facilities (implementation availability can vary).",
+    "tags": ["c++20", "chrono"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-011",
+    "prompt": "C++20: Which is correct about `std::counting_semaphore`?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "It is a container that counts elements", "isCorrect": false, "explanation": "Semaphore is a concurrency primitive." },
+      { "id": "B", "text": "It is a synchronization primitive controlling access via permits", "isCorrect": true, "explanation": "Threads acquire/release permits." },
+      { "id": "C", "text": "It replaces std::future", "isCorrect": false, "explanation": "Different tool." },
+      { "id": "D", "text": "It is only usable with jthread", "isCorrect": false, "explanation": "It’s independent." }
+    ],
+    "explanation": "Semaphores model permit-based access control (C++20).",
+    "tags": ["c++20", "concurrency", "semaphore"],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp20-cc-012",
+    "prompt": "C++20: In cooperative cancellation with jthread, what’s the typical pattern inside the thread function?",
+    "type": "single",
+    "options": [
+      { "id": "A", "text": "Ignore stop_token; jthread stops automatically", "isCorrect": false, "explanation": "Stopping is cooperative; your code must check/respond." },
+      { "id": "B", "text": "Periodically check `stop_token.stop_requested()` and exit cleanly", "isCorrect": true, "explanation": "That’s the standard cooperative cancellation approach." },
+      { "id": "C", "text": "Call `std::terminate()` when stop requested", "isCorrect": false, "explanation": "You should exit gracefully." },
+      { "id": "D", "text": "Use volatile variables to detect stop requests", "isCorrect": false, "explanation": "stop_token provides the mechanism." }
+    ],
+    "explanation": "jthread gives you a stop_token; you cooperate by checking it and exiting.",
+    "tags": ["c++20", "concurrency", "jthread", "stop_token"],
+    "difficulty": "medium",
+    "standard": "C++20"
+  }
+]
