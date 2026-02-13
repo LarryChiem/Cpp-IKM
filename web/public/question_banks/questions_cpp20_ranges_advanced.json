@@ -1,0 +1,40 @@
+[
+  {
+    "id": "cpp20-range-adv-001",
+    "prompt": "C++20: What does `std::views::take(n)` do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Copies first n elements into a new container",
+        "isCorrect": false,
+        "explanation": "Views are lazy and typically non-owning."
+      },
+      {
+        "id": "B",
+        "text": "Creates a lazy view of the first n elements",
+        "isCorrect": true,
+        "explanation": "take produces a view limited to n elements."
+      },
+      {
+        "id": "C",
+        "text": "Removes n elements permanently",
+        "isCorrect": false,
+        "explanation": "It does not modify the underlying range."
+      },
+      {
+        "id": "D",
+        "text": "Sorts first n elements",
+        "isCorrect": false,
+        "explanation": "Unrelated."
+      }
+    ],
+    "explanation": "`views::take` lazily limits a range to n elements.",
+    "tags": [
+      "c++20",
+      "ranges"
+    ],
+    "difficulty": "medium",
+    "standard": "C++20"
+  }
+]

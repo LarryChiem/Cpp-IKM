@@ -1,0 +1,40 @@
+[
+  {
+    "id": "cpp17-core-extra-001",
+    "prompt": "C++17: What does `if constexpr` primarily enable in templates?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runtime branching optimization",
+        "isCorrect": false,
+        "explanation": "It is compile-time branching, not runtime optimization."
+      },
+      {
+        "id": "B",
+        "text": "Compile-time conditional code elimination",
+        "isCorrect": true,
+        "explanation": "The non-selected branch is discarded during compilation."
+      },
+      {
+        "id": "C",
+        "text": "Automatic constexpr variable deduction",
+        "isCorrect": false,
+        "explanation": "It does not modify variable constexpr status."
+      },
+      {
+        "id": "D",
+        "text": "Exception suppression",
+        "isCorrect": false,
+        "explanation": "Unrelated."
+      }
+    ],
+    "explanation": "`if constexpr` discards non-selected branches at compile time.",
+    "tags": [
+      "c++17",
+      "core"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  }
+]

@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Node / Vite
+web/node_modules/
+web/dist/
+web/package-lock.json
+web/.vite/
+web/node_modules/.cache/
+
+.idea*

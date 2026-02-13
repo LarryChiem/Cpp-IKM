@@ -1,0 +1,6 @@
+{
+  "appId": "io.github.larrychiem.cpppractice",
+  "appName": "C++ IKM Practice",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

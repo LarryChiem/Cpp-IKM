@@ -1,0 +1,11 @@
+{
+  "files": [
+    "questions_cpp17_core.json",
+    "questions_cpp17_stl.json",
+    "questions_cpp20_concepts_advanced.json",
+    "questions_cpp20_concepts_concurrency.json",
+    "questions_cpp20_concurrency_advanced.json",
+    "questions_cpp20_ranges_advanced.json",
+    "questions_cpp20_ranges_span.json"
+  ]
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "cpp20-concepts-adv-001",
+    "prompt": "C++20: What does 'subsumption' mean in concepts?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "One concept syntactically inherits from another",
+        "isCorrect": false,
+        "explanation": "Concepts do not inherit like classes."
+      },
+      {
+        "id": "B",
+        "text": "A more constrained template is preferred in overload resolution",
+        "isCorrect": true,
+        "explanation": "Subsumption affects partial ordering in constrained templates."
+      },
+      {
+        "id": "C",
+        "text": "Concepts override virtual functions",
+        "isCorrect": false,
+        "explanation": "Concepts are compile-time constraints."
+      },
+      {
+        "id": "D",
+        "text": "Concepts enable dynamic polymorphism",
+        "isCorrect": false,
+        "explanation": "Concepts are compile-time only."
+      }
+    ],
+    "explanation": "Subsumption allows more constrained templates to be selected preferentially.",
+    "tags": [
+      "c++20",
+      "concepts"
+    ],
+    "difficulty": "hard",
+    "standard": "C++20"
+  }
+]
