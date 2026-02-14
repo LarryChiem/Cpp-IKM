@@ -88,14 +88,14 @@ async function loadQuestionsFromBanks() {
   // NOTE: In a static site (GitHub Pages), the browser cannot list directories.
   // So we load a manifest at /question_banks/index.json.
   try {
-    const manifestRes = await fetch("/question_banks/index.json");
+    const manifestRes = await fetch("question_banks/index.json");
     if (manifestRes.ok) {
       const manifest = await manifestRes.json();
       const files = Array.isArray(manifest.files) ? manifest.files : [];
       if (files.length) {
         const banks = await Promise.all(
           files.map((name) =>
-            fetch(`/question_banks/${name}`).then((r) => {
+            fetch(`question_banks/${name}`).then((r) => {
               if (!r.ok) throw new Error(`Failed to load ${name}`);
               return r.json();
             })
@@ -109,7 +109,7 @@ async function loadQuestionsFromBanks() {
   }
 
   // Fallback 1: legacy single-bank questions.json
-  const legacyRes = await fetch("/questions.json");
+  const legacyRes = await fetch("questions.json");
   if (!legacyRes.ok) throw new Error("Failed to load /questions.json (and no manifest found).");
   const legacy = await legacyRes.json();
   return (Array.isArray(legacy) ? legacy : []).map(normalizeQuestionShape);

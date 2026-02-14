@@ -8,6 +8,10 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
+      workbox: {
+        inlineWorkboxRuntime: true,
+        mode: 'development'
+      },
       manifest: {
         name: 'C++ Practice Exam',
         short_name: 'Python Practice',
