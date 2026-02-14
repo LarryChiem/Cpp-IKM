@@ -1,5 +1,1021 @@
 [
   {
+    "id": "cpp-templates-refs-001",
+    "prompt": "Templates and References: Given `template <typename T> void foo(T t) {}` (parameter by value). You want to pass an argument *by reference* to this function without changing its signature. Can you do that?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No. Passing by value always makes a copy, so it's impossible.",
+        "isCorrect": false,
+        "explanation": "Normally `T t` means a copy, but you can pass a reference-like wrapper."
+      },
+      {
+        "id": "B",
+        "text": "Yes, by explicitly forcing `T` to be a reference type, e.g. `foo<int&>(x)`.",
+        "isCorrect": false,
+        "explanation": "This can work, but it bypasses deduction and is not what most callers mean by 'pass by reference to a by-value template'."
+      },
+      {
+        "id": "C",
+        "text": "Yes, as the caller you can use `std::ref(x)` / `std::cref(x)` so `t` becomes a `std::reference_wrapper` that refers to the original.",
+        "isCorrect": true,
+        "explanation": "`std::ref` makes `T` deduce to `std::reference_wrapper<U>`. `foo` still takes by value, but the wrapper copy refers to the original object, so you get reference semantics."
+      },
+      {
+        "id": "D",
+        "text": "Only if you change the function to `void foo(T& t)` or `void foo(T&& t)`.",
+        "isCorrect": false,
+        "explanation": "You do get true references with `T&`/`T&&`, but the question asks whether you can do it without changing the signature."
+      }
+    ],
+    "explanation": "Even though `foo(T t)` takes by value, callers can pass reference semantics using `std::ref` / `std::cref` (or other indirection like pointers). The function receives a wrapper by value, but the wrapper refers to the original object.",
+    "tags": ["templates", "references", "std::ref", "type-deduction"],
+    "difficulty": "medium",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-integer-promotion-001",
+    "prompt": "Given:\n```cpp\nchar one = 1;\nchar two = 2;\nauto x = one + two;\n```\nWhat is the type of `x`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "int",
+        "isCorrect": true,
+        "explanation": "`char` is promoted to `int` in arithmetic expressions (integer promotions), so `one + two` is an `int`."
+      },
+      {
+        "id": "B",
+        "text": "char",
+        "isCorrect": false,
+        "explanation": "The operands are `char`, but the *expression* type is promoted before addition."
+      },
+      {
+        "id": "C",
+        "text": "unsigned char",
+        "isCorrect": false,
+        "explanation": "No unsigned conversion is forced here; integer promotions typically go to `int` (or `unsigned int` if needed)."
+      },
+      {
+        "id": "D",
+        "text": "auto (unknown until runtime)",
+        "isCorrect": false,
+        "explanation": "`auto` is deduced at compile time from the expression type; there is no runtime choice."
+      }
+    ],
+    "explanation": "Arithmetic on small integer types applies integer promotions. Both `char` operands promote to `int`, so `one + two` is `int`, and `auto x` deduces to `int`.",
+    "tags": ["integer-promotions", "auto", "usual-arithmetic-conversions"],
+    "difficulty": "medium",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-iife-lambda-001",
+    "prompt": "Why is an immediately-invocable lambda (IIFE) used here?\n```cpp\nconst int id = 1;\nconst std::string name = [](int id) {\n  switch (id) {\n    case 0: return \"Zero\";\n    case 1: return \"One\";\n    default: return \"Unsupported\";\n  }\n}(id);\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It improves runtime performance by ensuring the lambda executes every time `name` is accessed.",
+        "isCorrect": false,
+        "explanation": "The lambda executes once, at initialization, not on every access."
+      },
+      {
+        "id": "B",
+        "text": "It makes `id` mutable inside the lambda, allowing it to be changed dynamically.",
+        "isCorrect": false,
+        "explanation": "`id` is passed by value; mutability isn't the core issue."
+      },
+      {
+        "id": "C",
+        "text": "Because you can't initialize a `const` variable directly with a `switch` statement; the IIFE turns it into an expression.",
+        "isCorrect": true,
+        "explanation": "`switch` is a statement, not an expression. The IIFE returns a value, so it can initialize `const std::string name`."
+      },
+      {
+        "id": "D",
+        "text": "Because C++ does not allow `switch` statements inside normal functions.",
+        "isCorrect": false,
+        "explanation": "`switch` is allowed in normal functions; the point is expression vs statement for initialization."
+      }
+    ],
+    "explanation": "The IIFE is a common trick to use statement-based control flow (`switch`, loops, etc.) while still producing a single value for initialization.",
+    "tags": ["lambdas", "iife", "initialization", "switch"],
+    "difficulty": "medium",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-auto-braced-001",
+    "prompt": "What is the type of `myCollection`?\n```cpp\nauto myCollection = {1, 2, 3};\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "int[3]",
+        "isCorrect": false,
+        "explanation": "Braced init with `auto` does not produce a raw array here."
+      },
+      {
+        "id": "B",
+        "text": "std::array<int, 3>",
+        "isCorrect": false,
+        "explanation": "`std::array` is not deduced automatically from `{...}`."
+      },
+      {
+        "id": "C",
+        "text": "std::vector<int>",
+        "isCorrect": false,
+        "explanation": "`std::vector` is not deduced by `auto` from `{...}`."
+      },
+      {
+        "id": "D",
+        "text": "std::initializer_list<int>",
+        "isCorrect": true,
+        "explanation": "With `auto x = { ... };`, the special deduction rule deduces `std::initializer_list<T>` when possible."
+      }
+    ],
+    "explanation": "`auto x = {1,2,3};` uses special deduction rules: if all elements share a type, `x` becomes `std::initializer_list<T>`. (Contrast with `auto x{1,2,3};` which is ill-formed.)",
+    "tags": ["auto", "initializer-list", "type-deduction"],
+    "difficulty": "medium",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-pointer-indexing-001",
+    "prompt": "What is the output?\n```cpp\nint main() {\n  std::cout << 2[\"123\"];\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nothing, this doesn't compile.",
+        "isCorrect": false,
+        "explanation": "It compiles: `a[b]` is defined as `*(a + b)`, and addition is commutative."
+      },
+      {
+        "id": "B",
+        "text": "2",
+        "isCorrect": false,
+        "explanation": "It prints the character at index 2 in the string literal, not the number 2."
+      },
+      {
+        "id": "C",
+        "text": "3",
+        "isCorrect": true,
+        "explanation": "\"123\" is an array; `2[\"123\"]` == `\"123\"[2]` == the third character, `'3'`."
+      },
+      {
+        "id": "D",
+        "text": "1",
+        "isCorrect": false,
+        "explanation": "Index 0 would yield `'1'`."
+      }
+    ],
+    "explanation": "In C/C++, `a[b]` is exactly `*(a + b)`. So `2[\"123\"]` is `*(2 + \"123\")`, i.e., the element at index 2, which is `'3'`.",
+    "tags": ["arrays", "pointer-arithmetic", "indexing"],
+    "difficulty": "medium",
+    "standard": "C++03"
+  },
+
+  {
+    "id": "cpp-dangling-ref-001",
+    "prompt": "What happens here?\n```cpp\nconst std::string& r = std::string(\"hi\");\nstd::cout << r;\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always prints `hi` safely because const references extend lifetime.",
+        "isCorrect": true,
+        "explanation": "Binding a temporary to a `const T&` extends the temporary's lifetime to match the reference's lifetime."
+      },
+      {
+        "id": "B",
+        "text": "Undefined behavior because the temporary dies at the semicolon.",
+        "isCorrect": false,
+        "explanation": "That would be true without lifetime extension, but `const T&` does extend the lifetime here."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error: can't bind temporary to reference.",
+        "isCorrect": false,
+        "explanation": "You can bind a temporary to a `const` lvalue reference."
+      },
+      {
+        "id": "D",
+        "text": "It prints garbage because the string moves.",
+        "isCorrect": false,
+        "explanation": "No move-related issue; lifetime is extended."
+      }
+    ],
+    "explanation": "A temporary bound directly to a `const T&` has its lifetime extended to the lifetime of the reference.",
+    "tags": ["lifetime", "temporaries", "references"],
+    "difficulty": "medium",
+    "standard": "C++03"
+  },
+  {
+    "id": "cpp-string-view-001",
+    "prompt": "What is the bug?\n```cpp\nstd::string_view sv;\n{\n  std::string s = \"hello\";\n  sv = s;\n}\nstd::cout << sv;\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No bug: `string_view` owns the string data.",
+        "isCorrect": false,
+        "explanation": "`string_view` is non-owning; it only stores a pointer and a length."
+      },
+      {
+        "id": "B",
+        "text": "Undefined behavior: `sv` dangles after `s` is destroyed.",
+        "isCorrect": true,
+        "explanation": "`sv` points into `s`'s buffer. When `s` goes out of scope, that memory is invalid for `sv`."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error because `string_view` can't be assigned from `string`.",
+        "isCorrect": false,
+        "explanation": "Assignment from `std::string` to `std::string_view` is allowed (viewing the string's buffer)."
+      },
+      {
+        "id": "D",
+        "text": "It prints nothing because `sv` becomes empty automatically.",
+        "isCorrect": false,
+        "explanation": "The view doesn't auto-clear; it still points to freed memory."
+      }
+    ],
+    "explanation": "`std::string_view` does not own storage. Assigning it to refer to a temporary or short-lived string often creates a dangling view.",
+    "tags": ["string_view", "lifetime", "dangling"],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-most-vexing-parse-001",
+    "prompt": "What is `x`?\n```cpp\nstruct X { X(int) {} };\nX x(X(0));\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "An object of type `X` constructed from `0`.",
+        "isCorrect": false,
+        "explanation": "That would be true for brace initialization: `X x{0};`"
+      },
+      {
+        "id": "B",
+        "text": "A function declaration (the most vexing parse).",
+        "isCorrect": true,
+        "explanation": "This parses as a function named `x` returning `X` and taking a parameter of type \"pointer to function returning X\" (details aside)."
+      },
+      {
+        "id": "C",
+        "text": "A pointer to `X`.",
+        "isCorrect": false,
+        "explanation": "No pointer declarator is present."
+      },
+      {
+        "id": "D",
+        "text": "Ill-formed; it doesn't compile.",
+        "isCorrect": false,
+        "explanation": "It compiles, but as a declaration, not an object construction."
+      }
+    ],
+    "explanation": "Parentheses can trigger the most vexing parse where something that looks like an object becomes a function declaration. Prefer braces: `X x{0};`.",
+    "tags": ["parsing", "initialization", "most-vexing-parse"],
+    "difficulty": "hard",
+    "standard": "C++03"
+  },
+  {
+    "id": "cpp-vector-bool-001",
+    "prompt": "Why is `std::vector<bool>` considered \"weird\"?\n```cpp\nstd::vector<bool> v = {true, false};\nauto p = &v[0];\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Because `vector<bool>` is not a real specialization; it's the same as `vector<char>`.",
+        "isCorrect": false,
+        "explanation": "`vector<bool>` is a real specialization with packed bits."
+      },
+      {
+        "id": "B",
+        "text": "Because `v[0]` returns a proxy object, so taking its address is not a `bool*` and may not compile.",
+        "isCorrect": true,
+        "explanation": "`vector<bool>` packs bits and returns a proxy reference type instead of `bool&`."
+      },
+      {
+        "id": "C",
+        "text": "Because `vector<bool>` can only store up to 8 elements.",
+        "isCorrect": false,
+        "explanation": "It can store many elements; it packs them into bits."
+      },
+      {
+        "id": "D",
+        "text": "Because `vector<bool>` is deprecated and removed in C++20.",
+        "isCorrect": false,
+        "explanation": "It is still present; it's controversial but not removed."
+      }
+    ],
+    "explanation": "`std::vector<bool>` is specialized to pack bits. That changes reference semantics: `operator[]` returns a proxy, not `bool&`, which breaks expectations like taking addresses or binding to `bool&`.",
+    "tags": ["stl", "vector-bool", "proxy"],
+    "difficulty": "hard",
+    "standard": "C++03"
+  },
+  {
+    "id": "cpp-move-doesnt-move-001",
+    "prompt": "What does `std::move` do?\n```cpp\nstd::string s = \"abc\";\nauto t = std::move(s);\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It always moves the bytes from `s` into `t`.",
+        "isCorrect": false,
+        "explanation": "`std::move` does not move by itself; it only casts to an rvalue reference."
+      },
+      {
+        "id": "B",
+        "text": "It casts `s` to an rvalue reference, enabling move construction/assignment if available.",
+        "isCorrect": true,
+        "explanation": "The move happens (or not) in the constructor/assignment operator that sees the rvalue."
+      },
+      {
+        "id": "C",
+        "text": "It swaps `s` and `t`.",
+        "isCorrect": false,
+        "explanation": "No swap is performed."
+      },
+      {
+        "id": "D",
+        "text": "It makes `s` become an empty string by standard mandate.",
+        "isCorrect": false,
+        "explanation": "Moved-from objects are valid but in an unspecified state (often empty, but not guaranteed)."
+      }
+    ],
+    "explanation": "`std::move` is a cast, not an operation. It enables move semantics by turning an lvalue into an xvalue so overload resolution can pick move operations.",
+    "tags": ["move", "rvalue-references", "std::move"],
+    "difficulty": "medium",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-copy-elision-001",
+    "prompt": "In C++17, what is true about this?\n```cpp\nstruct X { X(); X(const X&); };\nX make() { return X{}; }\nX x = make();\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "The copy constructor must be called once.",
+        "isCorrect": false,
+        "explanation": "C++17 guarantees elision in certain cases; it may not be called at all."
+      },
+      {
+        "id": "B",
+        "text": "The copy constructor might be called depending on optimization flags.",
+        "isCorrect": false,
+        "explanation": "In this case, C++17 makes it guaranteed, not optional."
+      },
+      {
+        "id": "C",
+        "text": "No copy/move is required here due to guaranteed copy elision (prvalue materialization changes).",
+        "isCorrect": true,
+        "explanation": "Returning a prvalue `X{}` and initializing `x` can construct directly into `x` in C++17."
+      },
+      {
+        "id": "D",
+        "text": "This is ill-formed unless `X` is movable.",
+        "isCorrect": false,
+        "explanation": "With guaranteed elision, even deleted copy/move can still be OK in certain forms."
+      }
+    ],
+    "explanation": "C++17 changed prvalues and introduced guaranteed copy elision in common return-by-value cases, allowing direct construction into the destination object.",
+    "tags": ["copy-elision", "return-value-optimization", "c++17"],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-order-of-eval-001",
+    "prompt": "What is guaranteed about evaluation order here?\n```cpp\nint i = 0;\nstd::cout << i << i++;\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always prints `01`.",
+        "isCorrect": false,
+        "explanation": "The order between `i` and `i++` as arguments to `operator<<` is not guaranteed like that."
+      },
+      {
+        "id": "B",
+        "text": "Always prints `00`.",
+        "isCorrect": false,
+        "explanation": "Not guaranteed."
+      },
+      {
+        "id": "C",
+        "text": "Unspecified/undefined in older standards; in modern C++ the sequencing rules still make this problematic to reason about portably.",
+        "isCorrect": true,
+        "explanation": "This is a classic 'don't do this' example; the sequencing between these evaluations is not something to rely on for deterministic output."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error because `i++` can't be streamed.",
+        "isCorrect": false,
+        "explanation": "`i++` yields an `int` rvalue, which streams fine."
+      }
+    ],
+    "explanation": "Relying on subtle sequencing/evaluation order across chained `operator<<` calls is a trap. Write separate statements when side effects are involved.",
+    "tags": ["evaluation-order", "sequencing", "side-effects"],
+    "difficulty": "hard",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-overload-initlist-001",
+    "prompt": "Which overload is chosen?\n```cpp\n#include <initializer_list>\nvoid f(int);\nvoid f(std::initializer_list<int>);\n\nf({1,2,3});\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`f(int)`",
+        "isCorrect": false,
+        "explanation": "A braced-init-list prefers an `initializer_list` overload when viable."
+      },
+      {
+        "id": "B",
+        "text": "`f(std::initializer_list<int>)`",
+        "isCorrect": true,
+        "explanation": "List-initialization has special rules: `initializer_list` constructors/overloads are preferred."
+      },
+      {
+        "id": "C",
+        "text": "Ambiguous overload resolution.",
+        "isCorrect": false,
+        "explanation": "Not ambiguous here: only the `initializer_list` overload is viable for `{1,2,3}`."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error because `{1,2,3}` has no type.",
+        "isCorrect": false,
+        "explanation": "Braced-init-lists participate in overload resolution with special rules."
+      }
+    ],
+    "explanation": "`{1,2,3}` triggers list-initialization. If an `std::initializer_list` overload is viable, it is strongly preferred.",
+    "tags": ["overload-resolution", "initializer_list", "list-initialization"],
+    "difficulty": "medium",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-noexcept-operator-001",
+    "prompt": "What does `noexcept(expr)` compute?\n```cpp\nbool b = noexcept(std::vector<int>().push_back(1));\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It executes `push_back` and returns whether it threw.",
+        "isCorrect": false,
+        "explanation": "`noexcept(...)` is evaluated at compile time; it does not execute the expression."
+      },
+      {
+        "id": "B",
+        "text": "It returns true if the expression is known not to throw (is `noexcept`), otherwise false.",
+        "isCorrect": true,
+        "explanation": "`noexcept(expr)` is a constant expression that reflects whether `expr` can throw."
+      },
+      {
+        "id": "C",
+        "text": "It forces the compiler to make `push_back` not throw.",
+        "isCorrect": false,
+        "explanation": "It does not change behavior; it only queries exception specification."
+      },
+      {
+        "id": "D",
+        "text": "It disables exceptions globally for this translation unit.",
+        "isCorrect": false,
+        "explanation": "No relationship to global exception settings."
+      }
+    ],
+    "explanation": "`noexcept(expr)` is a compile-time query: it yields `true` if `expr` is non-throwing per exception specifications, otherwise `false`.",
+    "tags": ["noexcept", "exceptions", "type-traits"],
+    "difficulty": "medium",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-signed-unsigned-001",
+    "prompt": "What is the result?\n```cpp\nstd::cout << ( -1 < 1u );\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Prints `1` (true).",
+        "isCorrect": false,
+        "explanation": "The signed value may be converted to unsigned, changing its meaning."
+      },
+      {
+        "id": "B",
+        "text": "Prints `0` (false).",
+        "isCorrect": true,
+        "explanation": "`-1` converts to a large unsigned value, so it is not less than `1u`."
+      },
+      {
+        "id": "C",
+        "text": "Undefined behavior due to mixing signed and unsigned.",
+        "isCorrect": false,
+        "explanation": "It is well-defined, but often surprising."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error.",
+        "isCorrect": false,
+        "explanation": "This compiles; the trap is the implicit conversion."
+      }
+    ],
+    "explanation": "Usual arithmetic conversions apply: the signed `-1` is converted to `unsigned`, typically becoming `UINT_MAX`, making the comparison false.",
+    "tags": ["signed-unsigned", "conversions", "pitfalls"],
+    "difficulty": "medium",
+    "standard": "C++03"
+  },
+  {
+    "id": "cpp-slicing-001",
+    "prompt": "What happens here?\n```cpp\nstruct B { virtual ~B() = default; };\nstruct D : B { int x = 42; };\n\nD d;\nB b = d;\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`b` becomes a reference to `d` (polymorphism).",
+        "isCorrect": false,
+        "explanation": "`b` is a *separate object*; polymorphism requires references/pointers."
+      },
+      {
+        "id": "B",
+        "text": "Object slicing: the `D` part is discarded and `b` is just a `B` subobject copy.",
+        "isCorrect": true,
+        "explanation": "Copy-initializing a base object from a derived object slices off derived state."
+      },
+      {
+        "id": "C",
+        "text": "Undefined behavior because `B` is polymorphic.",
+        "isCorrect": false,
+        "explanation": "Slicing is well-defined; it just loses derived information."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error unless `B` has a virtual copy constructor.",
+        "isCorrect": false,
+        "explanation": "No such requirement exists."
+      }
+    ],
+    "explanation": "Assigning/initializing a base *by value* from a derived object slices the derived portion. Use `B&` / `B*` for polymorphic behavior.",
+    "tags": ["oop", "slicing", "polymorphism"],
+    "difficulty": "medium",
+    "standard": "C++03"
+  },
+  {
+    "id": "cpp-virtual-destructor-001",
+    "prompt": "Why is a virtual destructor important?\n```cpp\nstruct Base { /* no virtual dtor */ };\nstruct Derived : Base { ~Derived() { /* releases resources */ } };\nBase* p = new Derived;\ndelete p;\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Without a virtual destructor, `delete p` may not call `~Derived()`, causing undefined behavior.",
+        "isCorrect": true,
+        "explanation": "Deleting through a base pointer requires a virtual destructor to ensure the derived destructor runs."
+      },
+      {
+        "id": "B",
+        "text": "Virtual destructors are only needed if the class has virtual methods.",
+        "isCorrect": false,
+        "explanation": "Even without other virtual methods, if you delete derived objects through base pointers, the base destructor must be virtual."
+      },
+      {
+        "id": "C",
+        "text": "It only affects performance, not correctness.",
+        "isCorrect": false,
+        "explanation": "This is correctness-critical: resource leaks/UB can occur."
+      },
+      {
+        "id": "D",
+        "text": "It is required only when using `std::unique_ptr`.",
+        "isCorrect": false,
+        "explanation": "It is required regardless of owning mechanism if deletion occurs via base pointer."
+      }
+    ],
+    "explanation": "Deleting a derived object via a base pointer is only safe when the base destructor is virtual; otherwise the program has undefined behavior and may skip derived cleanup.",
+    "tags": ["oop", "virtual", "destructor"],
+    "difficulty": "medium",
+    "standard": "C++03"
+  },
+  {
+    "id": "cpp-forwarding-ref-001",
+    "prompt": "In a template, when is `T&&` a forwarding reference?\n```cpp\ntemplate <class T>\nvoid f(T&& x);\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always; any `T&&` is forwarding.",
+        "isCorrect": false,
+        "explanation": "It is only forwarding when `T` is deduced (not explicitly specified) and the pattern matches."
+      },
+      {
+        "id": "B",
+        "text": "Only when `T` is deduced and the parameter is exactly `T&&` (not `const T&&`, not `std::vector<T>&&`, etc.).",
+        "isCorrect": true,
+        "explanation": "Forwarding references occur in a very specific form and enable reference collapsing."
+      },
+      {
+        "id": "C",
+        "text": "Only when the argument is an rvalue.",
+        "isCorrect": false,
+        "explanation": "Forwarding references can bind to lvalues too via deduction (`T` becomes `U&`)."
+      },
+      {
+        "id": "D",
+        "text": "Only in C++20 concepts.",
+        "isCorrect": false,
+        "explanation": "This is a C++11 feature (originally called universal references)."
+      }
+    ],
+    "explanation": "`T&&` is a forwarding reference only when `T` is a deduced template parameter and the parameter type is exactly `T&&`. Then reference collapsing preserves lvalue/rvalue-ness for perfect forwarding.",
+    "tags": ["templates", "forwarding", "reference-collapsing"],
+    "difficulty": "hard",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-ref-collapsing-001",
+    "prompt": "What is the type of `T` when calling `f`?\n```cpp\ntemplate <class T>\nvoid f(T&&);\n\nint x = 0;\nf(x);\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`T = int` and parameter type is `int&&`",
+        "isCorrect": false,
+        "explanation": "An lvalue argument makes `T` deduce to an lvalue reference type."
+      },
+      {
+        "id": "B",
+        "text": "`T = int&` and parameter type collapses to `int&`",
+        "isCorrect": true,
+        "explanation": "With an lvalue, `T` deduces as `int&`, and `T&&` becomes `int& &&` which collapses to `int&`."
+      },
+      {
+        "id": "C",
+        "text": "`T = int&&` and parameter is `int&&`",
+        "isCorrect": false,
+        "explanation": "`int&&` doesn't deduce from an lvalue argument here."
+      },
+      {
+        "id": "D",
+        "text": "Ill-formed because `T&&` can't bind to lvalues.",
+        "isCorrect": false,
+        "explanation": "Forwarding references can bind to lvalues via deduction."
+      }
+    ],
+    "explanation": "For forwarding references, lvalue arguments cause `T` to deduce as `U&`, and reference collapsing yields an lvalue reference parameter.",
+    "tags": ["templates", "forwarding", "deduction"],
+    "difficulty": "hard",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-lambda-mutable-001",
+    "prompt": "What does `mutable` change in a lambda?\n```cpp\nint x = 1;\nauto lam = [x]() mutable { x++; return x; };\nstd::cout << lam() << \" \" << x;\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Prints `2 2` because the captured `x` updates the original.",
+        "isCorrect": false,
+        "explanation": "Capture-by-value copies `x`; mutating it does not change the outer `x`."
+      },
+      {
+        "id": "B",
+        "text": "Prints `2 1` because `mutable` allows modifying the *captured copy*.",
+        "isCorrect": true,
+        "explanation": "Without `mutable`, `x` inside would be treated as const (for a by-value capture)."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error because you can't modify captured variables.",
+        "isCorrect": false,
+        "explanation": "`mutable` specifically allows modifying captured-by-value members."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior due to modifying a closed-over variable.",
+        "isCorrect": false,
+        "explanation": "This is well-defined."
+      }
+    ],
+    "explanation": "`mutable` makes the lambda's call operator non-const, allowing modification of data members that represent captures-by-value. It still does not affect the original variable unless captured by reference.",
+    "tags": ["lambdas", "captures", "mutable"],
+    "difficulty": "medium",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-structured-binding-ref-001",
+    "prompt": "Does this modify the original pair?\n```cpp\nstd::pair<int,int> p{1,2};\nauto [a,b] = p;\na = 42;\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Yes, `a` refers to `p.first` by default.",
+        "isCorrect": false,
+        "explanation": "By default, structured bindings with `auto` copy (like `auto a = ...`)."
+      },
+      {
+        "id": "B",
+        "text": "No, `a` and `b` are copies; use `auto& [a,b] = p;` to bind by reference.",
+        "isCorrect": true,
+        "explanation": "`auto [a,b] = p;` makes `a` and `b` new variables initialized from the elements."
+      },
+      {
+        "id": "C",
+        "text": "It is unspecified whether it modifies `p`.",
+        "isCorrect": false,
+        "explanation": "It is specified: with `auto` you get copies; with `auto&` you get references."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error because structured bindings require `const`.",
+        "isCorrect": false,
+        "explanation": "No such requirement."
+      }
+    ],
+    "explanation": "Structured bindings follow the same reference rules as `auto`. Use `auto&` (or `const auto&`) if you want references.",
+    "tags": ["structured-bindings", "auto", "references"],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-constexpr-if-001",
+    "prompt": "Why is `if constexpr` different from `if` in templates?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both compile both branches; they only differ in runtime performance.",
+        "isCorrect": false,
+        "explanation": "`if constexpr` discards the non-taken branch at compile time."
+      },
+      {
+        "id": "B",
+        "text": "`if constexpr` can prevent ill-formed code in the discarded branch from being instantiated.",
+        "isCorrect": true,
+        "explanation": "This is the key: it enables template code that would otherwise fail to compile."
+      },
+      {
+        "id": "C",
+        "text": "`if constexpr` only works with `bool` variables, not constant expressions.",
+        "isCorrect": false,
+        "explanation": "It requires a constant expression condition."
+      },
+      {
+        "id": "D",
+        "text": "`if constexpr` is only for runtime branching in constexpr functions.",
+        "isCorrect": false,
+        "explanation": "It is primarily a compile-time branching tool in templates."
+      }
+    ],
+    "explanation": "`if constexpr` is evaluated at compile time; the non-selected branch is not instantiated, enabling patterns that would otherwise require SFINAE or overload sets.",
+    "tags": ["templates", "constexpr-if", "metaprogramming"],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-adl-001",
+    "prompt": "What is Argument-Dependent Lookup (ADL) in C++?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A way to delay linking until runtime.",
+        "isCorrect": false,
+        "explanation": "ADL is about name lookup at compile time."
+      },
+      {
+        "id": "B",
+        "text": "A rule that adds namespaces associated with argument types when looking up unqualified function calls.",
+        "isCorrect": true,
+        "explanation": "It is also known as Koenig lookup."
+      },
+      {
+        "id": "C",
+        "text": "A rule that always prefers member functions over free functions.",
+        "isCorrect": false,
+        "explanation": "ADL applies to unqualified free-function calls."
+      },
+      {
+        "id": "D",
+        "text": "A rule that disables overload resolution for templates.",
+        "isCorrect": false,
+        "explanation": "Overload resolution still applies; ADL changes the candidate set."
+      }
+    ],
+    "explanation": "ADL extends unqualified function lookup to include namespaces/classes associated with the argument types, which is why `swap(a,b)` can find `N::swap` when `a` and `b` are in namespace `N`.",
+    "tags": ["name-lookup", "adl", "koenig-lookup"],
+    "difficulty": "hard",
+    "standard": "C++03"
+  },
+  {
+    "id": "cpp-map-brackets-001",
+    "prompt": "What does `operator[]` do on `std::map`?\n```cpp\nstd::map<std::string,int> m;\nint x = m[\"missing\"];\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Throws `std::out_of_range` if the key is missing.",
+        "isCorrect": false,
+        "explanation": "That is `at()`, not `operator[]`."
+      },
+      {
+        "id": "B",
+        "text": "Inserts the key with a default-constructed value if missing, then returns a reference to the value.",
+        "isCorrect": true,
+        "explanation": "`m[\"missing\"]` creates an entry with value `0` (for `int`) if it doesn't exist."
+      },
+      {
+        "id": "C",
+        "text": "Returns an optional-like result indicating absence.",
+        "isCorrect": false,
+        "explanation": "`operator[]` doesn't indicate absence; it mutates the map."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error because `operator[]` is only for vectors.",
+        "isCorrect": false,
+        "explanation": "Associative containers can overload `operator[]` (map/unordered_map)."
+      }
+    ],
+    "explanation": "`map::operator[]` is an inserting accessor. If you want a non-inserting lookup, use `find()` or `contains()` (C++20) or `at()` if you want bounds-checking with exceptions.",
+    "tags": ["stl", "map", "operator[]"],
+    "difficulty": "medium",
+    "standard": "C++03"
+  },
+  {
+    "id": "cpp-offsetof-offsetof-001",
+    "prompt": "Is this well-defined?\n```cpp\nstruct S { int a; int b; };\nS s{1,2};\nchar* p = reinterpret_cast<char*>(&s);\nint* ib = reinterpret_cast<int*>(p + sizeof(int));\nstd::cout << *ib;\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Yes, always; `b` is always at offset `sizeof(int)`.",
+        "isCorrect": false,
+        "explanation": "Padding/alignment may exist; `b` may not be exactly after `a`."
+      },
+      {
+        "id": "B",
+        "text": "Not necessarily; padding makes the offset potentially larger, and strict aliasing/alignment issues can apply.",
+        "isCorrect": true,
+        "explanation": "Layout can include padding; the safe way is `&s.b` or `offsetof(S,b)` with care."
+      },
+      {
+        "id": "C",
+        "text": "It won’t compile because casts between pointers are forbidden.",
+        "isCorrect": false,
+        "explanation": "It compiles, but can be undefined behavior."
+      },
+      {
+        "id": "D",
+        "text": "It prints `1` because pointer arithmetic uses element sizes.",
+        "isCorrect": false,
+        "explanation": "`p` is `char*`, so arithmetic is in bytes; the issue is layout/alignment."
+      }
+    ],
+    "explanation": "Assuming field layout by `sizeof(int)` is not portable due to padding/alignment. Prefer `&s.b` or standard-layout + `offsetof` when appropriate.",
+    "tags": ["layout", "padding", "undefined-behavior"],
+    "difficulty": "hard",
+    "standard": "C++03"
+  },
+  {
+    "id": "cpp-optional-ref-001",
+    "prompt": "Can `std::optional<T&>` exist?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Yes, it's the standard way to make an optional reference.",
+        "isCorrect": false,
+        "explanation": "The standard library does not allow `optional<T&>`; references are not object types."
+      },
+      {
+        "id": "B",
+        "text": "No; use `std::optional<std::reference_wrapper<T>>` instead.",
+        "isCorrect": true,
+        "explanation": "A `reference_wrapper` is an object and can be stored in `optional`."
+      },
+      {
+        "id": "C",
+        "text": "Yes, but only in C++23.",
+        "isCorrect": false,
+        "explanation": "Still not `optional<T&>`; there are other facilities, but references remain special."
+      },
+      {
+        "id": "D",
+        "text": "No; the only alternative is raw pointers.",
+        "isCorrect": false,
+        "explanation": "Pointers work, but `optional<reference_wrapper<T>>` is a common safe alternative."
+      }
+    ],
+    "explanation": "References aren't rebindable objects, so `std::optional<T&>` is not allowed. Use `std::optional<std::reference_wrapper<T>>` or a pointer.",
+    "tags": ["optional", "references", "reference_wrapper"],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-concepts-subsumption-002",
+    "prompt": "C++20 Concepts: What does it mean for one constrained template to *subsume* another?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It means the template is syntactically longer.",
+        "isCorrect": false,
+        "explanation": "Subsumption is about constraints implication/strength, not syntax length."
+      },
+      {
+        "id": "B",
+        "text": "It means its constraints are at least as strong, so it is preferred in partial ordering/overload resolution.",
+        "isCorrect": true,
+        "explanation": "If A subsumes B, A is more constrained and is preferred when both are viable."
+      },
+      {
+        "id": "C",
+        "text": "It means it runs faster at runtime.",
+        "isCorrect": false,
+        "explanation": "Concepts affect compile-time selection, not runtime speed directly."
+      },
+      {
+        "id": "D",
+        "text": "It means it replaces virtual dispatch.",
+        "isCorrect": false,
+        "explanation": "Concepts are compile-time constraints, not runtime polymorphism."
+      }
+    ],
+    "explanation": "Subsumption is the formal rule that lets the compiler prefer the *more constrained* template when multiple constrained overloads match.",
+    "tags": ["c++20", "concepts", "overload-resolution"],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-offsetof-offsetof-002",
+    "prompt": "What does `decltype((x))` produce compared to `decltype(x)`?\n```cpp\nint x = 0;\nusing A = decltype(x);\nusing B = decltype((x));\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A is `int`, B is `int&`.",
+        "isCorrect": true,
+        "explanation": "`decltype(x)` for an unparenthesized id-expression is the declared type (`int`). `decltype((x))` sees an lvalue expression, so it yields `int&`."
+      },
+      {
+        "id": "B",
+        "text": "A is `int&`, B is `int`.",
+        "isCorrect": false,
+        "explanation": "It’s the other way around."
+      },
+      {
+        "id": "C",
+        "text": "Both are `int`.",
+        "isCorrect": false,
+        "explanation": "Parentheses change the rule: expression category matters."
+      },
+      {
+        "id": "D",
+        "text": "Both are `int&`.",
+        "isCorrect": false,
+        "explanation": "Only the parenthesized expression form yields a reference here."
+      }
+    ],
+    "explanation": "`decltype` has a special rule for unparenthesized id-expressions (declared type). Otherwise it follows value category rules: lvalue -> `T&`, xvalue -> `T&&`, prvalue -> `T`.",
+    "tags": ["decltype", "type-system", "references"],
+    "difficulty": "hard",
+    "standard": "C++11"
+  },
+  {
+    "id": "cpp-offsetof-offsetof-003",
+    "prompt": "What is printed?\n```cpp\nint a[] = {10, 20, 30};\nstd::cout << *(&a[0] + 2);\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "10",
+        "isCorrect": false,
+        "explanation": "`+ 2` advances two elements from `a[0]`."
+      },
+      {
+        "id": "B",
+        "text": "20",
+        "isCorrect": false,
+        "explanation": "`+ 1` would point to 20."
+      },
+      {
+        "id": "C",
+        "text": "30",
+        "isCorrect": true,
+        "explanation": "`&a[0] + 2` points to `a[2]`, which is 30."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "This is within bounds; it’s well-defined."
+      }
+    ],
+    "explanation": "Pointer arithmetic on `int*` advances by elements, not bytes. Adding 2 from `&a[0]` yields `&a[2]`.",
+    "tags": ["arrays", "pointer-arithmetic"],
+    "difficulty": "easy",
+    "standard": "C++03"
+  },
+  {
     "id": "cpp20-concepts-adv-001",
     "prompt": "C++20: What does 'subsumption' mean in concepts?",
     "type": "single",
