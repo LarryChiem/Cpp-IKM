@@ -1,0 +1,1149 @@
+[
+  {
+    "id": "cpp-0126",
+    "prompt": "What happens if an exception is thrown from a destructor during stack unwinding?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is ignored",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::terminate` is called",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It is converted to `std::exception`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It is caught automatically",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Program continues safely",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "destructors",
+      "pitfalls"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0127",
+    "prompt": "What does `noexcept` on a function express?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "The function never throws in practice",
+        "isCorrect": false,
+        "explanation": "It's a promise; violating calls terminate."
+      },
+      {
+        "id": "B",
+        "text": "The function is declared not to throw; if it does, `std::terminate` occurs",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "The function is faster by definition",
+        "isCorrect": false,
+        "explanation": "Not guaranteed."
+      },
+      {
+        "id": "D",
+        "text": "The function cannot allocate memory",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "The function is inline",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "noexcept"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0128",
+    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::bad_alloc`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::out_of_range`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "`std::runtime_error`",
+        "isCorrect": false,
+        "explanation": "Too general."
+      },
+      {
+        "id": "D",
+        "text": "`std::logic_error`",
+        "isCorrect": false,
+        "explanation": "Base class."
+      },
+      {
+        "id": "E",
+        "text": "No exception; UB",
+        "isCorrect": false,
+        "explanation": "at() throws."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "stl"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0129",
+    "prompt": "Best practice: exceptions should generally be used for:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Normal control flow for performance",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Exceptional/error conditions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Replacing return values always",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "All branching",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Thread synchronization",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "exceptions"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0130",
+    "prompt": "What is exception safety 'strong guarantee'?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No leaks only",
+        "isCorrect": false,
+        "explanation": "That's basic."
+      },
+      {
+        "id": "B",
+        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Never throws",
+        "isCorrect": false,
+        "explanation": "No-throw guarantee."
+      },
+      {
+        "id": "D",
+        "text": "Always throws",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Only works with POD types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "exception-safety"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0131",
+    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::expected`",
+        "isCorrect": false,
+        "explanation": "C++23."
+      },
+      {
+        "id": "B",
+        "text": "`std::optional`",
+        "isCorrect": false,
+        "explanation": "No error payload."
+      },
+      {
+        "id": "C",
+        "text": "`std::variant`",
+        "isCorrect": false,
+        "explanation": "Can encode, but not dedicated."
+      },
+      {
+        "id": "D",
+        "text": "`std::error_code` with return conventions",
+        "isCorrect": true,
+        "explanation": "Correct idea: use error_code / error_condition patterns."
+      },
+      {
+        "id": "E",
+        "text": "`std::any`",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "error-handling",
+      "utilities"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0132",
+    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::bad_alloc`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::out_of_range`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "`std::runtime_error`",
+        "isCorrect": false,
+        "explanation": "Too general."
+      },
+      {
+        "id": "D",
+        "text": "`std::logic_error`",
+        "isCorrect": false,
+        "explanation": "Base class."
+      },
+      {
+        "id": "E",
+        "text": "No exception; UB",
+        "isCorrect": false,
+        "explanation": "at() throws."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "stl"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0133",
+    "prompt": "Best practice: exceptions should generally be used for:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Normal control flow for performance",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Exceptional/error conditions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Replacing return values always",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "All branching",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Thread synchronization",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "exceptions"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0134",
+    "prompt": "What is exception safety 'strong guarantee'?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No leaks only",
+        "isCorrect": false,
+        "explanation": "That's basic."
+      },
+      {
+        "id": "B",
+        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Never throws",
+        "isCorrect": false,
+        "explanation": "No-throw guarantee."
+      },
+      {
+        "id": "D",
+        "text": "Always throws",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Only works with POD types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "exception-safety"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0135",
+    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::expected`",
+        "isCorrect": false,
+        "explanation": "C++23."
+      },
+      {
+        "id": "B",
+        "text": "`std::optional`",
+        "isCorrect": false,
+        "explanation": "No error payload."
+      },
+      {
+        "id": "C",
+        "text": "`std::variant`",
+        "isCorrect": false,
+        "explanation": "Can encode, but not dedicated."
+      },
+      {
+        "id": "D",
+        "text": "`std::error_code` with return conventions",
+        "isCorrect": true,
+        "explanation": "Correct idea: use error_code / error_condition patterns."
+      },
+      {
+        "id": "E",
+        "text": "`std::any`",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "error-handling",
+      "utilities"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0136",
+    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::bad_alloc`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::out_of_range`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "`std::runtime_error`",
+        "isCorrect": false,
+        "explanation": "Too general."
+      },
+      {
+        "id": "D",
+        "text": "`std::logic_error`",
+        "isCorrect": false,
+        "explanation": "Base class."
+      },
+      {
+        "id": "E",
+        "text": "No exception; UB",
+        "isCorrect": false,
+        "explanation": "at() throws."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "stl"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0137",
+    "prompt": "Best practice: exceptions should generally be used for:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Normal control flow for performance",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Exceptional/error conditions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Replacing return values always",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "All branching",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Thread synchronization",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "exceptions"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0138",
+    "prompt": "What is exception safety 'strong guarantee'?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No leaks only",
+        "isCorrect": false,
+        "explanation": "That's basic."
+      },
+      {
+        "id": "B",
+        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Never throws",
+        "isCorrect": false,
+        "explanation": "No-throw guarantee."
+      },
+      {
+        "id": "D",
+        "text": "Always throws",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Only works with POD types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "exception-safety"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0139",
+    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::expected`",
+        "isCorrect": false,
+        "explanation": "C++23."
+      },
+      {
+        "id": "B",
+        "text": "`std::optional`",
+        "isCorrect": false,
+        "explanation": "No error payload."
+      },
+      {
+        "id": "C",
+        "text": "`std::variant`",
+        "isCorrect": false,
+        "explanation": "Can encode, but not dedicated."
+      },
+      {
+        "id": "D",
+        "text": "`std::error_code` with return conventions",
+        "isCorrect": true,
+        "explanation": "Correct idea: use error_code / error_condition patterns."
+      },
+      {
+        "id": "E",
+        "text": "`std::any`",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "error-handling",
+      "utilities"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0140",
+    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::bad_alloc`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::out_of_range`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "`std::runtime_error`",
+        "isCorrect": false,
+        "explanation": "Too general."
+      },
+      {
+        "id": "D",
+        "text": "`std::logic_error`",
+        "isCorrect": false,
+        "explanation": "Base class."
+      },
+      {
+        "id": "E",
+        "text": "No exception; UB",
+        "isCorrect": false,
+        "explanation": "at() throws."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "stl"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0141",
+    "prompt": "Best practice: exceptions should generally be used for:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Normal control flow for performance",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Exceptional/error conditions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Replacing return values always",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "All branching",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Thread synchronization",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "exceptions"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0142",
+    "prompt": "What is exception safety 'strong guarantee'?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No leaks only",
+        "isCorrect": false,
+        "explanation": "That's basic."
+      },
+      {
+        "id": "B",
+        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Never throws",
+        "isCorrect": false,
+        "explanation": "No-throw guarantee."
+      },
+      {
+        "id": "D",
+        "text": "Always throws",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Only works with POD types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "exception-safety"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0143",
+    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::expected`",
+        "isCorrect": false,
+        "explanation": "C++23."
+      },
+      {
+        "id": "B",
+        "text": "`std::optional`",
+        "isCorrect": false,
+        "explanation": "No error payload."
+      },
+      {
+        "id": "C",
+        "text": "`std::variant`",
+        "isCorrect": false,
+        "explanation": "Can encode, but not dedicated."
+      },
+      {
+        "id": "D",
+        "text": "`std::error_code` with return conventions",
+        "isCorrect": true,
+        "explanation": "Correct idea: use error_code / error_condition patterns."
+      },
+      {
+        "id": "E",
+        "text": "`std::any`",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "error-handling",
+      "utilities"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0144",
+    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::bad_alloc`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::out_of_range`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "`std::runtime_error`",
+        "isCorrect": false,
+        "explanation": "Too general."
+      },
+      {
+        "id": "D",
+        "text": "`std::logic_error`",
+        "isCorrect": false,
+        "explanation": "Base class."
+      },
+      {
+        "id": "E",
+        "text": "No exception; UB",
+        "isCorrect": false,
+        "explanation": "at() throws."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "stl"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0145",
+    "prompt": "Best practice: exceptions should generally be used for:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Normal control flow for performance",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Exceptional/error conditions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Replacing return values always",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "All branching",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Thread synchronization",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "exceptions"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0146",
+    "prompt": "What is exception safety 'strong guarantee'?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No leaks only",
+        "isCorrect": false,
+        "explanation": "That's basic."
+      },
+      {
+        "id": "B",
+        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Never throws",
+        "isCorrect": false,
+        "explanation": "No-throw guarantee."
+      },
+      {
+        "id": "D",
+        "text": "Always throws",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Only works with POD types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "exception-safety"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0147",
+    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::expected`",
+        "isCorrect": false,
+        "explanation": "C++23."
+      },
+      {
+        "id": "B",
+        "text": "`std::optional`",
+        "isCorrect": false,
+        "explanation": "No error payload."
+      },
+      {
+        "id": "C",
+        "text": "`std::variant`",
+        "isCorrect": false,
+        "explanation": "Can encode, but not dedicated."
+      },
+      {
+        "id": "D",
+        "text": "`std::error_code` with return conventions",
+        "isCorrect": true,
+        "explanation": "Correct idea: use error_code / error_condition patterns."
+      },
+      {
+        "id": "E",
+        "text": "`std::any`",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "error-handling",
+      "utilities"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0148",
+    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::bad_alloc`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::out_of_range`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "`std::runtime_error`",
+        "isCorrect": false,
+        "explanation": "Too general."
+      },
+      {
+        "id": "D",
+        "text": "`std::logic_error`",
+        "isCorrect": false,
+        "explanation": "Base class."
+      },
+      {
+        "id": "E",
+        "text": "No exception; UB",
+        "isCorrect": false,
+        "explanation": "at() throws."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "stl"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0149",
+    "prompt": "Best practice: exceptions should generally be used for:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Normal control flow for performance",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Exceptional/error conditions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Replacing return values always",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "All branching",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Thread synchronization",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "exceptions"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0150",
+    "prompt": "What is exception safety 'strong guarantee'?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No leaks only",
+        "isCorrect": false,
+        "explanation": "That's basic."
+      },
+      {
+        "id": "B",
+        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Never throws",
+        "isCorrect": false,
+        "explanation": "No-throw guarantee."
+      },
+      {
+        "id": "D",
+        "text": "Always throws",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Only works with POD types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "exception-safety"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0206",
+    "prompt": "What happens if an exception leaves a function declared `noexcept`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is silently ignored",
+        "isCorrect": false,
+        "explanation": "The runtime does not ignore it."
+      },
+      {
+        "id": "B",
+        "text": "The exception is converted to `std::error_code`",
+        "isCorrect": false,
+        "explanation": "No automatic conversion occurs."
+      },
+      {
+        "id": "C",
+        "text": "`std::terminate` is called",
+        "isCorrect": true,
+        "explanation": "Correct: violating `noexcept` triggers termination."
+      },
+      {
+        "id": "D",
+        "text": "It becomes undefined behavior",
+        "isCorrect": false,
+        "explanation": "Behavior is specified: program terminates."
+      },
+      {
+        "id": "E",
+        "text": "The compiler retries the function",
+        "isCorrect": false,
+        "explanation": "No retry mechanism exists."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "exceptions",
+      "noexcept",
+      "error-handling",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  }
+]

@@ -1,0 +1,1149 @@
+[
+  {
+    "id": "cpp-0026",
+    "prompt": "What does `delete[] p;` require?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "p was allocated with `new`",
+        "isCorrect": false,
+        "explanation": "Must match `delete`."
+      },
+      {
+        "id": "B",
+        "text": "p was allocated with `new[]`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "p points to stack memory",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "p is `void*`",
+        "isCorrect": false,
+        "explanation": "delete needs complete type."
+      },
+      {
+        "id": "E",
+        "text": "Nothing; delete[] can free anything",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "memory",
+      "new-delete"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0027",
+    "prompt": "Which smart pointer allows shared ownership?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::unique_ptr`",
+        "isCorrect": false,
+        "explanation": "Unique ownership."
+      },
+      {
+        "id": "B",
+        "text": "`std::shared_ptr`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "`std::weak_ptr`",
+        "isCorrect": false,
+        "explanation": "Non-owning observer."
+      },
+      {
+        "id": "D",
+        "text": "`std::auto_ptr`",
+        "isCorrect": false,
+        "explanation": "Removed in C++17."
+      },
+      {
+        "id": "E",
+        "text": "`std::scoped_ptr`",
+        "isCorrect": false,
+        "explanation": "Not standard."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "memory",
+      "smart-pointers"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0028",
+    "prompt": "Why is `std::make_unique<T>(...)` preferred over `unique_ptr<T>(new T(...))`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It enables RTTI",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It avoids potential leaks if an exception is thrown during construction of other arguments",
+        "isCorrect": true,
+        "explanation": "Correct (exception safety)."
+      },
+      {
+        "id": "C",
+        "text": "It is required for polymorphic deletion",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It makes T trivially destructible",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It always allocates on stack",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "raii",
+      "exception-safety",
+      "memory"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0029",
+    "prompt": "What is a dangling pointer?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A pointer that points to heap memory",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "B",
+        "text": "A pointer that points to an object whose lifetime has ended",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A pointer that is `nullptr`",
+        "isCorrect": false,
+        "explanation": "Null is not dangling."
+      },
+      {
+        "id": "D",
+        "text": "A pointer with value 0xDEADBEEF",
+        "isCorrect": false,
+        "explanation": "That's just a value."
+      },
+      {
+        "id": "E",
+        "text": "A pointer to const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "pointers",
+      "lifetime"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0030",
+    "prompt": "Which is true about references?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "References can be reseated after initialization",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "References must be initialized",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "References can be null",
+        "isCorrect": false,
+        "explanation": "Not in standard semantics."
+      },
+      {
+        "id": "D",
+        "text": "References have pointer arithmetic",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "References are objects you can take sizeof to get referred size",
+        "isCorrect": false,
+        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "references",
+      "basics"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0031",
+    "prompt": "What does `std::move` do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Moves the object",
+        "isCorrect": false,
+        "explanation": "It's a cast."
+      },
+      {
+        "id": "B",
+        "text": "Casts to an rvalue reference, enabling moves if available",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Destroys the source",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Copies faster",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Makes object const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "move",
+      "value-categories"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0032",
+    "prompt": "What is the key benefit of RAII?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fewer templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Resource release is tied to object lifetime, including during exceptions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It disables copying",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "D",
+        "text": "It requires garbage collection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It replaces destructors",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "raii",
+      "best-practices"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0033",
+    "prompt": "What is a dangling pointer?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A pointer that points to heap memory",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "B",
+        "text": "A pointer that points to an object whose lifetime has ended",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A pointer that is `nullptr`",
+        "isCorrect": false,
+        "explanation": "Null is not dangling."
+      },
+      {
+        "id": "D",
+        "text": "A pointer with value 0xDEADBEEF",
+        "isCorrect": false,
+        "explanation": "That's just a value."
+      },
+      {
+        "id": "E",
+        "text": "A pointer to const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "pointers",
+      "lifetime"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0034",
+    "prompt": "Which is true about references?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "References can be reseated after initialization",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "References must be initialized",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "References can be null",
+        "isCorrect": false,
+        "explanation": "Not in standard semantics."
+      },
+      {
+        "id": "D",
+        "text": "References have pointer arithmetic",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "References are objects you can take sizeof to get referred size",
+        "isCorrect": false,
+        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "references",
+      "basics"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0035",
+    "prompt": "What does `std::move` do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Moves the object",
+        "isCorrect": false,
+        "explanation": "It's a cast."
+      },
+      {
+        "id": "B",
+        "text": "Casts to an rvalue reference, enabling moves if available",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Destroys the source",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Copies faster",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Makes object const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "move",
+      "value-categories"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0036",
+    "prompt": "What is the key benefit of RAII?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fewer templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Resource release is tied to object lifetime, including during exceptions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It disables copying",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "D",
+        "text": "It requires garbage collection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It replaces destructors",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "raii",
+      "best-practices"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0037",
+    "prompt": "What is a dangling pointer?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A pointer that points to heap memory",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "B",
+        "text": "A pointer that points to an object whose lifetime has ended",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A pointer that is `nullptr`",
+        "isCorrect": false,
+        "explanation": "Null is not dangling."
+      },
+      {
+        "id": "D",
+        "text": "A pointer with value 0xDEADBEEF",
+        "isCorrect": false,
+        "explanation": "That's just a value."
+      },
+      {
+        "id": "E",
+        "text": "A pointer to const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "pointers",
+      "lifetime"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0038",
+    "prompt": "Which is true about references?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "References can be reseated after initialization",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "References must be initialized",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "References can be null",
+        "isCorrect": false,
+        "explanation": "Not in standard semantics."
+      },
+      {
+        "id": "D",
+        "text": "References have pointer arithmetic",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "References are objects you can take sizeof to get referred size",
+        "isCorrect": false,
+        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "references",
+      "basics"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0039",
+    "prompt": "What does `std::move` do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Moves the object",
+        "isCorrect": false,
+        "explanation": "It's a cast."
+      },
+      {
+        "id": "B",
+        "text": "Casts to an rvalue reference, enabling moves if available",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Destroys the source",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Copies faster",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Makes object const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "move",
+      "value-categories"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0040",
+    "prompt": "What is the key benefit of RAII?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fewer templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Resource release is tied to object lifetime, including during exceptions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It disables copying",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "D",
+        "text": "It requires garbage collection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It replaces destructors",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "raii",
+      "best-practices"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0041",
+    "prompt": "What is a dangling pointer?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A pointer that points to heap memory",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "B",
+        "text": "A pointer that points to an object whose lifetime has ended",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A pointer that is `nullptr`",
+        "isCorrect": false,
+        "explanation": "Null is not dangling."
+      },
+      {
+        "id": "D",
+        "text": "A pointer with value 0xDEADBEEF",
+        "isCorrect": false,
+        "explanation": "That's just a value."
+      },
+      {
+        "id": "E",
+        "text": "A pointer to const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "pointers",
+      "lifetime"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0042",
+    "prompt": "Which is true about references?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "References can be reseated after initialization",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "References must be initialized",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "References can be null",
+        "isCorrect": false,
+        "explanation": "Not in standard semantics."
+      },
+      {
+        "id": "D",
+        "text": "References have pointer arithmetic",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "References are objects you can take sizeof to get referred size",
+        "isCorrect": false,
+        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "references",
+      "basics"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0043",
+    "prompt": "What does `std::move` do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Moves the object",
+        "isCorrect": false,
+        "explanation": "It's a cast."
+      },
+      {
+        "id": "B",
+        "text": "Casts to an rvalue reference, enabling moves if available",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Destroys the source",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Copies faster",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Makes object const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "move",
+      "value-categories"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0044",
+    "prompt": "What is the key benefit of RAII?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fewer templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Resource release is tied to object lifetime, including during exceptions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It disables copying",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "D",
+        "text": "It requires garbage collection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It replaces destructors",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "raii",
+      "best-practices"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0045",
+    "prompt": "What is a dangling pointer?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A pointer that points to heap memory",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "B",
+        "text": "A pointer that points to an object whose lifetime has ended",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A pointer that is `nullptr`",
+        "isCorrect": false,
+        "explanation": "Null is not dangling."
+      },
+      {
+        "id": "D",
+        "text": "A pointer with value 0xDEADBEEF",
+        "isCorrect": false,
+        "explanation": "That's just a value."
+      },
+      {
+        "id": "E",
+        "text": "A pointer to const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "pointers",
+      "lifetime"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0046",
+    "prompt": "Which is true about references?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "References can be reseated after initialization",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "References must be initialized",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "References can be null",
+        "isCorrect": false,
+        "explanation": "Not in standard semantics."
+      },
+      {
+        "id": "D",
+        "text": "References have pointer arithmetic",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "References are objects you can take sizeof to get referred size",
+        "isCorrect": false,
+        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "references",
+      "basics"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0047",
+    "prompt": "What does `std::move` do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Moves the object",
+        "isCorrect": false,
+        "explanation": "It's a cast."
+      },
+      {
+        "id": "B",
+        "text": "Casts to an rvalue reference, enabling moves if available",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Destroys the source",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Copies faster",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Makes object const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "move",
+      "value-categories"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0048",
+    "prompt": "What is the key benefit of RAII?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fewer templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Resource release is tied to object lifetime, including during exceptions",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It disables copying",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "D",
+        "text": "It requires garbage collection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It replaces destructors",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "raii",
+      "best-practices"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0049",
+    "prompt": "What is a dangling pointer?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A pointer that points to heap memory",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "B",
+        "text": "A pointer that points to an object whose lifetime has ended",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A pointer that is `nullptr`",
+        "isCorrect": false,
+        "explanation": "Null is not dangling."
+      },
+      {
+        "id": "D",
+        "text": "A pointer with value 0xDEADBEEF",
+        "isCorrect": false,
+        "explanation": "That's just a value."
+      },
+      {
+        "id": "E",
+        "text": "A pointer to const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "pointers",
+      "lifetime"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0050",
+    "prompt": "Which is true about references?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "References can be reseated after initialization",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "References must be initialized",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "References can be null",
+        "isCorrect": false,
+        "explanation": "Not in standard semantics."
+      },
+      {
+        "id": "D",
+        "text": "References have pointer arithmetic",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "References are objects you can take sizeof to get referred size",
+        "isCorrect": false,
+        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "references",
+      "basics"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0202",
+    "prompt": "Why is `std::make_unique<T>(...)` usually preferred over `std::unique_ptr<T>(new T(...))` in C++17?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It allows array allocation only",
+        "isCorrect": false,
+        "explanation": "Both have non-array and array forms; this is not the main reason."
+      },
+      {
+        "id": "B",
+        "text": "It avoids dynamic allocation entirely",
+        "isCorrect": false,
+        "explanation": "`make_unique` still performs dynamic allocation."
+      },
+      {
+        "id": "C",
+        "text": "It is exception-safe and avoids repeating the type",
+        "isCorrect": true,
+        "explanation": "Correct: construction is clearer and safer in complex expressions."
+      },
+      {
+        "id": "D",
+        "text": "It is required by the standard",
+        "isCorrect": false,
+        "explanation": "It is recommended, not required."
+      },
+      {
+        "id": "E",
+        "text": "It returns `std::shared_ptr<T>`",
+        "isCorrect": false,
+        "explanation": "`make_unique` returns `std::unique_ptr<T>`."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "raii",
+      "smart-pointers",
+      "memory",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  }
+]

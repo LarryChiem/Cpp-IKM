@@ -1,0 +1,1155 @@
+[
+  {
+    "id": "cpp-0051",
+    "prompt": "If a base class is intended for polymorphic deletion, it should have:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No destructor",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A virtual destructor",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A protected destructor only",
+        "isCorrect": false,
+        "explanation": "Not sufficient for delete through base pointer."
+      },
+      {
+        "id": "D",
+        "text": "A pure virtual function (any)",
+        "isCorrect": false,
+        "explanation": "Not required."
+      },
+      {
+        "id": "E",
+        "text": "Only static methods",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "polymorphism",
+      "best-practices"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0052",
+    "prompt": "What does `override` do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Overloads a function",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Ensures at compile time the function overrides a virtual base function",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Makes the function virtual",
+        "isCorrect": false,
+        "explanation": "It implies, but must match base virtual."
+      },
+      {
+        "id": "D",
+        "text": "Prevents further overriding",
+        "isCorrect": false,
+        "explanation": "That's `final`."
+      },
+      {
+        "id": "E",
+        "text": "Changes calling convention",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "override",
+      "c++11+"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0053",
+    "prompt": "What is object slicing?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Copying an object byte-by-byte",
+        "isCorrect": false,
+        "explanation": "Not exactly."
+      },
+      {
+        "id": "B",
+        "text": "Copying a derived object into a base object by value, losing derived parts",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deleting through base pointer without virtual destructor",
+        "isCorrect": false,
+        "explanation": "Different issue."
+      },
+      {
+        "id": "D",
+        "text": "Casting with dynamic_cast",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Using multiple inheritance",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0054",
+    "prompt": "Members are initialized in which order?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Order in constructor initializer list",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Order of declaration in the class",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Alphabetical order",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Order of access specifiers",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Undefined",
+        "isCorrect": false,
+        "explanation": "Defined."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "initialization-order",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0055",
+    "prompt": "Which keyword grants access to private members of another class/function?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`friend`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "`protected`",
+        "isCorrect": false,
+        "explanation": "Access specifier."
+      },
+      {
+        "id": "C",
+        "text": "`static`",
+        "isCorrect": false,
+        "explanation": "Storage duration."
+      },
+      {
+        "id": "D",
+        "text": "`export`",
+        "isCorrect": false,
+        "explanation": "Modules (C++20) unrelated."
+      },
+      {
+        "id": "E",
+        "text": "`using`",
+        "isCorrect": false,
+        "explanation": "Namespace/type alias."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "access-control"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0056",
+    "prompt": "What must be true for `dynamic_cast<D*>(bptr)` to work?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Base must be polymorphic (have at least one virtual function)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "D must have a virtual destructor",
+        "isCorrect": false,
+        "explanation": "Not required."
+      },
+      {
+        "id": "C",
+        "text": "bptr must be non-null",
+        "isCorrect": false,
+        "explanation": "Can be null; returns null."
+      },
+      {
+        "id": "D",
+        "text": "RTTI must be disabled",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It works for any types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "rtti",
+      "dynamic_cast"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0057",
+    "prompt": "What does `final` on a virtual function mean?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It cannot be overloaded",
+        "isCorrect": false,
+        "explanation": "Overload still possible by signature, but not override."
+      },
+      {
+        "id": "B",
+        "text": "It cannot be overridden in derived classes",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It makes the function inline",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It forces dynamic dispatch",
+        "isCorrect": false,
+        "explanation": "Already virtual."
+      },
+      {
+        "id": "E",
+        "text": "It makes the class abstract",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "final"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0058",
+    "prompt": "What is object slicing?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Copying an object byte-by-byte",
+        "isCorrect": false,
+        "explanation": "Not exactly."
+      },
+      {
+        "id": "B",
+        "text": "Copying a derived object into a base object by value, losing derived parts",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deleting through base pointer without virtual destructor",
+        "isCorrect": false,
+        "explanation": "Different issue."
+      },
+      {
+        "id": "D",
+        "text": "Casting with dynamic_cast",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Using multiple inheritance",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0059",
+    "prompt": "Members are initialized in which order?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Order in constructor initializer list",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Order of declaration in the class",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Alphabetical order",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Order of access specifiers",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Undefined",
+        "isCorrect": false,
+        "explanation": "Defined."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "initialization-order",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0060",
+    "prompt": "Which keyword grants access to private members of another class/function?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`friend`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "`protected`",
+        "isCorrect": false,
+        "explanation": "Access specifier."
+      },
+      {
+        "id": "C",
+        "text": "`static`",
+        "isCorrect": false,
+        "explanation": "Storage duration."
+      },
+      {
+        "id": "D",
+        "text": "`export`",
+        "isCorrect": false,
+        "explanation": "Modules (C++20) unrelated."
+      },
+      {
+        "id": "E",
+        "text": "`using`",
+        "isCorrect": false,
+        "explanation": "Namespace/type alias."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "access-control"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0061",
+    "prompt": "What must be true for `dynamic_cast<D*>(bptr)` to work?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Base must be polymorphic (have at least one virtual function)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "D must have a virtual destructor",
+        "isCorrect": false,
+        "explanation": "Not required."
+      },
+      {
+        "id": "C",
+        "text": "bptr must be non-null",
+        "isCorrect": false,
+        "explanation": "Can be null; returns null."
+      },
+      {
+        "id": "D",
+        "text": "RTTI must be disabled",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It works for any types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "rtti",
+      "dynamic_cast"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0062",
+    "prompt": "What does `final` on a virtual function mean?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It cannot be overloaded",
+        "isCorrect": false,
+        "explanation": "Overload still possible by signature, but not override."
+      },
+      {
+        "id": "B",
+        "text": "It cannot be overridden in derived classes",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It makes the function inline",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It forces dynamic dispatch",
+        "isCorrect": false,
+        "explanation": "Already virtual."
+      },
+      {
+        "id": "E",
+        "text": "It makes the class abstract",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "final"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0063",
+    "prompt": "What is object slicing?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Copying an object byte-by-byte",
+        "isCorrect": false,
+        "explanation": "Not exactly."
+      },
+      {
+        "id": "B",
+        "text": "Copying a derived object into a base object by value, losing derived parts",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deleting through base pointer without virtual destructor",
+        "isCorrect": false,
+        "explanation": "Different issue."
+      },
+      {
+        "id": "D",
+        "text": "Casting with dynamic_cast",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Using multiple inheritance",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0064",
+    "prompt": "Members are initialized in which order?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Order in constructor initializer list",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Order of declaration in the class",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Alphabetical order",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Order of access specifiers",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Undefined",
+        "isCorrect": false,
+        "explanation": "Defined."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "initialization-order",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0065",
+    "prompt": "Which keyword grants access to private members of another class/function?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`friend`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "`protected`",
+        "isCorrect": false,
+        "explanation": "Access specifier."
+      },
+      {
+        "id": "C",
+        "text": "`static`",
+        "isCorrect": false,
+        "explanation": "Storage duration."
+      },
+      {
+        "id": "D",
+        "text": "`export`",
+        "isCorrect": false,
+        "explanation": "Modules (C++20) unrelated."
+      },
+      {
+        "id": "E",
+        "text": "`using`",
+        "isCorrect": false,
+        "explanation": "Namespace/type alias."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "access-control"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0066",
+    "prompt": "What must be true for `dynamic_cast<D*>(bptr)` to work?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Base must be polymorphic (have at least one virtual function)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "D must have a virtual destructor",
+        "isCorrect": false,
+        "explanation": "Not required."
+      },
+      {
+        "id": "C",
+        "text": "bptr must be non-null",
+        "isCorrect": false,
+        "explanation": "Can be null; returns null."
+      },
+      {
+        "id": "D",
+        "text": "RTTI must be disabled",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It works for any types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "rtti",
+      "dynamic_cast"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0067",
+    "prompt": "What does `final` on a virtual function mean?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It cannot be overloaded",
+        "isCorrect": false,
+        "explanation": "Overload still possible by signature, but not override."
+      },
+      {
+        "id": "B",
+        "text": "It cannot be overridden in derived classes",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It makes the function inline",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It forces dynamic dispatch",
+        "isCorrect": false,
+        "explanation": "Already virtual."
+      },
+      {
+        "id": "E",
+        "text": "It makes the class abstract",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "final"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0068",
+    "prompt": "What is object slicing?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Copying an object byte-by-byte",
+        "isCorrect": false,
+        "explanation": "Not exactly."
+      },
+      {
+        "id": "B",
+        "text": "Copying a derived object into a base object by value, losing derived parts",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deleting through base pointer without virtual destructor",
+        "isCorrect": false,
+        "explanation": "Different issue."
+      },
+      {
+        "id": "D",
+        "text": "Casting with dynamic_cast",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Using multiple inheritance",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0069",
+    "prompt": "Members are initialized in which order?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Order in constructor initializer list",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Order of declaration in the class",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Alphabetical order",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Order of access specifiers",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Undefined",
+        "isCorrect": false,
+        "explanation": "Defined."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "initialization-order",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0070",
+    "prompt": "Which keyword grants access to private members of another class/function?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`friend`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "`protected`",
+        "isCorrect": false,
+        "explanation": "Access specifier."
+      },
+      {
+        "id": "C",
+        "text": "`static`",
+        "isCorrect": false,
+        "explanation": "Storage duration."
+      },
+      {
+        "id": "D",
+        "text": "`export`",
+        "isCorrect": false,
+        "explanation": "Modules (C++20) unrelated."
+      },
+      {
+        "id": "E",
+        "text": "`using`",
+        "isCorrect": false,
+        "explanation": "Namespace/type alias."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "access-control"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0071",
+    "prompt": "What must be true for `dynamic_cast<D*>(bptr)` to work?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Base must be polymorphic (have at least one virtual function)",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "D must have a virtual destructor",
+        "isCorrect": false,
+        "explanation": "Not required."
+      },
+      {
+        "id": "C",
+        "text": "bptr must be non-null",
+        "isCorrect": false,
+        "explanation": "Can be null; returns null."
+      },
+      {
+        "id": "D",
+        "text": "RTTI must be disabled",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It works for any types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "rtti",
+      "dynamic_cast"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0072",
+    "prompt": "What does `final` on a virtual function mean?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It cannot be overloaded",
+        "isCorrect": false,
+        "explanation": "Overload still possible by signature, but not override."
+      },
+      {
+        "id": "B",
+        "text": "It cannot be overridden in derived classes",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It makes the function inline",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It forces dynamic dispatch",
+        "isCorrect": false,
+        "explanation": "Already virtual."
+      },
+      {
+        "id": "E",
+        "text": "It makes the class abstract",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "final"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0073",
+    "prompt": "What is object slicing?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Copying an object byte-by-byte",
+        "isCorrect": false,
+        "explanation": "Not exactly."
+      },
+      {
+        "id": "B",
+        "text": "Copying a derived object into a base object by value, losing derived parts",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deleting through base pointer without virtual destructor",
+        "isCorrect": false,
+        "explanation": "Different issue."
+      },
+      {
+        "id": "D",
+        "text": "Casting with dynamic_cast",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Using multiple inheritance",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "polymorphism",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0074",
+    "prompt": "Members are initialized in which order?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Order in constructor initializer list",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Order of declaration in the class",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Alphabetical order",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Order of access specifiers",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Undefined",
+        "isCorrect": false,
+        "explanation": "Defined."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "initialization-order",
+      "pitfalls"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0075",
+    "prompt": "Which keyword grants access to private members of another class/function?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`friend`",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "`protected`",
+        "isCorrect": false,
+        "explanation": "Access specifier."
+      },
+      {
+        "id": "C",
+        "text": "`static`",
+        "isCorrect": false,
+        "explanation": "Storage duration."
+      },
+      {
+        "id": "D",
+        "text": "`export`",
+        "isCorrect": false,
+        "explanation": "Modules (C++20) unrelated."
+      },
+      {
+        "id": "E",
+        "text": "`using`",
+        "isCorrect": false,
+        "explanation": "Namespace/type alias."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "classes",
+      "access-control"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0203",
+    "prompt": "What is the key effect of declaring a base-class destructor as `virtual`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It makes all methods virtual automatically",
+        "isCorrect": false,
+        "explanation": "Only functions declared virtual are virtual."
+      },
+      {
+        "id": "B",
+        "text": "It enables correct destruction through base pointers",
+        "isCorrect": true,
+        "explanation": "Correct: deleting derived objects via base pointer is then well-defined."
+      },
+      {
+        "id": "C",
+        "text": "It forbids stack allocation of derived classes",
+        "isCorrect": false,
+        "explanation": "No such restriction."
+      },
+      {
+        "id": "D",
+        "text": "It makes the class abstract",
+        "isCorrect": false,
+        "explanation": "A virtual destructor alone does not make class abstract."
+      },
+      {
+        "id": "E",
+        "text": "It removes vtable overhead",
+        "isCorrect": false,
+        "explanation": "Virtual functions require runtime dispatch metadata."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "oop",
+      "inheritance",
+      "polymorphism",
+      "virtual-destructor"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  }
+]

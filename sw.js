@@ -3411,7 +3411,7 @@ precacheAndRoute([{
   "revision": "5ee43b9c0dd200d3c83956f15aa1853d"
 }, {
   "url": "manifest.webmanifest",
-  "revision": "339f3e431a6d6a9d3dee1c381443bf86"
+  "revision": "c299025d6dfe7a3657a9c288e20fd58c"
 }], {});
 cleanupOutdatedCaches();
 registerRoute(new NavigationRoute(createHandlerBoundToURL("index.html")));

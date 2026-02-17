@@ -1,0 +1,1159 @@
+[
+  {
+    "id": "cpp-0076",
+    "prompt": "C++20: What does a `requires` clause primarily express?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runtime checks",
+        "isCorrect": false,
+        "explanation": "No, compile-time constraints."
+      },
+      {
+        "id": "B",
+        "text": "Compile-time constraints on template arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Linker constraints",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Exception guarantees",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "ABI requirements",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "concepts",
+      "c++20"
+    ],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0077",
+    "prompt": "What is a variadic template?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A template with a variable number of template parameters",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "B",
+        "text": "A template that only works with `std::variant`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "C",
+        "text": "A template that takes any runtime arguments",
+        "isCorrect": false,
+        "explanation": "Not exactly."
+      },
+      {
+        "id": "D",
+        "text": "A template that must be specialized",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A template that disables instantiation",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "variadic"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0078",
+    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It defines a type alias",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It tells the compiler that a dependent name refers to a type",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It makes value_type constexpr",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It instantiates T",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is optional in templates",
+        "isCorrect": false,
+        "explanation": "Not always."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "dependent-names"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0079",
+    "prompt": "C++17: What does `if constexpr` enable?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runtime branching only",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Compile-time branching that discards non-taken branches from instantiation",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Faster exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Dynamic polymorphism",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Macro expansion",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0080",
+    "prompt": "What is CTAD (Class Template Argument Deduction)?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Automatic deducing of function return types",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Deducing class template parameters from constructor arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deducing overload sets at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A new container type",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A replacement for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "ctad",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0081",
+    "prompt": "C++20: A concept is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A runtime interface",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A named compile-time predicate over template arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A macro",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A linker script",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "concepts",
+      "c++20"
+    ],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0082",
+    "prompt": "Which is true about function templates and overload resolution?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Non-template overloads are always preferred, all else equal",
+        "isCorrect": true,
+        "explanation": "Correct: viable non-template is preferred over template."
+      },
+      {
+        "id": "B",
+        "text": "Templates are always preferred",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "C",
+        "text": "Templates are chosen at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Partial ordering doesn't exist",
+        "isCorrect": false,
+        "explanation": "It does."
+      },
+      {
+        "id": "E",
+        "text": "ADL is disabled for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "overload-resolution"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0083",
+    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It defines a type alias",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It tells the compiler that a dependent name refers to a type",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It makes value_type constexpr",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It instantiates T",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is optional in templates",
+        "isCorrect": false,
+        "explanation": "Not always."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "dependent-names"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0084",
+    "prompt": "C++17: What does `if constexpr` enable?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runtime branching only",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Compile-time branching that discards non-taken branches from instantiation",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Faster exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Dynamic polymorphism",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Macro expansion",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0085",
+    "prompt": "What is CTAD (Class Template Argument Deduction)?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Automatic deducing of function return types",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Deducing class template parameters from constructor arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deducing overload sets at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A new container type",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A replacement for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "ctad",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0086",
+    "prompt": "C++20: A concept is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A runtime interface",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A named compile-time predicate over template arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A macro",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A linker script",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "concepts",
+      "c++20"
+    ],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0087",
+    "prompt": "Which is true about function templates and overload resolution?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Non-template overloads are always preferred, all else equal",
+        "isCorrect": true,
+        "explanation": "Correct: viable non-template is preferred over template."
+      },
+      {
+        "id": "B",
+        "text": "Templates are always preferred",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "C",
+        "text": "Templates are chosen at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Partial ordering doesn't exist",
+        "isCorrect": false,
+        "explanation": "It does."
+      },
+      {
+        "id": "E",
+        "text": "ADL is disabled for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "overload-resolution"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0088",
+    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It defines a type alias",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It tells the compiler that a dependent name refers to a type",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It makes value_type constexpr",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It instantiates T",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is optional in templates",
+        "isCorrect": false,
+        "explanation": "Not always."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "dependent-names"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0089",
+    "prompt": "C++17: What does `if constexpr` enable?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runtime branching only",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Compile-time branching that discards non-taken branches from instantiation",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Faster exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Dynamic polymorphism",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Macro expansion",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0090",
+    "prompt": "What is CTAD (Class Template Argument Deduction)?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Automatic deducing of function return types",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Deducing class template parameters from constructor arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deducing overload sets at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A new container type",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A replacement for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "ctad",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0091",
+    "prompt": "C++20: A concept is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A runtime interface",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A named compile-time predicate over template arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A macro",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A linker script",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "concepts",
+      "c++20"
+    ],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0092",
+    "prompt": "Which is true about function templates and overload resolution?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Non-template overloads are always preferred, all else equal",
+        "isCorrect": true,
+        "explanation": "Correct: viable non-template is preferred over template."
+      },
+      {
+        "id": "B",
+        "text": "Templates are always preferred",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "C",
+        "text": "Templates are chosen at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Partial ordering doesn't exist",
+        "isCorrect": false,
+        "explanation": "It does."
+      },
+      {
+        "id": "E",
+        "text": "ADL is disabled for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "overload-resolution"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0093",
+    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It defines a type alias",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It tells the compiler that a dependent name refers to a type",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It makes value_type constexpr",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It instantiates T",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is optional in templates",
+        "isCorrect": false,
+        "explanation": "Not always."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "dependent-names"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0094",
+    "prompt": "C++17: What does `if constexpr` enable?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runtime branching only",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Compile-time branching that discards non-taken branches from instantiation",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Faster exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Dynamic polymorphism",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Macro expansion",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0095",
+    "prompt": "What is CTAD (Class Template Argument Deduction)?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Automatic deducing of function return types",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Deducing class template parameters from constructor arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deducing overload sets at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A new container type",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A replacement for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "ctad",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0096",
+    "prompt": "C++20: A concept is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A runtime interface",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A named compile-time predicate over template arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A macro",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A linker script",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "concepts",
+      "c++20"
+    ],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0097",
+    "prompt": "Which is true about function templates and overload resolution?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Non-template overloads are always preferred, all else equal",
+        "isCorrect": true,
+        "explanation": "Correct: viable non-template is preferred over template."
+      },
+      {
+        "id": "B",
+        "text": "Templates are always preferred",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "C",
+        "text": "Templates are chosen at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Partial ordering doesn't exist",
+        "isCorrect": false,
+        "explanation": "It does."
+      },
+      {
+        "id": "E",
+        "text": "ADL is disabled for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "overload-resolution"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0098",
+    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It defines a type alias",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It tells the compiler that a dependent name refers to a type",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It makes value_type constexpr",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It instantiates T",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is optional in templates",
+        "isCorrect": false,
+        "explanation": "Not always."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "dependent-names"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0099",
+    "prompt": "C++17: What does `if constexpr` enable?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runtime branching only",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Compile-time branching that discards non-taken branches from instantiation",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Faster exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Dynamic polymorphism",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Macro expansion",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0100",
+    "prompt": "What is CTAD (Class Template Argument Deduction)?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Automatic deducing of function return types",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Deducing class template parameters from constructor arguments",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Deducing overload sets at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A new container type",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A replacement for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "ctad",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0204",
+    "prompt": "In C++17, what does `if constexpr` do in templates?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Chooses a branch at runtime",
+        "isCorrect": false,
+        "explanation": "`if constexpr` is compile-time selection."
+      },
+      {
+        "id": "B",
+        "text": "Discards the non-selected branch during compilation",
+        "isCorrect": true,
+        "explanation": "Correct: non-selected branch is not instantiated."
+      },
+      {
+        "id": "C",
+        "text": "Works only with non-template functions",
+        "isCorrect": false,
+        "explanation": "It is especially useful in templates."
+      },
+      {
+        "id": "D",
+        "text": "Requires concepts support",
+        "isCorrect": false,
+        "explanation": "`if constexpr` is C++17 and does not require C++20 concepts."
+      },
+      {
+        "id": "E",
+        "text": "Replaces all uses of SFINAE",
+        "isCorrect": false,
+        "explanation": "It reduces many SFINAE needs but does not replace all patterns."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "metaprogramming",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  }
+]

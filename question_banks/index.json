@@ -1,11 +1,12 @@
 {
   "files": [
-    "questions_cpp17_core.json",
-    "questions_cpp17_stl.json",
-    "questions_cpp20_concepts_advanced.json",
-    "questions_cpp20_concepts_concurrency.json",
-    "questions_cpp20_concurrency_advanced.json",
-    "questions_cpp20_ranges_advanced.json",
-    "questions_cpp20_ranges_span.json"
+    "questions_cpp17_20_classes_inheritance_polymorphism.json",
+    "questions_cpp17_20_concurrency.json",
+    "questions_cpp17_20_exceptions_error_handling.json",
+    "questions_cpp17_20_pointers_memory_raii.json",
+    "questions_cpp17_20_stl_containers_algorithms_ranges.json",
+    "questions_cpp17_20_templates_concepts.json",
+    "questions_cpp17_20_types_basics.json",
+    "questions_cpp17_20_utilities_best_practices_version_features.json"
   ]
 }

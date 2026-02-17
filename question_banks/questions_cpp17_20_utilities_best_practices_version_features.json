@@ -1,0 +1,1168 @@
+[
+  {
+    "id": "cpp-0176",
+    "prompt": "C++17: What is the main benefit of `std::string_view`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It owns and copies strings efficiently",
+        "isCorrect": false,
+        "explanation": "It doesn't own."
+      },
+      {
+        "id": "B",
+        "text": "It provides a non-owning view into a character sequence, avoiding allocations",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It is null-terminated always",
+        "isCorrect": false,
+        "explanation": "Not guaranteed."
+      },
+      {
+        "id": "D",
+        "text": "It is mutable",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It extends lifetime of temporaries",
+        "isCorrect": false,
+        "explanation": "No; dangling risk."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "string_view",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0177",
+    "prompt": "C++17: Which feature was introduced in C++17?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Concepts",
+        "isCorrect": false,
+        "explanation": "C++20."
+      },
+      {
+        "id": "B",
+        "text": "Structured bindings",
+        "isCorrect": true,
+        "explanation": "Correct (C++17)."
+      },
+      {
+        "id": "C",
+        "text": "Modules",
+        "isCorrect": false,
+        "explanation": "C++20."
+      },
+      {
+        "id": "D",
+        "text": "Coroutines",
+        "isCorrect": false,
+        "explanation": "C++20."
+      },
+      {
+        "id": "E",
+        "text": "std::jthread",
+        "isCorrect": false,
+        "explanation": "C++20."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "version-features",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0178",
+    "prompt": "C++17: What does `std::optional<T>` represent?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A nullable owning pointer",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "An object that may or may not contain a value of type T",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A variant of many types",
+        "isCorrect": false,
+        "explanation": "That's variant."
+      },
+      {
+        "id": "D",
+        "text": "A thread-safe container",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A reference wrapper",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "optional",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0179",
+    "prompt": "C++17: `std::variant<A,B>` is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A dynamically typed container (like void*)",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A type-safe union holding exactly one alternative at a time",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A container of both A and B simultaneously",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class for A and B",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A thread primitive",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "variant",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0180",
+    "prompt": "C++20: What is a module's main goal?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Replace templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Improve build times and provide better encapsulation than headers",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Provide runtime plugins",
+        "isCorrect": false,
+        "explanation": "Not specifically."
+      },
+      {
+        "id": "D",
+        "text": "Replace namespaces",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Enable reflection",
+        "isCorrect": false,
+        "explanation": "Not directly."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "version-features",
+      "modules",
+      "c++20"
+    ],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0181",
+    "prompt": "Best practice: prefer `const` correctness because:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It makes code run on GPU",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It improves readability and enables more compiler optimizations and safer APIs",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It disables exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It makes objects thread-safe automatically",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is required for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "const"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0182",
+    "prompt": "C++17: What does `std::filesystem` provide?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Threading primitives",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Portable file system paths and operations",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Networking",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Reflection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Coroutines",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "filesystem",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0183",
+    "prompt": "C++17: What does `std::optional<T>` represent?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A nullable owning pointer",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "An object that may or may not contain a value of type T",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A variant of many types",
+        "isCorrect": false,
+        "explanation": "That's variant."
+      },
+      {
+        "id": "D",
+        "text": "A thread-safe container",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A reference wrapper",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "optional",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0184",
+    "prompt": "C++17: `std::variant<A,B>` is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A dynamically typed container (like void*)",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A type-safe union holding exactly one alternative at a time",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A container of both A and B simultaneously",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class for A and B",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A thread primitive",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "variant",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0185",
+    "prompt": "C++20: What is a module's main goal?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Replace templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Improve build times and provide better encapsulation than headers",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Provide runtime plugins",
+        "isCorrect": false,
+        "explanation": "Not specifically."
+      },
+      {
+        "id": "D",
+        "text": "Replace namespaces",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Enable reflection",
+        "isCorrect": false,
+        "explanation": "Not directly."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "version-features",
+      "modules",
+      "c++20"
+    ],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0186",
+    "prompt": "Best practice: prefer `const` correctness because:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It makes code run on GPU",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It improves readability and enables more compiler optimizations and safer APIs",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It disables exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It makes objects thread-safe automatically",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is required for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "const"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0187",
+    "prompt": "C++17: What does `std::filesystem` provide?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Threading primitives",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Portable file system paths and operations",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Networking",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Reflection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Coroutines",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "filesystem",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0188",
+    "prompt": "C++17: What does `std::optional<T>` represent?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A nullable owning pointer",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "An object that may or may not contain a value of type T",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A variant of many types",
+        "isCorrect": false,
+        "explanation": "That's variant."
+      },
+      {
+        "id": "D",
+        "text": "A thread-safe container",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A reference wrapper",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "optional",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0189",
+    "prompt": "C++17: `std::variant<A,B>` is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A dynamically typed container (like void*)",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A type-safe union holding exactly one alternative at a time",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A container of both A and B simultaneously",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class for A and B",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A thread primitive",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "variant",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0190",
+    "prompt": "C++20: What is a module's main goal?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Replace templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Improve build times and provide better encapsulation than headers",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Provide runtime plugins",
+        "isCorrect": false,
+        "explanation": "Not specifically."
+      },
+      {
+        "id": "D",
+        "text": "Replace namespaces",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Enable reflection",
+        "isCorrect": false,
+        "explanation": "Not directly."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "version-features",
+      "modules",
+      "c++20"
+    ],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0191",
+    "prompt": "Best practice: prefer `const` correctness because:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It makes code run on GPU",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It improves readability and enables more compiler optimizations and safer APIs",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It disables exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It makes objects thread-safe automatically",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is required for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "const"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0192",
+    "prompt": "C++17: What does `std::filesystem` provide?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Threading primitives",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Portable file system paths and operations",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Networking",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Reflection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Coroutines",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "filesystem",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0193",
+    "prompt": "C++17: What does `std::optional<T>` represent?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A nullable owning pointer",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "An object that may or may not contain a value of type T",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A variant of many types",
+        "isCorrect": false,
+        "explanation": "That's variant."
+      },
+      {
+        "id": "D",
+        "text": "A thread-safe container",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A reference wrapper",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "optional",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0194",
+    "prompt": "C++17: `std::variant<A,B>` is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A dynamically typed container (like void*)",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A type-safe union holding exactly one alternative at a time",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A container of both A and B simultaneously",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class for A and B",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A thread primitive",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "variant",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0195",
+    "prompt": "C++20: What is a module's main goal?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Replace templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Improve build times and provide better encapsulation than headers",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Provide runtime plugins",
+        "isCorrect": false,
+        "explanation": "Not specifically."
+      },
+      {
+        "id": "D",
+        "text": "Replace namespaces",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Enable reflection",
+        "isCorrect": false,
+        "explanation": "Not directly."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "version-features",
+      "modules",
+      "c++20"
+    ],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0196",
+    "prompt": "Best practice: prefer `const` correctness because:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It makes code run on GPU",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It improves readability and enables more compiler optimizations and safer APIs",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "It disables exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It makes objects thread-safe automatically",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is required for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "best-practices",
+      "const"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0197",
+    "prompt": "C++17: What does `std::filesystem` provide?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Threading primitives",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Portable file system paths and operations",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Networking",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Reflection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Coroutines",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "filesystem",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0198",
+    "prompt": "C++17: What does `std::optional<T>` represent?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A nullable owning pointer",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "An object that may or may not contain a value of type T",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A variant of many types",
+        "isCorrect": false,
+        "explanation": "That's variant."
+      },
+      {
+        "id": "D",
+        "text": "A thread-safe container",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A reference wrapper",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "optional",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0199",
+    "prompt": "C++17: `std::variant<A,B>` is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A dynamically typed container (like void*)",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A type-safe union holding exactly one alternative at a time",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "A container of both A and B simultaneously",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class for A and B",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A thread primitive",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "variant",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0200",
+    "prompt": "C++20: What is a module's main goal?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Replace templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Improve build times and provide better encapsulation than headers",
+        "isCorrect": true,
+        "explanation": "Correct."
+      },
+      {
+        "id": "C",
+        "text": "Provide runtime plugins",
+        "isCorrect": false,
+        "explanation": "Not specifically."
+      },
+      {
+        "id": "D",
+        "text": "Replace namespaces",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Enable reflection",
+        "isCorrect": false,
+        "explanation": "Not directly."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "version-features",
+      "modules",
+      "c++20"
+    ],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0208",
+    "prompt": "Which C++17 utility type provides type-safe access to one of several alternatives?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::optional`",
+        "isCorrect": false,
+        "explanation": "`optional` is for maybe-a-value of one type."
+      },
+      {
+        "id": "B",
+        "text": "`std::any`",
+        "isCorrect": false,
+        "explanation": "`any` is type-erased, not a fixed set of alternatives."
+      },
+      {
+        "id": "C",
+        "text": "`std::variant`",
+        "isCorrect": true,
+        "explanation": "Correct: `variant` models a tagged union of known types."
+      },
+      {
+        "id": "D",
+        "text": "`std::tuple`",
+        "isCorrect": false,
+        "explanation": "`tuple` stores all elements simultaneously."
+      },
+      {
+        "id": "E",
+        "text": "`std::pair`",
+        "isCorrect": false,
+        "explanation": "`pair` stores exactly two elements simultaneously."
+      }
+    ],
+    "explanation": "See option explanations.",
+    "tags": [
+      "utilities",
+      "variant",
+      "c++17",
+      "best-practices"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  }
+]
