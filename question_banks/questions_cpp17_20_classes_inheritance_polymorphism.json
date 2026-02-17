@@ -14,7 +14,7 @@
         "id": "B",
         "text": "A virtual destructor",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -35,7 +35,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A virtual destructor matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "polymorphism",
@@ -59,7 +59,7 @@
         "id": "B",
         "text": "Ensures at compile time the function overrides a virtual base function",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -80,7 +80,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Ensures at compile time the function overrides a virtual base function matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "override",
@@ -104,7 +104,7 @@
         "id": "B",
         "text": "Copying a derived object into a base object by value, losing derived parts",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -125,7 +125,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Copying a derived object into a base object by value, losing derived parts matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "pitfalls"
@@ -148,7 +148,7 @@
         "id": "B",
         "text": "Order of declaration in the class",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -169,7 +169,7 @@
         "explanation": "Defined."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Order of declaration in the class matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "initialization-order",
@@ -187,7 +187,7 @@
         "id": "A",
         "text": "`friend`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "B",
@@ -214,7 +214,7 @@
         "explanation": "Namespace/type alias."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `friend` matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "access-control"
@@ -231,7 +231,7 @@
         "id": "A",
         "text": "Base must be polymorphic (have at least one virtual function)",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "B",
@@ -258,7 +258,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Base must be polymorphic (have at least one virtual function) matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "rtti",
       "dynamic_cast"
@@ -281,7 +281,7 @@
         "id": "B",
         "text": "It cannot be overridden in derived classes",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -302,7 +302,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It cannot be overridden in derived classes matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "final"
@@ -325,7 +325,7 @@
         "id": "B",
         "text": "Copying a derived object into a base object by value, losing derived parts",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -346,7 +346,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Copying a derived object into a base object by value, losing derived parts matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "pitfalls"
@@ -369,7 +369,7 @@
         "id": "B",
         "text": "Order of declaration in the class",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -390,7 +390,7 @@
         "explanation": "Defined."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Order of declaration in the class matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "initialization-order",
@@ -408,7 +408,7 @@
         "id": "A",
         "text": "`friend`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "B",
@@ -435,7 +435,7 @@
         "explanation": "Namespace/type alias."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `friend` matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "access-control"
@@ -452,7 +452,7 @@
         "id": "A",
         "text": "Base must be polymorphic (have at least one virtual function)",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "B",
@@ -479,7 +479,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Base must be polymorphic (have at least one virtual function) matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "rtti",
       "dynamic_cast"
@@ -502,7 +502,7 @@
         "id": "B",
         "text": "It cannot be overridden in derived classes",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -523,7 +523,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It cannot be overridden in derived classes matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "final"
@@ -546,7 +546,7 @@
         "id": "B",
         "text": "Copying a derived object into a base object by value, losing derived parts",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -567,7 +567,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Copying a derived object into a base object by value, losing derived parts matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "pitfalls"
@@ -590,7 +590,7 @@
         "id": "B",
         "text": "Order of declaration in the class",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -611,7 +611,7 @@
         "explanation": "Defined."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Order of declaration in the class matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "initialization-order",
@@ -629,7 +629,7 @@
         "id": "A",
         "text": "`friend`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "B",
@@ -656,7 +656,7 @@
         "explanation": "Namespace/type alias."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `friend` matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "access-control"
@@ -673,7 +673,7 @@
         "id": "A",
         "text": "Base must be polymorphic (have at least one virtual function)",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "B",
@@ -700,7 +700,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Base must be polymorphic (have at least one virtual function) matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "rtti",
       "dynamic_cast"
@@ -723,7 +723,7 @@
         "id": "B",
         "text": "It cannot be overridden in derived classes",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -744,7 +744,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It cannot be overridden in derived classes matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "final"
@@ -767,7 +767,7 @@
         "id": "B",
         "text": "Copying a derived object into a base object by value, losing derived parts",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -788,7 +788,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Copying a derived object into a base object by value, losing derived parts matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "pitfalls"
@@ -811,7 +811,7 @@
         "id": "B",
         "text": "Order of declaration in the class",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -832,7 +832,7 @@
         "explanation": "Defined."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Order of declaration in the class matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "initialization-order",
@@ -850,7 +850,7 @@
         "id": "A",
         "text": "`friend`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "B",
@@ -877,7 +877,7 @@
         "explanation": "Namespace/type alias."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `friend` matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "access-control"
@@ -894,7 +894,7 @@
         "id": "A",
         "text": "Base must be polymorphic (have at least one virtual function)",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "B",
@@ -921,7 +921,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Base must be polymorphic (have at least one virtual function) matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "rtti",
       "dynamic_cast"
@@ -944,7 +944,7 @@
         "id": "B",
         "text": "It cannot be overridden in derived classes",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -965,7 +965,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It cannot be overridden in derived classes matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "final"
@@ -988,7 +988,7 @@
         "id": "B",
         "text": "Copying a derived object into a base object by value, losing derived parts",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -1009,7 +1009,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Copying a derived object into a base object by value, losing derived parts matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "polymorphism",
       "pitfalls"
@@ -1032,7 +1032,7 @@
         "id": "B",
         "text": "Order of declaration in the class",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -1053,7 +1053,7 @@
         "explanation": "Defined."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Order of declaration in the class matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "initialization-order",
@@ -1071,7 +1071,7 @@
         "id": "A",
         "text": "`friend`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "B",
@@ -1098,7 +1098,7 @@
         "explanation": "Namespace/type alias."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `friend` matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "classes",
       "access-control"
@@ -1121,7 +1121,7 @@
         "id": "B",
         "text": "It enables correct destruction through base pointers",
         "isCorrect": true,
-        "explanation": "Correct: deleting derived objects via base pointer is then well-defined."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual"
       },
       {
         "id": "C",
@@ -1142,7 +1142,7 @@
         "explanation": "Virtual functions require runtime dispatch metadata."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It enables correct destruction through base pointers matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "oop",
       "inheritance",

@@ -20,7 +20,7 @@
         "id": "C",
         "text": "Random access iterator",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "D",
@@ -35,7 +35,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Random access iterator matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "iterators",
@@ -59,7 +59,7 @@
         "id": "B",
         "text": "It is lazy and typically non-owning",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -80,7 +80,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It is lazy and typically non-owning matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "ranges",
       "views",
@@ -104,7 +104,7 @@
         "id": "B",
         "text": "`std::binary_search`",
         "isCorrect": true,
-        "explanation": "Correct: assumes sorted according to comparator."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
       },
       {
         "id": "C",
@@ -125,7 +125,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::binary_search` matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
     "tags": [
       "stl",
       "algorithms"
@@ -148,7 +148,7 @@
         "id": "B",
         "text": "O(1) amortized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -169,7 +169,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: O(1) amortized matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "vector",
@@ -193,7 +193,7 @@
         "id": "B",
         "text": "The view may dangle because it references destroyed storage",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -214,7 +214,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: The view may dangle because it references destroyed storage matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "ranges",
       "dangling",
@@ -238,7 +238,7 @@
         "id": "B",
         "text": "v reallocates (capacity change)",
         "isCorrect": true,
-        "explanation": "Correct: span points to old storage."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -259,7 +259,7 @@
         "explanation": "It can be invalidated."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: v reallocates (capacity change) matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "span",
       "lifetime",
@@ -283,7 +283,7 @@
         "id": "B",
         "text": "Turns dereference into an rvalue reference, enabling moves from elements",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -304,7 +304,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Turns dereference into an rvalue reference, enabling moves from elements matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "iterators",
@@ -328,7 +328,7 @@
         "id": "B",
         "text": "`std::binary_search`",
         "isCorrect": true,
-        "explanation": "Correct: assumes sorted according to comparator."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
       },
       {
         "id": "C",
@@ -349,7 +349,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::binary_search` matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
     "tags": [
       "stl",
       "algorithms"
@@ -372,7 +372,7 @@
         "id": "B",
         "text": "O(1) amortized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -393,7 +393,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: O(1) amortized matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "vector",
@@ -417,7 +417,7 @@
         "id": "B",
         "text": "The view may dangle because it references destroyed storage",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -438,7 +438,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: The view may dangle because it references destroyed storage matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "ranges",
       "dangling",
@@ -462,7 +462,7 @@
         "id": "B",
         "text": "v reallocates (capacity change)",
         "isCorrect": true,
-        "explanation": "Correct: span points to old storage."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -483,7 +483,7 @@
         "explanation": "It can be invalidated."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: v reallocates (capacity change) matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "span",
       "lifetime",
@@ -507,7 +507,7 @@
         "id": "B",
         "text": "Turns dereference into an rvalue reference, enabling moves from elements",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -528,7 +528,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Turns dereference into an rvalue reference, enabling moves from elements matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "iterators",
@@ -552,7 +552,7 @@
         "id": "B",
         "text": "`std::binary_search`",
         "isCorrect": true,
-        "explanation": "Correct: assumes sorted according to comparator."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
       },
       {
         "id": "C",
@@ -573,7 +573,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::binary_search` matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
     "tags": [
       "stl",
       "algorithms"
@@ -596,7 +596,7 @@
         "id": "B",
         "text": "O(1) amortized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -617,7 +617,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: O(1) amortized matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "vector",
@@ -641,7 +641,7 @@
         "id": "B",
         "text": "The view may dangle because it references destroyed storage",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -662,7 +662,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: The view may dangle because it references destroyed storage matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "ranges",
       "dangling",
@@ -686,7 +686,7 @@
         "id": "B",
         "text": "v reallocates (capacity change)",
         "isCorrect": true,
-        "explanation": "Correct: span points to old storage."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -707,7 +707,7 @@
         "explanation": "It can be invalidated."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: v reallocates (capacity change) matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "span",
       "lifetime",
@@ -731,7 +731,7 @@
         "id": "B",
         "text": "Turns dereference into an rvalue reference, enabling moves from elements",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -752,7 +752,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Turns dereference into an rvalue reference, enabling moves from elements matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "iterators",
@@ -776,7 +776,7 @@
         "id": "B",
         "text": "`std::binary_search`",
         "isCorrect": true,
-        "explanation": "Correct: assumes sorted according to comparator."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
       },
       {
         "id": "C",
@@ -797,7 +797,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::binary_search` matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
     "tags": [
       "stl",
       "algorithms"
@@ -820,7 +820,7 @@
         "id": "B",
         "text": "O(1) amortized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -841,7 +841,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: O(1) amortized matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "vector",
@@ -865,7 +865,7 @@
         "id": "B",
         "text": "The view may dangle because it references destroyed storage",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -886,7 +886,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: The view may dangle because it references destroyed storage matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "ranges",
       "dangling",
@@ -910,7 +910,7 @@
         "id": "B",
         "text": "v reallocates (capacity change)",
         "isCorrect": true,
-        "explanation": "Correct: span points to old storage."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -931,7 +931,7 @@
         "explanation": "It can be invalidated."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: v reallocates (capacity change) matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "span",
       "lifetime",
@@ -955,7 +955,7 @@
         "id": "B",
         "text": "Turns dereference into an rvalue reference, enabling moves from elements",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -976,7 +976,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Turns dereference into an rvalue reference, enabling moves from elements matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "iterators",
@@ -1000,7 +1000,7 @@
         "id": "B",
         "text": "`std::binary_search`",
         "isCorrect": true,
-        "explanation": "Correct: assumes sorted according to comparator."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
       },
       {
         "id": "C",
@@ -1021,7 +1021,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::binary_search` matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
     "tags": [
       "stl",
       "algorithms"
@@ -1044,7 +1044,7 @@
         "id": "B",
         "text": "O(1) amortized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -1065,7 +1065,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: O(1) amortized matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "vector",
@@ -1089,7 +1089,7 @@
         "id": "B",
         "text": "The view may dangle because it references destroyed storage",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}"
       },
       {
         "id": "C",
@@ -1110,7 +1110,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: The view may dangle because it references destroyed storage matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "ranges",
       "dangling",
@@ -1155,7 +1155,7 @@
         "explanation": "Merge combines sorted ranges, not deduplicate in place."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::unique` followed by `erase` matches the standard C++ behavior tested by the prompt.\nExample:\nstd::vector<int> v{1,1,2,2,3};\nv.erase(std::unique(v.begin(), v.end()), v.end()); // v = {1,2,3}",
     "tags": [
       "stl",
       "algorithms",

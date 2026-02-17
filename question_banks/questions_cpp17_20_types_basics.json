@@ -14,7 +14,7 @@
         "id": "B",
         "text": "`const char[4]`",
         "isCorrect": true,
-        "explanation": "Correct: array of 4 including '\\0'."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -80,7 +80,7 @@
         "explanation": "It is well-formed."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::initializer_list<int>` matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "auto",
@@ -105,7 +105,7 @@
         "id": "B",
         "text": "It is undefined behavior",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -126,7 +126,7 @@
         "explanation": "Not; it's UB."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It is undefined behavior matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "ub",
@@ -171,7 +171,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: 01 matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "basics",
       "sequencing",
@@ -196,7 +196,7 @@
         "id": "B",
         "text": "`int main()`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -217,7 +217,7 @@
         "explanation": "Not allowed."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `int main()` matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "basics",
       "functions"
@@ -261,7 +261,7 @@
         "explanation": "Actually exactly 1."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: 1 matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "sizeof"
@@ -284,7 +284,7 @@
         "id": "B",
         "text": "The `if` statement (condition + then/else blocks)",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -305,7 +305,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: The `if` statement (condition + then/else blocks) matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "basics",
       "scope",
@@ -350,7 +350,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Warns when a return value is ignored matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "best-practices",
       "attributes",
@@ -395,7 +395,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `dynamic_cast` matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "rtti",
       "casts",
@@ -420,7 +420,7 @@
         "id": "B",
         "text": "`std::nullptr_t`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -441,7 +441,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::nullptr_t` matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "nullptr",
@@ -465,7 +465,7 @@
         "id": "B",
         "text": "`int main()`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -486,7 +486,7 @@
         "explanation": "Not allowed."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `int main()` matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "basics",
       "functions"
@@ -530,7 +530,7 @@
         "explanation": "Actually exactly 1."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: 1 matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "sizeof"
@@ -553,7 +553,7 @@
         "id": "B",
         "text": "The `if` statement (condition + then/else blocks)",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -574,7 +574,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: The `if` statement (condition + then/else blocks) matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "basics",
       "scope",
@@ -619,7 +619,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Warns when a return value is ignored matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "best-practices",
       "attributes",
@@ -664,7 +664,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `dynamic_cast` matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "rtti",
       "casts",
@@ -689,7 +689,7 @@
         "id": "B",
         "text": "`std::nullptr_t`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -710,7 +710,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::nullptr_t` matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "nullptr",
@@ -734,7 +734,7 @@
         "id": "B",
         "text": "`int main()`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -755,7 +755,7 @@
         "explanation": "Not allowed."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `int main()` matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "basics",
       "functions"
@@ -799,7 +799,7 @@
         "explanation": "Actually exactly 1."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: 1 matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "sizeof"
@@ -822,7 +822,7 @@
         "id": "B",
         "text": "The `if` statement (condition + then/else blocks)",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -843,7 +843,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: The `if` statement (condition + then/else blocks) matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "basics",
       "scope",
@@ -888,7 +888,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Warns when a return value is ignored matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "best-practices",
       "attributes",
@@ -933,7 +933,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `dynamic_cast` matches the standard C++ behavior tested by the prompt.\nExample:\nstruct Base { virtual ~Base() = default; };\nstruct Derived : Base {};\nBase* p = new Derived();\ndelete p; // safe because Base destructor is virtual",
     "tags": [
       "rtti",
       "casts",
@@ -958,7 +958,7 @@
         "id": "B",
         "text": "`std::nullptr_t`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -979,7 +979,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::nullptr_t` matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "nullptr",
@@ -1003,7 +1003,7 @@
         "id": "B",
         "text": "`int main()`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -1024,7 +1024,7 @@
         "explanation": "Not allowed."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `int main()` matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "basics",
       "functions"
@@ -1068,7 +1068,7 @@
         "explanation": "Actually exactly 1."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: 1 matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "sizeof"
@@ -1091,7 +1091,7 @@
         "id": "B",
         "text": "The `if` statement (condition + then/else blocks)",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -1112,7 +1112,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: The `if` statement (condition + then/else blocks) matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "basics",
       "scope",
@@ -1136,7 +1136,7 @@
         "id": "B",
         "text": "`std::nullptr_t`",
         "isCorrect": true,
-        "explanation": "Correct: the null pointer literal has type `std::nullptr_t`."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -1157,7 +1157,7 @@
         "explanation": "It can convert to bool in conditions, but its type is `std::nullptr_t`."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::nullptr_t` matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "types",
       "nullptr",

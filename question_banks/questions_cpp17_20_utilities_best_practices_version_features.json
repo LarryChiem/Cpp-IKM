@@ -14,7 +14,7 @@
         "id": "B",
         "text": "It provides a non-owning view into a character sequence, avoiding allocations",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -35,7 +35,7 @@
         "explanation": "No; dangling risk."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It provides a non-owning view into a character sequence, avoiding allocations matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "string_view",
@@ -80,7 +80,7 @@
         "explanation": "C++20."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Structured bindings matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "version-features",
       "c++17"
@@ -103,7 +103,7 @@
         "id": "B",
         "text": "An object that may or may not contain a value of type T",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -124,7 +124,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: An object that may or may not contain a value of type T matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "optional",
@@ -148,7 +148,7 @@
         "id": "B",
         "text": "A type-safe union holding exactly one alternative at a time",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -169,7 +169,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A type-safe union holding exactly one alternative at a time matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "variant",
@@ -193,7 +193,7 @@
         "id": "B",
         "text": "Improve build times and provide better encapsulation than headers",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -214,7 +214,7 @@
         "explanation": "Not directly."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Improve build times and provide better encapsulation than headers matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "version-features",
       "modules",
@@ -238,7 +238,7 @@
         "id": "B",
         "text": "It improves readability and enables more compiler optimizations and safer APIs",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -259,7 +259,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It improves readability and enables more compiler optimizations and safer APIs matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "best-practices",
       "const"
@@ -282,7 +282,7 @@
         "id": "B",
         "text": "Portable file system paths and operations",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -303,7 +303,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Portable file system paths and operations matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "filesystem",
@@ -327,7 +327,7 @@
         "id": "B",
         "text": "An object that may or may not contain a value of type T",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -348,7 +348,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: An object that may or may not contain a value of type T matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "optional",
@@ -372,7 +372,7 @@
         "id": "B",
         "text": "A type-safe union holding exactly one alternative at a time",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -393,7 +393,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A type-safe union holding exactly one alternative at a time matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "variant",
@@ -417,7 +417,7 @@
         "id": "B",
         "text": "Improve build times and provide better encapsulation than headers",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -438,7 +438,7 @@
         "explanation": "Not directly."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Improve build times and provide better encapsulation than headers matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "version-features",
       "modules",
@@ -462,7 +462,7 @@
         "id": "B",
         "text": "It improves readability and enables more compiler optimizations and safer APIs",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -483,7 +483,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It improves readability and enables more compiler optimizations and safer APIs matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "best-practices",
       "const"
@@ -506,7 +506,7 @@
         "id": "B",
         "text": "Portable file system paths and operations",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -527,7 +527,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Portable file system paths and operations matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "filesystem",
@@ -551,7 +551,7 @@
         "id": "B",
         "text": "An object that may or may not contain a value of type T",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -572,7 +572,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: An object that may or may not contain a value of type T matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "optional",
@@ -596,7 +596,7 @@
         "id": "B",
         "text": "A type-safe union holding exactly one alternative at a time",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -617,7 +617,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A type-safe union holding exactly one alternative at a time matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "variant",
@@ -641,7 +641,7 @@
         "id": "B",
         "text": "Improve build times and provide better encapsulation than headers",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -662,7 +662,7 @@
         "explanation": "Not directly."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Improve build times and provide better encapsulation than headers matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "version-features",
       "modules",
@@ -686,7 +686,7 @@
         "id": "B",
         "text": "It improves readability and enables more compiler optimizations and safer APIs",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -707,7 +707,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It improves readability and enables more compiler optimizations and safer APIs matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "best-practices",
       "const"
@@ -730,7 +730,7 @@
         "id": "B",
         "text": "Portable file system paths and operations",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -751,7 +751,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Portable file system paths and operations matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "filesystem",
@@ -775,7 +775,7 @@
         "id": "B",
         "text": "An object that may or may not contain a value of type T",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -796,7 +796,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: An object that may or may not contain a value of type T matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "optional",
@@ -820,7 +820,7 @@
         "id": "B",
         "text": "A type-safe union holding exactly one alternative at a time",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -841,7 +841,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A type-safe union holding exactly one alternative at a time matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "variant",
@@ -865,7 +865,7 @@
         "id": "B",
         "text": "Improve build times and provide better encapsulation than headers",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -886,7 +886,7 @@
         "explanation": "Not directly."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Improve build times and provide better encapsulation than headers matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "version-features",
       "modules",
@@ -910,7 +910,7 @@
         "id": "B",
         "text": "It improves readability and enables more compiler optimizations and safer APIs",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -931,7 +931,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It improves readability and enables more compiler optimizations and safer APIs matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "best-practices",
       "const"
@@ -954,7 +954,7 @@
         "id": "B",
         "text": "Portable file system paths and operations",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -975,7 +975,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Portable file system paths and operations matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "filesystem",
@@ -999,7 +999,7 @@
         "id": "B",
         "text": "An object that may or may not contain a value of type T",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -1020,7 +1020,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: An object that may or may not contain a value of type T matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "optional",
@@ -1044,7 +1044,7 @@
         "id": "B",
         "text": "A type-safe union holding exactly one alternative at a time",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "C",
@@ -1065,7 +1065,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A type-safe union holding exactly one alternative at a time matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "variant",
@@ -1089,7 +1089,7 @@
         "id": "B",
         "text": "Improve build times and provide better encapsulation than headers",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -1110,7 +1110,7 @@
         "explanation": "Not directly."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Improve build times and provide better encapsulation than headers matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "version-features",
       "modules",
@@ -1140,7 +1140,7 @@
         "id": "C",
         "text": "`std::variant`",
         "isCorrect": true,
-        "explanation": "Correct: `variant` models a tagged union of known types."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);"
       },
       {
         "id": "D",
@@ -1155,7 +1155,7 @@
         "explanation": "`pair` stores exactly two elements simultaneously."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::variant` matches the standard C++ behavior tested by the prompt.\nExample:\nstd::variant<int, std::string> v = \"hello\";\nstd::visit([](const auto& x){ std::cout << x; }, v);",
     "tags": [
       "utilities",
       "variant",

@@ -14,7 +14,7 @@
         "id": "B",
         "text": "p was allocated with `new[]`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
       },
       {
         "id": "C",
@@ -35,7 +35,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: p was allocated with `new[]` matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
     "tags": [
       "memory",
       "new-delete"
@@ -58,7 +58,7 @@
         "id": "B",
         "text": "`std::shared_ptr`",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
       },
       {
         "id": "C",
@@ -79,7 +79,7 @@
         "explanation": "Not standard."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: `std::shared_ptr` matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
     "tags": [
       "memory",
       "smart-pointers"
@@ -123,7 +123,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It avoids potential leaks if an exception is thrown during construction of ot... matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
     "tags": [
       "raii",
       "exception-safety",
@@ -147,7 +147,7 @@
         "id": "B",
         "text": "A pointer that points to an object whose lifetime has ended",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -168,7 +168,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "pointers",
       "lifetime"
@@ -191,7 +191,7 @@
         "id": "B",
         "text": "References must be initialized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -212,7 +212,7 @@
         "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "references",
       "basics"
@@ -235,7 +235,7 @@
         "id": "B",
         "text": "Casts to an rvalue reference, enabling moves if available",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -256,7 +256,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "move",
       "value-categories"
@@ -279,7 +279,7 @@
         "id": "B",
         "text": "Resource release is tied to object lifetime, including during exceptions",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
       },
       {
         "id": "C",
@@ -300,7 +300,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
     "tags": [
       "raii",
       "best-practices"
@@ -323,7 +323,7 @@
         "id": "B",
         "text": "A pointer that points to an object whose lifetime has ended",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -344,7 +344,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "pointers",
       "lifetime"
@@ -367,7 +367,7 @@
         "id": "B",
         "text": "References must be initialized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -388,7 +388,7 @@
         "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "references",
       "basics"
@@ -411,7 +411,7 @@
         "id": "B",
         "text": "Casts to an rvalue reference, enabling moves if available",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -432,7 +432,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "move",
       "value-categories"
@@ -455,7 +455,7 @@
         "id": "B",
         "text": "Resource release is tied to object lifetime, including during exceptions",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
       },
       {
         "id": "C",
@@ -476,7 +476,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
     "tags": [
       "raii",
       "best-practices"
@@ -499,7 +499,7 @@
         "id": "B",
         "text": "A pointer that points to an object whose lifetime has ended",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -520,7 +520,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "pointers",
       "lifetime"
@@ -543,7 +543,7 @@
         "id": "B",
         "text": "References must be initialized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -564,7 +564,7 @@
         "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "references",
       "basics"
@@ -587,7 +587,7 @@
         "id": "B",
         "text": "Casts to an rvalue reference, enabling moves if available",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -608,7 +608,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "move",
       "value-categories"
@@ -631,7 +631,7 @@
         "id": "B",
         "text": "Resource release is tied to object lifetime, including during exceptions",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
       },
       {
         "id": "C",
@@ -652,7 +652,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
     "tags": [
       "raii",
       "best-practices"
@@ -675,7 +675,7 @@
         "id": "B",
         "text": "A pointer that points to an object whose lifetime has ended",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -696,7 +696,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "pointers",
       "lifetime"
@@ -719,7 +719,7 @@
         "id": "B",
         "text": "References must be initialized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -740,7 +740,7 @@
         "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "references",
       "basics"
@@ -763,7 +763,7 @@
         "id": "B",
         "text": "Casts to an rvalue reference, enabling moves if available",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -784,7 +784,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "move",
       "value-categories"
@@ -807,7 +807,7 @@
         "id": "B",
         "text": "Resource release is tied to object lifetime, including during exceptions",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
       },
       {
         "id": "C",
@@ -828,7 +828,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
     "tags": [
       "raii",
       "best-practices"
@@ -851,7 +851,7 @@
         "id": "B",
         "text": "A pointer that points to an object whose lifetime has ended",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -872,7 +872,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "pointers",
       "lifetime"
@@ -895,7 +895,7 @@
         "id": "B",
         "text": "References must be initialized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -916,7 +916,7 @@
         "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "references",
       "basics"
@@ -939,7 +939,7 @@
         "id": "B",
         "text": "Casts to an rvalue reference, enabling moves if available",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -960,7 +960,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "move",
       "value-categories"
@@ -983,7 +983,7 @@
         "id": "B",
         "text": "Resource release is tied to object lifetime, including during exceptions",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
       },
       {
         "id": "C",
@@ -1004,7 +1004,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
     "tags": [
       "raii",
       "best-practices"
@@ -1027,7 +1027,7 @@
         "id": "B",
         "text": "A pointer that points to an object whose lifetime has ended",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -1048,7 +1048,7 @@
         "explanation": "No."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "pointers",
       "lifetime"
@@ -1071,7 +1071,7 @@
         "id": "B",
         "text": "References must be initialized",
         "isCorrect": true,
-        "explanation": "Correct."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
       },
       {
         "id": "C",
@@ -1092,7 +1092,7 @@
         "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
     "tags": [
       "references",
       "basics"
@@ -1121,7 +1121,7 @@
         "id": "C",
         "text": "It is exception-safe and avoids repeating the type",
         "isCorrect": true,
-        "explanation": "Correct: construction is clearer and safer in complex expressions."
+        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
       },
       {
         "id": "D",
@@ -1136,7 +1136,7 @@
         "explanation": "`make_unique` returns `std::unique_ptr<T>`."
       }
     ],
-    "explanation": "See option explanations.",
+    "explanation": "Why this is correct: It is exception-safe and avoids repeating the type matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
     "tags": [
       "raii",
       "smart-pointers",
