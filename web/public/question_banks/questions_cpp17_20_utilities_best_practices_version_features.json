@@ -1,0 +1,501 @@
+[
+  {
+    "id": "cpp-0176",
+    "prompt": "C++17: What is the main benefit of `std::string_view`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It owns and copies strings efficiently",
+        "isCorrect": false,
+        "explanation": "It doesn't own."
+      },
+      {
+        "id": "B",
+        "text": "It provides a non-owning view into a character sequence, avoiding allocations",
+        "isCorrect": true,
+        "explanation": "Correct. It provides a non-owning view into a character sequence, avoiding allocations is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "It is null-terminated always",
+        "isCorrect": false,
+        "explanation": "Not guaranteed."
+      },
+      {
+        "id": "D",
+        "text": "It is mutable",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It extends lifetime of temporaries",
+        "isCorrect": false,
+        "explanation": "No; dangling risk."
+      }
+    ],
+    "explanation": "Key idea: It provides a non-owning view into a character sequence, avoiding allocations is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "utilities",
+      "string_view",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0177",
+    "prompt": "C++17: Which feature was introduced in C++17?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Concepts",
+        "isCorrect": false,
+        "explanation": "C++20."
+      },
+      {
+        "id": "B",
+        "text": "Structured bindings",
+        "isCorrect": true,
+        "explanation": "Correct (C++17)."
+      },
+      {
+        "id": "C",
+        "text": "Modules",
+        "isCorrect": false,
+        "explanation": "C++20."
+      },
+      {
+        "id": "D",
+        "text": "Coroutines",
+        "isCorrect": false,
+        "explanation": "C++20."
+      },
+      {
+        "id": "E",
+        "text": "std::jthread",
+        "isCorrect": false,
+        "explanation": "C++20."
+      }
+    ],
+    "explanation": "Key idea: Structured bindings is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "version-features",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0178",
+    "prompt": "C++17: What does `std::optional<T>` represent?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A nullable owning pointer",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "An object that may or may not contain a value of type T",
+        "isCorrect": true,
+        "explanation": "Correct. An object that may or may not contain a value of type T is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "A variant of many types",
+        "isCorrect": false,
+        "explanation": "That's variant."
+      },
+      {
+        "id": "D",
+        "text": "A thread-safe container",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A reference wrapper",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: An object that may or may not contain a value of type T is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "utilities",
+      "optional",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0179",
+    "prompt": "C++17: `std::variant<A,B>` is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A dynamically typed container (like void*)",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A type-safe union holding exactly one alternative at a time",
+        "isCorrect": true,
+        "explanation": "Correct. A type-safe union holding exactly one alternative at a time is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "A container of both A and B simultaneously",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class for A and B",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A thread primitive",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: A type-safe union holding exactly one alternative at a time is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "utilities",
+      "variant",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0180",
+    "prompt": "C++20: What is a module's main goal?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Replace templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Improve build times and provide better encapsulation than headers",
+        "isCorrect": true,
+        "explanation": "Correct. Improve build times and provide better encapsulation than headers is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Provide runtime plugins",
+        "isCorrect": false,
+        "explanation": "Not specifically."
+      },
+      {
+        "id": "D",
+        "text": "Replace namespaces",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Enable reflection",
+        "isCorrect": false,
+        "explanation": "Not directly."
+      }
+    ],
+    "explanation": "Key idea: Improve build times and provide better encapsulation than headers is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "version-features",
+      "modules",
+      "c++20"
+    ],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0181",
+    "prompt": "Best practice: prefer `const` correctness because:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It makes code run on GPU",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It improves readability and enables more compiler optimizations and safer APIs",
+        "isCorrect": true,
+        "explanation": "Correct. It improves readability and enables more compiler optimizations and safer APIs is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "It disables exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It makes objects thread-safe automatically",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is required for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: It improves readability and enables more compiler optimizations and safer APIs is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "best-practices",
+      "const"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0182",
+    "prompt": "C++17: What does `std::filesystem` provide?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Threading primitives",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Portable file system paths and operations",
+        "isCorrect": true,
+        "explanation": "Correct. Portable file system paths and operations is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Networking",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Reflection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Coroutines",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Portable file system paths and operations is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "utilities",
+      "filesystem",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0208",
+    "prompt": "Which C++17 utility type provides type-safe access to one of several alternatives?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::optional`",
+        "isCorrect": false,
+        "explanation": "`optional` is for maybe-a-value of one type."
+      },
+      {
+        "id": "B",
+        "text": "`std::any`",
+        "isCorrect": false,
+        "explanation": "`any` is type-erased, not a fixed set of alternatives."
+      },
+      {
+        "id": "C",
+        "text": "`std::variant`",
+        "isCorrect": true,
+        "explanation": "Correct. `std::variant` is the right statement for this question."
+      },
+      {
+        "id": "D",
+        "text": "`std::tuple`",
+        "isCorrect": false,
+        "explanation": "`tuple` stores all elements simultaneously."
+      },
+      {
+        "id": "E",
+        "text": "`std::pair`",
+        "isCorrect": false,
+        "explanation": "`pair` stores exactly two elements simultaneously."
+      }
+    ],
+    "explanation": "Key idea: `std::variant` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "utilities",
+      "variant",
+      "c++17",
+      "best-practices"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0223",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\n#include <optional>\nint main() {\n  std::optional<int> v;\n  std::cout << v.value_or(42);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "0",
+        "isCorrect": false,
+        "explanation": "Empty optional does not default to 0 when using `value_or(42)`."
+      },
+      {
+        "id": "B",
+        "text": "42",
+        "isCorrect": true,
+        "explanation": "Correct. `value_or` returns the fallback when optional is disengaged."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "This is valid C++17."
+      },
+      {
+        "id": "D",
+        "text": "Throws exception",
+        "isCorrect": false,
+        "explanation": "`value_or` does not throw for empty optional."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB."
+      }
+    ],
+    "explanation": "`std::optional<T>` models maybe-a-value semantics without heap allocation by default.\nExample:\nstd::optional<int> n = 7;\nstd::cout << n.value_or(0); // prints 7",
+    "tags": [
+      "utilities",
+      "optional",
+      "c++17",
+      "best-practices"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0224",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\n#include <string_view>\nint main() {\n  std::string_view sv = \"hello\";\n  std::cout << sv.substr(1, 3);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "hel",
+        "isCorrect": false,
+        "explanation": "Substring starts at index 1, not 0."
+      },
+      {
+        "id": "B",
+        "text": "ell",
+        "isCorrect": true,
+        "explanation": "Correct. Starting at index 1 with length 3 gives `ell`."
+      },
+      {
+        "id": "C",
+        "text": "ello",
+        "isCorrect": false,
+        "explanation": "Length requested is 3, not 4."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "`string_view` and `substr` are C++17 features."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB in this snippet."
+      }
+    ],
+    "explanation": "`std::string_view` is a non-owning view. It is efficient for read-only slicing/parsing but must not outlive the referenced data.\nExample:\nstd::string s = \"abcde\";\nstd::string_view v = s;\nauto part = v.substr(2); // \"cde\"",
+    "tags": [
+      "utilities",
+      "string_view",
+      "c++17",
+      "best-practices"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0228",
+    "prompt": "What is the issue in this code?\n\n```cpp\n#include <string>\n#include <string_view>\nstd::string_view f() {\n  return std::string(\"abc\");\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No issue; `string_view` owns the string data",
+        "isCorrect": false,
+        "explanation": "`string_view` is non-owning."
+      },
+      {
+        "id": "B",
+        "text": "Returns a dangling `std::string_view`",
+        "isCorrect": true,
+        "explanation": "Correct. The temporary `std::string` is destroyed when `f()` returns, leaving the view pointing to invalid memory."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error: cannot convert `std::string` to `std::string_view`",
+        "isCorrect": false,
+        "explanation": "Conversion is allowed."
+      },
+      {
+        "id": "D",
+        "text": "This only fails in C++20, not C++17",
+        "isCorrect": false,
+        "explanation": "The lifetime issue exists in both."
+      },
+      {
+        "id": "E",
+        "text": "It triggers automatic deep copy so it is safe",
+        "isCorrect": false,
+        "explanation": "`string_view` never performs ownership copy."
+      }
+    ],
+    "explanation": "`std::string_view` is a view, not a container. Ensure the referenced character storage outlives the view.\nExample:\nstd::string s = \"abc\";\nstd::string_view v = s; // safe while s is alive",
+    "tags": [
+      "utilities",
+      "string_view",
+      "lifetime",
+      "best-practices",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  }
+]

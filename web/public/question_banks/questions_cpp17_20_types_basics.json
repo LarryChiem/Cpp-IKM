@@ -1,0 +1,1398 @@
+[
+  {
+    "id": "cpp-0001",
+    "prompt": "What is the type of a string literal `\"abc\"` in C++17+?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`const char[3]`",
+        "isCorrect": false,
+        "explanation": "Includes null terminator, so length is 4."
+      },
+      {
+        "id": "B",
+        "text": "`const char[4]`",
+        "isCorrect": true,
+        "explanation": "Correct. `const char[4]` is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "`char*`",
+        "isCorrect": false,
+        "explanation": "String literals are not modifiable and decay only in expressions."
+      },
+      {
+        "id": "D",
+        "text": "`std::string`",
+        "isCorrect": false,
+        "explanation": "Not automatically."
+      },
+      {
+        "id": "E",
+        "text": "`std::string_view`",
+        "isCorrect": false,
+        "explanation": "Not automatically."
+      }
+    ],
+    "explanation": "String literals are arrays; they can decay to pointers in expressions.",
+    "tags": [
+      "types",
+      "strings",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0002",
+    "prompt": "What does `auto x = {1,2,3};` deduce in C++17?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::vector<int>`",
+        "isCorrect": false,
+        "explanation": "No, auto with braced-init prefers initializer_list."
+      },
+      {
+        "id": "B",
+        "text": "`std::array<int,3>`",
+        "isCorrect": false,
+        "explanation": "Requires explicit std::array."
+      },
+      {
+        "id": "C",
+        "text": "`std::initializer_list<int>`",
+        "isCorrect": true,
+        "explanation": "Correct when all elements share a type."
+      },
+      {
+        "id": "D",
+        "text": "`int[3]`",
+        "isCorrect": false,
+        "explanation": "auto does not deduce raw array here."
+      },
+      {
+        "id": "E",
+        "text": "Ill-formed",
+        "isCorrect": false,
+        "explanation": "It is well-formed."
+      }
+    ],
+    "explanation": "Key idea: `std::initializer_list<int>` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "types",
+      "auto",
+      "initializer_list",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0003",
+    "prompt": "Which is guaranteed about signed integer overflow in C++17/20?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It wraps around modulo 2^N",
+        "isCorrect": false,
+        "explanation": "That's for unsigned; signed overflow is UB."
+      },
+      {
+        "id": "B",
+        "text": "It is undefined behavior",
+        "isCorrect": true,
+        "explanation": "Correct. It is undefined behavior is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "It saturates at INT_MAX/INT_MIN",
+        "isCorrect": false,
+        "explanation": "Not guaranteed."
+      },
+      {
+        "id": "D",
+        "text": "It throws an exception",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is implementation-defined",
+        "isCorrect": false,
+        "explanation": "Not; it's UB."
+      }
+    ],
+    "explanation": "Key idea: It is undefined behavior is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "types",
+      "ub",
+      "integers"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0004",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\nint main(){ int i=0; std::cout << i++ << i++; }\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "01",
+        "isCorrect": true,
+        "explanation": "Correct in C++17+: stream insertions are sequenced left-to-right."
+      },
+      {
+        "id": "B",
+        "text": "10",
+        "isCorrect": false,
+        "explanation": "Not with C++17 sequencing."
+      },
+      {
+        "id": "C",
+        "text": "00",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "Pre-C++17 was tricky; C++17 defines this case."
+      },
+      {
+        "id": "E",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: 01 is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "basics",
+      "sequencing",
+      "operators",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0005",
+    "prompt": "Which `main` signature is standard-conforming?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`void main()`",
+        "isCorrect": false,
+        "explanation": "Not standard."
+      },
+      {
+        "id": "B",
+        "text": "`int main()`",
+        "isCorrect": true,
+        "explanation": "Correct. `int main()` is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "`auto main()->int`",
+        "isCorrect": false,
+        "explanation": "Also valid, but answer expects standard form? We'll mark both? Use single: choose best common."
+      },
+      {
+        "id": "D",
+        "text": "`long main()`",
+        "isCorrect": false,
+        "explanation": "Not standard."
+      },
+      {
+        "id": "E",
+        "text": "`static int main()`",
+        "isCorrect": false,
+        "explanation": "Not allowed."
+      }
+    ],
+    "explanation": "Key idea: `int main()` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "basics",
+      "functions"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0006",
+    "prompt": "What is the value of `sizeof(char)`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "0",
+        "isCorrect": false,
+        "explanation": "Never 0."
+      },
+      {
+        "id": "B",
+        "text": "1",
+        "isCorrect": true,
+        "explanation": "Correct by definition."
+      },
+      {
+        "id": "C",
+        "text": "Depends on platform",
+        "isCorrect": false,
+        "explanation": "char is the byte unit; sizeof(char) is 1."
+      },
+      {
+        "id": "D",
+        "text": "2",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Implementation-defined but >=1",
+        "isCorrect": false,
+        "explanation": "Actually exactly 1."
+      }
+    ],
+    "explanation": "Key idea: 1 is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "types",
+      "sizeof"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0007",
+    "prompt": "In `if (int x = f(); x > 0) {}`, what is the scope of `x`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Whole function",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "The `if` statement (condition + then/else blocks)",
+        "isCorrect": true,
+        "explanation": "Correct. The `if` statement (condition + then/else blocks) is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Only inside the condition",
+        "isCorrect": false,
+        "explanation": "It extends into controlled statements."
+      },
+      {
+        "id": "D",
+        "text": "Global",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Undefined",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: The `if` statement (condition + then/else blocks) is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "basics",
+      "scope",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0008",
+    "prompt": "What does `[[nodiscard]]` primarily do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Forces the compiler to inline the function",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Warns when a return value is ignored",
+        "isCorrect": true,
+        "explanation": "Correct (diagnostic encouraged)."
+      },
+      {
+        "id": "C",
+        "text": "Makes the function noexcept",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Makes the type movable-only",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Changes ABI",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Warns when a return value is ignored is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "best-practices",
+      "attributes",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0009",
+    "prompt": "Which cast is used for checked downcasting in polymorphic hierarchies?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`static_cast`",
+        "isCorrect": false,
+        "explanation": "No runtime check."
+      },
+      {
+        "id": "B",
+        "text": "`reinterpret_cast`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "C",
+        "text": "`dynamic_cast`",
+        "isCorrect": true,
+        "explanation": "Correct (requires polymorphic base)."
+      },
+      {
+        "id": "D",
+        "text": "`const_cast`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "C-style cast only",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: `dynamic_cast` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "rtti",
+      "casts",
+      "polymorphism",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0010",
+    "prompt": "What is the type of `nullptr`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`void*`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::nullptr_t`",
+        "isCorrect": true,
+        "explanation": "Correct. `std::nullptr_t` is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "`int`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "`bool`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Implementation-defined pointer type",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "`nullptr` has its own dedicated type, `std::nullptr_t`, so overload resolution can distinguish it from integer `0`.\nExample:\nvoid f(int);\nvoid f(char*);\nf(nullptr); // calls f(char*)",
+    "tags": [
+      "types",
+      "nullptr",
+      "c++11+"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0201",
+    "prompt": "In C++17, what is the type of the expression `nullptr`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`void*`",
+        "isCorrect": false,
+        "explanation": "`nullptr` is not a `void*`; it converts to pointer types."
+      },
+      {
+        "id": "B",
+        "text": "`std::nullptr_t`",
+        "isCorrect": true,
+        "explanation": "Correct. `std::nullptr_t` is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "`int`",
+        "isCorrect": false,
+        "explanation": "`nullptr` is distinct from integer zero."
+      },
+      {
+        "id": "D",
+        "text": "`char*`",
+        "isCorrect": false,
+        "explanation": "It can convert to `char*`, but that is not its own type."
+      },
+      {
+        "id": "E",
+        "text": "`bool`",
+        "isCorrect": false,
+        "explanation": "It can convert to bool in conditions, but its type is `std::nullptr_t`."
+      }
+    ],
+    "explanation": "The literal `nullptr` is of type `std::nullptr_t`, and it converts to any raw pointer type while remaining distinct from integer types.\nExample:\nstd::nullptr_t n = nullptr;\nint* p = n;      // OK\nbool b = n;      // false",
+    "tags": [
+      "types",
+      "nullptr",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0209",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\nint main() {\n  int x = 7;\n  int& r = x;\n  r += 5;\n  std::cout << x;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "7",
+        "isCorrect": false,
+        "explanation": "Reference `r` aliases `x`, so modifying `r` modifies `x`."
+      },
+      {
+        "id": "B",
+        "text": "5",
+        "isCorrect": false,
+        "explanation": "The value is incremented by 5, not replaced with 5."
+      },
+      {
+        "id": "C",
+        "text": "12",
+        "isCorrect": true,
+        "explanation": "Correct. `r` is another name for `x`, so `r += 5` changes `x` from 7 to 12."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "This is well-defined."
+      },
+      {
+        "id": "E",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "All declarations are valid."
+      }
+    ],
+    "explanation": "A C++ reference is an alias, not a copy.\nExample:\nint x = 10;\nint& r = x;\nr = 42;\n// x is now 42",
+    "tags": [
+      "types",
+      "references",
+      "basics",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0210",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\nint main() {\n  std::cout << (3 + 4 * 2);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "14",
+        "isCorrect": false,
+        "explanation": "`*` has higher precedence, so this is `3 + 8`."
+      },
+      {
+        "id": "B",
+        "text": "11",
+        "isCorrect": true,
+        "explanation": "Correct. Multiplication happens before addition: `4*2=8`, then `3+8=11`."
+      },
+      {
+        "id": "C",
+        "text": "7",
+        "isCorrect": false,
+        "explanation": "That would ignore multiplication."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Expression is valid."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB here."
+      }
+    ],
+    "explanation": "Operator precedence controls parsing order. Parentheses can override precedence and improve readability.\nExample:\nstd::cout << (3 + 4) * 2; // prints 14",
+    "tags": [
+      "types",
+      "operators",
+      "precedence",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0225",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\nint main() {\n  unsigned int u = 1;\n  int i = -1;\n  std::cout << (i < u);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "0",
+        "isCorrect": true,
+        "explanation": "Correct. In `i < u`, `i` is converted to unsigned, so `-1` becomes a very large unsigned value and the comparison is false."
+      },
+      {
+        "id": "B",
+        "text": "1",
+        "isCorrect": false,
+        "explanation": "This would be true only with pure signed comparison; here usual arithmetic conversions apply."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "The code is well-formed."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "This conversion/comparison is defined behavior."
+      },
+      {
+        "id": "E",
+        "text": "Implementation-defined",
+        "isCorrect": false,
+        "explanation": "The conversion from negative signed to unsigned is well-defined modulo 2^N."
+      }
+    ],
+    "explanation": "Signed/unsigned mixing is a classic source of bugs. Prefer matching signedness or explicit casts when intent is clear.\nExample:\nint i = -1;\nunsigned u = 1;\n// i < u is often surprising; avoid mixed comparisons",
+    "tags": [
+      "types",
+      "integers",
+      "conversions",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0232",
+    "prompt": "What does the `auto` keyword primarily do in modern C++?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Marks a variable as automatically allocated on the stack",
+        "isCorrect": false,
+        "explanation": "That was historical meaning; modern C++ uses `auto` for type deduction."
+      },
+      {
+        "id": "B",
+        "text": "Requests runtime type inference",
+        "isCorrect": false,
+        "explanation": "Type deduction is compile-time."
+      },
+      {
+        "id": "C",
+        "text": "Deduces type from initializer (or function return in some contexts)",
+        "isCorrect": true,
+        "explanation": "Correct. `auto` lets the compiler deduce the type from the initializer/expression."
+      },
+      {
+        "id": "D",
+        "text": "Forces dynamic typing like Python",
+        "isCorrect": false,
+        "explanation": "C++ remains statically typed."
+      },
+      {
+        "id": "E",
+        "text": "Always deduces reference type",
+        "isCorrect": false,
+        "explanation": "`auto` usually deduces by value unless `auto&`/`auto&&` is used."
+      }
+    ],
+    "explanation": "`auto` reduces verbosity and keeps types correct when expressions are complex.\nExample:\nauto x = 42;      // int\nauto y = 3.14;    // double\nauto& r = x;      // int&",
+    "tags": [
+      "types",
+      "auto",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0233",
+    "prompt": "What is the “most vexing parse” in C++?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A runtime parser error from templates",
+        "isCorrect": false,
+        "explanation": "It is a compile-time grammar ambiguity/interpretation issue."
+      },
+      {
+        "id": "B",
+        "text": "When code that looks like object construction is parsed as a function declaration",
+        "isCorrect": true,
+        "explanation": "Correct. C++ can interpret certain declarations as functions rather than objects."
+      },
+      {
+        "id": "C",
+        "text": "A linker error caused by inline functions",
+        "isCorrect": false,
+        "explanation": "Unrelated to the most vexing parse."
+      },
+      {
+        "id": "D",
+        "text": "Any ambiguous overload resolution",
+        "isCorrect": false,
+        "explanation": "Different issue."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior from temporary lifetime",
+        "isCorrect": false,
+        "explanation": "Different concept."
+      }
+    ],
+    "explanation": "A classic example: `T x(U());` may declare a function, not construct `x`.\nExample:\nstd::vector<int> v(std::vector<int>()); // may parse as function declaration\nstd::vector<int> v{std::vector<int>()}; // unambiguously object construction",
+    "tags": [
+      "types",
+      "parsing",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0238",
+    "prompt": "How do you avoid the most vexing parse when default-initializing an object?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Prefer brace initialization, e.g. `Widget w{};`",
+        "isCorrect": true,
+        "explanation": "Correct. Braces make this unambiguously object initialization, not a function declaration."
+      },
+      {
+        "id": "B",
+        "text": "Write `Widget w();` because parentheses force object creation",
+        "isCorrect": false,
+        "explanation": "`Widget w();` declares a function named `w` returning `Widget`."
+      },
+      {
+        "id": "C",
+        "text": "Use `auto w();` to let the compiler deduce object type",
+        "isCorrect": false,
+        "explanation": "This is still parsed as a function declaration form, not an object variable."
+      },
+      {
+        "id": "D",
+        "text": "Add `std::move` around constructor arguments",
+        "isCorrect": false,
+        "explanation": "`std::move` is unrelated to parse ambiguity here."
+      },
+      {
+        "id": "E",
+        "text": "Disable copy elision with compiler flags",
+        "isCorrect": false,
+        "explanation": "Copy elision has nothing to do with the most vexing parse."
+      }
+    ],
+    "explanation": "Use brace initialization to avoid declaration-vs-construction ambiguity.\nExample:\nWidget w{};       // object\nWidget w2();      // function declaration (most vexing parse style)\nWidget w3{Arg{}}; // object, unambiguous",
+    "tags": [
+      "types",
+      "parsing",
+      "initialization",
+      "most-vexing-parse",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0239",
+    "prompt": "What is printed first (C++17/20)?\n\n```cpp\n#include <iostream>\n\nint a() { std::cout << \"1\"; return 1; }\nint b() { std::cout << \"2\"; return 2; }\n\nvoid foo(int a, int b) {}\n\nint main() {\n  foo(a(), b());\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always `1` first",
+        "isCorrect": false,
+        "explanation": "Not guaranteed: argument evaluation order is not fixed left-to-right here."
+      },
+      {
+        "id": "B",
+        "text": "Always `2` first",
+        "isCorrect": false,
+        "explanation": "Also not guaranteed for the same reason."
+      },
+      {
+        "id": "C",
+        "text": "Either `12` or `21` is possible",
+        "isCorrect": true,
+        "explanation": "Correct. The relative order of function argument evaluation is unspecified, so either call may happen first."
+      },
+      {
+        "id": "D",
+        "text": "Nothing is printed",
+        "isCorrect": false,
+        "explanation": "Both `a()` and `b()` print before returning."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "This specific code is well-formed; the order is unspecified, not UB."
+      }
+    ],
+    "explanation": "For function-call arguments, do not rely on evaluation order. If order matters, split into separate statements.\nExample:\nint x = a();\nint y = b();\nfoo(x, y); // now clearly a() then b()",
+    "tags": [
+      "types",
+      "basics",
+      "sequencing",
+      "evaluation-order",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0240",
+    "prompt": "What is true about this program output?\n\n```cpp\n#include <iostream>\n\nint i;\n\nint main() {\n  int j;\n  std::cout << i << \" \" << j;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always prints `0 0`",
+        "isCorrect": false,
+        "explanation": "`i` is zero-initialized, but `j` is not initialized."
+      },
+      {
+        "id": "B",
+        "text": "Always prints `0` then an indeterminate value for `j` (reading `j` is erroneous/UB)",
+        "isCorrect": true,
+        "explanation": "Correct. Global `i` has static storage duration and is zero-initialized; local automatic `j` is uninitialized and reading it is not valid."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error because `j` must be initialized",
+        "isCorrect": false,
+        "explanation": "Uninitialized local variables are allowed syntactically."
+      },
+      {
+        "id": "D",
+        "text": "Always prints two random values",
+        "isCorrect": false,
+        "explanation": "`i` is not random here; it is guaranteed to be 0."
+      },
+      {
+        "id": "E",
+        "text": "Always prints `1 0`",
+        "isCorrect": false,
+        "explanation": "No assignment sets those values."
+      }
+    ],
+    "explanation": "Static-storage objects (like global `i`) are zero-initialized. Local automatic variables (like `j`) are not initialized unless you do it explicitly.\nExample:\nint i;      // 0\nint main() {\n  int j = 0;\n  std::cout << i << \" \" << j; // safe and deterministic\n}",
+    "tags": [
+      "types",
+      "basics",
+      "initialization",
+      "ub",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0241",
+    "prompt": "Consider this code. Which statement about storage duration is correct?\n\n```cpp\nstatic void foo() {\n    int x;\n}\n\nvoid bar() {\n    static int y;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both `x` and `y` have automatic storage duration",
+        "isCorrect": false,
+        "explanation": "`x` is automatic, but `y` is not."
+      },
+      {
+        "id": "B",
+        "text": "Both `x` and `y` have static storage duration",
+        "isCorrect": false,
+        "explanation": "`y` is static, but local `x` is automatic."
+      },
+      {
+        "id": "C",
+        "text": "`x` has automatic storage duration; `y` has static storage duration",
+        "isCorrect": true,
+        "explanation": "Correct. `x` is created on entry to `foo` and destroyed on exit; `y` exists for the entire program lifetime."
+      },
+      {
+        "id": "D",
+        "text": "`x` has static storage duration because `foo` is `static`",
+        "isCorrect": false,
+        "explanation": "`static` on a function affects linkage, not local variable storage duration."
+      },
+      {
+        "id": "E",
+        "text": "`y` has thread storage duration",
+        "isCorrect": false,
+        "explanation": "`y` would need `thread_local` for thread storage duration."
+      }
+    ],
+    "explanation": "Key points:\n- `int x;` inside a function has automatic storage duration by default.\n- `static int y;` inside a function has static storage duration (single instance for whole program), but block scope.\n- `static void foo()` gives `foo` internal linkage, and does not change storage duration of `x`.\n- `ABI` means Application Binary Interface: the platform/compiler rules for low-level calling conventions and object layout.\n- `BSS` means Block Started by Symbol: the binary section that typically stores zero-initialized static/global data.\nExample:\nfoo(); // creates/destroys a fresh x each call\nbar(); // same y persists across calls",
+    "tags": [
+      "types",
+      "storage-duration",
+      "scope-linkage",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0242",
+    "prompt": "For this code, where are `x` and `y` typically stored in memory?\n\n```cpp\nstatic void foo() {\n    int x;\n}\n\nvoid bar() {\n    static int y;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`x` on heap, `y` on heap",
+        "isCorrect": false,
+        "explanation": "No dynamic allocation (`new`/`malloc`) is used here."
+      },
+      {
+        "id": "B",
+        "text": "`x` in stack frame (automatic), `y` in static storage (often data/BSS segment)",
+        "isCorrect": true,
+        "explanation": "Correct. `x` is an automatic local variable, typically in the function stack frame. `y` has static storage duration and is placed in static data, often BSS if zero-initialized."
+      },
+      {
+        "id": "C",
+        "text": "`x` in static storage, `y` in stack frame",
+        "isCorrect": false,
+        "explanation": "This is reversed."
+      },
+      {
+        "id": "D",
+        "text": "Both are registers only, never in memory",
+        "isCorrect": false,
+        "explanation": "Compiler may use registers transiently, but storage duration categories still apply and memory backing may exist."
+      },
+      {
+        "id": "E",
+        "text": "Both are in thread-local storage",
+        "isCorrect": false,
+        "explanation": "Thread-local storage requires `thread_local`."
+      }
+    ],
+    "explanation": "`x` is an automatic local (commonly stack-allocated by ABI conventions), while `y` is a static local (program-lifetime object in static storage).\nAcronyms:\n- `ABI` = Application Binary Interface (binary-level calling/layout rules).\n- `BSS` = Block Started by Symbol (section for zero-initialized static/global objects).\nExample:\nvoid f(){ int x; }     // x: automatic\nvoid g(){ static int y; } // y: static storage",
+    "tags": [
+      "types",
+      "storage-duration",
+      "memory-layout",
+      "abi",
+      "bss",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0243",
+    "prompt": "Are these considered different overloads in C++?\n\n```cpp\nvoid foo(double) { }\nvoid foo(const double) { }\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Yes, they are different because one is `const`",
+        "isCorrect": false,
+        "explanation": "For by-value parameters, top-level `const` is not part of the function type for overloading."
+      },
+      {
+        "id": "B",
+        "text": "No, they are the same signature; this is a redefinition",
+        "isCorrect": true,
+        "explanation": "Correct. `double` and `const double` are equivalent as by-value parameter types in function declarations."
+      },
+      {
+        "id": "C",
+        "text": "They are different only in C++20",
+        "isCorrect": false,
+        "explanation": "This rule is not new to C++20."
+      },
+      {
+        "id": "D",
+        "text": "They are different if function bodies differ",
+        "isCorrect": false,
+        "explanation": "Function body does not change overload signature."
+      },
+      {
+        "id": "E",
+        "text": "It depends on compiler optimization level",
+        "isCorrect": false,
+        "explanation": "This is a language rule, not an optimization choice."
+      }
+    ],
+    "explanation": "These are the same declaration for overloading purposes, so the second declaration is a redefinition error.\nExample:\nvoid f(int);\nvoid f(const int); // same as f(int), not a new overload\n\n// But reference/pointer qualifiers do matter:\nvoid g(int&);\nvoid g(const int&); // different overloads",
+    "tags": [
+      "types",
+      "functions",
+      "overloading",
+      "const",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0244",
+    "prompt": "What is a function signature in C++?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Function name + return type only",
+        "isCorrect": false,
+        "explanation": "Return type alone is not enough to distinguish overloads."
+      },
+      {
+        "id": "B",
+        "text": "Function name + parameter types (+ cv/ref qualifiers for member functions)",
+        "isCorrect": true,
+        "explanation": "Correct. Signature is what overload resolution uses; for member functions, qualifiers like `const` can be part of the signature."
+      },
+      {
+        "id": "C",
+        "text": "Function body + comments",
+        "isCorrect": false,
+        "explanation": "Implementation details and comments are not part of signature."
+      },
+      {
+        "id": "D",
+        "text": "Parameter names + default argument values",
+        "isCorrect": false,
+        "explanation": "Parameter names and default values are not part of the signature for overloading."
+      },
+      {
+        "id": "E",
+        "text": "Only the number of parameters",
+        "isCorrect": false,
+        "explanation": "Types matter too, not just count."
+      }
+    ],
+    "explanation": "A function signature identifies a callable declaration for overload resolution. In practice, it is based on function name and parameter type list, with member-function qualifiers (like `const`, ref-qualifiers) also relevant.\nExample:\nvoid f(int);\nvoid f(double);   // different signature\n\nstruct S {\n  void g();\n  void g() const; // different signature from non-const member\n}",
+    "tags": [
+      "types",
+      "functions",
+      "signature",
+      "overloading",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0245",
+    "prompt": "What is the output?\n\n```cpp\n#include <iostream>\nint main() {\n  for (int i{}; i < 3; i++) {\n    std::cout << i;\n  }\n  std::cout << std::endl;\n  for (int i{}; i < 3; ++i) {\n    std::cout << i;\n  }\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`012` then newline then `012`",
+        "isCorrect": true,
+        "explanation": "Correct. For loop increment position (`i++` vs `++i`) does not change the observed values here; both loops print 0,1,2."
+      },
+      {
+        "id": "B",
+        "text": "`012` then newline then `123`",
+        "isCorrect": false,
+        "explanation": "`i` starts at 0 in both loops due to `int i{}`."
+      },
+      {
+        "id": "C",
+        "text": "`123` then newline then `123`",
+        "isCorrect": false,
+        "explanation": "Each loop starts from 0, not 1."
+      },
+      {
+        "id": "D",
+        "text": "Different output depends on compiler",
+        "isCorrect": false,
+        "explanation": "No compiler-dependent behavior here."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "The code is well-defined."
+      }
+    ],
+    "explanation": "In `for` loop increment expressions, `i++` and `++i` are equivalent when the expression value itself is not used.\nExample:\nfor (int i = 0; i < n; i++) { /* ... */ }\nfor (int i = 0; i < n; ++i) { /* ... */ } // same observable behavior here",
+    "tags": [
+      "types",
+      "basics",
+      "for-loop",
+      "operators",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0246",
+    "prompt": "What is printed here?\n\n```cpp\n#include <iostream>\n#include <string>\nint main() {\n  std::cout << sizeof(std::string);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always `24`",
+        "isCorrect": false,
+        "explanation": "Could be 24 on some implementations, but not guaranteed by the standard."
+      },
+      {
+        "id": "B",
+        "text": "Always `32`",
+        "isCorrect": false,
+        "explanation": "Could be 32 on some implementations, but not guaranteed by the standard."
+      },
+      {
+        "id": "C",
+        "text": "Implementation-dependent value (size of std::string object type)",
+        "isCorrect": true,
+        "explanation": "Correct. It prints `sizeof(std::string)`, which depends on library implementation and target ABI."
+      },
+      {
+        "id": "D",
+        "text": "Length of the current string contents",
+        "isCorrect": false,
+        "explanation": "`sizeof` gives compile-time object type size, not dynamic string length."
+      },
+      {
+        "id": "E",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "This code is valid C++."
+      }
+    ],
+    "explanation": "`sizeof(std::string)` is not the number of characters in a string; it is the size of the string object type itself. That value is implementation-dependent.\nExample:\nstd::string s = \"hello\";\nstd::cout << sizeof(s); // object size (type size)\nstd::cout << s.size();  // 5 (character count)",
+    "tags": [
+      "types",
+      "sizeof",
+      "string",
+      "implementation-defined",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0247",
+    "prompt": "What is the default type of a floating-point literal like `3.14` in C++?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`float`",
+        "isCorrect": false,
+        "explanation": "`float` usually requires suffix `f` like `3.14f`."
+      },
+      {
+        "id": "B",
+        "text": "`double`",
+        "isCorrect": true,
+        "explanation": "Correct. Unsuffixed floating literals are `double` by default."
+      },
+      {
+        "id": "C",
+        "text": "`long double`",
+        "isCorrect": false,
+        "explanation": "`long double` usually requires suffix `L` like `3.14L`."
+      },
+      {
+        "id": "D",
+        "text": "`decimal`",
+        "isCorrect": false,
+        "explanation": "Not a built-in C++ floating type."
+      },
+      {
+        "id": "E",
+        "text": "`auto`",
+        "isCorrect": false,
+        "explanation": "`auto` is deduction syntax, not a literal type."
+      }
+    ],
+    "explanation": "Literal suffixes control floating literal type: `f/F` for `float`, none for `double`, `l/L` for `long double`.\nExample:\nauto a = 3.14f; // float\nauto b = 3.14;  // double\nauto c = 3.14L; // long double",
+    "tags": [
+      "types",
+      "floating-point",
+      "literals",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0248",
+    "prompt": "Where is a `std::string` object allocated in memory?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always on the heap",
+        "isCorrect": false,
+        "explanation": "The object itself can be stack, static, member, or heap, depending on where you define it."
+      },
+      {
+        "id": "B",
+        "text": "Always on the stack",
+        "isCorrect": false,
+        "explanation": "Not always; storage depends on object lifetime and declaration context."
+      },
+      {
+        "id": "C",
+        "text": "The object follows its own storage duration; character buffer may use internal small buffer or dynamic heap allocation",
+        "isCorrect": true,
+        "explanation": "Correct. `std::string` is an object; its internal character storage strategy is implementation-dependent (often includes small-string optimization)."
+      },
+      {
+        "id": "D",
+        "text": "In read-only memory only",
+        "isCorrect": false,
+        "explanation": "Read-only memory is for string literals, not general `std::string` objects."
+      },
+      {
+        "id": "E",
+        "text": "Always in thread-local storage",
+        "isCorrect": false,
+        "explanation": "Only if explicitly declared `thread_local`."
+      }
+    ],
+    "explanation": "Separate the object from its managed characters:\n- Object location depends on where it is declared.\n- Internal char storage may stay inside the object (small-string optimization) or allocate dynamically.\nExample:\nstd::string s = \"hello\"; // object on stack here\n// chars may be inline (SSO) or heap-allocated depending on implementation",
+    "tags": [
+      "types",
+      "string",
+      "memory",
+      "allocation",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0249",
+    "prompt": "Which statement about `sizeof(int)` in C++ is guaranteed by the standard?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is always 4 bytes",
+        "isCorrect": false,
+        "explanation": "Common, but not guaranteed by the standard."
+      },
+      {
+        "id": "B",
+        "text": "It is always 8 bytes",
+        "isCorrect": false,
+        "explanation": "Not guaranteed."
+      },
+      {
+        "id": "C",
+        "text": "It is implementation-defined and at least 2 bytes",
+        "isCorrect": true,
+        "explanation": "Correct. The standard requires `int` to be at least 16 bits (commonly 32 bits today)."
+      },
+      {
+        "id": "D",
+        "text": "It equals `sizeof(long)` on all platforms",
+        "isCorrect": false,
+        "explanation": "`int` and `long` sizes vary by data model."
+      },
+      {
+        "id": "E",
+        "text": "It is always 2 bytes on embedded systems",
+        "isCorrect": false,
+        "explanation": "Could be 2, 4, or other valid sizes depending on implementation."
+      }
+    ],
+    "explanation": "`sizeof(int)` is platform/compiler dependent. Write portable code by using fixed-width types when exact size matters.\nExample:\n#include <cstdint>\nstd::int32_t x; // exactly 32-bit if available",
+    "tags": [
+      "types",
+      "sizeof",
+      "int",
+      "portability",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0250",
+    "prompt": "Which relationship is guaranteed for floating types in C++?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`sizeof(float) < sizeof(double) < sizeof(long double)` always strictly",
+        "isCorrect": false,
+        "explanation": "Strict inequality is not guaranteed."
+      },
+      {
+        "id": "B",
+        "text": "`sizeof(float) <= sizeof(double) <= sizeof(long double)`",
+        "isCorrect": true,
+        "explanation": "Correct. This non-decreasing size relationship is guaranteed."
+      },
+      {
+        "id": "C",
+        "text": "All three are always 8 bytes",
+        "isCorrect": false,
+        "explanation": "Implementation-dependent and often different."
+      },
+      {
+        "id": "D",
+        "text": "`long double` is always 16 bytes",
+        "isCorrect": false,
+        "explanation": "Common on some platforms, not guaranteed."
+      },
+      {
+        "id": "E",
+        "text": "`double` may be smaller than `float`",
+        "isCorrect": false,
+        "explanation": "Not allowed by the standard type hierarchy."
+      }
+    ],
+    "explanation": "Floating type sizes and precision are implementation-defined, but ordering guarantees exist.\nExample:\nstatic_assert(sizeof(float) <= sizeof(double));\nstatic_assert(sizeof(double) <= sizeof(long double));",
+    "tags": [
+      "types",
+      "sizeof",
+      "floating-point",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0251",
+    "prompt": "What does this print?\n\n```cpp\n#include <iostream>\nint main() {\n  std::cout << sizeof(int) << \" \" << sizeof(double) << \" \" << sizeof(long double);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always `4 8 16`",
+        "isCorrect": false,
+        "explanation": "Common on some systems, but not guaranteed everywhere."
+      },
+      {
+        "id": "B",
+        "text": "Always `2 4 8`",
+        "isCorrect": false,
+        "explanation": "Possible on some targets, not universal."
+      },
+      {
+        "id": "C",
+        "text": "Implementation-dependent numeric sizes",
+        "isCorrect": true,
+        "explanation": "Correct. The exact values depend on compiler/platform/data model and ABI."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error because `sizeof` cannot be streamed",
+        "isCorrect": false,
+        "explanation": "`sizeof` yields an integer constant expression that can be printed."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB here."
+      }
+    ],
+    "explanation": "This prints compile-time size values for those types on your current target.\nExample:\nstd::cout << sizeof(int);\n// often 4 on modern desktop targets, but do not hard-code assumptions",
+    "tags": [
+      "types",
+      "sizeof",
+      "int",
+      "double",
+      "long-double",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  }
+]

@@ -1,0 +1,638 @@
+[
+  {
+    "id": "cpp-0076",
+    "prompt": "C++20: What does a `requires` clause primarily express?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runtime checks",
+        "isCorrect": false,
+        "explanation": "No, compile-time constraints."
+      },
+      {
+        "id": "B",
+        "text": "Compile-time constraints on template arguments",
+        "isCorrect": true,
+        "explanation": "Correct. Compile-time constraints on template arguments is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Linker constraints",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Exception guarantees",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "ABI requirements",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Compile-time constraints on template arguments is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "templates",
+      "concepts",
+      "c++20"
+    ],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0077",
+    "prompt": "What is a variadic template?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A template with a variable number of template parameters",
+        "isCorrect": true,
+        "explanation": "Correct. A template with a variable number of template parameters is the right statement for this question."
+      },
+      {
+        "id": "B",
+        "text": "A template that only works with `std::variant`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "C",
+        "text": "A template that takes any runtime arguments",
+        "isCorrect": false,
+        "explanation": "Not exactly."
+      },
+      {
+        "id": "D",
+        "text": "A template that must be specialized",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A template that disables instantiation",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: A template with a variable number of template parameters is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "templates",
+      "variadic"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0078",
+    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It defines a type alias",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It tells the compiler that a dependent name refers to a type",
+        "isCorrect": true,
+        "explanation": "Correct. It tells the compiler that a dependent name refers to a type is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "It makes value_type constexpr",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It instantiates T",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It is optional in templates",
+        "isCorrect": false,
+        "explanation": "Not always."
+      }
+    ],
+    "explanation": "Key idea: It tells the compiler that a dependent name refers to a type is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "templates",
+      "dependent-names"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0079",
+    "prompt": "C++17: What does `if constexpr` enable?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runtime branching only",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Compile-time branching that discards non-taken branches from instantiation",
+        "isCorrect": true,
+        "explanation": "Correct. Compile-time branching that discards non-taken branches from instantiation is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Faster exceptions",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Dynamic polymorphism",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Macro expansion",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Compile-time branching that discards non-taken branches from instantiation is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0080",
+    "prompt": "What is CTAD (Class Template Argument Deduction)?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Automatic deducing of function return types",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Deducing class template parameters from constructor arguments",
+        "isCorrect": true,
+        "explanation": "Correct. Deducing class template parameters from constructor arguments is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Deducing overload sets at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A new container type",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A replacement for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Deducing class template parameters from constructor arguments is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "templates",
+      "ctad",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0081",
+    "prompt": "C++20: A concept is best described as:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A runtime interface",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "A named compile-time predicate over template arguments",
+        "isCorrect": true,
+        "explanation": "Correct. A named compile-time predicate over template arguments is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "A macro",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "A base class",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "A linker script",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: A named compile-time predicate over template arguments is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "concepts",
+      "c++20"
+    ],
+    "difficulty": "easy",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0082",
+    "prompt": "Which is true about function templates and overload resolution?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Non-template overloads are always preferred, all else equal",
+        "isCorrect": true,
+        "explanation": "Correct. Non-template overloads are always preferred, all else equal is the right statement for this question."
+      },
+      {
+        "id": "B",
+        "text": "Templates are always preferred",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "C",
+        "text": "Templates are chosen at runtime",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Partial ordering doesn't exist",
+        "isCorrect": false,
+        "explanation": "It does."
+      },
+      {
+        "id": "E",
+        "text": "ADL is disabled for templates",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Non-template overloads are always preferred, all else equal is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "templates",
+      "overload-resolution"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0204",
+    "prompt": "In C++17, what does `if constexpr` do in templates?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Chooses a branch at runtime",
+        "isCorrect": false,
+        "explanation": "`if constexpr` is compile-time selection."
+      },
+      {
+        "id": "B",
+        "text": "Discards the non-selected branch during compilation",
+        "isCorrect": true,
+        "explanation": "Correct. Discards the non-selected branch during compilation is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Works only with non-template functions",
+        "isCorrect": false,
+        "explanation": "It is especially useful in templates."
+      },
+      {
+        "id": "D",
+        "text": "Requires concepts support",
+        "isCorrect": false,
+        "explanation": "`if constexpr` is C++17 and does not require C++20 concepts."
+      },
+      {
+        "id": "E",
+        "text": "Replaces all uses of SFINAE",
+        "isCorrect": false,
+        "explanation": "It reduces many SFINAE needs but does not replace all patterns."
+      }
+    ],
+    "explanation": "Key idea: Discards the non-selected branch during compilation is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "metaprogramming",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0215",
+    "prompt": "What is printed in C++17?\n\n```cpp\n#include <iostream>\n#include <type_traits>\ntemplate <typename T>\nvoid show(T x) {\n  if constexpr (std::is_integral_v<T>)\n    std::cout << x + 1;\n  else\n    std::cout << x;\n}\nint main() {\n  show(41);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "41",
+        "isCorrect": false,
+        "explanation": "Integral branch adds 1."
+      },
+      {
+        "id": "B",
+        "text": "42",
+        "isCorrect": true,
+        "explanation": "Correct. `T=int`, so the integral branch is compiled and prints `41+1`."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Code is valid C++17."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB here."
+      },
+      {
+        "id": "E",
+        "text": "No output",
+        "isCorrect": false,
+        "explanation": "`show(41)` prints one value."
+      }
+    ],
+    "explanation": "`if constexpr` performs compile-time branch selection and discards the non-selected branch for that instantiation.\nExample:\nshow(41);   // integral branch\nshow(3.14); // non-integral branch",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "metaprogramming",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0216",
+    "prompt": "What does this evaluate to?\n\n```cpp\n#include <type_traits>\ntemplate<typename T>\nconstexpr bool is_ptr_v = std::is_pointer<T>::value;\n\nint main() {\n  static_assert(is_ptr_v<int*>);\n  static_assert(!is_ptr_v<int>);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Compiles successfully",
+        "isCorrect": true,
+        "explanation": "Correct. `int*` is a pointer and `int` is not, so both assertions pass."
+      },
+      {
+        "id": "B",
+        "text": "Fails first static_assert",
+        "isCorrect": false,
+        "explanation": "First assertion is true."
+      },
+      {
+        "id": "C",
+        "text": "Fails second static_assert",
+        "isCorrect": false,
+        "explanation": "Second assertion is also true because `!is_ptr_v<int>` is true."
+      },
+      {
+        "id": "D",
+        "text": "Runtime exception",
+        "isCorrect": false,
+        "explanation": "`static_assert` is compile-time only."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No runtime behavior is required."
+      }
+    ],
+    "explanation": "Type traits let you express type properties at compile time.\nExample:\nstatic_assert(std::is_integral_v<long long>);\nstatic_assert(!std::is_integral_v<double>);",
+    "tags": [
+      "templates",
+      "type-traits",
+      "compile-time",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0229",
+    "prompt": "What does a basic lambda expression look like in C++?\n\n```cpp\n[capture](params) -> return_type { body }\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`lambda(capture){ body }`",
+        "isCorrect": false,
+        "explanation": "This is not valid C++ lambda syntax."
+      },
+      {
+        "id": "B",
+        "text": "`[capture](params) -> return_type { body }`",
+        "isCorrect": true,
+        "explanation": "Correct. A lambda has a capture list, parameter list, optional return type, and body."
+      },
+      {
+        "id": "C",
+        "text": "`function[capture](params){ body }`",
+        "isCorrect": false,
+        "explanation": "No `function` keyword is required for lambdas."
+      },
+      {
+        "id": "D",
+        "text": "`(params) => { body }`",
+        "isCorrect": false,
+        "explanation": "That is JavaScript-style arrow syntax, not C++."
+      },
+      {
+        "id": "E",
+        "text": "`[params]{ capture body }`",
+        "isCorrect": false,
+        "explanation": "Capture and parameter positions are mixed up."
+      }
+    ],
+    "explanation": "A lambda is an unnamed function object.\nExample:\nauto add = [](int x, int y) { return x + y; };\nstd::cout << add(2, 3); // 5",
+    "tags": [
+      "templates",
+      "lambda",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0230",
+    "prompt": "Which part makes a lambda a lambda in C++?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "The `auto` keyword before the variable",
+        "isCorrect": false,
+        "explanation": "`auto` helps type deduction for the closure object, but it does not define lambda syntax."
+      },
+      {
+        "id": "B",
+        "text": "The capture list in square brackets (e.g., `[]`)",
+        "isCorrect": true,
+        "explanation": "Correct. The square-bracket capture introducer is the distinctive lambda syntax."
+      },
+      {
+        "id": "C",
+        "text": "The trailing return type only",
+        "isCorrect": false,
+        "explanation": "Trailing return type is optional and not lambda-specific."
+      },
+      {
+        "id": "D",
+        "text": "Using `std::function`",
+        "isCorrect": false,
+        "explanation": "`std::function` can store callables, but does not create a lambda."
+      },
+      {
+        "id": "E",
+        "text": "Placing code inside `{}` braces",
+        "isCorrect": false,
+        "explanation": "Many constructs use braces; that alone is not a lambda."
+      }
+    ],
+    "explanation": "The lambda introducer is `[...]`. It begins a lambda expression and defines capture behavior.\nExample:\nint k = 10;\nauto byVal = [k]() { return k; };\nauto byRef = [&k]() { return ++k; };",
+    "tags": [
+      "templates",
+      "lambda",
+      "captures",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0231",
+    "prompt": "In a lambda, which components can be omitted in many common cases?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only the body can be omitted",
+        "isCorrect": false,
+        "explanation": "The body is required."
+      },
+      {
+        "id": "B",
+        "text": "Capture list, parameter list, and trailing return type can be omitted in specific cases",
+        "isCorrect": true,
+        "explanation": "Correct. You may write `[] { ... }` with empty captures/params and no explicit return type."
+      },
+      {
+        "id": "C",
+        "text": "The capture list must always include at least one variable",
+        "isCorrect": false,
+        "explanation": "An empty capture list `[]` is common."
+      },
+      {
+        "id": "D",
+        "text": "The parameter list must always be present",
+        "isCorrect": false,
+        "explanation": "No-parameter lambdas can omit `()` in many contexts."
+      },
+      {
+        "id": "E",
+        "text": "The return type must always be explicit",
+        "isCorrect": false,
+        "explanation": "Return type is often deduced."
+      }
+    ],
+    "explanation": "Minimal lambda forms are common for callbacks/predicates.\nExample:\nauto ping = [] { std::cout << \"hi\"; };\nauto isEven = [](int n) { return n % 2 == 0; };",
+    "tags": [
+      "templates",
+      "lambda",
+      "syntax",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0252",
+    "prompt": "What are the main parts that make up this lambda?\n\n```cpp\nauto fn = [x, &y](int n) mutable noexcept -> int {\n  return x + y + n;\n};\n```\n\nIdentify the correct mapping:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`[x, &y]` capture list, `(int n)` parameter list, `mutable noexcept` specifiers, `-> int` trailing return type, `{ ... }` body",
+        "isCorrect": true,
+        "explanation": "Correct. This names each key lambda component accurately."
+      },
+      {
+        "id": "B",
+        "text": "`[x, &y]` parameter list, `(int n)` capture list, `-> int` function name",
+        "isCorrect": false,
+        "explanation": "Capture and parameter list are swapped, and lambdas have no explicit function name here."
+      },
+      {
+        "id": "C",
+        "text": "`mutable` means capture-by-reference for all variables",
+        "isCorrect": false,
+        "explanation": "`mutable` allows modifying by-value captures inside the lambda call operator."
+      },
+      {
+        "id": "D",
+        "text": "`noexcept` specifies that return type is exception type",
+        "isCorrect": false,
+        "explanation": "`noexcept` is an exception specification, not a return type."
+      },
+      {
+        "id": "E",
+        "text": "`{ ... }` is optional in lambda syntax",
+        "isCorrect": false,
+        "explanation": "Lambda body is required."
+      }
+    ],
+    "explanation": "Lambda anatomy (from left to right):\n- `[x, &y]` capture list\n- `(int n)` parameter list\n- `mutable noexcept` lambda specifiers\n- `-> int` trailing return type\n- `{ return x + y + n; }` function body\nExample:\nauto inc = [start = 0](int step) mutable -> int {\n  start += step;\n  return start;\n};",
+    "tags": [
+      "templates",
+      "lambda",
+      "syntax",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  }
+]

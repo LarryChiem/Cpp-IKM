@@ -32,6 +32,7 @@ h1{font-size:22px;margin:0}
 .quiz{display:flex;flex-direction:column;gap:12px}
 .qmeta{display:flex;gap:8px;flex-wrap:wrap}
 .prompt{white-space:pre-wrap;background:#f9fafb;border:1px solid #eee;border-radius:12px;padding:12px;margin:0}
+.promptText pre{margin:8px 0 !important}
 .opts{display:flex;flex-direction:column;gap:8px}
 .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:12px;border-radius:12px;border:1px solid #e5e7eb;background:#fff}
 .opt .letter{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:9px;border:1px solid #e5e7eb;background:#f9fafb;font-weight:700}
@@ -43,6 +44,8 @@ h1{font-size:22px;margin:0}
 .explain{margin-top:6px;border-top:1px solid #eee;padding-top:12px}
 .exRow{padding:10px 0;border-top:1px dashed #eee}
 .exRow:first-child{border-top:0}
+.explainText{margin-top:4px}
+.explainText pre{margin:8px 0 0 !important}
 .good{color:#166534}
 .bad{color:#991b1b}
 .done{display:flex;flex-direction:column;gap:10px}

@@ -4,7 +4,7 @@ import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 
 const TOTAL_QUESTIONS = 54
-const TIME_LIMIT_SECONDS = 135 * 60
+const SECONDS_PER_QUESTION = 60
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const DONATE = {
   paypal: "https://www.paypal.me/larrychiem",
@@ -115,6 +115,35 @@ async function loadQuestionsFromBanks() {
   return (Array.isArray(legacy) ? legacy : []).map(normalizeQuestionShape);
 }
 
+function inferTopicFromTags(tags, prompt = "") {
+  const lowerTags = Array.isArray(tags) ? tags.map((t) => String(t).toLowerCase()) : [];
+  const text = String(prompt || "").toLowerCase();
+  const hasAny = (vals) => vals.some((v) => lowerTags.includes(v));
+
+  if (hasAny(["concurrency", "mutex", "thread", "atomic", "future", "async", "jthread"]) || /mutex|thread|atomic|future|async/.test(text)) {
+    return "Concurrency";
+  }
+  if (hasAny(["exceptions", "error-handling", "noexcept", "terminate"]) || /exception|throw|catch|noexcept|terminate/.test(text)) {
+    return "Exceptions";
+  }
+  if (hasAny(["templates", "metaprogramming", "type-traits", "if-constexpr", "concepts"]) || /template|if constexpr|type_trait|concept|requires/.test(text)) {
+    return "Templates";
+  }
+  if (hasAny(["stl", "algorithms", "vector", "map", "set", "ranges", "iterator", "span"]) || /std::vector|std::map|std::set|std::ranges|std::span|std::unique/.test(text)) {
+    return "STL";
+  }
+  if (hasAny(["oop", "inheritance", "polymorphism", "virtual-destructor", "override"]) || /virtual|override|base|derived|class/.test(text)) {
+    return "OOP";
+  }
+  if (hasAny(["memory", "raii", "smart-pointers", "unique_ptr", "shared_ptr", "ownership"]) || /unique_ptr|shared_ptr|new |delete|raii/.test(text)) {
+    return "Memory/RAII";
+  }
+  if (hasAny(["utilities", "optional", "variant", "any", "string_view", "filesystem", "best-practices"]) || /optional|variant|any|string_view|filesystem/.test(text)) {
+    return "Utilities";
+  }
+  return "Types/Basics";
+}
+
 function normalizeQuestionShape(q) {
   const rawOptions = Array.isArray(q?.options) ? q.options : [];
   const normalizedOptions = rawOptions.map((opt, i) => {
@@ -153,6 +182,10 @@ function normalizeQuestionShape(q) {
 
   return {
     ...q,
+    topic:
+      typeof q?.topic === "string" && q.topic.trim()
+        ? q.topic.trim()
+        : inferTopicFromTags(q?.tags, q?.prompt),
     options: normalizedOptions,
     correct,
     explanations,
@@ -170,26 +203,147 @@ function assertUniqueQuestionIds(questions) {
 
 
 export function PromptText({ text }) {
-  if (looksLikeCode(text)) {
-    return (
-      <SyntaxHighlighter
-        language="cpp"
-        style={oneLight}
-        customStyle={{
-          margin: 0,
-          borderRadius: 12,
-          padding: 16,
-          fontSize: 14,
-          lineHeight: 1.5,
-        }}
-      >
-        {text}
-      </SyntaxHighlighter>
-    );
+  const value = String(text ?? "");
+  const parts = [];
+  const fenceRe = /```([a-zA-Z0-9_+-]*)\n([\s\S]*?)```/g;
+  let last = 0;
+  let match;
+
+  while ((match = fenceRe.exec(value)) !== null) {
+    const full = match[0];
+    const lang = match[1]?.trim() || detectCodeLanguage(match[2]);
+    const code = match[2] ?? "";
+    const start = match.index;
+    if (start > last) parts.push({ type: "text", value: value.slice(last, start) });
+    parts.push({ type: "code", value: code, lang });
+    last = start + full.length;
+  }
+  if (last < value.length) parts.push({ type: "text", value: value.slice(last) });
+
+  if (!parts.length) {
+    if (looksLikeCode(value)) {
+      return (
+        <SyntaxHighlighter
+          language={detectCodeLanguage(value)}
+          style={oneLight}
+          customStyle={{
+            margin: 0,
+            borderRadius: 12,
+            padding: 16,
+            fontSize: 14,
+            lineHeight: 1.5,
+          }}
+        >
+          {value}
+        </SyntaxHighlighter>
+      );
+    }
+    return <div style={{ whiteSpace: "pre-wrap" }}>{value}</div>;
   }
 
-  // normal paragraph text (keeps your newlines)
-  return <div style={{ whiteSpace: "pre-wrap" }}>{text}</div>;
+  return (
+    <div className="promptText">
+      {parts.map((p, i) =>
+        p.type === "code" ? (
+          <SyntaxHighlighter
+            key={i}
+            language={p.lang}
+            style={oneLight}
+            customStyle={{
+              margin: "8px 0",
+              borderRadius: 12,
+              padding: 16,
+              fontSize: 14,
+              lineHeight: 1.5,
+            }}
+          >
+            {p.value}
+          </SyntaxHighlighter>
+        ) : (
+          <div key={i} style={{ whiteSpace: "pre-wrap" }}>
+            {p.value}
+          </div>
+        )
+      )}
+    </div>
+  );
+}
+
+function ExplanationText({ text }) {
+  const value = String(text ?? "");
+  const parts = [];
+  const fenceRe = /```([a-zA-Z0-9_+-]*)\n([\s\S]*?)```/g;
+  let last = 0;
+  let match;
+
+  while ((match = fenceRe.exec(value)) !== null) {
+    const full = match[0];
+    const lang = match[1]?.trim() || detectCodeLanguage(match[2]);
+    const code = match[2] ?? "";
+    const start = match.index;
+    if (start > last) {
+      parts.push({ type: "text", value: value.slice(last, start) });
+    }
+    parts.push({ type: "code", value: code, lang });
+    last = start + full.length;
+  }
+  if (last < value.length) {
+    parts.push({ type: "text", value: value.slice(last) });
+  }
+
+  // Common bank format: "Example:\n<code lines>" without fenced blocks.
+  if (!parts.some((p) => p.type === "code")) {
+    const m = value.match(/^([\s\S]*?\bExample:\s*\n)([\s\S]+)$/i);
+    if (m) {
+      const head = m[1];
+      const code = m[2];
+      return (
+        <div className="explainText">
+          {head.trim() ? <div style={{ whiteSpace: "pre-wrap" }}>{head}</div> : null}
+          <SyntaxHighlighter
+            language={detectCodeLanguage(code)}
+            style={oneLight}
+            customStyle={{
+              margin: "8px 0 0",
+              borderRadius: 10,
+              padding: 12,
+              fontSize: 13,
+              lineHeight: 1.5,
+            }}
+          >
+            {code}
+          </SyntaxHighlighter>
+        </div>
+      );
+    }
+  }
+
+  return (
+    <div className="explainText">
+      {parts.map((p, i) =>
+        p.type === "code" ? (
+          <SyntaxHighlighter
+            key={i}
+            language={p.lang}
+            style={oneLight}
+            customStyle={{
+              margin: "8px 0",
+              borderRadius: 10,
+              padding: 12,
+              fontSize: 13,
+              lineHeight: 1.5,
+            }}
+          >
+            {p.value}
+          </SyntaxHighlighter>
+        ) : (
+          <div key={i} style={{ whiteSpace: "pre-wrap" }}>
+            {p.value}
+          </div>
+        )
+      )}
+    </div>
+  );
 }
 
 function loadQueue() {
@@ -432,7 +586,8 @@ export default function App() {
   const [correctCount, setCorrectCount] = useState(0)
   const [attempted, setAttempted] = useState(0)
   const [startTs, setStartTs] = useState(null)
-  const [timeLeft, setTimeLeft] = useState(TIME_LIMIT_SECONDS)
+  const [timeLimitSeconds, setTimeLimitSeconds] = useState(TOTAL_QUESTIONS * SECONDS_PER_QUESTION)
+  const [timeLeft, setTimeLeft] = useState(TOTAL_QUESTIONS * SECONDS_PER_QUESTION)
   const [history, setHistory] = useState(loadHistory())
   const [seenTick, setSeenTick] = useState(0)
   const [seenStats, setSeenStats] = useState({ seen: 0, unseen: 0, total: 0 })
@@ -477,6 +632,7 @@ function startExam(opts = { fresh: true }) {
 
   const pool = poolForSelection
   const { exam } = buildExam(pool, questionCount)
+  const dynamicLimit = Math.max(1, exam.length) * SECONDS_PER_QUESTION
   setExam(exam)
   setIdx(0)
   setSelected(new Set())
@@ -486,7 +642,8 @@ function startExam(opts = { fresh: true }) {
 
   const now = Date.now()
   setStartTs(now)
-  setTimeLeft(TIME_LIMIT_SECONDS)
+  setTimeLimitSeconds(dynamicLimit)
+  setTimeLeft(dynamicLimit)
 }
 
 
@@ -503,7 +660,11 @@ function resumeExam() {
   setCorrectCount(snap.correctCount ?? 0)
   setAttempted(snap.attempted ?? 0)
   setStartTs(snap.startTs ?? Date.now())
-  setTimeLeft(typeof snap.timeLeft === "number" ? snap.timeLeft : TIME_LIMIT_SECONDS)
+  const resumedLimit = typeof snap.timeLimitSeconds === "number"
+    ? snap.timeLimitSeconds
+    : Math.max(1, (snap.exam?.length ?? snap.questionCount ?? TOTAL_QUESTIONS)) * SECONDS_PER_QUESTION
+  setTimeLimitSeconds(resumedLimit)
+  setTimeLeft(typeof snap.timeLeft === "number" ? snap.timeLeft : resumedLimit)
   setQuestionCount(snap.questionCount ?? TOTAL_QUESTIONS)
   setSelectedTopics(snap.selectedTopics ?? [])
 }
@@ -518,7 +679,9 @@ function abandonExam() {
   setLocked(false)
   setCorrectCount(0)
   setAttempted(0)
-  setTimeLeft(TIME_LIMIT_SECONDS)
+  const freshLimit = Math.max(1, Number(questionCount || TOTAL_QUESTIONS)) * SECONDS_PER_QUESTION
+  setTimeLimitSeconds(freshLimit)
+  setTimeLeft(freshLimit)
 }
 
 
@@ -527,10 +690,10 @@ function abandonExam() {
     if (timerRef.current) clearInterval(timerRef.current)
     timerRef.current = setInterval(() => {
       const elapsed = Math.floor((Date.now() - startTs) / 1000)
-      setTimeLeft(Math.max(0, TIME_LIMIT_SECONDS - elapsed))
+      setTimeLeft(Math.max(0, timeLimitSeconds - elapsed))
     }, 250)
     return () => timerRef.current && clearInterval(timerRef.current)
-  }, [startTs])
+  }, [startTs, timeLimitSeconds])
 
   useEffect(() => {
     if (startTs && timeLeft <= 0) setLocked(true)
@@ -549,11 +712,12 @@ useEffect(() => {
     correctCount,
     attempted,
     timeLeft,
+    timeLimitSeconds,
     questionCount,
     selectedTopics,
   }
   saveInProgress(state)
-}, [startTs, exam, idx, selected, locked, correctCount, attempted, timeLeft, questionCount, selectedTopics])
+}, [startTs, exam, idx, selected, locked, correctCount, attempted, timeLeft, timeLimitSeconds, questionCount, selectedTopics])
 
 // If time expires, keep the last saved state (so they can still view results)
 
@@ -644,7 +808,9 @@ const q = exam[idx]
     setIdx(0)
     setSelected(new Set())
     setLocked(false)
-    setTimeLeft(TIME_LIMIT_SECONDS)
+    const freshLimit = Math.max(1, Number(questionCount || TOTAL_QUESTIONS)) * SECONDS_PER_QUESTION
+    setTimeLimitSeconds(freshLimit)
+    setTimeLeft(freshLimit)
   }
 
   function exportCsv() {
@@ -670,7 +836,7 @@ const q = exam[idx]
       <header className="top">
         <div>
           <h1>C++ 17/20 Practice Exam</h1>
-          <p className="sub">54 questions • 135 min • mobile-friendly</p>
+          <p className="sub">{bank.length} questions loaded • 60s/question • mobile-friendly</p>
         </div>
         <div className="pillRow">
           <span className="pill">Bank: {bank.length} q</span>
@@ -805,9 +971,9 @@ const q = exam[idx]
               <span className="pill">Score: {correctCount}/{attempted}</span>
             </div>
 
-            <pre className="prompt">
+            <div className="prompt">
                 <PromptText text={q.prompt} />
-            </pre>
+            </div>
 
             <div className="opts">
               {q.options.map((opt, oi) => {
@@ -845,6 +1011,16 @@ const q = exam[idx]
                   Next
                 </button>
               )}
+              <button
+                className="btn ghost"
+                onClick={() => {
+                  if (window.confirm("Quit this session? Unsaved progress for this attempt will be discarded.")) {
+                    abandonExam()
+                  }
+                }}
+              >
+                Quit
+              </button>
             </div>
 
             {locked && (
@@ -858,8 +1034,9 @@ const q = exam[idx]
                     <div key={oi} className="exRow">
                       <div className="mono"><b>{LETTERS[oi]}.</b> {optText}</div>
                       <div className={isC ? 'good' : 'bad'}>
-                        <b>{isC ? 'CORRECT' : 'WRONG'}:</b> {why}
+                        <b>{isC ? 'CORRECT' : 'WRONG'}:</b>
                       </div>
+                      <ExplanationText text={why} />
                     </div>
                   )
                 })}

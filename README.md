@@ -1,17 +1,14 @@
-# Python3 IKM Practice Exam
+# C++ IKM Practice Exam
 
-A mobile-friendly Python 3 practice exam inspired by IKM-style assessments.
+A mobile-friendly C++ practice exam inspired by IKM-style assessments.
 
-This project lets anyone practice Python fundamentals in a timed exam format, with immediate explanations for every answer and local progress tracking.
-
-Live site:  
-https://larrychiem.github.io/Python3_IKM/
+This project lets anyone practice C++ fundamentals in a timed exam format, with immediate explanations for every answer and local progress tracking.
 
 ---
 
 ## Features
 
-- 54 unique Python 3 questions
+- 200+ unique C++17/C++20 questions
 - 135-minute timed exam mode
 - Single-select and multi-select questions
 - Immediate explanations for why each option is right or wrong
@@ -24,14 +21,12 @@ https://larrychiem.github.io/Python3_IKM/
 ---
 
 ## Project Structure
-```
-Python3_IKM/
-│
-├── ikm_python_practice.py # Original CLI-based Python exam engine
+```text
+Cpp-IKM/
 │
 ├── web/ # Web version (React + Vite)
 │ ├── public/
-│ │ └── questions.json # Question bank (exported from Python)
+│ │ └── question_banks/ # Topic-based C++ question banks
 │ ├── src/
 │ │ ├── App.jsx # Main quiz logic and UI
 │ │ ├── main.jsx # React entry point
@@ -50,9 +45,9 @@ Python3_IKM/
 
 ## How It Works (High Level)
 
-1. Questions are authored in Python as structured objects.
-2. The question bank is exported to JSON.
-3. A React web app loads the JSON and runs the exam in the browser.
+1. Questions are authored in JSON question-bank files grouped by C++ topics.
+2. A manifest file tracks available banks.
+3. A React web app loads the banks and runs the exam in the browser.
 4. GitHub Pages serves the built static site from the `gh-pages` branch.
 
 No backend, no database, no login required.
@@ -61,7 +56,6 @@ No backend, no database, no login required.
 
 ## Tech Stack
 
-- Python 3 (question authoring, CLI engine)
 - React 18
 - Vite
 - GitHub Pages

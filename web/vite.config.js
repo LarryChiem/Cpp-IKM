@@ -13,9 +13,9 @@ export default defineConfig({
         mode: 'development'
       },
       manifest: {
-        name: 'C++ Practice Exam',
-        short_name: 'Python Practice',
-        description: '54-question C++ Practice Exam with timer and explanations.',
+        name: 'C++ Quiz',
+        short_name: 'C++ Quiz',
+        description: 'C++ Practice Quiz with timer and explanations.',
         theme_color: '#111111',
         background_color: '#f6f7f9',
         display: 'standalone',

@@ -1,12 +1,11 @@
 # Setup and Deployment Guide
 
-This document explains how the Python3 IKM Practice Exam was built and deployed from scratch.
+This document explains how the C++ IKM Practice Exam is built and deployed.
 
 ---
 
 ## Prerequisites
 
-- Python 3.9+
 - Node.js (LTS recommended)
 - npm
 - Git
@@ -14,38 +13,23 @@ This document explains how the Python3 IKM Practice Exam was built and deployed 
 
 ---
 
-## Step 1: Python Question Engine
+## Step 1: Prepare the C++ Question Banks
 
-The project began as a CLI-based Python exam engine.
+The project uses JSON-based C++ question banks grouped by topic.
 
-Key features:
-- Timed exam
-- 54-question limit
-- Single and multi-select questions
-- Detailed explanations for each option
+Current structure:
+- `web/public/question_banks/*.json` for questions
+- `web/public/question_banks/index.json` for the bank manifest
 
-The questions are defined as Python dataclasses and stored in a `bank()` function.
-
----
-
-## Step 2: Export Questions to JSON
-
-To reuse the question bank on the web:
-
-- The Python question objects are converted to JSON
-- Each question includes:
-  - topic
-  - prompt
-  - options
-  - correct indices
-  - explanations
-
-This produces:
-
-`web/public/questions.json`
-
-
-This file is the single source of truth for the web app.
+Each question entry includes:
+- `id`
+- `prompt`
+- `type`
+- `options`
+- `explanation`
+- `tags`
+- `difficulty`
+- `standard`
 
 ---
 
@@ -90,7 +74,7 @@ This creates a dist/ folder containing static files:
 
 - assets/
 
-- questions.json
+- question bank JSON files
 
 ## Step 5: Deploy to GitHub Pages
 
@@ -203,7 +187,9 @@ npm run deploy
 
 Maintenance Notes
 
-- To update questions: regenerate questions.json and redeploy
+- To update questions: edit `web/public/question_banks/*.json` and redeploy
+- If banks are added/removed, regenerate `web/public/question_banks/index.json`:
+  - `cd web && node scripts/generate-questions-manifest.mjs`
 
 - To reset progress: clear browser localStorage
 

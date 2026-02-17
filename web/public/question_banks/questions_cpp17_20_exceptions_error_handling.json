@@ -1,0 +1,405 @@
+[
+  {
+    "id": "cpp-0126",
+    "prompt": "What happens if an exception is thrown from a destructor during stack unwinding?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is ignored",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::terminate` is called",
+        "isCorrect": true,
+        "explanation": "Correct. `std::terminate` is called is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "It is converted to `std::exception`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It is caught automatically",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Program continues safely",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Throwing from a destructor during stack unwinding triggers `std::terminate`, because a second active exception cannot safely propagate at the same time.\nExample:\nstruct X {\n  ~X() noexcept(false) { throw std::runtime_error(\"boom\"); }\n};\ntry {\n  X x;\n  throw std::runtime_error(\"outer\");\n} catch (...) {\n  // terminate occurs before this handler can finish\n}",
+    "tags": [
+      "exceptions",
+      "destructors",
+      "pitfalls"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0127",
+    "prompt": "What does `noexcept` on a function express?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "The function never throws in practice",
+        "isCorrect": false,
+        "explanation": "It's a promise; violating calls terminate."
+      },
+      {
+        "id": "B",
+        "text": "The function is declared not to throw; if it does, `std::terminate` occurs",
+        "isCorrect": true,
+        "explanation": "Correct. The function is declared not to throw; if it does, `std::terminate` occurs is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "The function is faster by definition",
+        "isCorrect": false,
+        "explanation": "Not guaranteed."
+      },
+      {
+        "id": "D",
+        "text": "The function cannot allocate memory",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "The function is inline",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: The function is declared not to throw; if it does, `std::terminate` occurs is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "exceptions",
+      "noexcept"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0128",
+    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::bad_alloc`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "`std::out_of_range`",
+        "isCorrect": true,
+        "explanation": "Correct. `std::out_of_range` is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "`std::runtime_error`",
+        "isCorrect": false,
+        "explanation": "Too general."
+      },
+      {
+        "id": "D",
+        "text": "`std::logic_error`",
+        "isCorrect": false,
+        "explanation": "Base class."
+      },
+      {
+        "id": "E",
+        "text": "No exception; UB",
+        "isCorrect": false,
+        "explanation": "at() throws."
+      }
+    ],
+    "explanation": "Key idea: `std::out_of_range` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "exceptions",
+      "stl"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0129",
+    "prompt": "Best practice: exceptions should generally be used for:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Normal control flow for performance",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Exceptional/error conditions",
+        "isCorrect": true,
+        "explanation": "Correct. Exceptional/error conditions is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Replacing return values always",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "All branching",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Thread synchronization",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Exceptional/error conditions is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "best-practices",
+      "exceptions"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0130",
+    "prompt": "What is exception safety 'strong guarantee'?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "No leaks only",
+        "isCorrect": false,
+        "explanation": "That's basic."
+      },
+      {
+        "id": "B",
+        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
+        "isCorrect": true,
+        "explanation": "Correct. Operation is either completed successfully or has no observable effect (commit/rollback) is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Never throws",
+        "isCorrect": false,
+        "explanation": "No-throw guarantee."
+      },
+      {
+        "id": "D",
+        "text": "Always throws",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Only works with POD types",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Operation is either completed successfully or has no observable effect (commit/rollback) is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "exceptions",
+      "exception-safety"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0131",
+    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::expected`",
+        "isCorrect": false,
+        "explanation": "C++23."
+      },
+      {
+        "id": "B",
+        "text": "`std::optional`",
+        "isCorrect": false,
+        "explanation": "No error payload."
+      },
+      {
+        "id": "C",
+        "text": "`std::variant`",
+        "isCorrect": false,
+        "explanation": "Can encode, but not dedicated."
+      },
+      {
+        "id": "D",
+        "text": "`std::error_code` with return conventions",
+        "isCorrect": true,
+        "explanation": "Correct idea: use error_code / error_condition patterns."
+      },
+      {
+        "id": "E",
+        "text": "`std::any`",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: `std::error_code` with return conventions is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "error-handling",
+      "utilities"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0206",
+    "prompt": "What happens if an exception leaves a function declared `noexcept`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is silently ignored",
+        "isCorrect": false,
+        "explanation": "The runtime does not ignore it."
+      },
+      {
+        "id": "B",
+        "text": "The exception is converted to `std::error_code`",
+        "isCorrect": false,
+        "explanation": "No automatic conversion occurs."
+      },
+      {
+        "id": "C",
+        "text": "`std::terminate` is called",
+        "isCorrect": true,
+        "explanation": "Correct. `std::terminate` is called is the right statement for this question."
+      },
+      {
+        "id": "D",
+        "text": "It becomes undefined behavior",
+        "isCorrect": false,
+        "explanation": "Behavior is specified: program terminates."
+      },
+      {
+        "id": "E",
+        "text": "The compiler retries the function",
+        "isCorrect": false,
+        "explanation": "No retry mechanism exists."
+      }
+    ],
+    "explanation": "A `noexcept` function promises no exception escapes. If one does, the runtime immediately calls `std::terminate`.\nExample:\nvoid work() noexcept {\n  throw std::logic_error(\"unexpected\");\n}\n// work() terminates the program if exception escapes",
+    "tags": [
+      "exceptions",
+      "noexcept",
+      "error-handling",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0219",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\n#include <stdexcept>\nint main() {\n  try {\n    throw std::runtime_error(\"bad\");\n  } catch (const std::exception& e) {\n    std::cout << \"caught\";\n  }\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "caught",
+        "isCorrect": true,
+        "explanation": "Correct. `runtime_error` derives from `std::exception`, so the catch block handles it."
+      },
+      {
+        "id": "B",
+        "text": "bad",
+        "isCorrect": false,
+        "explanation": "The code prints the literal `caught`, not `e.what()`."
+      },
+      {
+        "id": "C",
+        "text": "Nothing",
+        "isCorrect": false,
+        "explanation": "The catch block executes and prints text."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Code is valid."
+      },
+      {
+        "id": "E",
+        "text": "Program terminates",
+        "isCorrect": false,
+        "explanation": "Exception is handled, so termination is not triggered."
+      }
+    ],
+    "explanation": "Catch by reference to base exception type when you want to handle a family of standard exceptions.\nExample:\ncatch (const std::exception& e) {\n  std::cerr << e.what();\n}",
+    "tags": [
+      "exceptions",
+      "try-catch",
+      "runtime_error",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0220",
+    "prompt": "What happens?\n\n```cpp\n#include <stdexcept>\nvoid f() noexcept {\n  throw std::runtime_error(\"x\");\n}\nint main() { f(); }\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Exception propagates to caller normally",
+        "isCorrect": false,
+        "explanation": "Throwing out of `noexcept` violates the function contract."
+      },
+      {
+        "id": "B",
+        "text": "Calls `std::terminate`",
+        "isCorrect": true,
+        "explanation": "Correct. If an exception escapes a `noexcept` function, the program terminates."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "This is usually a runtime termination scenario, not a compile error."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "Behavior is defined: `std::terminate` is called."
+      },
+      {
+        "id": "E",
+        "text": "The exception is ignored",
+        "isCorrect": false,
+        "explanation": "It is not ignored."
+      }
+    ],
+    "explanation": "Use `noexcept` when you can guarantee no exception escapes. Otherwise avoid it or catch internally.\nExample:\nvoid g() noexcept {\n  try { /* ... */ } catch (...) { /* handle */ }\n}",
+    "tags": [
+      "exceptions",
+      "noexcept",
+      "terminate",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  }
+]

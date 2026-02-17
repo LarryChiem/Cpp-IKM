@@ -1,0 +1,454 @@
+[
+  {
+    "id": "cpp-0101",
+    "prompt": "What is the iterator category of `std::vector<T>::iterator`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Input iterator",
+        "isCorrect": false,
+        "explanation": "Too weak."
+      },
+      {
+        "id": "B",
+        "text": "Forward iterator",
+        "isCorrect": false,
+        "explanation": "Stronger."
+      },
+      {
+        "id": "C",
+        "text": "Random access iterator",
+        "isCorrect": true,
+        "explanation": "Correct. Random access iterator is the right statement for this question."
+      },
+      {
+        "id": "D",
+        "text": "Bidirectional iterator",
+        "isCorrect": false,
+        "explanation": "Also true but not most specific."
+      },
+      {
+        "id": "E",
+        "text": "Output iterator",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Random access iterator is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "stl",
+      "iterators",
+      "containers"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0102",
+    "prompt": "C++20: What is a key property of a view (`std::views::...`)?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It owns its elements",
+        "isCorrect": false,
+        "explanation": "Usually no."
+      },
+      {
+        "id": "B",
+        "text": "It is lazy and typically non-owning",
+        "isCorrect": true,
+        "explanation": "Correct. It is lazy and typically non-owning is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "It always allocates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It copies eagerly",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It requires contiguous storage",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: It is lazy and typically non-owning is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "ranges",
+      "views",
+      "c++20"
+    ],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0103",
+    "prompt": "Which algorithm requires a sorted range?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::sort`",
+        "isCorrect": false,
+        "explanation": "It sorts."
+      },
+      {
+        "id": "B",
+        "text": "`std::binary_search`",
+        "isCorrect": true,
+        "explanation": "Correct. `std::binary_search` is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "`std::for_each`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "`std::accumulate`",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "`std::copy`",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: `std::binary_search` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "stl",
+      "algorithms"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0104",
+    "prompt": "What is the complexity of `std::vector::push_back` (amortized)?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "O(n) always",
+        "isCorrect": false,
+        "explanation": "Not always."
+      },
+      {
+        "id": "B",
+        "text": "O(1) amortized",
+        "isCorrect": true,
+        "explanation": "Correct. O(1) amortized is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "O(log n)",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "O(1) worst-case",
+        "isCorrect": false,
+        "explanation": "Reallocation can make worst-case O(n)."
+      },
+      {
+        "id": "E",
+        "text": "Undefined",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: O(1) amortized is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "stl",
+      "vector",
+      "complexity"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0105",
+    "prompt": "C++20: What is a common pitfall in `return vec | std::views::filter(...)` when vec is a temporary?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It copies eagerly so safe",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "The view may dangle because it references destroyed storage",
+        "isCorrect": true,
+        "explanation": "Correct. The view may dangle because it references destroyed storage is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "It always throws",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It leaks memory",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It forces heap allocation",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: The view may dangle because it references destroyed storage is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "ranges",
+      "dangling",
+      "pitfalls"
+    ],
+    "difficulty": "hard",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0106",
+    "prompt": "C++20: `std::span<int>` constructed from `std::vector<int>& v` is invalidated when:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "v is modified (element values change)",
+        "isCorrect": false,
+        "explanation": "Span still points to same storage."
+      },
+      {
+        "id": "B",
+        "text": "v reallocates (capacity change)",
+        "isCorrect": true,
+        "explanation": "Correct. v reallocates (capacity change) is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "v is sorted",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "v is iterated",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Never",
+        "isCorrect": false,
+        "explanation": "It can be invalidated."
+      }
+    ],
+    "explanation": "Key idea: v reallocates (capacity change) is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "span",
+      "lifetime",
+      "c++20"
+    ],
+    "difficulty": "medium",
+    "standard": "C++20"
+  },
+  {
+    "id": "cpp-0107",
+    "prompt": "What does `std::move_iterator` do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Moves the iterator itself",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Turns dereference into an rvalue reference, enabling moves from elements",
+        "isCorrect": true,
+        "explanation": "Correct. Turns dereference into an rvalue reference, enabling moves from elements is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Guarantees no copies",
+        "isCorrect": false,
+        "explanation": "Not guaranteed."
+      },
+      {
+        "id": "D",
+        "text": "Makes container thread-safe",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Only works with vector",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Turns dereference into an rvalue reference, enabling moves from elements is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "stl",
+      "iterators",
+      "move"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0205",
+    "prompt": "Which algorithm is appropriate to remove consecutive duplicate elements from a sorted `std::vector<int>`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::remove` only",
+        "isCorrect": false,
+        "explanation": "`remove` removes by value, not adjacent duplicates generally."
+      },
+      {
+        "id": "B",
+        "text": "`std::unique` followed by `erase`",
+        "isCorrect": true,
+        "explanation": "Correct erase-remove style for adjacent duplicates."
+      },
+      {
+        "id": "C",
+        "text": "`std::stable_sort`",
+        "isCorrect": false,
+        "explanation": "Sorting is already done and does not erase elements by itself."
+      },
+      {
+        "id": "D",
+        "text": "`std::partition`",
+        "isCorrect": false,
+        "explanation": "Partition groups by predicate, not duplicate compaction."
+      },
+      {
+        "id": "E",
+        "text": "`std::merge`",
+        "isCorrect": false,
+        "explanation": "Merge combines sorted ranges, not deduplicate in place."
+      }
+    ],
+    "explanation": "Key idea: `std::unique` followed by `erase` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "stl",
+      "algorithms",
+      "vector",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0217",
+    "prompt": "What is printed?\n\n```cpp\n#include <algorithm>\n#include <iostream>\n#include <vector>\nint main() {\n  std::vector<int> v{1, 2, 2, 3, 3, 3};\n  auto it = std::unique(v.begin(), v.end());\n  v.erase(it, v.end());\n  std::cout << v.size();\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "6",
+        "isCorrect": false,
+        "explanation": "Duplicates are compacted then erased."
+      },
+      {
+        "id": "B",
+        "text": "3",
+        "isCorrect": true,
+        "explanation": "Correct. Adjacent duplicates are removed, leaving `{1,2,3}`."
+      },
+      {
+        "id": "C",
+        "text": "2",
+        "isCorrect": false,
+        "explanation": "Three unique values remain."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Valid algorithm usage."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB here."
+      }
+    ],
+    "explanation": "`std::unique` only reorders/compacts; you must erase the tail to actually remove elements.\nExample:\nauto it = std::unique(v.begin(), v.end());\nv.erase(it, v.end());",
+    "tags": [
+      "stl",
+      "algorithms",
+      "vector",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0218",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\n#include <map>\nint main() {\n  std::map<int, int> m{{2, 20}, {1, 10}, {3, 30}};\n  for (const auto& [k, v] : m) std::cout << k;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "213",
+        "isCorrect": false,
+        "explanation": "`std::map` iterates in key-sorted order, not insertion order."
+      },
+      {
+        "id": "B",
+        "text": "123",
+        "isCorrect": true,
+        "explanation": "Correct. `std::map` keeps keys sorted ascending by default."
+      },
+      {
+        "id": "C",
+        "text": "321",
+        "isCorrect": false,
+        "explanation": "Descending order would require a custom comparator."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Structured bindings are valid in C++17."
+      },
+      {
+        "id": "E",
+        "text": "No output",
+        "isCorrect": false,
+        "explanation": "Loop prints each key."
+      }
+    ],
+    "explanation": "`std::map` is an ordered associative container. Iteration order follows key order.\nExample:\nstd::map<int,char> m{{5,'a'},{1,'b'}};\n// iteration order: key 1 then key 5",
+    "tags": [
+      "stl",
+      "map",
+      "structured-bindings",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  }
+]

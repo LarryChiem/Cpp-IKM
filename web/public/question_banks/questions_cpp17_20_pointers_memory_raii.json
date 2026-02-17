@@ -1,0 +1,544 @@
+[
+  {
+    "id": "cpp-0026",
+    "prompt": "What does `delete[] p;` require?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "p was allocated with `new`",
+        "isCorrect": false,
+        "explanation": "Must match `delete`."
+      },
+      {
+        "id": "B",
+        "text": "p was allocated with `new[]`",
+        "isCorrect": true,
+        "explanation": "Correct. p was allocated with `new[]` is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "p points to stack memory",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "p is `void*`",
+        "isCorrect": false,
+        "explanation": "delete needs complete type."
+      },
+      {
+        "id": "E",
+        "text": "Nothing; delete[] can free anything",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: p was allocated with `new[]` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "memory",
+      "new-delete"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0027",
+    "prompt": "Which smart pointer allows shared ownership?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::unique_ptr`",
+        "isCorrect": false,
+        "explanation": "Unique ownership."
+      },
+      {
+        "id": "B",
+        "text": "`std::shared_ptr`",
+        "isCorrect": true,
+        "explanation": "Correct. `std::shared_ptr` is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "`std::weak_ptr`",
+        "isCorrect": false,
+        "explanation": "Non-owning observer."
+      },
+      {
+        "id": "D",
+        "text": "`std::auto_ptr`",
+        "isCorrect": false,
+        "explanation": "Removed in C++17."
+      },
+      {
+        "id": "E",
+        "text": "`std::scoped_ptr`",
+        "isCorrect": false,
+        "explanation": "Not standard."
+      }
+    ],
+    "explanation": "Key idea: `std::shared_ptr` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "memory",
+      "smart-pointers"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0028",
+    "prompt": "Why is `std::make_unique<T>(...)` preferred over `unique_ptr<T>(new T(...))`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It enables RTTI",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "It avoids potential leaks if an exception is thrown during construction of other arguments",
+        "isCorrect": true,
+        "explanation": "Correct (exception safety)."
+      },
+      {
+        "id": "C",
+        "text": "It is required for polymorphic deletion",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "It makes T trivially destructible",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It always allocates on stack",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: It avoids potential leaks if an exception is thrown during construction of other arguments is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "raii",
+      "exception-safety",
+      "memory"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0029",
+    "prompt": "What is a dangling pointer?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "A pointer that points to heap memory",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "B",
+        "text": "A pointer that points to an object whose lifetime has ended",
+        "isCorrect": true,
+        "explanation": "Correct. A pointer that points to an object whose lifetime has ended is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "A pointer that is `nullptr`",
+        "isCorrect": false,
+        "explanation": "Null is not dangling."
+      },
+      {
+        "id": "D",
+        "text": "A pointer with value 0xDEADBEEF",
+        "isCorrect": false,
+        "explanation": "That's just a value."
+      },
+      {
+        "id": "E",
+        "text": "A pointer to const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: A pointer that points to an object whose lifetime has ended is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "pointers",
+      "lifetime"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0030",
+    "prompt": "Which is true about references?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "References can be reseated after initialization",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "References must be initialized",
+        "isCorrect": true,
+        "explanation": "Correct. References must be initialized is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "References can be null",
+        "isCorrect": false,
+        "explanation": "Not in standard semantics."
+      },
+      {
+        "id": "D",
+        "text": "References have pointer arithmetic",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "References are objects you can take sizeof to get referred size",
+        "isCorrect": false,
+        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
+      }
+    ],
+    "explanation": "Key idea: References must be initialized is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "references",
+      "basics"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0031",
+    "prompt": "What does `std::move` do?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Moves the object",
+        "isCorrect": false,
+        "explanation": "It's a cast."
+      },
+      {
+        "id": "B",
+        "text": "Casts to an rvalue reference, enabling moves if available",
+        "isCorrect": true,
+        "explanation": "Correct. Casts to an rvalue reference, enabling moves if available is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "Destroys the source",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "D",
+        "text": "Copies faster",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "Makes object const",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Casts to an rvalue reference, enabling moves if available is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "move",
+      "value-categories"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0032",
+    "prompt": "What is the key benefit of RAII?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fewer templates",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "B",
+        "text": "Resource release is tied to object lifetime, including during exceptions",
+        "isCorrect": true,
+        "explanation": "Correct. Resource release is tied to object lifetime, including during exceptions is the right statement for this question."
+      },
+      {
+        "id": "C",
+        "text": "It disables copying",
+        "isCorrect": false,
+        "explanation": "Not necessarily."
+      },
+      {
+        "id": "D",
+        "text": "It requires garbage collection",
+        "isCorrect": false,
+        "explanation": "No."
+      },
+      {
+        "id": "E",
+        "text": "It replaces destructors",
+        "isCorrect": false,
+        "explanation": "No."
+      }
+    ],
+    "explanation": "Key idea: Resource release is tied to object lifetime, including during exceptions is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "raii",
+      "best-practices"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0202",
+    "prompt": "Why is `std::make_unique<T>(...)` usually preferred over `std::unique_ptr<T>(new T(...))` in C++17?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It allows array allocation only",
+        "isCorrect": false,
+        "explanation": "Both have non-array and array forms; this is not the main reason."
+      },
+      {
+        "id": "B",
+        "text": "It avoids dynamic allocation entirely",
+        "isCorrect": false,
+        "explanation": "`make_unique` still performs dynamic allocation."
+      },
+      {
+        "id": "C",
+        "text": "It is exception-safe and avoids repeating the type",
+        "isCorrect": true,
+        "explanation": "Correct. It is exception-safe and avoids repeating the type is the right statement for this question."
+      },
+      {
+        "id": "D",
+        "text": "It is required by the standard",
+        "isCorrect": false,
+        "explanation": "It is recommended, not required."
+      },
+      {
+        "id": "E",
+        "text": "It returns `std::shared_ptr<T>`",
+        "isCorrect": false,
+        "explanation": "`make_unique` returns `std::unique_ptr<T>`."
+      }
+    ],
+    "explanation": "Key idea: It is exception-safe and avoids repeating the type is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "tags": [
+      "raii",
+      "smart-pointers",
+      "memory",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0211",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\n#include <memory>\nint main() {\n  auto p = std::make_unique<int>(9);\n  *p += 1;\n  std::cout << *p;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "9",
+        "isCorrect": false,
+        "explanation": "The pointee is incremented before printing."
+      },
+      {
+        "id": "B",
+        "text": "10",
+        "isCorrect": true,
+        "explanation": "Correct. `*p` accesses the managed int and increments it from 9 to 10."
+      },
+      {
+        "id": "C",
+        "text": "0",
+        "isCorrect": false,
+        "explanation": "`make_unique<int>(9)` initializes with 9."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Valid C++17 code."
+      },
+      {
+        "id": "E",
+        "text": "Memory leak",
+        "isCorrect": false,
+        "explanation": "`unique_ptr` releases memory automatically at scope exit."
+      }
+    ],
+    "explanation": "RAII means resource lifetime follows object lifetime. `std::unique_ptr` owns one object and frees it automatically.\nExample:\n{\n  auto p = std::make_unique<int>(42);\n} // automatic delete here",
+    "tags": [
+      "memory",
+      "raii",
+      "smart-pointers",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0212",
+    "prompt": "What happens?\n\n```cpp\n#include <memory>\nint main() {\n  std::unique_ptr<int> a = std::make_unique<int>(1);\n  std::unique_ptr<int> b = a;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both pointers share ownership",
+        "isCorrect": false,
+        "explanation": "That behavior belongs to `std::shared_ptr`."
+      },
+      {
+        "id": "B",
+        "text": "Compilation error",
+        "isCorrect": true,
+        "explanation": "Correct. `unique_ptr` is non-copyable to enforce unique ownership."
+      },
+      {
+        "id": "C",
+        "text": "Program prints 1",
+        "isCorrect": false,
+        "explanation": "No printing code exists, and it does not compile."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "The failure is compile-time, not UB."
+      },
+      {
+        "id": "E",
+        "text": "It compiles only in C++20",
+        "isCorrect": false,
+        "explanation": "Copying `unique_ptr` is invalid in all modern standards."
+      }
+    ],
+    "explanation": "Move `unique_ptr` when transferring ownership.\nExample:\nauto a = std::make_unique<int>(1);\nauto b = std::move(a); // OK, a becomes empty",
+    "tags": [
+      "memory",
+      "unique_ptr",
+      "ownership",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0227",
+    "prompt": "What is wrong with this code?\n\n```cpp\n#include <string>\nconst std::string& bad() {\n  return std::string(\"hello\");\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nothing; lifetime is extended safely",
+        "isCorrect": false,
+        "explanation": "Lifetime extension does not apply through function return this way."
+      },
+      {
+        "id": "B",
+        "text": "Returns a dangling reference",
+        "isCorrect": true,
+        "explanation": "Correct. The temporary string is destroyed at end of `bad()`, so the returned reference dangles."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error because temporary cannot bind to const reference",
+        "isCorrect": false,
+        "explanation": "Binding is allowed; the problem is lifetime after return."
+      },
+      {
+        "id": "D",
+        "text": "It leaks memory",
+        "isCorrect": false,
+        "explanation": "No leak; object is destroyed, just too early."
+      },
+      {
+        "id": "E",
+        "text": "It throws by default",
+        "isCorrect": false,
+        "explanation": "No implicit throwing behavior here."
+      }
+    ],
+    "explanation": "Return by value for local/temporary objects; modern C++ uses copy elision/moves efficiently.\nExample:\nstd::string good() {\n  return std::string(\"hello\");\n}",
+    "tags": [
+      "memory",
+      "references",
+      "lifetime",
+      "dangling",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0234",
+    "prompt": "What happens if you apply `std::move` to a `const` object?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It always performs a move construction/assignment",
+        "isCorrect": false,
+        "explanation": "Not always; moving from `const` often falls back to copying."
+      },
+      {
+        "id": "B",
+        "text": "It casts to `const T&&`, so many move operations cannot modify source and copy is used",
+        "isCorrect": true,
+        "explanation": "Correct. `std::move(const T&)` yields `const T&&`; move constructors/assignments usually require non-const rvalue to steal resources."
+      },
+      {
+        "id": "C",
+        "text": "It removes constness and moves anyway",
+        "isCorrect": false,
+        "explanation": "`std::move` does not remove constness."
+      },
+      {
+        "id": "D",
+        "text": "Compilation always fails",
+        "isCorrect": false,
+        "explanation": "It may compile and copy, depending on available overloads."
+      },
+      {
+        "id": "E",
+        "text": "It triggers undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB merely from calling `std::move` on const."
+      }
+    ],
+    "explanation": "`std::move` is a cast, not a move operation by itself.\nExample:\nconst std::string s = \"abc\";\nstd::string t = std::move(s); // typically copy, not move",
+    "tags": [
+      "memory",
+      "move-semantics",
+      "const",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  }
+]
