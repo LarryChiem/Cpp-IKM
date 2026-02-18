@@ -14,28 +14,28 @@
         "id": "B",
         "text": "Compile-time constraints on template arguments",
         "isCorrect": true,
-        "explanation": "Correct. Compile-time constraints on template arguments is the right statement for this question."
+        "explanation": "Correct. Compile-time constraints on template arguments matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Linker constraints",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Exception guarantees",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "ABI requirements",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Compile-time constraints on template arguments is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Compile-time constraints on template arguments. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "concepts",
@@ -53,13 +53,13 @@
         "id": "A",
         "text": "A template with a variable number of template parameters",
         "isCorrect": true,
-        "explanation": "Correct. A template with a variable number of template parameters is the right statement for this question."
+        "explanation": "Correct. A template with a variable number of template parameters matches the C++ rule being tested by this prompt."
       },
       {
         "id": "B",
         "text": "A template that only works with `std::variant`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "C",
@@ -71,16 +71,16 @@
         "id": "D",
         "text": "A template that must be specialized",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "A template that disables instantiation",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: A template with a variable number of template parameters is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: A template with a variable number of template parameters. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "variadic"
@@ -97,25 +97,25 @@
         "id": "A",
         "text": "It defines a type alias",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "It tells the compiler that a dependent name refers to a type",
         "isCorrect": true,
-        "explanation": "Correct. It tells the compiler that a dependent name refers to a type is the right statement for this question."
+        "explanation": "Correct. It tells the compiler that a dependent name refers to a type matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It makes value_type constexpr",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It instantiates T",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -124,7 +124,7 @@
         "explanation": "Not always."
       }
     ],
-    "explanation": "Key idea: It tells the compiler that a dependent name refers to a type is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It tells the compiler that a dependent name refers to a type. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "dependent-names"
@@ -141,34 +141,34 @@
         "id": "A",
         "text": "Runtime branching only",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Compile-time branching that discards non-taken branches from instantiation",
         "isCorrect": true,
-        "explanation": "Correct. Compile-time branching that discards non-taken branches from instantiation is the right statement for this question."
+        "explanation": "Correct. Compile-time branching that discards non-taken branches from instantiation matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Faster exceptions",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Dynamic polymorphism",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Macro expansion",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Compile-time branching that discards non-taken branches from instantiation is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Compile-time branching that discards non-taken branches from instantiation. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "if-constexpr",
@@ -186,34 +186,34 @@
         "id": "A",
         "text": "Automatic deducing of function return types",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Deducing class template parameters from constructor arguments",
         "isCorrect": true,
-        "explanation": "Correct. Deducing class template parameters from constructor arguments is the right statement for this question."
+        "explanation": "Correct. Deducing class template parameters from constructor arguments matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Deducing overload sets at runtime",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "A new container type",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "A replacement for templates",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Deducing class template parameters from constructor arguments is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Deducing class template parameters from constructor arguments. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "ctad",
@@ -231,34 +231,34 @@
         "id": "A",
         "text": "A runtime interface",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "A named compile-time predicate over template arguments",
         "isCorrect": true,
-        "explanation": "Correct. A named compile-time predicate over template arguments is the right statement for this question."
+        "explanation": "Correct. A named compile-time predicate over template arguments matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "A macro",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "A base class",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "A linker script",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: A named compile-time predicate over template arguments is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: A named compile-time predicate over template arguments. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concepts",
       "c++20"
@@ -275,19 +275,19 @@
         "id": "A",
         "text": "Non-template overloads are always preferred, all else equal",
         "isCorrect": true,
-        "explanation": "Correct. Non-template overloads are always preferred, all else equal is the right statement for this question."
+        "explanation": "Correct. Non-template overloads are always preferred, all else equal matches the C++ rule being tested by this prompt."
       },
       {
         "id": "B",
         "text": "Templates are always preferred",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "C",
         "text": "Templates are chosen at runtime",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
@@ -299,10 +299,10 @@
         "id": "E",
         "text": "ADL is disabled for templates",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Non-template overloads are always preferred, all else equal is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Non-template overloads are always preferred, all else equal. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "overload-resolution"
@@ -325,7 +325,7 @@
         "id": "B",
         "text": "Discards the non-selected branch during compilation",
         "isCorrect": true,
-        "explanation": "Correct. Discards the non-selected branch during compilation is the right statement for this question."
+        "explanation": "Correct. Discards the non-selected branch during compilation matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -346,7 +346,7 @@
         "explanation": "It reduces many SFINAE needs but does not replace all patterns."
       }
     ],
-    "explanation": "Key idea: Discards the non-selected branch during compilation is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Discards the non-selected branch during compilation. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "if-constexpr",
@@ -450,7 +450,7 @@
   },
   {
     "id": "cpp-0229",
-    "prompt": "What does a basic lambda expression look like in C++?\n\n```cpp\n[capture](params) -> return_type { body }\n```",
+    "prompt": "Which option shows valid basic C++ lambda syntax?",
     "type": "single",
     "options": [
       {

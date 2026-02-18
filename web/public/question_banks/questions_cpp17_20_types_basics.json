@@ -14,7 +14,7 @@
         "id": "B",
         "text": "`const char[4]`",
         "isCorrect": true,
-        "explanation": "Correct. `const char[4]` is the right statement for this question."
+        "explanation": "Correct. `const char[4]` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -80,7 +80,7 @@
         "explanation": "It is well-formed."
       }
     ],
-    "explanation": "Key idea: `std::initializer_list<int>` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `std::initializer_list<int>`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "types",
       "auto",
@@ -105,7 +105,7 @@
         "id": "B",
         "text": "It is undefined behavior",
         "isCorrect": true,
-        "explanation": "Correct. It is undefined behavior is the right statement for this question."
+        "explanation": "Correct. It is undefined behavior matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -117,7 +117,7 @@
         "id": "D",
         "text": "It throws an exception",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -126,7 +126,7 @@
         "explanation": "Not; it's UB."
       }
     ],
-    "explanation": "Key idea: It is undefined behavior is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It is undefined behavior. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "types",
       "ub",
@@ -156,7 +156,7 @@
         "id": "C",
         "text": "00",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
@@ -168,10 +168,10 @@
         "id": "E",
         "text": "Compilation error",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: 01 is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: 01. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "basics",
       "sequencing",
@@ -196,7 +196,7 @@
         "id": "B",
         "text": "`int main()`",
         "isCorrect": true,
-        "explanation": "Correct. `int main()` is the right statement for this question."
+        "explanation": "Correct. `int main()` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -217,7 +217,7 @@
         "explanation": "Not allowed."
       }
     ],
-    "explanation": "Key idea: `int main()` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `int main()`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "basics",
       "functions"
@@ -252,7 +252,7 @@
         "id": "D",
         "text": "2",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -261,7 +261,7 @@
         "explanation": "Actually exactly 1."
       }
     ],
-    "explanation": "Key idea: 1 is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: 1. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "types",
       "sizeof"
@@ -278,13 +278,13 @@
         "id": "A",
         "text": "Whole function",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "The `if` statement (condition + then/else blocks)",
         "isCorrect": true,
-        "explanation": "Correct. The `if` statement (condition + then/else blocks) is the right statement for this question."
+        "explanation": "Correct. The `if` statement (condition + then/else blocks) matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -296,16 +296,16 @@
         "id": "D",
         "text": "Global",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Undefined",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: The `if` statement (condition + then/else blocks) is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: The `if` statement (condition + then/else blocks). This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "basics",
       "scope",
@@ -323,7 +323,7 @@
         "id": "A",
         "text": "Forces the compiler to inline the function",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
@@ -335,22 +335,22 @@
         "id": "C",
         "text": "Makes the function noexcept",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Makes the type movable-only",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Changes ABI",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Warns when a return value is ignored is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Warns when a return value is ignored. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "best-practices",
       "attributes",
@@ -374,7 +374,7 @@
         "id": "B",
         "text": "`reinterpret_cast`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "C",
@@ -386,16 +386,16 @@
         "id": "D",
         "text": "`const_cast`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "C-style cast only",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: `dynamic_cast` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `dynamic_cast`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "rtti",
       "casts",
@@ -414,31 +414,31 @@
         "id": "A",
         "text": "`void*`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "`std::nullptr_t`",
         "isCorrect": true,
-        "explanation": "Correct. `std::nullptr_t` is the right statement for this question."
+        "explanation": "Correct. `std::nullptr_t` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "`int`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "`bool`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Implementation-defined pointer type",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
     "explanation": "`nullptr` has its own dedicated type, `std::nullptr_t`, so overload resolution can distinguish it from integer `0`.\nExample:\nvoid f(int);\nvoid f(char*);\nf(nullptr); // calls f(char*)",
@@ -465,7 +465,7 @@
         "id": "B",
         "text": "`std::nullptr_t`",
         "isCorrect": true,
-        "explanation": "Correct. `std::nullptr_t` is the right statement for this question."
+        "explanation": "Correct. `std::nullptr_t` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -1390,6 +1390,193 @@
       "double",
       "long-double",
       "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0253",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\nint main() {\n  int a[2] = {1, 2};\n  auto [x, y] = a;\n  x = 10;\n  std::cout << a[0] << \" \" << x;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`1 10`",
+        "isCorrect": true,
+        "explanation": "Correct. `auto [x, y] = a;` copies into the hidden structured-binding object, so changing `x` does not change `a[0]`."
+      },
+      {
+        "id": "B",
+        "text": "`10 10`",
+        "isCorrect": false,
+        "explanation": "That would require binding by reference (`auto& [x,y] = a;`)."
+      },
+      {
+        "id": "C",
+        "text": "`1 1`",
+        "isCorrect": false,
+        "explanation": "`x` is assigned `10` before printing."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "This is valid C++17."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB in this snippet."
+      }
+    ],
+    "explanation": "With arrays, `auto [x,y] = a;` binds to elements of a copied internal object, while `auto& [x,y] = a;` binds directly to `a`.\nExample:\nauto& [xr, yr] = a;\nxr = 10; // now a[0] becomes 10",
+    "tags": [
+      "types",
+      "structured-bindings",
+      "arrays",
+      "references",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0254",
+    "prompt": "Which condition enables structured binding for a user-defined type via the tuple-like protocol?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only adding a default constructor",
+        "isCorrect": false,
+        "explanation": "Constructor presence alone does not make tuple-like binding work."
+      },
+      {
+        "id": "B",
+        "text": "Providing `std::tuple_size<T>`, `std::tuple_element<I,T>`, and `get<I>(obj)` support",
+        "isCorrect": true,
+        "explanation": "Correct. This is the tuple-like customization path used by structured bindings."
+      },
+      {
+        "id": "C",
+        "text": "Marking the class `final`",
+        "isCorrect": false,
+        "explanation": "`final` is unrelated to structured binding support."
+      },
+      {
+        "id": "D",
+        "text": "Making all members public only",
+        "isCorrect": false,
+        "explanation": "Public members can enable member-binding case, but tuple-like protocol is a separate case."
+      },
+      {
+        "id": "E",
+        "text": "Adding only `operator[]`",
+        "isCorrect": false,
+        "explanation": "`operator[]` alone is insufficient."
+      }
+    ],
+    "explanation": "Structured bindings support three broad cases: arrays, tuple-like protocol, and data members. For tuple-like behavior, `tuple_size`/`tuple_element`/`get` are the key pieces.\nExample:\n// pseudo-requirement:\n// std::tuple_size<MyT>::value, std::tuple_element<I,MyT>, get<I>(myT)",
+    "tags": [
+      "types",
+      "structured-bindings",
+      "tuple",
+      "tuple-size",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0255",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\n#include <map>\nint main() {\n  std::map<int,int> m{{1,10}};\n  for (auto [k, v] : m) {\n    v += 5;\n  }\n  std::cout << m.begin()->second;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`15`",
+        "isCorrect": false,
+        "explanation": "That would happen with `auto& [k,v]` (binding to map element by reference)."
+      },
+      {
+        "id": "B",
+        "text": "`10`",
+        "isCorrect": true,
+        "explanation": "Correct. `auto [k,v]` iterates by value, so `v` is a copy and map value stays unchanged."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Code is valid."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB here."
+      },
+      {
+        "id": "E",
+        "text": "`0`",
+        "isCorrect": false,
+        "explanation": "No operation sets it to zero."
+      }
+    ],
+    "explanation": "Use reference in structured bindings when you intend to mutate elements in-place.\nExample:\nfor (auto& [k, v] : m) {\n  v += 5;\n} // now map value changes",
+    "tags": [
+      "types",
+      "structured-bindings",
+      "map",
+      "references",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0256",
+    "prompt": "Which statement about this is correct?\n\n```cpp\nstruct P { int x; int y; };\nauto [a, b] = P{1, 2};\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`a` and `b` are invalid because only tuples support structured binding",
+        "isCorrect": false,
+        "explanation": "Structured binding also supports arrays and eligible data members."
+      },
+      {
+        "id": "B",
+        "text": "This is valid C++17 member binding, yielding `a==1` and `b==2`",
+        "isCorrect": true,
+        "explanation": "Correct. Public data members can be bound directly via structured binding."
+      },
+      {
+        "id": "C",
+        "text": "`a` and `b` are always references to the original temporary subobjects",
+        "isCorrect": false,
+        "explanation": "The exact binding model uses a hidden entity; don't assume plain references in all forms."
+      },
+      {
+        "id": "D",
+        "text": "Requires `std::tuple_size<P>` specialization",
+        "isCorrect": false,
+        "explanation": "Not for the data-member binding case."
+      },
+      {
+        "id": "E",
+        "text": "Requires C++20 concepts",
+        "isCorrect": false,
+        "explanation": "This feature is C++17."
+      }
+    ],
+    "explanation": "Member-binding case works for eligible class types and binds names to corresponding elements by declaration order.\nExample:\nstruct S { int i; double d; };\nauto [i, d] = S{3, 4.5};",
+    "tags": [
+      "types",
+      "structured-bindings",
+      "class-members",
       "c++17"
     ],
     "difficulty": "easy",

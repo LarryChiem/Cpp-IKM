@@ -20,7 +20,7 @@
         "id": "C",
         "text": "Random access iterator",
         "isCorrect": true,
-        "explanation": "Correct. Random access iterator is the right statement for this question."
+        "explanation": "Correct. Random access iterator matches the C++ rule being tested by this prompt."
       },
       {
         "id": "D",
@@ -32,10 +32,10 @@
         "id": "E",
         "text": "Output iterator",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Random access iterator is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Random access iterator. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "stl",
       "iterators",
@@ -59,28 +59,28 @@
         "id": "B",
         "text": "It is lazy and typically non-owning",
         "isCorrect": true,
-        "explanation": "Correct. It is lazy and typically non-owning is the right statement for this question."
+        "explanation": "Correct. It is lazy and typically non-owning matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It always allocates",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It copies eagerly",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "It requires contiguous storage",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: It is lazy and typically non-owning is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It is lazy and typically non-owning. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "ranges",
       "views",
@@ -104,28 +104,28 @@
         "id": "B",
         "text": "`std::binary_search`",
         "isCorrect": true,
-        "explanation": "Correct. `std::binary_search` is the right statement for this question."
+        "explanation": "Correct. `std::binary_search` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "`std::for_each`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "`std::accumulate`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "`std::copy`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: `std::binary_search` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `std::binary_search`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "stl",
       "algorithms"
@@ -148,13 +148,13 @@
         "id": "B",
         "text": "O(1) amortized",
         "isCorrect": true,
-        "explanation": "Correct. O(1) amortized is the right statement for this question."
+        "explanation": "Correct. O(1) amortized matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "O(log n)",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
@@ -166,10 +166,10 @@
         "id": "E",
         "text": "Undefined",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: O(1) amortized is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: O(1) amortized. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "stl",
       "vector",
@@ -187,34 +187,34 @@
         "id": "A",
         "text": "It copies eagerly so safe",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "The view may dangle because it references destroyed storage",
         "isCorrect": true,
-        "explanation": "Correct. The view may dangle because it references destroyed storage is the right statement for this question."
+        "explanation": "Correct. The view may dangle because it references destroyed storage matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It always throws",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It leaks memory",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "It forces heap allocation",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: The view may dangle because it references destroyed storage is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: The view may dangle because it references destroyed storage. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "ranges",
       "dangling",
@@ -238,19 +238,19 @@
         "id": "B",
         "text": "v reallocates (capacity change)",
         "isCorrect": true,
-        "explanation": "Correct. v reallocates (capacity change) is the right statement for this question."
+        "explanation": "Correct. v reallocates (capacity change) matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "v is sorted",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "v is iterated",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -259,7 +259,7 @@
         "explanation": "It can be invalidated."
       }
     ],
-    "explanation": "Key idea: v reallocates (capacity change) is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: v reallocates (capacity change). This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "span",
       "lifetime",
@@ -277,13 +277,13 @@
         "id": "A",
         "text": "Moves the iterator itself",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Turns dereference into an rvalue reference, enabling moves from elements",
         "isCorrect": true,
-        "explanation": "Correct. Turns dereference into an rvalue reference, enabling moves from elements is the right statement for this question."
+        "explanation": "Correct. Turns dereference into an rvalue reference, enabling moves from elements matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -295,16 +295,16 @@
         "id": "D",
         "text": "Makes container thread-safe",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Only works with vector",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Turns dereference into an rvalue reference, enabling moves from elements is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Turns dereference into an rvalue reference, enabling moves from elements. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "stl",
       "iterators",
@@ -349,7 +349,7 @@
         "explanation": "Merge combines sorted ranges, not deduplicate in place."
       }
     ],
-    "explanation": "Key idea: `std::unique` followed by `erase` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `std::unique` followed by `erase`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "stl",
       "algorithms",

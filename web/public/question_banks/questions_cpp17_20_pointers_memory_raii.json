@@ -14,13 +14,13 @@
         "id": "B",
         "text": "p was allocated with `new[]`",
         "isCorrect": true,
-        "explanation": "Correct. p was allocated with `new[]` is the right statement for this question."
+        "explanation": "Correct. p was allocated with `new[]` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "p points to stack memory",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
@@ -32,10 +32,10 @@
         "id": "E",
         "text": "Nothing; delete[] can free anything",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: p was allocated with `new[]` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: p was allocated with `new[]`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "memory",
       "new-delete"
@@ -58,7 +58,7 @@
         "id": "B",
         "text": "`std::shared_ptr`",
         "isCorrect": true,
-        "explanation": "Correct. `std::shared_ptr` is the right statement for this question."
+        "explanation": "Correct. `std::shared_ptr` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -79,7 +79,7 @@
         "explanation": "Not standard."
       }
     ],
-    "explanation": "Key idea: `std::shared_ptr` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `std::shared_ptr`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "memory",
       "smart-pointers"
@@ -96,7 +96,7 @@
         "id": "A",
         "text": "It enables RTTI",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
@@ -108,22 +108,22 @@
         "id": "C",
         "text": "It is required for polymorphic deletion",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It makes T trivially destructible",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "It always allocates on stack",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: It avoids potential leaks if an exception is thrown during construction of other arguments is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It avoids potential leaks if an exception is thrown during construction of other arguments. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "raii",
       "exception-safety",
@@ -147,7 +147,7 @@
         "id": "B",
         "text": "A pointer that points to an object whose lifetime has ended",
         "isCorrect": true,
-        "explanation": "Correct. A pointer that points to an object whose lifetime has ended is the right statement for this question."
+        "explanation": "Correct. A pointer that points to an object whose lifetime has ended matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -165,10 +165,10 @@
         "id": "E",
         "text": "A pointer to const",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: A pointer that points to an object whose lifetime has ended is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: A pointer that points to an object whose lifetime has ended. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "pointers",
       "lifetime"
@@ -185,34 +185,34 @@
         "id": "A",
         "text": "References can be reseated after initialization",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "False. A reference is bound once at initialization and cannot later refer to a different object."
       },
       {
         "id": "B",
         "text": "References must be initialized",
         "isCorrect": true,
-        "explanation": "Correct. References must be initialized is the right statement for this question."
+        "explanation": "Correct. A reference is an alias, so it must be bound to a valid object (or function) at declaration; it has no separate “empty/null” state."
       },
       {
         "id": "C",
         "text": "References can be null",
         "isCorrect": false,
-        "explanation": "Not in standard semantics."
+        "explanation": "In standard C++, references are not nullable values like pointers."
       },
       {
         "id": "D",
         "text": "References have pointer arithmetic",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Pointer arithmetic applies to pointers, not references."
       },
       {
         "id": "E",
         "text": "References are objects you can take sizeof to get referred size",
         "isCorrect": false,
-        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
+        "explanation": "`sizeof(ref)` yields the size of the referenced type, but this does not mean references are regular reseatable objects."
       }
     ],
-    "explanation": "Key idea: References must be initialized is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "References are aliases, not independent objects. Because of that, they must bind immediately at declaration so they always refer to a valid target. C++ references have no null/empty state and cannot be reseated later.\nExample:\nint x = 1, y = 2;\nint& r = x;\nr = 5;   // changes x\n// r = y; does NOT reseat r; it assigns y's value to x",
     "tags": [
       "references",
       "basics"
@@ -235,28 +235,28 @@
         "id": "B",
         "text": "Casts to an rvalue reference, enabling moves if available",
         "isCorrect": true,
-        "explanation": "Correct. Casts to an rvalue reference, enabling moves if available is the right statement for this question."
+        "explanation": "Correct. Casts to an rvalue reference, enabling moves if available matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Destroys the source",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Copies faster",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Makes object const",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Casts to an rvalue reference, enabling moves if available is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Casts to an rvalue reference, enabling moves if available. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "move",
       "value-categories"
@@ -273,13 +273,13 @@
         "id": "A",
         "text": "Fewer templates",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Resource release is tied to object lifetime, including during exceptions",
         "isCorrect": true,
-        "explanation": "Correct. Resource release is tied to object lifetime, including during exceptions is the right statement for this question."
+        "explanation": "Correct. Resource release is tied to object lifetime, including during exceptions matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -291,16 +291,16 @@
         "id": "D",
         "text": "It requires garbage collection",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "It replaces destructors",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Resource release is tied to object lifetime, including during exceptions is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Resource release is tied to object lifetime, including during exceptions. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "raii",
       "best-practices"
@@ -329,7 +329,7 @@
         "id": "C",
         "text": "It is exception-safe and avoids repeating the type",
         "isCorrect": true,
-        "explanation": "Correct. It is exception-safe and avoids repeating the type is the right statement for this question."
+        "explanation": "Correct. It is exception-safe and avoids repeating the type matches the C++ rule being tested by this prompt."
       },
       {
         "id": "D",
@@ -344,7 +344,7 @@
         "explanation": "`make_unique` returns `std::unique_ptr<T>`."
       }
     ],
-    "explanation": "Key idea: It is exception-safe and avoids repeating the type is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It is exception-safe and avoids repeating the type. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "raii",
       "smart-pointers",

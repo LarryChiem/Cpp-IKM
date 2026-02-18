@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Avenir Heavy';
+    src: url("avenir-font/Avenir Heavy.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Avenir Book';
+    src: url("avenir-font/Avenir-Book.ttf") format('truetype');
+}

@@ -8,13 +8,13 @@
         "id": "A",
         "text": "No destructor",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "A virtual destructor",
         "isCorrect": true,
-        "explanation": "Correct. A virtual destructor is the right statement for this question."
+        "explanation": "Correct. A virtual destructor matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -32,10 +32,10 @@
         "id": "E",
         "text": "Only static methods",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: A virtual destructor is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: A virtual destructor. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "classes",
       "polymorphism",
@@ -53,13 +53,13 @@
         "id": "A",
         "text": "Overloads a function",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Ensures at compile time the function overrides a virtual base function",
         "isCorrect": true,
-        "explanation": "Correct. Ensures at compile time the function overrides a virtual base function is the right statement for this question."
+        "explanation": "Correct. Ensures at compile time the function overrides a virtual base function matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -77,10 +77,10 @@
         "id": "E",
         "text": "Changes calling convention",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Ensures at compile time the function overrides a virtual base function is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Ensures at compile time the function overrides a virtual base function. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "polymorphism",
       "override",
@@ -104,7 +104,7 @@
         "id": "B",
         "text": "Copying a derived object into a base object by value, losing derived parts",
         "isCorrect": true,
-        "explanation": "Correct. Copying a derived object into a base object by value, losing derived parts is the right statement for this question."
+        "explanation": "Correct. Copying a derived object into a base object by value, losing derived parts matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -116,16 +116,16 @@
         "id": "D",
         "text": "Casting with dynamic_cast",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Using multiple inheritance",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Copying a derived object into a base object by value, losing derived parts is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Copying a derived object into a base object by value, losing derived parts. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "polymorphism",
       "pitfalls"
@@ -142,25 +142,25 @@
         "id": "A",
         "text": "Order in constructor initializer list",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Order of declaration in the class",
         "isCorrect": true,
-        "explanation": "Correct. Order of declaration in the class is the right statement for this question."
+        "explanation": "Correct. Order of declaration in the class matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Alphabetical order",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Order of access specifiers",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -169,7 +169,7 @@
         "explanation": "Defined."
       }
     ],
-    "explanation": "Key idea: Order of declaration in the class is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Order of declaration in the class. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "classes",
       "initialization-order",
@@ -187,7 +187,7 @@
         "id": "A",
         "text": "`friend`",
         "isCorrect": true,
-        "explanation": "Correct. `friend` is the right statement for this question."
+        "explanation": "Correct. `friend` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "B",
@@ -214,7 +214,7 @@
         "explanation": "Namespace/type alias."
       }
     ],
-    "explanation": "Key idea: `friend` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `friend`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "classes",
       "access-control"
@@ -231,34 +231,34 @@
         "id": "A",
         "text": "Base must be polymorphic (have at least one virtual function)",
         "isCorrect": true,
-        "explanation": "Correct. Base must be polymorphic (have at least one virtual function) is the right statement for this question."
+        "explanation": "Correct. `dynamic_cast` downcast through a base pointer requires a polymorphic base type (typically any virtual function, often a virtual destructor)."
       },
       {
         "id": "B",
         "text": "D must have a virtual destructor",
         "isCorrect": false,
-        "explanation": "Not required."
+        "explanation": "Not required. `D` does not need a virtual destructor for the cast itself to compile/work."
       },
       {
         "id": "C",
         "text": "bptr must be non-null",
         "isCorrect": false,
-        "explanation": "Can be null; returns null."
+        "explanation": "Not required. `bptr` may be null; `dynamic_cast` on null pointer yields null."
       },
       {
         "id": "D",
         "text": "RTTI must be disabled",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. Disabling RTTI prevents this runtime checked cast mechanism."
       },
       {
         "id": "E",
         "text": "It works for any types",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. Cast is constrained by actual runtime type and inheritance relationship."
       }
     ],
-    "explanation": "Key idea: Base must be polymorphic (have at least one virtual function) is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "For `dynamic_cast<D*>(bptr)`, the source base type must be polymorphic (have at least one virtual function) so RTTI is available for runtime checked downcast. If the cast fails, the result is `nullptr` (for pointer casts).",
     "tags": [
       "rtti",
       "dynamic_cast"
@@ -281,13 +281,13 @@
         "id": "B",
         "text": "It cannot be overridden in derived classes",
         "isCorrect": true,
-        "explanation": "Correct. It cannot be overridden in derived classes is the right statement for this question."
+        "explanation": "Correct. It cannot be overridden in derived classes matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It makes the function inline",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
@@ -299,10 +299,10 @@
         "id": "E",
         "text": "It makes the class abstract",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: It cannot be overridden in derived classes is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It cannot be overridden in derived classes. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "polymorphism",
       "final"
@@ -325,7 +325,7 @@
         "id": "B",
         "text": "It enables correct destruction through base pointers",
         "isCorrect": true,
-        "explanation": "Correct. It enables correct destruction through base pointers is the right statement for this question."
+        "explanation": "Correct. It enables correct destruction through base pointers matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -346,7 +346,7 @@
         "explanation": "Virtual functions require runtime dispatch metadata."
       }
     ],
-    "explanation": "Key idea: It enables correct destruction through base pointers is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It enables correct destruction through base pointers. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "oop",
       "inheritance",

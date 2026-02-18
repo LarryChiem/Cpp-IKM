@@ -8,31 +8,31 @@
         "id": "A",
         "text": "It is ignored",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "`std::terminate` is called",
         "isCorrect": true,
-        "explanation": "Correct. `std::terminate` is called is the right statement for this question."
+        "explanation": "Correct. `std::terminate` is called matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It is converted to `std::exception`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It is caught automatically",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Program continues safely",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
     "explanation": "Throwing from a destructor during stack unwinding triggers `std::terminate`, because a second active exception cannot safely propagate at the same time.\nExample:\nstruct X {\n  ~X() noexcept(false) { throw std::runtime_error(\"boom\"); }\n};\ntry {\n  X x;\n  throw std::runtime_error(\"outer\");\n} catch (...) {\n  // terminate occurs before this handler can finish\n}",
@@ -59,7 +59,7 @@
         "id": "B",
         "text": "The function is declared not to throw; if it does, `std::terminate` occurs",
         "isCorrect": true,
-        "explanation": "Correct. The function is declared not to throw; if it does, `std::terminate` occurs is the right statement for this question."
+        "explanation": "Correct. The function is declared not to throw; if it does, `std::terminate` occurs matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -71,16 +71,16 @@
         "id": "D",
         "text": "The function cannot allocate memory",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "The function is inline",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: The function is declared not to throw; if it does, `std::terminate` occurs is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: The function is declared not to throw; if it does, `std::terminate` occurs. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "exceptions",
       "noexcept"
@@ -97,13 +97,13 @@
         "id": "A",
         "text": "`std::bad_alloc`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "`std::out_of_range`",
         "isCorrect": true,
-        "explanation": "Correct. `std::out_of_range` is the right statement for this question."
+        "explanation": "Correct. `std::out_of_range` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -115,7 +115,7 @@
         "id": "D",
         "text": "`std::logic_error`",
         "isCorrect": false,
-        "explanation": "Base class."
+        "explanation": "Incorrect. This confuses base/derived type relationships for this scenario."
       },
       {
         "id": "E",
@@ -124,7 +124,7 @@
         "explanation": "at() throws."
       }
     ],
-    "explanation": "Key idea: `std::out_of_range` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `std::out_of_range`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "exceptions",
       "stl"
@@ -141,34 +141,34 @@
         "id": "A",
         "text": "Normal control flow for performance",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Exceptional/error conditions",
         "isCorrect": true,
-        "explanation": "Correct. Exceptional/error conditions is the right statement for this question."
+        "explanation": "Correct. Exceptional/error conditions matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Replacing return values always",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "All branching",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Thread synchronization",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Exceptional/error conditions is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Exceptional/error conditions. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "best-practices",
       "exceptions"
@@ -191,7 +191,7 @@
         "id": "B",
         "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
         "isCorrect": true,
-        "explanation": "Correct. Operation is either completed successfully or has no observable effect (commit/rollback) is the right statement for this question."
+        "explanation": "Correct. Operation is either completed successfully or has no observable effect (commit/rollback) matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -203,16 +203,16 @@
         "id": "D",
         "text": "Always throws",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Only works with POD types",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Operation is either completed successfully or has no observable effect (commit/rollback) is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Operation is either completed successfully or has no observable effect (commit/rollback). This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "exceptions",
       "exception-safety"
@@ -253,10 +253,10 @@
         "id": "E",
         "text": "`std::any`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: `std::error_code` with return conventions is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `std::error_code` with return conventions. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "error-handling",
       "utilities"
@@ -285,7 +285,7 @@
         "id": "C",
         "text": "`std::terminate` is called",
         "isCorrect": true,
-        "explanation": "Correct. `std::terminate` is called is the right statement for this question."
+        "explanation": "Correct. `std::terminate` is called matches the C++ rule being tested by this prompt."
       },
       {
         "id": "D",

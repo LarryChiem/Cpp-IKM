@@ -14,7 +14,7 @@
         "id": "B",
         "text": "It provides a non-owning view into a character sequence, avoiding allocations",
         "isCorrect": true,
-        "explanation": "Correct. It provides a non-owning view into a character sequence, avoiding allocations is the right statement for this question."
+        "explanation": "Correct. It provides a non-owning view into a character sequence, avoiding allocations matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -26,7 +26,7 @@
         "id": "D",
         "text": "It is mutable",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -35,7 +35,7 @@
         "explanation": "No; dangling risk."
       }
     ],
-    "explanation": "Key idea: It provides a non-owning view into a character sequence, avoiding allocations is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It provides a non-owning view into a character sequence, avoiding allocations. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "utilities",
       "string_view",
@@ -80,7 +80,7 @@
         "explanation": "C++20."
       }
     ],
-    "explanation": "Key idea: Structured bindings is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Structured bindings. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "version-features",
       "c++17"
@@ -97,13 +97,13 @@
         "id": "A",
         "text": "A nullable owning pointer",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "An object that may or may not contain a value of type T",
         "isCorrect": true,
-        "explanation": "Correct. An object that may or may not contain a value of type T is the right statement for this question."
+        "explanation": "Correct. An object that may or may not contain a value of type T matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -115,16 +115,16 @@
         "id": "D",
         "text": "A thread-safe container",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "A reference wrapper",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: An object that may or may not contain a value of type T is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: An object that may or may not contain a value of type T. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "utilities",
       "optional",
@@ -142,34 +142,34 @@
         "id": "A",
         "text": "A dynamically typed container (like void*)",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "A type-safe union holding exactly one alternative at a time",
         "isCorrect": true,
-        "explanation": "Correct. A type-safe union holding exactly one alternative at a time is the right statement for this question."
+        "explanation": "Correct. A type-safe union holding exactly one alternative at a time matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "A container of both A and B simultaneously",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "A base class for A and B",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "A thread primitive",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: A type-safe union holding exactly one alternative at a time is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: A type-safe union holding exactly one alternative at a time. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "utilities",
       "variant",
@@ -187,13 +187,13 @@
         "id": "A",
         "text": "Replace templates",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Improve build times and provide better encapsulation than headers",
         "isCorrect": true,
-        "explanation": "Correct. Improve build times and provide better encapsulation than headers is the right statement for this question."
+        "explanation": "Correct. Improve build times and provide better encapsulation than headers matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -205,7 +205,7 @@
         "id": "D",
         "text": "Replace namespaces",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -214,7 +214,7 @@
         "explanation": "Not directly."
       }
     ],
-    "explanation": "Key idea: Improve build times and provide better encapsulation than headers is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Improve build times and provide better encapsulation than headers. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "version-features",
       "modules",
@@ -232,34 +232,34 @@
         "id": "A",
         "text": "It makes code run on GPU",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "It improves readability and enables more compiler optimizations and safer APIs",
         "isCorrect": true,
-        "explanation": "Correct. It improves readability and enables more compiler optimizations and safer APIs is the right statement for this question."
+        "explanation": "Correct. It improves readability and enables more compiler optimizations and safer APIs matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It disables exceptions",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It makes objects thread-safe automatically",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "It is required for templates",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: It improves readability and enables more compiler optimizations and safer APIs is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It improves readability and enables more compiler optimizations and safer APIs. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "best-practices",
       "const"
@@ -276,34 +276,34 @@
         "id": "A",
         "text": "Threading primitives",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Portable file system paths and operations",
         "isCorrect": true,
-        "explanation": "Correct. Portable file system paths and operations is the right statement for this question."
+        "explanation": "Correct. Portable file system paths and operations matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Networking",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Reflection",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Coroutines",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Portable file system paths and operations is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Portable file system paths and operations. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "utilities",
       "filesystem",
@@ -333,7 +333,7 @@
         "id": "C",
         "text": "`std::variant`",
         "isCorrect": true,
-        "explanation": "Correct. `std::variant` is the right statement for this question."
+        "explanation": "Correct. `std::variant` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "D",
@@ -348,7 +348,7 @@
         "explanation": "`pair` stores exactly two elements simultaneously."
       }
     ],
-    "explanation": "Key idea: `std::variant` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: `std::variant`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "utilities",
       "variant",

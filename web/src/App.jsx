@@ -410,6 +410,13 @@ function buildExam(pool, count) {
   const poolIdSet = new Set(byId.keys());
   const unseenSet = new Set(unseenIds);
 
+  // Prefer unseen-only sessions while unseen questions remain.
+  // Once unseen is exhausted, loop randomly over the full pool.
+  if (!unseenIds.length) {
+    clearQueue();
+    return { exam: shuffle(pool).slice(0, desired), remainingUnseen: 0 };
+  }
+
   // Build a persistent "queue" of unseen question ids so we cover everything efficiently
   // without repeats across sessions.
   let queue = loadQueue().filter((id) => poolIdSet.has(id) && unseenSet.has(id));
@@ -437,13 +444,6 @@ function buildExam(pool, count) {
   saveQueue(queue, pos);
 
   let exam = pickedIds.map((id) => byId.get(id)).filter(Boolean);
-
-  // If still short (all unseen exhausted), fill from already-seen questions.
-  if (exam.length < desired) {
-    const pickedSet = new Set(pickedIds);
-    const fill = shuffle(already).filter((q) => !pickedSet.has(qid(q)));
-    exam = exam.concat(fill.slice(0, desired - exam.length));
-  }
 
   return { exam, remainingUnseen: unseenIds.length };
 }

@@ -8,25 +8,25 @@
         "id": "A",
         "text": "It automatically joins",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "It calls `std::terminate`",
         "isCorrect": true,
-        "explanation": "Correct. It calls `std::terminate` is the right statement for this question."
+        "explanation": "Correct. Destroying a joinable `std::thread` calls `std::terminate`; you must call `join()` or `detach()` first.\nExample:\nstd::thread t([]{ /* work */ });\n// if scope ends here without t.join() or t.detach(), program terminates"
       },
       {
         "id": "C",
         "text": "It detaches automatically",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It throws",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -35,7 +35,7 @@
         "explanation": "Terminate is defined behavior."
       }
     ],
-    "explanation": "Key idea: It calls `std::terminate` is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "`std::thread` enforces explicit ownership of thread completion. If the thread object is still joinable at destruction, the runtime terminates the program to prevent silent background-thread bugs.\nExample:\nstd::thread t(task);\nt.join();   // safe cleanup path\n// or t.detach(); if ownership is intentionally released",
     "tags": [
       "concurrency",
       "thread"
@@ -103,19 +103,19 @@
         "id": "B",
         "text": "It provides mutual exclusion for critical sections",
         "isCorrect": true,
-        "explanation": "Correct. It provides mutual exclusion for critical sections is the right statement for this question."
+        "explanation": "Correct. It provides mutual exclusion for critical sections matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It guarantees lock-free progress",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It can be copied",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -124,7 +124,7 @@
         "explanation": "Mutexes provide synchronization but not like that statement."
       }
     ],
-    "explanation": "Key idea: It provides mutual exclusion for critical sections is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It provides mutual exclusion for critical sections. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "mutex"
@@ -147,28 +147,28 @@
         "id": "B",
         "text": "Unlocks only on exceptions",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "C",
         "text": "Allows try_lock only",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Makes mutex recursive",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Detaches the lock",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Key idea: Locks on construction, unlocks on destruction is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Locks on construction, unlocks on destruction. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "raii"
@@ -185,34 +185,34 @@
         "id": "A",
         "text": "memory_order_relaxed",
         "isCorrect": false,
-        "explanation": "Weakest."
+        "explanation": "Incorrect. This option is weaker than what the question asks for."
       },
       {
         "id": "B",
         "text": "memory_order_release",
         "isCorrect": false,
-        "explanation": "Half."
+        "explanation": "Incorrect. This is only a partial/limited property, not the best answer for the prompt."
       },
       {
         "id": "C",
         "text": "memory_order_acquire",
         "isCorrect": false,
-        "explanation": "Half."
+        "explanation": "Incorrect. This is only a partial/limited property, not the best answer for the prompt."
       },
       {
         "id": "D",
         "text": "memory_order_seq_cst",
         "isCorrect": true,
-        "explanation": "Correct. memory_order_seq_cst is the right statement for this question."
+        "explanation": "Correct. memory_order_seq_cst matches the C++ rule being tested by this prompt."
       },
       {
         "id": "E",
         "text": "memory_order_consume",
         "isCorrect": false,
-        "explanation": "Deprecated-ish."
+        "explanation": "Incorrect. This characterization is too vague and not the correct rule here."
       }
     ],
-    "explanation": "Key idea: memory_order_seq_cst is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: memory_order_seq_cst. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "atomics"
@@ -235,19 +235,19 @@
         "id": "B",
         "text": "Two threads access same memory concurrently, at least one is a write, without synchronization",
         "isCorrect": true,
-        "explanation": "Correct. Two threads access same memory concurrently, at least one is a write, without synchronization is the right statement for this question."
+        "explanation": "Correct. Two threads access same memory concurrently, at least one is a write, without synchronization matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Any use of atomics",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Any deadlock",
         "isCorrect": false,
-        "explanation": "Different."
+        "explanation": "Incorrect. This describes a different concept than the one asked."
       },
       {
         "id": "E",
@@ -256,7 +256,7 @@
         "explanation": "Race condition is logic; data race specifically causes UB."
       }
     ],
-    "explanation": "Key idea: Two threads access same memory concurrently, at least one is a write, without synchronization is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: Two threads access same memory concurrently, at least one is a write, without synchronization. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "data-race",
@@ -274,7 +274,7 @@
         "id": "A",
         "text": "A thread handle",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
@@ -286,19 +286,19 @@
         "id": "C",
         "text": "A `std::promise`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "A `std::packaged_task`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Nothing",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
     "explanation": "`std::async` launches a task and gives back a `std::future` representing that asynchronous result.\nExample:\nauto fut = std::async(std::launch::async, [] { return 42; });\nint value = fut.get(); // waits if needed, then returns 42",
@@ -346,7 +346,7 @@
         "explanation": "It works with any BasicLockable mutex type."
       }
     ],
-    "explanation": "Key idea: It acquires the mutex on construction and releases on destruction is the correct answer for this prompt. Review the per-option explanations for the detailed reasoning.",
+    "explanation": "Core rule: It acquires the mutex on construction and releases on destruction. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "mutex",
