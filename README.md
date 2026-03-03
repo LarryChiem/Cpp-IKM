@@ -64,6 +64,15 @@ No backend, no database, no login required.
 
 ---
 
+## Contributing
+
+Want to add questions, report issues, or support the project?
+
+- See [CONTRIBUTING.md](CONTRIBUTING.md)
+- Repo: https://github.com/LarryChiem/Cpp-IKM
+
+---
+
 ## License
 
 MIT License.  
