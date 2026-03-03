@@ -4,7 +4,7 @@ import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 
 const TOTAL_QUESTIONS = 54
-const SECONDS_PER_QUESTION = 60
+const SECONDS_PER_QUESTION = 90
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const DONATE = {
   paypal: "https://www.paypal.me/larrychiem",
@@ -836,7 +836,7 @@ const q = exam[idx]
       <header className="top">
         <div>
           <h1>C++ 17/20 Practice Exam</h1>
-          <p className="sub">{bank.length} questions loaded • 60s/question • mobile-friendly</p>
+          <p className="sub">{bank.length} questions loaded • 90s/question • mobile-friendly</p>
         </div>
         <div className="pillRow">
           <span className="pill">Bank: {bank.length} q</span>
