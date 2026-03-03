@@ -593,6 +593,7 @@ export default function App() {
   const [seenStats, setSeenStats] = useState({ seen: 0, unseen: 0, total: 0 })
   const [questionCount, setQuestionCount] = useState(TOTAL_QUESTIONS)
   const [selectedTopics, setSelectedTopics] = useState([]) // empty = all
+  const [topicPerf, setTopicPerf] = useState({})
   const [resumeSnapshot, setResumeSnapshot] = useState(null)
   const timerRef = useRef(null)
 
@@ -639,6 +640,7 @@ function startExam(opts = { fresh: true }) {
   setLocked(false)
   setCorrectCount(0)
   setAttempted(0)
+  setTopicPerf({})
 
   const now = Date.now()
   setStartTs(now)
@@ -659,6 +661,7 @@ function resumeExam() {
   setLocked(!!snap.locked)
   setCorrectCount(snap.correctCount ?? 0)
   setAttempted(snap.attempted ?? 0)
+  setTopicPerf(snap.topicPerf && typeof snap.topicPerf === "object" ? snap.topicPerf : {})
   setStartTs(snap.startTs ?? Date.now())
   const resumedLimit = typeof snap.timeLimitSeconds === "number"
     ? snap.timeLimitSeconds
@@ -679,6 +682,7 @@ function abandonExam() {
   setLocked(false)
   setCorrectCount(0)
   setAttempted(0)
+  setTopicPerf({})
   const freshLimit = Math.max(1, Number(questionCount || TOTAL_QUESTIONS)) * SECONDS_PER_QUESTION
   setTimeLimitSeconds(freshLimit)
   setTimeLeft(freshLimit)
@@ -711,13 +715,14 @@ useEffect(() => {
     locked,
     correctCount,
     attempted,
+    topicPerf,
     timeLeft,
     timeLimitSeconds,
     questionCount,
     selectedTopics,
   }
   saveInProgress(state)
-}, [startTs, exam, idx, selected, locked, correctCount, attempted, timeLeft, timeLimitSeconds, questionCount, selectedTopics])
+}, [startTs, exam, idx, selected, locked, correctCount, attempted, topicPerf, timeLeft, timeLimitSeconds, questionCount, selectedTopics])
 
 // If time expires, keep the last saved state (so they can still view results)
 
@@ -777,6 +782,17 @@ const q = exam[idx]
     const ok = corr.size === selected.size && [...corr].every((x) => selected.has(x))
     setAttempted((a) => a + 1)
     if (ok) setCorrectCount((c) => c + 1)
+    const topic = q.topic || "General"
+    setTopicPerf((prev) => {
+      const cur = prev[topic] || { attempted: 0, correct: 0 }
+      return {
+        ...prev,
+        [topic]: {
+          attempted: cur.attempted + 1,
+          correct: cur.correct + (ok ? 1 : 0),
+        },
+      }
+    })
   }
 
   function nextQuestion() {
@@ -799,6 +815,7 @@ const q = exam[idx]
       score_pct: Number(pct(correctCount, attempted).toFixed(2)),
       duration_sec: durationSec,
       total_questions: exam.length,
+      topic_stats: topicPerf,
     }
     const next = [row, ...history].slice(0, 200)
     setHistory(next)
@@ -808,6 +825,7 @@ const q = exam[idx]
     setIdx(0)
     setSelected(new Set())
     setLocked(false)
+    setTopicPerf({})
     const freshLimit = Math.max(1, Number(questionCount || TOTAL_QUESTIONS)) * SECONDS_PER_QUESTION
     setTimeLimitSeconds(freshLimit)
     setTimeLeft(freshLimit)
@@ -830,6 +848,81 @@ const q = exam[idx]
   }
 
   const scores = history.slice().reverse().map((r) => r.score_pct)
+  const recentHistory = history.slice(0, 6).map((r, i) => {
+    const previous = history[i + 1]
+    const delta = previous ? Number((Number(r.score_pct || 0) - Number(previous.score_pct || 0)).toFixed(2)) : 0
+    return { ...r, delta }
+  })
+  const topicCoverage = useMemo(() => {
+    const seen = loadSeenSet()
+    const byTopic = new Map()
+    for (const qq of dedupeByPrompt(bank || [])) {
+      const topic = qq.topic || "General"
+      const prev = byTopic.get(topic) || { topic, seen: 0, total: 0 }
+      prev.total += 1
+      if (seen.has(qid(qq))) prev.seen += 1
+      byTopic.set(topic, prev)
+    }
+    return Array.from(byTopic.values())
+      .map((x) => ({ ...x, coveragePct: x.total ? (x.seen * 100) / x.total : 0 }))
+      .sort((a, b) => a.topic.localeCompare(b.topic))
+  }, [bank, seenTick])
+  const topicPerfSummary = useMemo(() => {
+    const out = {}
+    for (const row of history || []) {
+      const stats = row?.topic_stats
+      if (!stats || typeof stats !== "object") continue
+      for (const [topic, val] of Object.entries(stats)) {
+        const attemptedN = Number(val?.attempted || 0)
+        const correctN = Number(val?.correct || 0)
+        if (!out[topic]) out[topic] = { attempted: 0, correct: 0 }
+        out[topic].attempted += attemptedN
+        out[topic].correct += correctN
+      }
+    }
+    return out
+  }, [history])
+  const topicInsights = useMemo(() => {
+    const coverageMap = new Map(topicCoverage.map((x) => [x.topic, x]))
+    const names = new Set(topicCoverage.map((x) => x.topic))
+    for (const topic of Object.keys(topicPerfSummary)) names.add(topic)
+    return Array.from(names)
+      .sort((a, b) => a.localeCompare(b))
+      .map((topic) => {
+        const cov = coverageMap.get(topic) || { seen: 0, total: 0, coveragePct: 0 }
+        const perf = topicPerfSummary[topic] || { attempted: 0, correct: 0 }
+        const accuracyPct = perf.attempted ? (perf.correct * 100) / perf.attempted : null
+        let status = "neutral"
+        let label = "Building"
+        if (accuracyPct !== null && perf.attempted >= 3) {
+          if (accuracyPct < 70) {
+            status = "weak"
+            label = "Needs work"
+          } else if (accuracyPct >= 85) {
+            status = "strong"
+            label = "Strong"
+          } else {
+            label = "Improving"
+          }
+        }
+        if (status === "neutral" && cov.coveragePct < 40) label = "Low coverage"
+        return {
+          topic,
+          seen: cov.seen,
+          total: cov.total,
+          coveragePct: cov.coveragePct,
+          attempted: perf.attempted,
+          correct: perf.correct,
+          accuracyPct,
+          status,
+          label,
+        }
+      })
+  }, [topicCoverage, topicPerfSummary])
+  const weakTopics = topicInsights
+    .filter((x) => x.attempted >= 3 && x.accuracyPct !== null && x.accuracyPct < 80)
+    .sort((a, b) => a.accuracyPct - b.accuracyPct)
+    .slice(0, 3)
 
   return (
     <div className="wrap">
@@ -949,6 +1042,30 @@ const q = exam[idx]
                 <p className="muted small">
                   Coverage (current filter): <b>{seenStats.seen}</b> of <b>{seenStats.total}</b> seen, <b>{seenStats.unseen}</b> new remaining.
                 </p>
+                {!!weakTopics.length && (
+                  <p className="muted small">
+                    Could improve:{" "}
+                    <b>{weakTopics.map((x) => `${x.topic} (${x.accuracyPct.toFixed(0)}%)`).join(" • ")}</b>
+                  </p>
+                )}
+                {!!topicInsights.length && (
+                  <div className="topicInsights">
+                    {topicInsights.map((x) => (
+                      <div key={x.topic} className={`topicCard ${x.status}`}>
+                        <div className="topicTop">
+                          <b>{x.topic}</b>
+                          <span className={`topicBadge ${x.status}`}>{x.label}</span>
+                        </div>
+                        <div className="topicMeta">
+                          <span>Coverage: {x.seen}/{x.total} ({Math.round(x.coveragePct)}%)</span>
+                          <span>
+                            Accuracy: {x.attempted ? `${x.correct}/${x.attempted} (${x.accuracyPct.toFixed(0)}%)` : "No attempts yet"}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 <LineChart values={scores} />
                 {!history.length ? (
                   <p className="muted">No attempts yet.</p>
@@ -958,10 +1075,13 @@ const q = exam[idx]
                       <div className="row head">
                         <div>When</div><div>Score</div><div>Attempted</div><div>Duration</div>
                       </div>
-                      {history.slice(0, 6).map((r, i) => (
+                      {recentHistory.map((r, i) => (
                         <div key={i} className="row">
                           <div className="mono">{r.timestamp}</div>
-                          <div><b>{r.score_pct}%</b></div>
+                          <div className={`scoreCell ${r.delta > 0 ? "up" : r.delta < 0 ? "down" : ""}`}>
+                            <b>{r.score_pct}%</b>
+                            {r.delta > 0 && <span className="delta">+{r.delta.toFixed(1)}</span>}
+                          </div>
                           <div>{r.correct}/{r.attempted}</div>
                           <div>{Math.floor(r.duration_sec/60)}m</div>
                         </div>
