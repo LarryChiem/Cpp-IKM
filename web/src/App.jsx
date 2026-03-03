@@ -229,7 +229,7 @@ export function PromptText({ text }) {
           customStyle={{
             margin: 0,
             borderRadius: 12,
-            padding: 16,
+            padding: 12,
             fontSize: 14,
             lineHeight: 1.5,
           }}
@@ -252,7 +252,7 @@ export function PromptText({ text }) {
             customStyle={{
               margin: "8px 0",
               borderRadius: 12,
-              padding: 16,
+              padding: 12,
               fontSize: 14,
               lineHeight: 1.5,
             }}
@@ -856,7 +856,10 @@ const q = exam[idx]
 
         {!loading && bank.length > 0 && !startTs && (
           <div className="start">
-            <h2>Practice Settings</h2>
+            <div className="startHead">
+              <h2>Practice Settings</h2>
+              <span className="muted small">{poolForSelection.length} selectable questions</span>
+            </div>
 
             {resumeSnapshot && (
               <div className="resume">
@@ -868,98 +871,106 @@ const q = exam[idx]
               </div>
             )}
 
-            <div className="settings">
-              <label className="field">
-                <span className="label">Number of questions</span>
-                <input
-                  type="number"
-                  min="1"
-                  max={poolForSelection.length || 1}
-                  value={questionCount}
-                  onChange={(e) => setQuestionCount(parseInt(e.target.value || '1', 10))}
-                />
-                <span className="muted small">Max: {poolForSelection.length}</span>
-              </label>
-
-              <div className="field">
-                <span className="label">Topics</span>
-                <div className="topicRow">
-                  <label className="chk">
+            <div className="startPanels">
+              <section className="panel setupPanel">
+                <div className="settings">
+                  <label className="field">
+                    <span className="label">Number of questions</span>
                     <input
-                      type="checkbox"
-                      checked={selectedTopics.length === 0}
-                      onChange={() => setSelectedTopics([])}
+                      type="number"
+                      min="1"
+                      max={poolForSelection.length || 1}
+                      value={questionCount}
+                      onChange={(e) => setQuestionCount(parseInt(e.target.value || '1', 10))}
                     />
-                    <span>All topics</span>
+                    <span className="muted small">Max: {poolForSelection.length}</span>
                   </label>
-                  <span className="muted small">{selectedTopics.length ? `${selectedTopics.length} selected` : `${topics.length} topics`}</span>
-                </div>
 
-                <div className="topics">
-                  {topics.map((t) => (
-                    <label className="chk" key={t}>
-                      <input
-                        type="checkbox"
-                        checked={selectedTopics.includes(t)}
-
-                        onChange={(e) => {
-                          const next = new Set(selectedTopics.length ? selectedTopics : [])
-                          if (e.target.checked) next.add(t)
-                          else next.delete(t)
-                          setSelectedTopics(Array.from(next))
-                        }}
-                      />
-                      <span>{t}</span>
-                    </label>
-                  ))}
-                </div>
-                <p className="muted small">Tip: Uncheck “All topics” by selecting at least one topic.</p>
-              </div>
-            </div>
-
-            <button className="btn" onClick={() => startExam({ fresh: true })}>Start Practice</button>
-            <p className="hint">Tip: On your phone, open the site and “Add to Home Screen.”</p>
-
-            <section className="history">
-              <div className="historyHead">
-                <h2>Progress</h2>
-                <div className="actions">
-                  <button className="btn ghost" onClick={exportCsv} disabled={!history.length}>Export CSV</button>
-                  <button
-                    className="btn ghost"
-                    onClick={() => {
-                      resetSeenProgress()
-                      setSeenTick((t) => t + 1)
-                    }}
-                    title="Clears which questions you've already seen so you can start a fresh coverage cycle."
-                  >
-                    Reset Seen
-                  </button>
-                </div>
-              </div>
-              <p className="muted small">
-                Coverage (current filter): <b>{seenStats.seen}</b> of <b>{seenStats.total}</b> seen, <b>{seenStats.unseen}</b> new remaining.
-              </p>
-              <LineChart values={scores} />
-              {!history.length ? (
-                <p className="muted">No attempts yet.</p>
-              ) : (
-                <div className="table">
-                  <div className="row head">
-                    <div>When</div><div>Score</div><div>Attempted</div><div>Duration</div>
-                  </div>
-                  {history.slice(0, 8).map((r, i) => (
-                    <div key={i} className="row">
-                      <div className="mono">{r.timestamp}</div>
-                      <div><b>{r.score_pct}%</b></div>
-                      <div>{r.correct}/{r.attempted}</div>
-                      <div>{Math.floor(r.duration_sec/60)}m</div>
+                  <div className="field">
+                    <span className="label">Topics</span>
+                    <div className="topicRow">
+                      <label className="chk">
+                        <input
+                          type="checkbox"
+                          checked={selectedTopics.length === 0}
+                          onChange={() => setSelectedTopics([])}
+                        />
+                        <span>All topics</span>
+                      </label>
+                      <span className="muted small">{selectedTopics.length ? `${selectedTopics.length} selected` : `${topics.length} topics`}</span>
                     </div>
-                  ))}
+
+                    <div className="topics">
+                      {topics.map((t) => (
+                        <label className="chk" key={t}>
+                          <input
+                            type="checkbox"
+                            checked={selectedTopics.includes(t)}
+
+                            onChange={(e) => {
+                              const next = new Set(selectedTopics.length ? selectedTopics : [])
+                              if (e.target.checked) next.add(t)
+                              else next.delete(t)
+                              setSelectedTopics(Array.from(next))
+                            }}
+                          />
+                          <span>{t}</span>
+                        </label>
+                      ))}
+                    </div>
+                    <p className="muted small">Tip: Uncheck “All topics” by selecting at least one topic.</p>
+                  </div>
                 </div>
-              )}
-            </section>
-            <DonateBlock />
+
+                <div className="actions compactActions">
+                  <button className="btn" onClick={() => startExam({ fresh: true })}>Start Practice</button>
+                </div>
+                <p className="hint">Tip: On your phone, open the site and “Add to Home Screen.”</p>
+                <DonateBlock />
+              </section>
+
+              <section className="panel history">
+                <div className="historyHead">
+                  <h2>Progress</h2>
+                  <div className="actions">
+                    <button className="btn ghost" onClick={exportCsv} disabled={!history.length}>Export CSV</button>
+                    <button
+                      className="btn ghost"
+                      onClick={() => {
+                        resetSeenProgress()
+                        setSeenTick((t) => t + 1)
+                      }}
+                      title="Clears which questions you've already seen so you can start a fresh coverage cycle."
+                    >
+                      Reset Seen
+                    </button>
+                  </div>
+                </div>
+                <p className="muted small">
+                  Coverage (current filter): <b>{seenStats.seen}</b> of <b>{seenStats.total}</b> seen, <b>{seenStats.unseen}</b> new remaining.
+                </p>
+                <LineChart values={scores} />
+                {!history.length ? (
+                  <p className="muted">No attempts yet.</p>
+                ) : (
+                  <div className="tableScroll">
+                    <div className="table">
+                      <div className="row head">
+                        <div>When</div><div>Score</div><div>Attempted</div><div>Duration</div>
+                      </div>
+                      {history.slice(0, 6).map((r, i) => (
+                        <div key={i} className="row">
+                          <div className="mono">{r.timestamp}</div>
+                          <div><b>{r.score_pct}%</b></div>
+                          <div>{r.correct}/{r.attempted}</div>
+                          <div>{Math.floor(r.duration_sec/60)}m</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </section>
+            </div>
           </div>
         )}
 
