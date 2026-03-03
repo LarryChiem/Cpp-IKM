@@ -14,28 +14,28 @@
         "id": "B",
         "text": "Compile-time constraints on template arguments",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
+        "explanation": "Correct. Compile-time constraints on template arguments matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Linker constraints",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Exception guarantees",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "ABI requirements",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: Compile-time constraints on template arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
+    "explanation": "Core rule: Compile-time constraints on template arguments. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "concepts",
@@ -53,13 +53,13 @@
         "id": "A",
         "text": "A template with a variable number of template parameters",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
+        "explanation": "Correct. A template with a variable number of template parameters matches the C++ rule being tested by this prompt."
       },
       {
         "id": "B",
         "text": "A template that only works with `std::variant`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "C",
@@ -71,16 +71,16 @@
         "id": "D",
         "text": "A template that must be specialized",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "A template that disables instantiation",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: A template with a variable number of template parameters matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
+    "explanation": "Core rule: A template with a variable number of template parameters. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "variadic"
@@ -97,25 +97,25 @@
         "id": "A",
         "text": "It defines a type alias",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "It tells the compiler that a dependent name refers to a type",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
+        "explanation": "Correct. It tells the compiler that a dependent name refers to a type matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It makes value_type constexpr",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It instantiates T",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -124,7 +124,7 @@
         "explanation": "Not always."
       }
     ],
-    "explanation": "Why this is correct: It tells the compiler that a dependent name refers to a type matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
+    "explanation": "Core rule: It tells the compiler that a dependent name refers to a type. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "dependent-names"
@@ -141,34 +141,34 @@
         "id": "A",
         "text": "Runtime branching only",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Compile-time branching that discards non-taken branches from instantiation",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
+        "explanation": "Correct. Compile-time branching that discards non-taken branches from instantiation matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Faster exceptions",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Dynamic polymorphism",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Macro expansion",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: Compile-time branching that discards non-taken branches from instantiation matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
+    "explanation": "Core rule: Compile-time branching that discards non-taken branches from instantiation. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "if-constexpr",
@@ -186,34 +186,34 @@
         "id": "A",
         "text": "Automatic deducing of function return types",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Deducing class template parameters from constructor arguments",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
+        "explanation": "Correct. Deducing class template parameters from constructor arguments matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Deducing overload sets at runtime",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "A new container type",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "A replacement for templates",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: Deducing class template parameters from constructor arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
+    "explanation": "Core rule: Deducing class template parameters from constructor arguments. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "ctad",
@@ -231,34 +231,34 @@
         "id": "A",
         "text": "A runtime interface",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "A named compile-time predicate over template arguments",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
+        "explanation": "Correct. A named compile-time predicate over template arguments matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "A macro",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "A base class",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "A linker script",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: A named compile-time predicate over template arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
+    "explanation": "Core rule: A named compile-time predicate over template arguments. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concepts",
       "c++20"
@@ -275,19 +275,19 @@
         "id": "A",
         "text": "Non-template overloads are always preferred, all else equal",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
+        "explanation": "Correct. Non-template overloads are always preferred, all else equal matches the C++ rule being tested by this prompt."
       },
       {
         "id": "B",
         "text": "Templates are always preferred",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "C",
         "text": "Templates are chosen at runtime",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
@@ -299,815 +299,15 @@
         "id": "E",
         "text": "ADL is disabled for templates",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: Non-template overloads are always preferred, all else equal matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
+    "explanation": "Core rule: Non-template overloads are always preferred, all else equal. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "overload-resolution"
     ],
     "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0083",
-    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "It defines a type alias",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "It tells the compiler that a dependent name refers to a type",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "It makes value_type constexpr",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "It instantiates T",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It is optional in templates",
-        "isCorrect": false,
-        "explanation": "Not always."
-      }
-    ],
-    "explanation": "Why this is correct: It tells the compiler that a dependent name refers to a type matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "dependent-names"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0084",
-    "prompt": "C++17: What does `if constexpr` enable?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Runtime branching only",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Compile-time branching that discards non-taken branches from instantiation",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "Faster exceptions",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Dynamic polymorphism",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Macro expansion",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Compile-time branching that discards non-taken branches from instantiation matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "if-constexpr",
-      "c++17"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0085",
-    "prompt": "What is CTAD (Class Template Argument Deduction)?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Automatic deducing of function return types",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Deducing class template parameters from constructor arguments",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "Deducing overload sets at runtime",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A new container type",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "A replacement for templates",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Deducing class template parameters from constructor arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "ctad",
-      "c++17"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0086",
-    "prompt": "C++20: A concept is best described as:",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A runtime interface",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "A named compile-time predicate over template arguments",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "A macro",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A base class",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "A linker script",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A named compile-time predicate over template arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "concepts",
-      "c++20"
-    ],
-    "difficulty": "easy",
-    "standard": "C++20"
-  },
-  {
-    "id": "cpp-0087",
-    "prompt": "Which is true about function templates and overload resolution?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Non-template overloads are always preferred, all else equal",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "B",
-        "text": "Templates are always preferred",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "C",
-        "text": "Templates are chosen at runtime",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Partial ordering doesn't exist",
-        "isCorrect": false,
-        "explanation": "It does."
-      },
-      {
-        "id": "E",
-        "text": "ADL is disabled for templates",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Non-template overloads are always preferred, all else equal matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "overload-resolution"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0088",
-    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "It defines a type alias",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "It tells the compiler that a dependent name refers to a type",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "It makes value_type constexpr",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "It instantiates T",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It is optional in templates",
-        "isCorrect": false,
-        "explanation": "Not always."
-      }
-    ],
-    "explanation": "Why this is correct: It tells the compiler that a dependent name refers to a type matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "dependent-names"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0089",
-    "prompt": "C++17: What does `if constexpr` enable?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Runtime branching only",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Compile-time branching that discards non-taken branches from instantiation",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "Faster exceptions",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Dynamic polymorphism",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Macro expansion",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Compile-time branching that discards non-taken branches from instantiation matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "if-constexpr",
-      "c++17"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0090",
-    "prompt": "What is CTAD (Class Template Argument Deduction)?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Automatic deducing of function return types",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Deducing class template parameters from constructor arguments",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "Deducing overload sets at runtime",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A new container type",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "A replacement for templates",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Deducing class template parameters from constructor arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "ctad",
-      "c++17"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0091",
-    "prompt": "C++20: A concept is best described as:",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A runtime interface",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "A named compile-time predicate over template arguments",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "A macro",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A base class",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "A linker script",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A named compile-time predicate over template arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "concepts",
-      "c++20"
-    ],
-    "difficulty": "easy",
-    "standard": "C++20"
-  },
-  {
-    "id": "cpp-0092",
-    "prompt": "Which is true about function templates and overload resolution?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Non-template overloads are always preferred, all else equal",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "B",
-        "text": "Templates are always preferred",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "C",
-        "text": "Templates are chosen at runtime",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Partial ordering doesn't exist",
-        "isCorrect": false,
-        "explanation": "It does."
-      },
-      {
-        "id": "E",
-        "text": "ADL is disabled for templates",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Non-template overloads are always preferred, all else equal matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "overload-resolution"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0093",
-    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "It defines a type alias",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "It tells the compiler that a dependent name refers to a type",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "It makes value_type constexpr",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "It instantiates T",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It is optional in templates",
-        "isCorrect": false,
-        "explanation": "Not always."
-      }
-    ],
-    "explanation": "Why this is correct: It tells the compiler that a dependent name refers to a type matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "dependent-names"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0094",
-    "prompt": "C++17: What does `if constexpr` enable?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Runtime branching only",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Compile-time branching that discards non-taken branches from instantiation",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "Faster exceptions",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Dynamic polymorphism",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Macro expansion",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Compile-time branching that discards non-taken branches from instantiation matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "if-constexpr",
-      "c++17"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0095",
-    "prompt": "What is CTAD (Class Template Argument Deduction)?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Automatic deducing of function return types",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Deducing class template parameters from constructor arguments",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "Deducing overload sets at runtime",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A new container type",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "A replacement for templates",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Deducing class template parameters from constructor arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "ctad",
-      "c++17"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0096",
-    "prompt": "C++20: A concept is best described as:",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A runtime interface",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "A named compile-time predicate over template arguments",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "A macro",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A base class",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "A linker script",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A named compile-time predicate over template arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "concepts",
-      "c++20"
-    ],
-    "difficulty": "easy",
-    "standard": "C++20"
-  },
-  {
-    "id": "cpp-0097",
-    "prompt": "Which is true about function templates and overload resolution?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Non-template overloads are always preferred, all else equal",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "B",
-        "text": "Templates are always preferred",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "C",
-        "text": "Templates are chosen at runtime",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Partial ordering doesn't exist",
-        "isCorrect": false,
-        "explanation": "It does."
-      },
-      {
-        "id": "E",
-        "text": "ADL is disabled for templates",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Non-template overloads are always preferred, all else equal matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "overload-resolution"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0098",
-    "prompt": "What is the purpose of `typename` in `typename T::value_type`?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "It defines a type alias",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "It tells the compiler that a dependent name refers to a type",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "It makes value_type constexpr",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "It instantiates T",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It is optional in templates",
-        "isCorrect": false,
-        "explanation": "Not always."
-      }
-    ],
-    "explanation": "Why this is correct: It tells the compiler that a dependent name refers to a type matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "dependent-names"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0099",
-    "prompt": "C++17: What does `if constexpr` enable?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Runtime branching only",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Compile-time branching that discards non-taken branches from instantiation",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "Faster exceptions",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Dynamic polymorphism",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Macro expansion",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Compile-time branching that discards non-taken branches from instantiation matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "if-constexpr",
-      "c++17"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0100",
-    "prompt": "What is CTAD (Class Template Argument Deduction)?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Automatic deducing of function return types",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Deducing class template parameters from constructor arguments",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
-      },
-      {
-        "id": "C",
-        "text": "Deducing overload sets at runtime",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A new container type",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "A replacement for templates",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Deducing class template parameters from constructor arguments matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
-    "tags": [
-      "templates",
-      "ctad",
-      "c++17"
-    ],
-    "difficulty": "medium",
     "standard": "C++17"
   },
   {
@@ -1125,7 +325,7 @@
         "id": "B",
         "text": "Discards the non-selected branch during compilation",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}"
+        "explanation": "Correct. Discards the non-selected branch during compilation matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -1146,11 +346,290 @@
         "explanation": "It reduces many SFINAE needs but does not replace all patterns."
       }
     ],
-    "explanation": "Why this is correct: Discards the non-selected branch during compilation matches the standard C++ behavior tested by the prompt.\nExample:\ntemplate<class T>\nvoid print(T x) {\n  if constexpr (std::is_integral_v<T>) std::cout << x + 1;\n  else std::cout << x;\n}",
+    "explanation": "Core rule: Discards the non-selected branch during compilation. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "templates",
       "if-constexpr",
       "metaprogramming",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0215",
+    "prompt": "What is printed in C++17?\n\n```cpp\n#include <iostream>\n#include <type_traits>\ntemplate <typename T>\nvoid show(T x) {\n  if constexpr (std::is_integral_v<T>)\n    std::cout << x + 1;\n  else\n    std::cout << x;\n}\nint main() {\n  show(41);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "41",
+        "isCorrect": false,
+        "explanation": "Integral branch adds 1."
+      },
+      {
+        "id": "B",
+        "text": "42",
+        "isCorrect": true,
+        "explanation": "Correct. `T=int`, so the integral branch is compiled and prints `41+1`."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Code is valid C++17."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB here."
+      },
+      {
+        "id": "E",
+        "text": "No output",
+        "isCorrect": false,
+        "explanation": "`show(41)` prints one value."
+      }
+    ],
+    "explanation": "`if constexpr` performs compile-time branch selection and discards the non-selected branch for that instantiation.\nExample:\nshow(41);   // integral branch\nshow(3.14); // non-integral branch",
+    "tags": [
+      "templates",
+      "if-constexpr",
+      "metaprogramming",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0216",
+    "prompt": "What does this evaluate to?\n\n```cpp\n#include <type_traits>\ntemplate<typename T>\nconstexpr bool is_ptr_v = std::is_pointer<T>::value;\n\nint main() {\n  static_assert(is_ptr_v<int*>);\n  static_assert(!is_ptr_v<int>);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Compiles successfully",
+        "isCorrect": true,
+        "explanation": "Correct. `int*` is a pointer and `int` is not, so both assertions pass."
+      },
+      {
+        "id": "B",
+        "text": "Fails first static_assert",
+        "isCorrect": false,
+        "explanation": "First assertion is true."
+      },
+      {
+        "id": "C",
+        "text": "Fails second static_assert",
+        "isCorrect": false,
+        "explanation": "Second assertion is also true because `!is_ptr_v<int>` is true."
+      },
+      {
+        "id": "D",
+        "text": "Runtime exception",
+        "isCorrect": false,
+        "explanation": "`static_assert` is compile-time only."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No runtime behavior is required."
+      }
+    ],
+    "explanation": "Type traits let you express type properties at compile time.\nExample:\nstatic_assert(std::is_integral_v<long long>);\nstatic_assert(!std::is_integral_v<double>);",
+    "tags": [
+      "templates",
+      "type-traits",
+      "compile-time",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0229",
+    "prompt": "Which option shows valid basic C++ lambda syntax?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`lambda(capture){ body }`",
+        "isCorrect": false,
+        "explanation": "This is not valid C++ lambda syntax."
+      },
+      {
+        "id": "B",
+        "text": "`[capture](params) -> return_type { body }`",
+        "isCorrect": true,
+        "explanation": "Correct. A lambda has a capture list, parameter list, optional return type, and body."
+      },
+      {
+        "id": "C",
+        "text": "`function[capture](params){ body }`",
+        "isCorrect": false,
+        "explanation": "No `function` keyword is required for lambdas."
+      },
+      {
+        "id": "D",
+        "text": "`(params) => { body }`",
+        "isCorrect": false,
+        "explanation": "That is JavaScript-style arrow syntax, not C++."
+      },
+      {
+        "id": "E",
+        "text": "`[params]{ capture body }`",
+        "isCorrect": false,
+        "explanation": "Capture and parameter positions are mixed up."
+      }
+    ],
+    "explanation": "A lambda is an unnamed function object.\nExample:\nauto add = [](int x, int y) { return x + y; };\nstd::cout << add(2, 3); // 5",
+    "tags": [
+      "templates",
+      "lambda",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0230",
+    "prompt": "Which part makes a lambda a lambda in C++?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "The `auto` keyword before the variable",
+        "isCorrect": false,
+        "explanation": "`auto` helps type deduction for the closure object, but it does not define lambda syntax."
+      },
+      {
+        "id": "B",
+        "text": "The capture list in square brackets (e.g., `[]`)",
+        "isCorrect": true,
+        "explanation": "Correct. The square-bracket capture introducer is the distinctive lambda syntax."
+      },
+      {
+        "id": "C",
+        "text": "The trailing return type only",
+        "isCorrect": false,
+        "explanation": "Trailing return type is optional and not lambda-specific."
+      },
+      {
+        "id": "D",
+        "text": "Using `std::function`",
+        "isCorrect": false,
+        "explanation": "`std::function` can store callables, but does not create a lambda."
+      },
+      {
+        "id": "E",
+        "text": "Placing code inside `{}` braces",
+        "isCorrect": false,
+        "explanation": "Many constructs use braces; that alone is not a lambda."
+      }
+    ],
+    "explanation": "The lambda introducer is `[...]`. It begins a lambda expression and defines capture behavior.\nExample:\nint k = 10;\nauto byVal = [k]() { return k; };\nauto byRef = [&k]() { return ++k; };",
+    "tags": [
+      "templates",
+      "lambda",
+      "captures",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0231",
+    "prompt": "In a lambda, which components can be omitted in many common cases?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only the body can be omitted",
+        "isCorrect": false,
+        "explanation": "The body is required."
+      },
+      {
+        "id": "B",
+        "text": "Capture list, parameter list, and trailing return type can be omitted in specific cases",
+        "isCorrect": true,
+        "explanation": "Correct. You may write `[] { ... }` with empty captures/params and no explicit return type."
+      },
+      {
+        "id": "C",
+        "text": "The capture list must always include at least one variable",
+        "isCorrect": false,
+        "explanation": "An empty capture list `[]` is common."
+      },
+      {
+        "id": "D",
+        "text": "The parameter list must always be present",
+        "isCorrect": false,
+        "explanation": "No-parameter lambdas can omit `()` in many contexts."
+      },
+      {
+        "id": "E",
+        "text": "The return type must always be explicit",
+        "isCorrect": false,
+        "explanation": "Return type is often deduced."
+      }
+    ],
+    "explanation": "Minimal lambda forms are common for callbacks/predicates.\nExample:\nauto ping = [] { std::cout << \"hi\"; };\nauto isEven = [](int n) { return n % 2 == 0; };",
+    "tags": [
+      "templates",
+      "lambda",
+      "syntax",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0252",
+    "prompt": "What are the main parts that make up this lambda?\n\n```cpp\nauto fn = [x, &y](int n) mutable noexcept -> int {\n  return x + y + n;\n};\n```\n\nIdentify the correct mapping:",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`[x, &y]` capture list, `(int n)` parameter list, `mutable noexcept` specifiers, `-> int` trailing return type, `{ ... }` body",
+        "isCorrect": true,
+        "explanation": "Correct. This names each key lambda component accurately."
+      },
+      {
+        "id": "B",
+        "text": "`[x, &y]` parameter list, `(int n)` capture list, `-> int` function name",
+        "isCorrect": false,
+        "explanation": "Capture and parameter list are swapped, and lambdas have no explicit function name here."
+      },
+      {
+        "id": "C",
+        "text": "`mutable` means capture-by-reference for all variables",
+        "isCorrect": false,
+        "explanation": "`mutable` allows modifying by-value captures inside the lambda call operator."
+      },
+      {
+        "id": "D",
+        "text": "`noexcept` specifies that return type is exception type",
+        "isCorrect": false,
+        "explanation": "`noexcept` is an exception specification, not a return type."
+      },
+      {
+        "id": "E",
+        "text": "`{ ... }` is optional in lambda syntax",
+        "isCorrect": false,
+        "explanation": "Lambda body is required."
+      }
+    ],
+    "explanation": "Lambda anatomy (from left to right):\n- `[x, &y]` capture list\n- `(int n)` parameter list\n- `mutable noexcept` lambda specifiers\n- `-> int` trailing return type\n- `{ return x + y + n; }` function body\nExample:\nauto inc = [start = 0](int step) mutable -> int {\n  start += step;\n  return start;\n};",
+    "tags": [
+      "templates",
+      "lambda",
+      "syntax",
+      "fundamentals",
       "c++17"
     ],
     "difficulty": "medium",

@@ -8,25 +8,25 @@
         "id": "A",
         "text": "It automatically joins",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "It calls `std::terminate`",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
+        "explanation": "Correct. Destroying a joinable `std::thread` calls `std::terminate`; you must call `join()` or `detach()` first.\nExample:\nstd::thread t([]{ /* work */ });\n// if scope ends here without t.join() or t.detach(), program terminates"
       },
       {
         "id": "C",
         "text": "It detaches automatically",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It throws",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -35,7 +35,7 @@
         "explanation": "Terminate is defined behavior."
       }
     ],
-    "explanation": "Why this is correct: It calls `std::terminate` matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
+    "explanation": "`std::thread` enforces explicit ownership of thread completion. If the thread object is still joinable at destruction, the runtime terminates the program to prevent silent background-thread bugs.\nExample:\nstd::thread t(task);\nt.join();   // safe cleanup path\n// or t.detach(); if ownership is intentionally released",
     "tags": [
       "concurrency",
       "thread"
@@ -52,34 +52,34 @@
         "id": "A",
         "text": "It cannot run lambdas",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "False. `std::jthread` can run lambdas just like `std::thread`."
       },
       {
         "id": "B",
         "text": "It auto-joins on destruction (and supports cooperative stop)",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
+        "explanation": "Correct. `std::jthread` requests stop and joins in its destructor, which makes thread lifetime safer than raw `std::thread`.\nExample:\nstd::jthread jt([](std::stop_token st){\n  while (!st.stop_requested()) {\n    // do work\n  }\n}); // destructor requests stop + joins"
       },
       {
         "id": "C",
         "text": "It is faster by definition",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "False. The standard does not guarantee `std::jthread` is faster."
       },
       {
         "id": "D",
         "text": "It is deprecated",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "False. `std::jthread` is a modern C++20 addition, not deprecated."
       },
       {
         "id": "E",
         "text": "It requires a thread pool",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "False. `std::jthread` represents a single thread object and does not require a thread pool."
       }
     ],
-    "explanation": "Why this is correct: It auto-joins on destruction (and supports cooperative stop) matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
+    "explanation": "The key difference is safer lifetime management: `std::thread` must be manually joined or detached, while `std::jthread` auto-joins on destruction and integrates cooperative cancellation via `std::stop_token`.\nExample:\nstd::jthread worker([](std::stop_token st){\n  while (!st.stop_requested()) {\n    // loop until asked to stop\n  }\n});\n// leaving scope requests stop and joins",
     "tags": [
       "concurrency",
       "jthread",
@@ -103,19 +103,19 @@
         "id": "B",
         "text": "It provides mutual exclusion for critical sections",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
+        "explanation": "Correct. It provides mutual exclusion for critical sections matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It guarantees lock-free progress",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It can be copied",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
@@ -124,7 +124,7 @@
         "explanation": "Mutexes provide synchronization but not like that statement."
       }
     ],
-    "explanation": "Why this is correct: It provides mutual exclusion for critical sections matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
+    "explanation": "Core rule: It provides mutual exclusion for critical sections. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "mutex"
@@ -147,28 +147,28 @@
         "id": "B",
         "text": "Unlocks only on exceptions",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "C",
         "text": "Allows try_lock only",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Makes mutex recursive",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Detaches the lock",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: Locks on construction, unlocks on destruction matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
+    "explanation": "Core rule: Locks on construction, unlocks on destruction. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "raii"
@@ -185,34 +185,34 @@
         "id": "A",
         "text": "memory_order_relaxed",
         "isCorrect": false,
-        "explanation": "Weakest."
+        "explanation": "Incorrect. This option is weaker than what the question asks for."
       },
       {
         "id": "B",
         "text": "memory_order_release",
         "isCorrect": false,
-        "explanation": "Half."
+        "explanation": "Incorrect. This is only a partial/limited property, not the best answer for the prompt."
       },
       {
         "id": "C",
         "text": "memory_order_acquire",
         "isCorrect": false,
-        "explanation": "Half."
+        "explanation": "Incorrect. This is only a partial/limited property, not the best answer for the prompt."
       },
       {
         "id": "D",
         "text": "memory_order_seq_cst",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
+        "explanation": "Correct. memory_order_seq_cst matches the C++ rule being tested by this prompt."
       },
       {
         "id": "E",
         "text": "memory_order_consume",
         "isCorrect": false,
-        "explanation": "Deprecated-ish."
+        "explanation": "Incorrect. This characterization is too vague and not the correct rule here."
       }
     ],
-    "explanation": "Why this is correct: memory_order_seq_cst matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
+    "explanation": "Core rule: memory_order_seq_cst. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "atomics"
@@ -235,19 +235,19 @@
         "id": "B",
         "text": "Two threads access same memory concurrently, at least one is a write, without synchronization",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
+        "explanation": "Correct. Two threads access same memory concurrently, at least one is a write, without synchronization matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Any use of atomics",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Any deadlock",
         "isCorrect": false,
-        "explanation": "Different."
+        "explanation": "Incorrect. This describes a different concept than the one asked."
       },
       {
         "id": "E",
@@ -256,7 +256,7 @@
         "explanation": "Race condition is logic; data race specifically causes UB."
       }
     ],
-    "explanation": "Why this is correct: Two threads access same memory concurrently, at least one is a write, without... matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
+    "explanation": "Core rule: Two threads access same memory concurrently, at least one is a write, without synchronization. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "data-race",
@@ -274,838 +274,40 @@
         "id": "A",
         "text": "A thread handle",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "A `std::future`",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
+        "explanation": "Correct. `std::async` returns a `std::future<R>` where `R` is the callable's return type. You use the future to wait for completion and retrieve the result."
       },
       {
         "id": "C",
         "text": "A `std::promise`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "A `std::packaged_task`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Nothing",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: A `std::future` matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
+    "explanation": "`std::async` launches a task and gives back a `std::future` representing that asynchronous result.\nExample:\nauto fut = std::async(std::launch::async, [] { return 42; });\nint value = fut.get(); // waits if needed, then returns 42",
     "tags": [
       "concurrency",
       "async",
       "future"
     ],
     "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0158",
-    "prompt": "Which is true about `std::mutex`?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "It is re-entrant by default",
-        "isCorrect": false,
-        "explanation": "No, that's recursive_mutex."
-      },
-      {
-        "id": "B",
-        "text": "It provides mutual exclusion for critical sections",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "It guarantees lock-free progress",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "It can be copied",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It orders memory like atomic_seq_cst always",
-        "isCorrect": false,
-        "explanation": "Mutexes provide synchronization but not like that statement."
-      }
-    ],
-    "explanation": "Why this is correct: It provides mutual exclusion for critical sections matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "mutex"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0159",
-    "prompt": "What does `std::lock_guard<std::mutex>` do?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Locks on construction, unlocks on destruction",
-        "isCorrect": true,
-        "explanation": "Correct RAII locking."
-      },
-      {
-        "id": "B",
-        "text": "Unlocks only on exceptions",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "C",
-        "text": "Allows try_lock only",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Makes mutex recursive",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Detaches the lock",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Locks on construction, unlocks on destruction matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "raii"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0160",
-    "prompt": "Which atomic ordering is the strongest (most restrictive)?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "memory_order_relaxed",
-        "isCorrect": false,
-        "explanation": "Weakest."
-      },
-      {
-        "id": "B",
-        "text": "memory_order_release",
-        "isCorrect": false,
-        "explanation": "Half."
-      },
-      {
-        "id": "C",
-        "text": "memory_order_acquire",
-        "isCorrect": false,
-        "explanation": "Half."
-      },
-      {
-        "id": "D",
-        "text": "memory_order_seq_cst",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "E",
-        "text": "memory_order_consume",
-        "isCorrect": false,
-        "explanation": "Deprecated-ish."
-      }
-    ],
-    "explanation": "Why this is correct: memory_order_seq_cst matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "atomics"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0161",
-    "prompt": "What is a data race in C++?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Two threads read the same variable",
-        "isCorrect": false,
-        "explanation": "Reads are fine."
-      },
-      {
-        "id": "B",
-        "text": "Two threads access same memory concurrently, at least one is a write, without synchronization",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "Any use of atomics",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Any deadlock",
-        "isCorrect": false,
-        "explanation": "Different."
-      },
-      {
-        "id": "E",
-        "text": "A race condition always causes UB",
-        "isCorrect": false,
-        "explanation": "Race condition is logic; data race specifically causes UB."
-      }
-    ],
-    "explanation": "Why this is correct: Two threads access same memory concurrently, at least one is a write, without... matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "data-race",
-      "ub"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0162",
-    "prompt": "C++17: What does `std::async` return?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A thread handle",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "A `std::future`",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "A `std::promise`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A `std::packaged_task`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Nothing",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A `std::future` matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "async",
-      "future"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0163",
-    "prompt": "Which is true about `std::mutex`?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "It is re-entrant by default",
-        "isCorrect": false,
-        "explanation": "No, that's recursive_mutex."
-      },
-      {
-        "id": "B",
-        "text": "It provides mutual exclusion for critical sections",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "It guarantees lock-free progress",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "It can be copied",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It orders memory like atomic_seq_cst always",
-        "isCorrect": false,
-        "explanation": "Mutexes provide synchronization but not like that statement."
-      }
-    ],
-    "explanation": "Why this is correct: It provides mutual exclusion for critical sections matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "mutex"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0164",
-    "prompt": "What does `std::lock_guard<std::mutex>` do?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Locks on construction, unlocks on destruction",
-        "isCorrect": true,
-        "explanation": "Correct RAII locking."
-      },
-      {
-        "id": "B",
-        "text": "Unlocks only on exceptions",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "C",
-        "text": "Allows try_lock only",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Makes mutex recursive",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Detaches the lock",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Locks on construction, unlocks on destruction matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "raii"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0165",
-    "prompt": "Which atomic ordering is the strongest (most restrictive)?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "memory_order_relaxed",
-        "isCorrect": false,
-        "explanation": "Weakest."
-      },
-      {
-        "id": "B",
-        "text": "memory_order_release",
-        "isCorrect": false,
-        "explanation": "Half."
-      },
-      {
-        "id": "C",
-        "text": "memory_order_acquire",
-        "isCorrect": false,
-        "explanation": "Half."
-      },
-      {
-        "id": "D",
-        "text": "memory_order_seq_cst",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "E",
-        "text": "memory_order_consume",
-        "isCorrect": false,
-        "explanation": "Deprecated-ish."
-      }
-    ],
-    "explanation": "Why this is correct: memory_order_seq_cst matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "atomics"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0166",
-    "prompt": "What is a data race in C++?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Two threads read the same variable",
-        "isCorrect": false,
-        "explanation": "Reads are fine."
-      },
-      {
-        "id": "B",
-        "text": "Two threads access same memory concurrently, at least one is a write, without synchronization",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "Any use of atomics",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Any deadlock",
-        "isCorrect": false,
-        "explanation": "Different."
-      },
-      {
-        "id": "E",
-        "text": "A race condition always causes UB",
-        "isCorrect": false,
-        "explanation": "Race condition is logic; data race specifically causes UB."
-      }
-    ],
-    "explanation": "Why this is correct: Two threads access same memory concurrently, at least one is a write, without... matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "data-race",
-      "ub"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0167",
-    "prompt": "C++17: What does `std::async` return?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A thread handle",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "A `std::future`",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "A `std::promise`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A `std::packaged_task`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Nothing",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A `std::future` matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "async",
-      "future"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0168",
-    "prompt": "Which is true about `std::mutex`?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "It is re-entrant by default",
-        "isCorrect": false,
-        "explanation": "No, that's recursive_mutex."
-      },
-      {
-        "id": "B",
-        "text": "It provides mutual exclusion for critical sections",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "It guarantees lock-free progress",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "It can be copied",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It orders memory like atomic_seq_cst always",
-        "isCorrect": false,
-        "explanation": "Mutexes provide synchronization but not like that statement."
-      }
-    ],
-    "explanation": "Why this is correct: It provides mutual exclusion for critical sections matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "mutex"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0169",
-    "prompt": "What does `std::lock_guard<std::mutex>` do?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Locks on construction, unlocks on destruction",
-        "isCorrect": true,
-        "explanation": "Correct RAII locking."
-      },
-      {
-        "id": "B",
-        "text": "Unlocks only on exceptions",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "C",
-        "text": "Allows try_lock only",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Makes mutex recursive",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Detaches the lock",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Locks on construction, unlocks on destruction matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "raii"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0170",
-    "prompt": "Which atomic ordering is the strongest (most restrictive)?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "memory_order_relaxed",
-        "isCorrect": false,
-        "explanation": "Weakest."
-      },
-      {
-        "id": "B",
-        "text": "memory_order_release",
-        "isCorrect": false,
-        "explanation": "Half."
-      },
-      {
-        "id": "C",
-        "text": "memory_order_acquire",
-        "isCorrect": false,
-        "explanation": "Half."
-      },
-      {
-        "id": "D",
-        "text": "memory_order_seq_cst",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "E",
-        "text": "memory_order_consume",
-        "isCorrect": false,
-        "explanation": "Deprecated-ish."
-      }
-    ],
-    "explanation": "Why this is correct: memory_order_seq_cst matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "atomics"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0171",
-    "prompt": "What is a data race in C++?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Two threads read the same variable",
-        "isCorrect": false,
-        "explanation": "Reads are fine."
-      },
-      {
-        "id": "B",
-        "text": "Two threads access same memory concurrently, at least one is a write, without synchronization",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "Any use of atomics",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Any deadlock",
-        "isCorrect": false,
-        "explanation": "Different."
-      },
-      {
-        "id": "E",
-        "text": "A race condition always causes UB",
-        "isCorrect": false,
-        "explanation": "Race condition is logic; data race specifically causes UB."
-      }
-    ],
-    "explanation": "Why this is correct: Two threads access same memory concurrently, at least one is a write, without... matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "data-race",
-      "ub"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0172",
-    "prompt": "C++17: What does `std::async` return?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A thread handle",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "A `std::future`",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "A `std::promise`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "A `std::packaged_task`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Nothing",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A `std::future` matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "async",
-      "future"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0173",
-    "prompt": "Which is true about `std::mutex`?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "It is re-entrant by default",
-        "isCorrect": false,
-        "explanation": "No, that's recursive_mutex."
-      },
-      {
-        "id": "B",
-        "text": "It provides mutual exclusion for critical sections",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "C",
-        "text": "It guarantees lock-free progress",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "It can be copied",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It orders memory like atomic_seq_cst always",
-        "isCorrect": false,
-        "explanation": "Mutexes provide synchronization but not like that statement."
-      }
-    ],
-    "explanation": "Why this is correct: It provides mutual exclusion for critical sections matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "mutex"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0174",
-    "prompt": "What does `std::lock_guard<std::mutex>` do?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Locks on construction, unlocks on destruction",
-        "isCorrect": true,
-        "explanation": "Correct RAII locking."
-      },
-      {
-        "id": "B",
-        "text": "Unlocks only on exceptions",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "C",
-        "text": "Allows try_lock only",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Makes mutex recursive",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Detaches the lock",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Locks on construction, unlocks on destruction matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "raii"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0175",
-    "prompt": "Which atomic ordering is the strongest (most restrictive)?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "memory_order_relaxed",
-        "isCorrect": false,
-        "explanation": "Weakest."
-      },
-      {
-        "id": "B",
-        "text": "memory_order_release",
-        "isCorrect": false,
-        "explanation": "Half."
-      },
-      {
-        "id": "C",
-        "text": "memory_order_acquire",
-        "isCorrect": false,
-        "explanation": "Half."
-      },
-      {
-        "id": "D",
-        "text": "memory_order_seq_cst",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }"
-      },
-      {
-        "id": "E",
-        "text": "memory_order_consume",
-        "isCorrect": false,
-        "explanation": "Deprecated-ish."
-      }
-    ],
-    "explanation": "Why this is correct: memory_order_seq_cst matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
-    "tags": [
-      "concurrency",
-      "atomics"
-    ],
-    "difficulty": "hard",
     "standard": "C++17"
   },
   {
@@ -1144,7 +346,7 @@
         "explanation": "It works with any BasicLockable mutex type."
       }
     ],
-    "explanation": "Why this is correct: It acquires the mutex on construction and releases on destruction matches the standard C++ behavior tested by the prompt.\nExample:\nstd::mutex m;\nint counter = 0;\n{ std::lock_guard<std::mutex> lk(m); ++counter; }",
+    "explanation": "Core rule: It acquires the mutex on construction and releases on destruction. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "concurrency",
       "mutex",
@@ -1152,6 +354,98 @@
       "c++17"
     ],
     "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0221",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\n#include <mutex>\nint main() {\n  std::mutex m;\n  int x = 0;\n  {\n    std::lock_guard<std::mutex> lk(m);\n    ++x;\n  }\n  std::cout << x;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "0",
+        "isCorrect": false,
+        "explanation": "`x` is incremented inside the critical section."
+      },
+      {
+        "id": "B",
+        "text": "1",
+        "isCorrect": true,
+        "explanation": "Correct. Locking does not change arithmetic; it only protects the operation."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Valid code."
+      },
+      {
+        "id": "D",
+        "text": "Deadlock",
+        "isCorrect": false,
+        "explanation": "Single mutex locked once in one thread is fine."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB in this single-threaded sample."
+      }
+    ],
+    "explanation": "`std::lock_guard` acquires the mutex on construction and releases it automatically at scope exit.\nExample:\n{ std::lock_guard<std::mutex> lk(m); /* critical section */ }",
+    "tags": [
+      "concurrency",
+      "mutex",
+      "lock_guard",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0222",
+    "prompt": "What is printed?\n\n```cpp\n#include <future>\n#include <iostream>\nint main() {\n  auto fut = std::async(std::launch::deferred, [] { return 5 + 7; });\n  std::cout << fut.get();\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "12",
+        "isCorrect": true,
+        "explanation": "Correct. `get()` runs deferred work and returns the computed result."
+      },
+      {
+        "id": "B",
+        "text": "0",
+        "isCorrect": false,
+        "explanation": "Lambda returns 12."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Valid use of `std::async`."
+      },
+      {
+        "id": "D",
+        "text": "Hangs forever",
+        "isCorrect": false,
+        "explanation": "Deferred task executes when `get()` is called."
+      },
+      {
+        "id": "E",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB here."
+      }
+    ],
+    "explanation": "With `std::launch::deferred`, execution is postponed until `get()` or `wait()`.\nExample:\nauto f = std::async(std::launch::deferred, work);\n// work runs at f.get()",
+    "tags": [
+      "concurrency",
+      "async",
+      "future",
+      "c++17"
+    ],
+    "difficulty": "medium",
     "standard": "C++17"
   }
 ]

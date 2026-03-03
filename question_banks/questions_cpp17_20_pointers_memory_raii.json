@@ -14,13 +14,13 @@
         "id": "B",
         "text": "p was allocated with `new[]`",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
+        "explanation": "Correct. p was allocated with `new[]` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "p points to stack memory",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
@@ -32,10 +32,10 @@
         "id": "E",
         "text": "Nothing; delete[] can free anything",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: p was allocated with `new[]` matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
+    "explanation": "Core rule: p was allocated with `new[]`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "memory",
       "new-delete"
@@ -58,7 +58,7 @@
         "id": "B",
         "text": "`std::shared_ptr`",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
+        "explanation": "Correct. `std::shared_ptr` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -79,7 +79,7 @@
         "explanation": "Not standard."
       }
     ],
-    "explanation": "Why this is correct: `std::shared_ptr` matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
+    "explanation": "Core rule: `std::shared_ptr`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "memory",
       "smart-pointers"
@@ -96,7 +96,7 @@
         "id": "A",
         "text": "It enables RTTI",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
@@ -108,22 +108,22 @@
         "id": "C",
         "text": "It is required for polymorphic deletion",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It makes T trivially destructible",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "It always allocates on stack",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: It avoids potential leaks if an exception is thrown during construction of ot... matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
+    "explanation": "Core rule: It avoids potential leaks if an exception is thrown during construction of other arguments. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "raii",
       "exception-safety",
@@ -147,7 +147,7 @@
         "id": "B",
         "text": "A pointer that points to an object whose lifetime has ended",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
+        "explanation": "Correct. A pointer that points to an object whose lifetime has ended matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -165,10 +165,10 @@
         "id": "E",
         "text": "A pointer to const",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
+    "explanation": "Core rule: A pointer that points to an object whose lifetime has ended. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "pointers",
       "lifetime"
@@ -185,34 +185,34 @@
         "id": "A",
         "text": "References can be reseated after initialization",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "False. A reference is bound once at initialization and cannot later refer to a different object."
       },
       {
         "id": "B",
         "text": "References must be initialized",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
+        "explanation": "Correct. A reference is an alias, so it must be bound to a valid object (or function) at declaration; it has no separate “empty/null” state."
       },
       {
         "id": "C",
         "text": "References can be null",
         "isCorrect": false,
-        "explanation": "Not in standard semantics."
+        "explanation": "In standard C++, references are not nullable values like pointers."
       },
       {
         "id": "D",
         "text": "References have pointer arithmetic",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Pointer arithmetic applies to pointers, not references."
       },
       {
         "id": "E",
         "text": "References are objects you can take sizeof to get referred size",
         "isCorrect": false,
-        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
+        "explanation": "`sizeof(ref)` yields the size of the referenced type, but this does not mean references are regular reseatable objects."
       }
     ],
-    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
+    "explanation": "References are aliases, not independent objects. Because of that, they must bind immediately at declaration so they always refer to a valid target. C++ references have no null/empty state and cannot be reseated later.\nExample:\nint x = 1, y = 2;\nint& r = x;\nr = 5;   // changes x\n// r = y; does NOT reseat r; it assigns y's value to x",
     "tags": [
       "references",
       "basics"
@@ -235,28 +235,28 @@
         "id": "B",
         "text": "Casts to an rvalue reference, enabling moves if available",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
+        "explanation": "Correct. Casts to an rvalue reference, enabling moves if available matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Destroys the source",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "Copies faster",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Makes object const",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
+    "explanation": "Core rule: Casts to an rvalue reference, enabling moves if available. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "move",
       "value-categories"
@@ -273,13 +273,13 @@
         "id": "A",
         "text": "Fewer templates",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Resource release is tied to object lifetime, including during exceptions",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
+        "explanation": "Correct. Resource release is tied to object lifetime, including during exceptions matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -291,813 +291,21 @@
         "id": "D",
         "text": "It requires garbage collection",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "It replaces destructors",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
+    "explanation": "Core rule: Resource release is tied to object lifetime, including during exceptions. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "raii",
       "best-practices"
     ],
     "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0033",
-    "prompt": "What is a dangling pointer?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A pointer that points to heap memory",
-        "isCorrect": false,
-        "explanation": "Not necessarily."
-      },
-      {
-        "id": "B",
-        "text": "A pointer that points to an object whose lifetime has ended",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "A pointer that is `nullptr`",
-        "isCorrect": false,
-        "explanation": "Null is not dangling."
-      },
-      {
-        "id": "D",
-        "text": "A pointer with value 0xDEADBEEF",
-        "isCorrect": false,
-        "explanation": "That's just a value."
-      },
-      {
-        "id": "E",
-        "text": "A pointer to const",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "pointers",
-      "lifetime"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0034",
-    "prompt": "Which is true about references?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "References can be reseated after initialization",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "References must be initialized",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "References can be null",
-        "isCorrect": false,
-        "explanation": "Not in standard semantics."
-      },
-      {
-        "id": "D",
-        "text": "References have pointer arithmetic",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "References are objects you can take sizeof to get referred size",
-        "isCorrect": false,
-        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
-      }
-    ],
-    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "references",
-      "basics"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0035",
-    "prompt": "What does `std::move` do?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Moves the object",
-        "isCorrect": false,
-        "explanation": "It's a cast."
-      },
-      {
-        "id": "B",
-        "text": "Casts to an rvalue reference, enabling moves if available",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "Destroys the source",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Copies faster",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Makes object const",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "move",
-      "value-categories"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0036",
-    "prompt": "What is the key benefit of RAII?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Fewer templates",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Resource release is tied to object lifetime, including during exceptions",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
-      },
-      {
-        "id": "C",
-        "text": "It disables copying",
-        "isCorrect": false,
-        "explanation": "Not necessarily."
-      },
-      {
-        "id": "D",
-        "text": "It requires garbage collection",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It replaces destructors",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
-    "tags": [
-      "raii",
-      "best-practices"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0037",
-    "prompt": "What is a dangling pointer?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A pointer that points to heap memory",
-        "isCorrect": false,
-        "explanation": "Not necessarily."
-      },
-      {
-        "id": "B",
-        "text": "A pointer that points to an object whose lifetime has ended",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "A pointer that is `nullptr`",
-        "isCorrect": false,
-        "explanation": "Null is not dangling."
-      },
-      {
-        "id": "D",
-        "text": "A pointer with value 0xDEADBEEF",
-        "isCorrect": false,
-        "explanation": "That's just a value."
-      },
-      {
-        "id": "E",
-        "text": "A pointer to const",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "pointers",
-      "lifetime"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0038",
-    "prompt": "Which is true about references?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "References can be reseated after initialization",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "References must be initialized",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "References can be null",
-        "isCorrect": false,
-        "explanation": "Not in standard semantics."
-      },
-      {
-        "id": "D",
-        "text": "References have pointer arithmetic",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "References are objects you can take sizeof to get referred size",
-        "isCorrect": false,
-        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
-      }
-    ],
-    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "references",
-      "basics"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0039",
-    "prompt": "What does `std::move` do?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Moves the object",
-        "isCorrect": false,
-        "explanation": "It's a cast."
-      },
-      {
-        "id": "B",
-        "text": "Casts to an rvalue reference, enabling moves if available",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "Destroys the source",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Copies faster",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Makes object const",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "move",
-      "value-categories"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0040",
-    "prompt": "What is the key benefit of RAII?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Fewer templates",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Resource release is tied to object lifetime, including during exceptions",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
-      },
-      {
-        "id": "C",
-        "text": "It disables copying",
-        "isCorrect": false,
-        "explanation": "Not necessarily."
-      },
-      {
-        "id": "D",
-        "text": "It requires garbage collection",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It replaces destructors",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
-    "tags": [
-      "raii",
-      "best-practices"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0041",
-    "prompt": "What is a dangling pointer?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A pointer that points to heap memory",
-        "isCorrect": false,
-        "explanation": "Not necessarily."
-      },
-      {
-        "id": "B",
-        "text": "A pointer that points to an object whose lifetime has ended",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "A pointer that is `nullptr`",
-        "isCorrect": false,
-        "explanation": "Null is not dangling."
-      },
-      {
-        "id": "D",
-        "text": "A pointer with value 0xDEADBEEF",
-        "isCorrect": false,
-        "explanation": "That's just a value."
-      },
-      {
-        "id": "E",
-        "text": "A pointer to const",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "pointers",
-      "lifetime"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0042",
-    "prompt": "Which is true about references?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "References can be reseated after initialization",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "References must be initialized",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "References can be null",
-        "isCorrect": false,
-        "explanation": "Not in standard semantics."
-      },
-      {
-        "id": "D",
-        "text": "References have pointer arithmetic",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "References are objects you can take sizeof to get referred size",
-        "isCorrect": false,
-        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
-      }
-    ],
-    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "references",
-      "basics"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0043",
-    "prompt": "What does `std::move` do?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Moves the object",
-        "isCorrect": false,
-        "explanation": "It's a cast."
-      },
-      {
-        "id": "B",
-        "text": "Casts to an rvalue reference, enabling moves if available",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "Destroys the source",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Copies faster",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Makes object const",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "move",
-      "value-categories"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0044",
-    "prompt": "What is the key benefit of RAII?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Fewer templates",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Resource release is tied to object lifetime, including during exceptions",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
-      },
-      {
-        "id": "C",
-        "text": "It disables copying",
-        "isCorrect": false,
-        "explanation": "Not necessarily."
-      },
-      {
-        "id": "D",
-        "text": "It requires garbage collection",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It replaces destructors",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
-    "tags": [
-      "raii",
-      "best-practices"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0045",
-    "prompt": "What is a dangling pointer?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A pointer that points to heap memory",
-        "isCorrect": false,
-        "explanation": "Not necessarily."
-      },
-      {
-        "id": "B",
-        "text": "A pointer that points to an object whose lifetime has ended",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "A pointer that is `nullptr`",
-        "isCorrect": false,
-        "explanation": "Null is not dangling."
-      },
-      {
-        "id": "D",
-        "text": "A pointer with value 0xDEADBEEF",
-        "isCorrect": false,
-        "explanation": "That's just a value."
-      },
-      {
-        "id": "E",
-        "text": "A pointer to const",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "pointers",
-      "lifetime"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0046",
-    "prompt": "Which is true about references?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "References can be reseated after initialization",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "References must be initialized",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "References can be null",
-        "isCorrect": false,
-        "explanation": "Not in standard semantics."
-      },
-      {
-        "id": "D",
-        "text": "References have pointer arithmetic",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "References are objects you can take sizeof to get referred size",
-        "isCorrect": false,
-        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
-      }
-    ],
-    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "references",
-      "basics"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0047",
-    "prompt": "What does `std::move` do?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Moves the object",
-        "isCorrect": false,
-        "explanation": "It's a cast."
-      },
-      {
-        "id": "B",
-        "text": "Casts to an rvalue reference, enabling moves if available",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "Destroys the source",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "Copies faster",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Makes object const",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Casts to an rvalue reference, enabling moves if available matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "move",
-      "value-categories"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0048",
-    "prompt": "What is the key benefit of RAII?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Fewer templates",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Resource release is tied to object lifetime, including during exceptions",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
-      },
-      {
-        "id": "C",
-        "text": "It disables copying",
-        "isCorrect": false,
-        "explanation": "Not necessarily."
-      },
-      {
-        "id": "D",
-        "text": "It requires garbage collection",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "It replaces destructors",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Resource release is tied to object lifetime, including during exceptions matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
-    "tags": [
-      "raii",
-      "best-practices"
-    ],
-    "difficulty": "medium",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0049",
-    "prompt": "What is a dangling pointer?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "A pointer that points to heap memory",
-        "isCorrect": false,
-        "explanation": "Not necessarily."
-      },
-      {
-        "id": "B",
-        "text": "A pointer that points to an object whose lifetime has ended",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "A pointer that is `nullptr`",
-        "isCorrect": false,
-        "explanation": "Null is not dangling."
-      },
-      {
-        "id": "D",
-        "text": "A pointer with value 0xDEADBEEF",
-        "isCorrect": false,
-        "explanation": "That's just a value."
-      },
-      {
-        "id": "E",
-        "text": "A pointer to const",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: A pointer that points to an object whose lifetime has ended matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "pointers",
-      "lifetime"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0050",
-    "prompt": "Which is true about references?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "References can be reseated after initialization",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "References must be initialized",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>"
-      },
-      {
-        "id": "C",
-        "text": "References can be null",
-        "isCorrect": false,
-        "explanation": "Not in standard semantics."
-      },
-      {
-        "id": "D",
-        "text": "References have pointer arithmetic",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "References are objects you can take sizeof to get referred size",
-        "isCorrect": false,
-        "explanation": "sizeof(ref) gives size of referenced type, but ref is alias; still ok. We'll avoid."
-      }
-    ],
-    "explanation": "Why this is correct: References must be initialized matches the standard C++ behavior tested by the prompt.\nExample:\nconst char s[] = \"abc\"; // type is const char[4], includes \\0\nauto il = {1,2,3};        // deduces std::initializer_list<int>",
-    "tags": [
-      "references",
-      "basics"
-    ],
-    "difficulty": "easy",
     "standard": "C++17"
   },
   {
@@ -1121,7 +329,7 @@
         "id": "C",
         "text": "It is exception-safe and avoids repeating the type",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete"
+        "explanation": "Correct. It is exception-safe and avoids repeating the type matches the C++ rule being tested by this prompt."
       },
       {
         "id": "D",
@@ -1136,7 +344,7 @@
         "explanation": "`make_unique` returns `std::unique_ptr<T>`."
       }
     ],
-    "explanation": "Why this is correct: It is exception-safe and avoids repeating the type matches the standard C++ behavior tested by the prompt.\nExample:\nauto p = std::make_unique<int>(42);\n// automatic cleanup at scope exit, no manual delete",
+    "explanation": "Core rule: It is exception-safe and avoids repeating the type. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "raii",
       "smart-pointers",
@@ -1144,6 +352,193 @@
       "c++17"
     ],
     "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0211",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\n#include <memory>\nint main() {\n  auto p = std::make_unique<int>(9);\n  *p += 1;\n  std::cout << *p;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "9",
+        "isCorrect": false,
+        "explanation": "The pointee is incremented before printing."
+      },
+      {
+        "id": "B",
+        "text": "10",
+        "isCorrect": true,
+        "explanation": "Correct. `*p` accesses the managed int and increments it from 9 to 10."
+      },
+      {
+        "id": "C",
+        "text": "0",
+        "isCorrect": false,
+        "explanation": "`make_unique<int>(9)` initializes with 9."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Valid C++17 code."
+      },
+      {
+        "id": "E",
+        "text": "Memory leak",
+        "isCorrect": false,
+        "explanation": "`unique_ptr` releases memory automatically at scope exit."
+      }
+    ],
+    "explanation": "RAII means resource lifetime follows object lifetime. `std::unique_ptr` owns one object and frees it automatically.\nExample:\n{\n  auto p = std::make_unique<int>(42);\n} // automatic delete here",
+    "tags": [
+      "memory",
+      "raii",
+      "smart-pointers",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0212",
+    "prompt": "What happens?\n\n```cpp\n#include <memory>\nint main() {\n  std::unique_ptr<int> a = std::make_unique<int>(1);\n  std::unique_ptr<int> b = a;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both pointers share ownership",
+        "isCorrect": false,
+        "explanation": "That behavior belongs to `std::shared_ptr`."
+      },
+      {
+        "id": "B",
+        "text": "Compilation error",
+        "isCorrect": true,
+        "explanation": "Correct. `unique_ptr` is non-copyable to enforce unique ownership."
+      },
+      {
+        "id": "C",
+        "text": "Program prints 1",
+        "isCorrect": false,
+        "explanation": "No printing code exists, and it does not compile."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "The failure is compile-time, not UB."
+      },
+      {
+        "id": "E",
+        "text": "It compiles only in C++20",
+        "isCorrect": false,
+        "explanation": "Copying `unique_ptr` is invalid in all modern standards."
+      }
+    ],
+    "explanation": "Move `unique_ptr` when transferring ownership.\nExample:\nauto a = std::make_unique<int>(1);\nauto b = std::move(a); // OK, a becomes empty",
+    "tags": [
+      "memory",
+      "unique_ptr",
+      "ownership",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0227",
+    "prompt": "What is wrong with this code?\n\n```cpp\n#include <string>\nconst std::string& bad() {\n  return std::string(\"hello\");\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nothing; lifetime is extended safely",
+        "isCorrect": false,
+        "explanation": "Lifetime extension does not apply through function return this way."
+      },
+      {
+        "id": "B",
+        "text": "Returns a dangling reference",
+        "isCorrect": true,
+        "explanation": "Correct. The temporary string is destroyed at end of `bad()`, so the returned reference dangles."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error because temporary cannot bind to const reference",
+        "isCorrect": false,
+        "explanation": "Binding is allowed; the problem is lifetime after return."
+      },
+      {
+        "id": "D",
+        "text": "It leaks memory",
+        "isCorrect": false,
+        "explanation": "No leak; object is destroyed, just too early."
+      },
+      {
+        "id": "E",
+        "text": "It throws by default",
+        "isCorrect": false,
+        "explanation": "No implicit throwing behavior here."
+      }
+    ],
+    "explanation": "Return by value for local/temporary objects; modern C++ uses copy elision/moves efficiently.\nExample:\nstd::string good() {\n  return std::string(\"hello\");\n}",
+    "tags": [
+      "memory",
+      "references",
+      "lifetime",
+      "dangling",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0234",
+    "prompt": "What happens if you apply `std::move` to a `const` object?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It always performs a move construction/assignment",
+        "isCorrect": false,
+        "explanation": "Not always; moving from `const` often falls back to copying."
+      },
+      {
+        "id": "B",
+        "text": "It casts to `const T&&`, so many move operations cannot modify source and copy is used",
+        "isCorrect": true,
+        "explanation": "Correct. `std::move(const T&)` yields `const T&&`; move constructors/assignments usually require non-const rvalue to steal resources."
+      },
+      {
+        "id": "C",
+        "text": "It removes constness and moves anyway",
+        "isCorrect": false,
+        "explanation": "`std::move` does not remove constness."
+      },
+      {
+        "id": "D",
+        "text": "Compilation always fails",
+        "isCorrect": false,
+        "explanation": "It may compile and copy, depending on available overloads."
+      },
+      {
+        "id": "E",
+        "text": "It triggers undefined behavior",
+        "isCorrect": false,
+        "explanation": "No UB merely from calling `std::move` on const."
+      }
+    ],
+    "explanation": "`std::move` is a cast, not a move operation by itself.\nExample:\nconst std::string s = \"abc\";\nstd::string t = std::move(s); // typically copy, not move",
+    "tags": [
+      "memory",
+      "move-semantics",
+      "const",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "hard",
     "standard": "C++17"
   }
 ]

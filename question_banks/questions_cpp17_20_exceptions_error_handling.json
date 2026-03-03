@@ -8,34 +8,34 @@
         "id": "A",
         "text": "It is ignored",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "`std::terminate` is called",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
+        "explanation": "Correct. `std::terminate` is called matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "It is converted to `std::exception`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "It is caught automatically",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Program continues safely",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: `std::terminate` is called matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
+    "explanation": "Throwing from a destructor during stack unwinding triggers `std::terminate`, because a second active exception cannot safely propagate at the same time.\nExample:\nstruct X {\n  ~X() noexcept(false) { throw std::runtime_error(\"boom\"); }\n};\ntry {\n  X x;\n  throw std::runtime_error(\"outer\");\n} catch (...) {\n  // terminate occurs before this handler can finish\n}",
     "tags": [
       "exceptions",
       "destructors",
@@ -59,7 +59,7 @@
         "id": "B",
         "text": "The function is declared not to throw; if it does, `std::terminate` occurs",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
+        "explanation": "Correct. The function is declared not to throw; if it does, `std::terminate` occurs matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -71,16 +71,16 @@
         "id": "D",
         "text": "The function cannot allocate memory",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "The function is inline",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: The function is declared not to throw; if it does, `std::terminate` occurs matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
+    "explanation": "Core rule: The function is declared not to throw; if it does, `std::terminate` occurs. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "exceptions",
       "noexcept"
@@ -97,13 +97,13 @@
         "id": "A",
         "text": "`std::bad_alloc`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "`std::out_of_range`",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
+        "explanation": "Correct. `std::out_of_range` matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -115,7 +115,7 @@
         "id": "D",
         "text": "`std::logic_error`",
         "isCorrect": false,
-        "explanation": "Base class."
+        "explanation": "Incorrect. This confuses base/derived type relationships for this scenario."
       },
       {
         "id": "E",
@@ -124,7 +124,7 @@
         "explanation": "at() throws."
       }
     ],
-    "explanation": "Why this is correct: `std::out_of_range` matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
+    "explanation": "Core rule: `std::out_of_range`. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "exceptions",
       "stl"
@@ -141,34 +141,34 @@
         "id": "A",
         "text": "Normal control flow for performance",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "B",
         "text": "Exceptional/error conditions",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
+        "explanation": "Correct. Exceptional/error conditions matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
         "text": "Replacing return values always",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "D",
         "text": "All branching",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Thread synchronization",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: Exceptional/error conditions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
+    "explanation": "Core rule: Exceptional/error conditions. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "best-practices",
       "exceptions"
@@ -191,7 +191,7 @@
         "id": "B",
         "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
+        "explanation": "Correct. Operation is either completed successfully or has no observable effect (commit/rollback) matches the C++ rule being tested by this prompt."
       },
       {
         "id": "C",
@@ -203,16 +203,16 @@
         "id": "D",
         "text": "Always throws",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       },
       {
         "id": "E",
         "text": "Only works with POD types",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: Operation is either completed successfully or has no observable effect (commi... matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
+    "explanation": "Core rule: Operation is either completed successfully or has no observable effect (commit/rollback). This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "exceptions",
       "exception-safety"
@@ -253,849 +253,13 @@
         "id": "E",
         "text": "`std::any`",
         "isCorrect": false,
-        "explanation": "No."
+        "explanation": "Incorrect. This statement does not match the C++ rule being tested in this prompt."
       }
     ],
-    "explanation": "Why this is correct: `std::error_code` with return conventions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
+    "explanation": "Core rule: `std::error_code` with return conventions. This is the best answer for the specific code/rule tested by this question.",
     "tags": [
       "error-handling",
       "utilities"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0132",
-    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "`std::bad_alloc`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "`std::out_of_range`",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "`std::runtime_error`",
-        "isCorrect": false,
-        "explanation": "Too general."
-      },
-      {
-        "id": "D",
-        "text": "`std::logic_error`",
-        "isCorrect": false,
-        "explanation": "Base class."
-      },
-      {
-        "id": "E",
-        "text": "No exception; UB",
-        "isCorrect": false,
-        "explanation": "at() throws."
-      }
-    ],
-    "explanation": "Why this is correct: `std::out_of_range` matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "stl"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0133",
-    "prompt": "Best practice: exceptions should generally be used for:",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Normal control flow for performance",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Exceptional/error conditions",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Replacing return values always",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "All branching",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Thread synchronization",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Exceptional/error conditions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "best-practices",
-      "exceptions"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0134",
-    "prompt": "What is exception safety 'strong guarantee'?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "No leaks only",
-        "isCorrect": false,
-        "explanation": "That's basic."
-      },
-      {
-        "id": "B",
-        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Never throws",
-        "isCorrect": false,
-        "explanation": "No-throw guarantee."
-      },
-      {
-        "id": "D",
-        "text": "Always throws",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Only works with POD types",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Operation is either completed successfully or has no observable effect (commi... matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "exception-safety"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0135",
-    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "`std::expected`",
-        "isCorrect": false,
-        "explanation": "C++23."
-      },
-      {
-        "id": "B",
-        "text": "`std::optional`",
-        "isCorrect": false,
-        "explanation": "No error payload."
-      },
-      {
-        "id": "C",
-        "text": "`std::variant`",
-        "isCorrect": false,
-        "explanation": "Can encode, but not dedicated."
-      },
-      {
-        "id": "D",
-        "text": "`std::error_code` with return conventions",
-        "isCorrect": true,
-        "explanation": "Correct idea: use error_code / error_condition patterns."
-      },
-      {
-        "id": "E",
-        "text": "`std::any`",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: `std::error_code` with return conventions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "error-handling",
-      "utilities"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0136",
-    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "`std::bad_alloc`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "`std::out_of_range`",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "`std::runtime_error`",
-        "isCorrect": false,
-        "explanation": "Too general."
-      },
-      {
-        "id": "D",
-        "text": "`std::logic_error`",
-        "isCorrect": false,
-        "explanation": "Base class."
-      },
-      {
-        "id": "E",
-        "text": "No exception; UB",
-        "isCorrect": false,
-        "explanation": "at() throws."
-      }
-    ],
-    "explanation": "Why this is correct: `std::out_of_range` matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "stl"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0137",
-    "prompt": "Best practice: exceptions should generally be used for:",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Normal control flow for performance",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Exceptional/error conditions",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Replacing return values always",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "All branching",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Thread synchronization",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Exceptional/error conditions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "best-practices",
-      "exceptions"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0138",
-    "prompt": "What is exception safety 'strong guarantee'?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "No leaks only",
-        "isCorrect": false,
-        "explanation": "That's basic."
-      },
-      {
-        "id": "B",
-        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Never throws",
-        "isCorrect": false,
-        "explanation": "No-throw guarantee."
-      },
-      {
-        "id": "D",
-        "text": "Always throws",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Only works with POD types",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Operation is either completed successfully or has no observable effect (commi... matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "exception-safety"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0139",
-    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "`std::expected`",
-        "isCorrect": false,
-        "explanation": "C++23."
-      },
-      {
-        "id": "B",
-        "text": "`std::optional`",
-        "isCorrect": false,
-        "explanation": "No error payload."
-      },
-      {
-        "id": "C",
-        "text": "`std::variant`",
-        "isCorrect": false,
-        "explanation": "Can encode, but not dedicated."
-      },
-      {
-        "id": "D",
-        "text": "`std::error_code` with return conventions",
-        "isCorrect": true,
-        "explanation": "Correct idea: use error_code / error_condition patterns."
-      },
-      {
-        "id": "E",
-        "text": "`std::any`",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: `std::error_code` with return conventions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "error-handling",
-      "utilities"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0140",
-    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "`std::bad_alloc`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "`std::out_of_range`",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "`std::runtime_error`",
-        "isCorrect": false,
-        "explanation": "Too general."
-      },
-      {
-        "id": "D",
-        "text": "`std::logic_error`",
-        "isCorrect": false,
-        "explanation": "Base class."
-      },
-      {
-        "id": "E",
-        "text": "No exception; UB",
-        "isCorrect": false,
-        "explanation": "at() throws."
-      }
-    ],
-    "explanation": "Why this is correct: `std::out_of_range` matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "stl"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0141",
-    "prompt": "Best practice: exceptions should generally be used for:",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Normal control flow for performance",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Exceptional/error conditions",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Replacing return values always",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "All branching",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Thread synchronization",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Exceptional/error conditions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "best-practices",
-      "exceptions"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0142",
-    "prompt": "What is exception safety 'strong guarantee'?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "No leaks only",
-        "isCorrect": false,
-        "explanation": "That's basic."
-      },
-      {
-        "id": "B",
-        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Never throws",
-        "isCorrect": false,
-        "explanation": "No-throw guarantee."
-      },
-      {
-        "id": "D",
-        "text": "Always throws",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Only works with POD types",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Operation is either completed successfully or has no observable effect (commi... matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "exception-safety"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0143",
-    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "`std::expected`",
-        "isCorrect": false,
-        "explanation": "C++23."
-      },
-      {
-        "id": "B",
-        "text": "`std::optional`",
-        "isCorrect": false,
-        "explanation": "No error payload."
-      },
-      {
-        "id": "C",
-        "text": "`std::variant`",
-        "isCorrect": false,
-        "explanation": "Can encode, but not dedicated."
-      },
-      {
-        "id": "D",
-        "text": "`std::error_code` with return conventions",
-        "isCorrect": true,
-        "explanation": "Correct idea: use error_code / error_condition patterns."
-      },
-      {
-        "id": "E",
-        "text": "`std::any`",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: `std::error_code` with return conventions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "error-handling",
-      "utilities"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0144",
-    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "`std::bad_alloc`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "`std::out_of_range`",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "`std::runtime_error`",
-        "isCorrect": false,
-        "explanation": "Too general."
-      },
-      {
-        "id": "D",
-        "text": "`std::logic_error`",
-        "isCorrect": false,
-        "explanation": "Base class."
-      },
-      {
-        "id": "E",
-        "text": "No exception; UB",
-        "isCorrect": false,
-        "explanation": "at() throws."
-      }
-    ],
-    "explanation": "Why this is correct: `std::out_of_range` matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "stl"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0145",
-    "prompt": "Best practice: exceptions should generally be used for:",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Normal control flow for performance",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Exceptional/error conditions",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Replacing return values always",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "All branching",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Thread synchronization",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Exceptional/error conditions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "best-practices",
-      "exceptions"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0146",
-    "prompt": "What is exception safety 'strong guarantee'?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "No leaks only",
-        "isCorrect": false,
-        "explanation": "That's basic."
-      },
-      {
-        "id": "B",
-        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Never throws",
-        "isCorrect": false,
-        "explanation": "No-throw guarantee."
-      },
-      {
-        "id": "D",
-        "text": "Always throws",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Only works with POD types",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Operation is either completed successfully or has no observable effect (commi... matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "exception-safety"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0147",
-    "prompt": "C++17: Which library type can represent either a value or an error code without exceptions?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "`std::expected`",
-        "isCorrect": false,
-        "explanation": "C++23."
-      },
-      {
-        "id": "B",
-        "text": "`std::optional`",
-        "isCorrect": false,
-        "explanation": "No error payload."
-      },
-      {
-        "id": "C",
-        "text": "`std::variant`",
-        "isCorrect": false,
-        "explanation": "Can encode, but not dedicated."
-      },
-      {
-        "id": "D",
-        "text": "`std::error_code` with return conventions",
-        "isCorrect": true,
-        "explanation": "Correct idea: use error_code / error_condition patterns."
-      },
-      {
-        "id": "E",
-        "text": "`std::any`",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: `std::error_code` with return conventions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "error-handling",
-      "utilities"
-    ],
-    "difficulty": "hard",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0148",
-    "prompt": "Which standard exception is thrown by `std::vector::at` on out-of-range access?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "`std::bad_alloc`",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "`std::out_of_range`",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "`std::runtime_error`",
-        "isCorrect": false,
-        "explanation": "Too general."
-      },
-      {
-        "id": "D",
-        "text": "`std::logic_error`",
-        "isCorrect": false,
-        "explanation": "Base class."
-      },
-      {
-        "id": "E",
-        "text": "No exception; UB",
-        "isCorrect": false,
-        "explanation": "at() throws."
-      }
-    ],
-    "explanation": "Why this is correct: `std::out_of_range` matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "stl"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0149",
-    "prompt": "Best practice: exceptions should generally be used for:",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "Normal control flow for performance",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "B",
-        "text": "Exceptional/error conditions",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Replacing return values always",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "D",
-        "text": "All branching",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Thread synchronization",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Exceptional/error conditions matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "best-practices",
-      "exceptions"
-    ],
-    "difficulty": "easy",
-    "standard": "C++17"
-  },
-  {
-    "id": "cpp-0150",
-    "prompt": "What is exception safety 'strong guarantee'?",
-    "type": "single",
-    "options": [
-      {
-        "id": "A",
-        "text": "No leaks only",
-        "isCorrect": false,
-        "explanation": "That's basic."
-      },
-      {
-        "id": "B",
-        "text": "Operation is either completed successfully or has no observable effect (commit/rollback)",
-        "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
-      },
-      {
-        "id": "C",
-        "text": "Never throws",
-        "isCorrect": false,
-        "explanation": "No-throw guarantee."
-      },
-      {
-        "id": "D",
-        "text": "Always throws",
-        "isCorrect": false,
-        "explanation": "No."
-      },
-      {
-        "id": "E",
-        "text": "Only works with POD types",
-        "isCorrect": false,
-        "explanation": "No."
-      }
-    ],
-    "explanation": "Why this is correct: Operation is either completed successfully or has no observable effect (commi... matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
-    "tags": [
-      "exceptions",
-      "exception-safety"
     ],
     "difficulty": "hard",
     "standard": "C++17"
@@ -1121,7 +285,7 @@
         "id": "C",
         "text": "`std::terminate` is called",
         "isCorrect": true,
-        "explanation": "Correct. This option directly matches the C++ rule the question is testing.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}"
+        "explanation": "Correct. `std::terminate` is called matches the C++ rule being tested by this prompt."
       },
       {
         "id": "D",
@@ -1136,7 +300,7 @@
         "explanation": "No retry mechanism exists."
       }
     ],
-    "explanation": "Why this is correct: `std::terminate` is called matches the standard C++ behavior tested by the prompt.\nExample:\nvoid f() noexcept {\n  throw std::runtime_error(\"x\"); // calls std::terminate\n}",
+    "explanation": "A `noexcept` function promises no exception escapes. If one does, the runtime immediately calls `std::terminate`.\nExample:\nvoid work() noexcept {\n  throw std::logic_error(\"unexpected\");\n}\n// work() terminates the program if exception escapes",
     "tags": [
       "exceptions",
       "noexcept",
@@ -1144,6 +308,98 @@
       "c++17"
     ],
     "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0219",
+    "prompt": "What is printed?\n\n```cpp\n#include <iostream>\n#include <stdexcept>\nint main() {\n  try {\n    throw std::runtime_error(\"bad\");\n  } catch (const std::exception& e) {\n    std::cout << \"caught\";\n  }\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "caught",
+        "isCorrect": true,
+        "explanation": "Correct. `runtime_error` derives from `std::exception`, so the catch block handles it."
+      },
+      {
+        "id": "B",
+        "text": "bad",
+        "isCorrect": false,
+        "explanation": "The code prints the literal `caught`, not `e.what()`."
+      },
+      {
+        "id": "C",
+        "text": "Nothing",
+        "isCorrect": false,
+        "explanation": "The catch block executes and prints text."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Code is valid."
+      },
+      {
+        "id": "E",
+        "text": "Program terminates",
+        "isCorrect": false,
+        "explanation": "Exception is handled, so termination is not triggered."
+      }
+    ],
+    "explanation": "Catch by reference to base exception type when you want to handle a family of standard exceptions.\nExample:\ncatch (const std::exception& e) {\n  std::cerr << e.what();\n}",
+    "tags": [
+      "exceptions",
+      "try-catch",
+      "runtime_error",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0220",
+    "prompt": "What happens?\n\n```cpp\n#include <stdexcept>\nvoid f() noexcept {\n  throw std::runtime_error(\"x\");\n}\nint main() { f(); }\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Exception propagates to caller normally",
+        "isCorrect": false,
+        "explanation": "Throwing out of `noexcept` violates the function contract."
+      },
+      {
+        "id": "B",
+        "text": "Calls `std::terminate`",
+        "isCorrect": true,
+        "explanation": "Correct. If an exception escapes a `noexcept` function, the program terminates."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "This is usually a runtime termination scenario, not a compile error."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "Behavior is defined: `std::terminate` is called."
+      },
+      {
+        "id": "E",
+        "text": "The exception is ignored",
+        "isCorrect": false,
+        "explanation": "It is not ignored."
+      }
+    ],
+    "explanation": "Use `noexcept` when you can guarantee no exception escapes. Otherwise avoid it or catch internally.\nExample:\nvoid g() noexcept {\n  try { /* ... */ } catch (...) { /* handle */ }\n}",
+    "tags": [
+      "exceptions",
+      "noexcept",
+      "terminate",
+      "c++17"
+    ],
+    "difficulty": "medium",
     "standard": "C++17"
   }
 ]
