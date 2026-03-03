@@ -1581,5 +1581,1799 @@
     ],
     "difficulty": "easy",
     "standard": "C++17"
+  },
+  {
+    "id": "cpp-0257",
+    "prompt": "Which are valid reasons to create a class in C++?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "Because `std::sort` requires user code to be inside a class",
+        "isCorrect": false,
+        "explanation": "`std::sort` works with iterators and callables; it does not require class wrapping."
+      },
+      {
+        "id": "B",
+        "text": "Because a class always runs faster than free functions",
+        "isCorrect": false,
+        "explanation": "Performance depends on design and generated code, not on class vs free-function style alone."
+      },
+      {
+        "id": "C",
+        "text": "To hide implementation details behind a clean interface",
+        "isCorrect": true,
+        "explanation": "Correct. Encapsulation and information hiding are core reasons to use classes."
+      },
+      {
+        "id": "D",
+        "text": "To bundle state and behavior and enforce invariants",
+        "isCorrect": true,
+        "explanation": "Correct. Classes let you keep related data + logic together and protect valid object state."
+      },
+      {
+        "id": "E",
+        "text": "To improve readability and reuse when a concept has clear ownership and behavior",
+        "isCorrect": true,
+        "explanation": "Correct. A well-designed class can make intent and API usage clearer."
+      }
+    ],
+    "explanation": "Good class design is mainly about encapsulation, invariants, and clear APIs, not automatic speed gains.",
+    "tags": [
+      "oop",
+      "classes",
+      "encapsulation",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0258",
+    "prompt": "Which declarations are valid constant-expression declarations in C++17?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "`constexpr int product = 10 * 20;`",
+        "isCorrect": true,
+        "explanation": "Correct. `constexpr` with a constant expression initializer is valid."
+      },
+      {
+        "id": "B",
+        "text": "`const char separator = '+';`",
+        "isCorrect": true,
+        "explanation": "Correct. This is a const integral-type object initialized by a constant expression."
+      },
+      {
+        "id": "C",
+        "text": "`const int parsed = std::atoi(\"69\");`",
+        "isCorrect": false,
+        "explanation": "`std::atoi` is not a constant-expression function in C++17."
+      },
+      {
+        "id": "D",
+        "text": "`int n = 42;`",
+        "isCorrect": false,
+        "explanation": "Non-const runtime variable declaration."
+      },
+      {
+        "id": "E",
+        "text": "`constexpr std::string s = \"Constant\";`",
+        "isCorrect": false,
+        "explanation": "`std::string` is not a literal type usable this way in C++17."
+      }
+    ],
+    "explanation": "Prefer `constexpr` when you need compile-time guarantees; plain `const` has narrower rules.",
+    "tags": [
+      "types",
+      "constexpr",
+      "const",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0259",
+    "prompt": "Which line correctly allocates and initializes a dynamic C-style string `\"Hello\"`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`char* s = new char{'H','e','l','l','o','\\0'};`",
+        "isCorrect": false,
+        "explanation": "`new char{...}` allocates one char, not an array."
+      },
+      {
+        "id": "B",
+        "text": "`char* s = new char[6]{'H','e','l','l','o','\\0'};`",
+        "isCorrect": true,
+        "explanation": "Correct. Allocates 6 chars and includes null terminator."
+      },
+      {
+        "id": "C",
+        "text": "`char* s = new char[5]{'H','e','l','l','o'};`",
+        "isCorrect": false,
+        "explanation": "Missing null terminator for C string usage."
+      },
+      {
+        "id": "D",
+        "text": "`std::string* s = new std::string[10](\"Hello\");`",
+        "isCorrect": false,
+        "explanation": "Invalid array construction syntax for this use."
+      },
+      {
+        "id": "E",
+        "text": "`char* s = malloc(6);`",
+        "isCorrect": false,
+        "explanation": "Wrong type in C++, no initialization, and requires cast/include."
+      }
+    ],
+    "explanation": "If you need owning dynamic text in modern C++, prefer `std::string` instead of raw `new[]`.",
+    "tags": [
+      "memory",
+      "new-delete",
+      "strings",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0260",
+    "prompt": "Which statements about `= delete` are true?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "A deleted member function must be `private`",
+        "isCorrect": false,
+        "explanation": "Deleted functions can appear in any access section."
+      },
+      {
+        "id": "B",
+        "text": "A call that resolves to a deleted function is a compile-time error",
+        "isCorrect": true,
+        "explanation": "Correct. Deleted overloads intentionally reject specific calls."
+      },
+      {
+        "id": "C",
+        "text": "A deleted function can still participate in overload resolution",
+        "isCorrect": true,
+        "explanation": "Correct. It can be selected, then program is ill-formed."
+      },
+      {
+        "id": "D",
+        "text": "`= delete` is syntax for freeing dynamic memory",
+        "isCorrect": false,
+        "explanation": "No, that is unrelated to `delete` operator semantics."
+      },
+      {
+        "id": "E",
+        "text": "If base deletes a function, derived is forbidden to declare same name",
+        "isCorrect": false,
+        "explanation": "Derived can declare overloads/hiding members depending on signature and rules."
+      }
+    ],
+    "explanation": "`= delete` is an API design tool to ban unsupported operations explicitly at compile time.",
+    "tags": [
+      "oop",
+      "functions",
+      "delete-specifier",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0261",
+    "prompt": "Which statement best describes a key difference between `std::pair` and `std::tuple`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::pair` supports initializer lists but `std::tuple` does not",
+        "isCorrect": false,
+        "explanation": "Both can be initialized in multiple ways."
+      },
+      {
+        "id": "B",
+        "text": "`std::pair` is fixed to two elements; `std::tuple` can hold any number of elements",
+        "isCorrect": true,
+        "explanation": "Correct. Pair is exactly two values."
+      },
+      {
+        "id": "C",
+        "text": "`std::make_pair` exists but `std::make_tuple` does not",
+        "isCorrect": false,
+        "explanation": "`std::make_tuple` exists."
+      },
+      {
+        "id": "D",
+        "text": "`std::tie` works only with `std::tuple` and never with `std::pair`",
+        "isCorrect": false,
+        "explanation": "`std::pair` interoperates with tuple-like utilities in several contexts."
+      },
+      {
+        "id": "E",
+        "text": "`std::pair` cannot be used in associative containers",
+        "isCorrect": false,
+        "explanation": "Pairs are widely used in maps and other containers."
+      }
+    ],
+    "explanation": "Use `pair` for two related values; use `tuple` when arity is not fixed at two.",
+    "tags": [
+      "stl",
+      "pair",
+      "tuple",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0262",
+    "prompt": "Why is C++17 `if` with initializer useful?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "It limits helper variable scope to the `if` statement",
+        "isCorrect": true,
+        "explanation": "Correct. This reduces scope leakage."
+      },
+      {
+        "id": "B",
+        "text": "It makes template parameter packs available",
+        "isCorrect": false,
+        "explanation": "Unrelated feature."
+      },
+      {
+        "id": "C",
+        "text": "It often makes code cleaner and less verbose",
+        "isCorrect": true,
+        "explanation": "Correct. Especially for lookup/result checks."
+      },
+      {
+        "id": "D",
+        "text": "It guarantees runtime speedup in all builds",
+        "isCorrect": false,
+        "explanation": "No universal runtime guarantee."
+      },
+      {
+        "id": "E",
+        "text": "It is valid only in exception handlers",
+        "isCorrect": false,
+        "explanation": "Works in normal `if` statements generally."
+      }
+    ],
+    "explanation": "Typical pattern:\n```cpp\nif (auto it = m.find(key); it != m.end()) {\n  // use it\n}\n```",
+    "tags": [
+      "basics",
+      "if-initializer",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0263",
+    "prompt": "Which statements about destruction in inheritance are correct?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "Deleting through a base pointer requires a virtual base destructor for correct polymorphic cleanup",
+        "isCorrect": true,
+        "explanation": "Correct. Without virtual base destructor, behavior is undefined."
+      },
+      {
+        "id": "B",
+        "text": "With multiple bases, base subobjects are destroyed in reverse construction order",
+        "isCorrect": true,
+        "explanation": "Correct. Destruction reverses construction order."
+      },
+      {
+        "id": "C",
+        "text": "Base destructor body always runs before derived destructor body",
+        "isCorrect": false,
+        "explanation": "Derived destructor body runs first, then members/bases are torn down."
+      },
+      {
+        "id": "D",
+        "text": "Destruction order is implementation-defined",
+        "isCorrect": false,
+        "explanation": "Core destruction order rules are defined by the language."
+      },
+      {
+        "id": "E",
+        "text": "Members outlive their containing object destructor completion",
+        "isCorrect": false,
+        "explanation": "Members are destroyed as part of object teardown."
+      }
+    ],
+    "explanation": "Rule of thumb: construction top-down, destruction bottom-up (reverse order).",
+    "tags": [
+      "oop",
+      "inheritance",
+      "destructors",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0264",
+    "prompt": "Inside `catch (...)`, what rethrows the currently handled exception object?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`rethrow;`",
+        "isCorrect": false,
+        "explanation": "`rethrow` is not a C++ keyword."
+      },
+      {
+        "id": "B",
+        "text": "`throw;`",
+        "isCorrect": true,
+        "explanation": "Correct. Bare `throw;` rethrows the active exception preserving type/state."
+      },
+      {
+        "id": "C",
+        "text": "`throw (...);`",
+        "isCorrect": false,
+        "explanation": "Invalid syntax."
+      },
+      {
+        "id": "D",
+        "text": "`throw new std::exception();`",
+        "isCorrect": false,
+        "explanation": "Throws a new pointer value, not the original exception."
+      },
+      {
+        "id": "E",
+        "text": "`finally throw;`",
+        "isCorrect": false,
+        "explanation": "`finally` is not C++ exception syntax."
+      }
+    ],
+    "explanation": "Use bare `throw;` inside catch when you need cleanup/logging and then propagation.",
+    "tags": [
+      "exceptions",
+      "try-catch",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0265",
+    "prompt": "What is true about this variadic template call?\n\n```cpp\ntemplate <typename T>\nT findTotal(T lastOne) { return lastOne; }\n\ntemplate <typename T, typename... P>\nT findTotal(T head, P... tail) {\n  if (sizeof...(tail))\n    head += findTotal(tail...);\n  return head;\n}\n\nint main() {\n  double total = findTotal(2.17, 3.0, 4.5, 3.14);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "It recurses forever",
+        "isCorrect": false,
+        "explanation": "There is a base case and also an empty-pack stop path."
+      },
+      {
+        "id": "B",
+        "text": "It fails because ellipsis cannot be used in function templates",
+        "isCorrect": false,
+        "explanation": "Variadic templates are valid C++."
+      },
+      {
+        "id": "C",
+        "text": "It computes the sum of arguments (approximately 12.81)",
+        "isCorrect": true,
+        "explanation": "Correct. The recursion reduces argument count and accumulates values."
+      },
+      {
+        "id": "D",
+        "text": "It always selects only the one-parameter overload",
+        "isCorrect": false,
+        "explanation": "The variadic overload is selected for multi-argument calls."
+      },
+      {
+        "id": "E",
+        "text": "It is ill-formed because `sizeof...(tail)` is runtime-only",
+        "isCorrect": false,
+        "explanation": "`sizeof...` is compile-time and valid in runtime `if` expression too."
+      }
+    ],
+    "explanation": "The pack shrinks each call, so recursion terminates and returns the aggregate.",
+    "tags": [
+      "templates",
+      "variadic",
+      "recursion",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0266",
+    "prompt": "What is the primary concurrency risk in this pattern?\n\n```cpp\nstd::mutex mx1, mx2;\n\nvoid f1() {\n  std::lock_guard<std::mutex> a(mx1);\n  std::lock_guard<std::mutex> b(mx2);\n}\n\nvoid f2() {\n  std::lock_guard<std::mutex> a(mx2);\n  std::lock_guard<std::mutex> b(mx1);\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Potential deadlock due to opposite lock acquisition order",
+        "isCorrect": true,
+        "explanation": "Correct. Two threads can each hold one mutex and wait forever for the other."
+      },
+      {
+        "id": "B",
+        "text": "`lock_guard` is invalid with global mutexes",
+        "isCorrect": false,
+        "explanation": "`lock_guard` is valid with any BasicLockable mutex."
+      },
+      {
+        "id": "C",
+        "text": "Program will always crash when locking `mx1`",
+        "isCorrect": false,
+        "explanation": "Crash is not guaranteed; deadlock is the key risk."
+      },
+      {
+        "id": "D",
+        "text": "Using two mutexes in one function is illegal",
+        "isCorrect": false,
+        "explanation": "It is legal. Lock ordering discipline is what matters."
+      },
+      {
+        "id": "E",
+        "text": "Global mutexes must be declared `static`",
+        "isCorrect": false,
+        "explanation": "Not required for correctness here."
+      }
+    ],
+    "explanation": "Fix by using a consistent lock order or `std::scoped_lock(mx1, mx2)`.",
+    "tags": [
+      "concurrency",
+      "mutex",
+      "deadlock",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0267",
+    "prompt": "Given `double d = 8.83; int i = static_cast<int>(d);`, what is `i`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`9` because values are rounded",
+        "isCorrect": false,
+        "explanation": "Floating to int conversion truncates toward zero."
+      },
+      {
+        "id": "B",
+        "text": "`8` due to truncation toward zero",
+        "isCorrect": true,
+        "explanation": "Correct. Fractional part is discarded."
+      },
+      {
+        "id": "C",
+        "text": "Compilation error unless `dynamic_cast` is used",
+        "isCorrect": false,
+        "explanation": "`static_cast` is the right cast category here."
+      },
+      {
+        "id": "D",
+        "text": "Undefined behavior",
+        "isCorrect": false,
+        "explanation": "This conversion is well-defined for representable values."
+      },
+      {
+        "id": "E",
+        "text": "Implementation must choose either 8 or 9 randomly",
+        "isCorrect": false,
+        "explanation": "No randomness; truncation rule is fixed."
+      }
+    ],
+    "explanation": "Casts from floating point to integer truncate the fractional part.",
+    "tags": [
+      "types",
+      "casts",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0268",
+    "prompt": "Given `int i = 5; int* pi = &i;` which declaration compiles?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`double* pd = const_cast<double*>(pi);`",
+        "isCorrect": false,
+        "explanation": "`const_cast` changes cv-qualification, not pointed-to type."
+      },
+      {
+        "id": "B",
+        "text": "`double* pd = static_cast<double*>(pi);`",
+        "isCorrect": false,
+        "explanation": "No valid static conversion from `int*` to unrelated `double*`."
+      },
+      {
+        "id": "C",
+        "text": "`double* pd = dynamic_cast<double*>(pi);`",
+        "isCorrect": false,
+        "explanation": "`dynamic_cast` applies to polymorphic class hierarchies, not fundamental pointers."
+      },
+      {
+        "id": "D",
+        "text": "`double* pd = reinterpret_cast<double*>(pi);`",
+        "isCorrect": true,
+        "explanation": "Correct. It compiles, though dereferencing through wrong type is undefined behavior."
+      },
+      {
+        "id": "E",
+        "text": "`int** pp = &&i;`",
+        "isCorrect": false,
+        "explanation": "Invalid syntax and type."
+      }
+    ],
+    "explanation": "`reinterpret_cast` can compile low-level pointer reinterpretation, but that does not make usage safe.",
+    "tags": [
+      "pointers",
+      "casts",
+      "ub",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0269",
+    "prompt": "Why does this fail?\n\n```cpp\nstruct Point { int x; int y; int z; };\nclass C : Point {};\n\nint main() {\n  C c;\n  c.x = 5;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`struct` cannot be a base class",
+        "isCorrect": false,
+        "explanation": "`struct` can absolutely be a base class."
+      },
+      {
+        "id": "B",
+        "text": "Private inheritance is default for `class`, so inherited public members become inaccessible from `main`",
+        "isCorrect": true,
+        "explanation": "Correct. `class C : Point` means private inheritance by default."
+      },
+      {
+        "id": "C",
+        "text": "`Point` members are private by default",
+        "isCorrect": false,
+        "explanation": "`struct` members are public by default."
+      },
+      {
+        "id": "D",
+        "text": "Class `C` has no default constructor",
+        "isCorrect": false,
+        "explanation": "A default constructor is generated here."
+      },
+      {
+        "id": "E",
+        "text": "You cannot assign integers to inherited members",
+        "isCorrect": false,
+        "explanation": "Assignment is fine when members are accessible."
+      }
+    ],
+    "explanation": "Use `class C : public Point {}` if you want public-is-public inheritance.",
+    "tags": [
+      "oop",
+      "inheritance",
+      "struct-vs-class",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0270",
+    "prompt": "You have `std::map<std::string,int> employees` and want to print names with experience `< 5`. Which replacement is equivalent to a manual iterator loop?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::for_each` with a function taking `const std::pair<const std::string,int>&` and printing when `.second < 5`",
+        "isCorrect": true,
+        "explanation": "Correct. This preserves the same traversal and condition."
+      },
+      {
+        "id": "B",
+        "text": "Index loop with `employees[count]`",
+        "isCorrect": false,
+        "explanation": "`std::map` is not index-based like a vector."
+      },
+      {
+        "id": "C",
+        "text": "`employees.count()` loop with `employees(count).name` fields",
+        "isCorrect": false,
+        "explanation": "Not valid map API."
+      },
+      {
+        "id": "D",
+        "text": "Iterator loop that prints `it->second` when `< 5` to output employee names",
+        "isCorrect": false,
+        "explanation": "`it->second` is experience, not name."
+      },
+      {
+        "id": "E",
+        "text": "`std::sort(employees.begin(), employees.end())` then print",
+        "isCorrect": false,
+        "explanation": "`std::map` is already key-ordered and not sortable this way."
+      }
+    ],
+    "explanation": "Map element type is `std::pair<const Key, T>`; name is `.first`, experience is `.second`.",
+    "tags": [
+      "stl",
+      "map",
+      "algorithms",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0271",
+    "prompt": "A class has `virtual ~Polygon();` but non-virtual methods `Area()` and `Perimeter()`. What becomes virtual automatically?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`Area()` only",
+        "isCorrect": false,
+        "explanation": "No automatic virtual promotion for unrelated methods."
+      },
+      {
+        "id": "B",
+        "text": "`Perimeter()` only",
+        "isCorrect": false,
+        "explanation": "No automatic virtual promotion for unrelated methods."
+      },
+      {
+        "id": "C",
+        "text": "Both `Area()` and `Perimeter()`",
+        "isCorrect": false,
+        "explanation": "Only functions declared virtual are virtual."
+      },
+      {
+        "id": "D",
+        "text": "None of them",
+        "isCorrect": true,
+        "explanation": "Correct. Virtual destructor does not make other methods virtual."
+      },
+      {
+        "id": "E",
+        "text": "All public member functions",
+        "isCorrect": false,
+        "explanation": "Not a C++ rule."
+      }
+    ],
+    "explanation": "Declare each polymorphic operation explicitly virtual (or override in derived).",
+    "tags": [
+      "oop",
+      "virtual",
+      "destructors",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0272",
+    "prompt": "In C++17, what type is deduced for `auto i{4};`?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`std::initializer_list<int>`",
+        "isCorrect": false,
+        "explanation": "That is the common result for `auto i = {4};` (copy-list-init), not this form."
+      },
+      {
+        "id": "B",
+        "text": "`int`",
+        "isCorrect": true,
+        "explanation": "Correct. Direct-list init with one element deduces `int` in C++17."
+      },
+      {
+        "id": "C",
+        "text": "`long`",
+        "isCorrect": false,
+        "explanation": "No widening to long by default here."
+      },
+      {
+        "id": "D",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "This is valid."
+      },
+      {
+        "id": "E",
+        "text": "`const int`",
+        "isCorrect": false,
+        "explanation": "`auto` does not add const here."
+      }
+    ],
+    "explanation": "Quick comparison:\n```cpp\nauto a{4};     // int\nauto b = {4};  // std::initializer_list<int>\n```",
+    "tags": [
+      "types",
+      "auto",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0273",
+    "prompt": "Which are valid advantages of function templates over writing many overloads manually?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "You keep one generic source implementation for many types",
+        "isCorrect": true,
+        "explanation": "Correct. This reduces duplicated code."
+      },
+      {
+        "id": "B",
+        "text": "Supporting new compatible types often requires no new overload code",
+        "isCorrect": true,
+        "explanation": "Correct. If constraints are met, instantiation handles new types."
+      },
+      {
+        "id": "C",
+        "text": "Template diagnostics are always easier to read than overload diagnostics",
+        "isCorrect": false,
+        "explanation": "Often false in practice."
+      },
+      {
+        "id": "D",
+        "text": "Template code is guaranteed to run twice as fast",
+        "isCorrect": false,
+        "explanation": "No such performance guarantee."
+      },
+      {
+        "id": "E",
+        "text": "Templates cannot be misused because all calls are always valid",
+        "isCorrect": false,
+        "explanation": "Invalid calls can still fail constraints/substitutions."
+      }
+    ],
+    "explanation": "Templates help scalability and consistency, while constraints/concepts can keep errors clearer.",
+    "tags": [
+      "templates",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0274",
+    "prompt": "Two unscoped enums in the same scope both define `BLUE`. Which changes can fix the name collision?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "Convert both to `enum class`",
+        "isCorrect": true,
+        "explanation": "Correct. Scoped enums keep enumerator names inside the enum scope."
+      },
+      {
+        "id": "B",
+        "text": "Rename one set of enumerators (for example `FC_BLUE`)",
+        "isCorrect": true,
+        "explanation": "Correct. Unique enumerator names also solves collision."
+      },
+      {
+        "id": "C",
+        "text": "Only change the underlying type to `: int`",
+        "isCorrect": false,
+        "explanation": "Underlying type does not change enumerator name scope rules."
+      },
+      {
+        "id": "D",
+        "text": "Put one enum in a different namespace",
+        "isCorrect": true,
+        "explanation": "Correct. Separate scope avoids symbol clash."
+      },
+      {
+        "id": "E",
+        "text": "Rename only the enum type names but keep same enumerator names in same scope",
+        "isCorrect": false,
+        "explanation": "Enumerator identifiers would still collide."
+      }
+    ],
+    "explanation": "This issue is about identifier scope, not underlying numeric type.",
+    "tags": [
+      "types",
+      "enum",
+      "scoping",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0275",
+    "prompt": "What is the real problem in this code?\n\n```cpp\nstruct S {\npublic:\n  int i;\n};\n\nint main() {\n  S* p = new S;\n  S s;\n  std::cout << p->i << \" \" << s.i;\n  delete p;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Public members are always illegal",
+        "isCorrect": false,
+        "explanation": "Public members are legal (though design-dependent)."
+      },
+      {
+        "id": "B",
+        "text": "`memset` must be used for all initialization",
+        "isCorrect": false,
+        "explanation": "Use constructors/member initializers, not blanket `memset` for objects."
+      },
+      {
+        "id": "C",
+        "text": "Reading `i` is undefined because both objects are default-initialized with indeterminate `int`",
+        "isCorrect": true,
+        "explanation": "Correct. `int i;` without initialization yields indeterminate value for these objects."
+      },
+      {
+        "id": "D",
+        "text": "`new S` always zero-initializes members",
+        "isCorrect": false,
+        "explanation": "`new S` default-initializes; it does not zero-initialize plain `int` here."
+      },
+      {
+        "id": "E",
+        "text": "The only issue is missing `std::endl`",
+        "isCorrect": false,
+        "explanation": "Formatting is not the bug."
+      }
+    ],
+    "explanation": "Initialize members explicitly, for example `int i{};` or constructor initialization.",
+    "tags": [
+      "types",
+      "initialization",
+      "ub",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0276",
+    "prompt": "Which is a generally accepted C++ best practice?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Prefer initializer-list / direct initialization over default-then-assign when possible",
+        "isCorrect": true,
+        "explanation": "Correct. Direct initialization improves clarity and can avoid extra work."
+      },
+      {
+        "id": "B",
+        "text": "Prefer `bool` parameters whenever possible to minimize memory",
+        "isCorrect": false,
+        "explanation": "Overusing bool parameters can hurt API clarity and semantics."
+      },
+      {
+        "id": "C",
+        "text": "Prefer postfix `i++` over prefix `++i` for all iterator code",
+        "isCorrect": false,
+        "explanation": "For iterators, prefix is often preferred to avoid extra temporary work."
+      },
+      {
+        "id": "D",
+        "text": "Replace standard containers with custom containers for maximum efficiency by default",
+        "isCorrect": false,
+        "explanation": "Standard containers are usually the right default."
+      },
+      {
+        "id": "E",
+        "text": "Use macros instead of namespaces for global constants",
+        "isCorrect": false,
+        "explanation": "Prefer typed constants in namespaces over macros."
+      }
+    ],
+    "explanation": "Start with clear, idiomatic code and profile before making specialized changes.",
+    "tags": [
+      "best-practices",
+      "initialization",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0277",
+    "prompt": "What is a realistic concern in this `noexcept` function?\n\n```cpp\nvoid DataProcessing() noexcept {\n  RawData d;\n  try {\n    ReadData(d);\n    ProcessData(d);\n  } catch (...) {\n    std::cout << \"Exception caught!\" << std::endl;\n  }\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`try` blocks cannot contain multiple function calls",
+        "isCorrect": false,
+        "explanation": "They can."
+      },
+      {
+        "id": "B",
+        "text": "`noexcept` without arguments is invalid C++",
+        "isCorrect": false,
+        "explanation": "`noexcept` alone is valid and means `noexcept(true)`."
+      },
+      {
+        "id": "C",
+        "text": "`catch (...)` can hide specific failure details and make targeted handling harder",
+        "isCorrect": true,
+        "explanation": "Correct. Broad catch-all can reduce diagnostic quality if not used carefully."
+      },
+      {
+        "id": "D",
+        "text": "The local variable `d` is out of scope inside `try`",
+        "isCorrect": false,
+        "explanation": "`d` is in scope for the whole function body including `try`."
+      },
+      {
+        "id": "E",
+        "text": "Exception handling is forbidden in `noexcept` functions",
+        "isCorrect": false,
+        "explanation": "Handling internally is allowed; only escaping exceptions trigger termination."
+      }
+    ],
+    "explanation": "Use specific catches when possible, and either recover or rethrow with context intentionally.",
+    "tags": [
+      "exceptions",
+      "noexcept",
+      "best-practices",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0278",
+    "prompt": "Which expressions print `2` in this snippet?\n\n```cpp\nchar c_arr[3] = {'1', '2', '3'};\nchar* cp = &c_arr[1];\nstd::cout << *****;\n```",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "`*cp`",
+        "isCorrect": true,
+        "explanation": "Correct. `cp` points at `c_arr[1]`."
+      },
+      {
+        "id": "B",
+        "text": "`cp[0]`",
+        "isCorrect": true,
+        "explanation": "Correct. Same element as `*cp`."
+      },
+      {
+        "id": "C",
+        "text": "`*c_arr`",
+        "isCorrect": false,
+        "explanation": "That is `c_arr[0]`, which is `1`."
+      },
+      {
+        "id": "D",
+        "text": "`c_arr[2]`",
+        "isCorrect": false,
+        "explanation": "That is `3`."
+      },
+      {
+        "id": "E",
+        "text": "`cp[1]`",
+        "isCorrect": false,
+        "explanation": "That points to `c_arr[2]` => `3`."
+      }
+    ],
+    "explanation": "Pointer indexing rule: `cp[k]` is equivalent to `*(cp + k)`.",
+    "tags": [
+      "pointers",
+      "arrays",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0279",
+    "prompt": "Assume class `Buffer` has copy ctor `Buffer(const Buffer&)` and move ctor `Buffer(Buffer&&)`. Which fragment definitely calls the move constructor in C++17?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`Buffer b(10); Buffer a; a = b;`",
+        "isCorrect": false,
+        "explanation": "Assignment expression, not move construction from rvalue."
+      },
+      {
+        "id": "B",
+        "text": "`Buffer b; Buffer a(Buffer(10));`",
+        "isCorrect": false,
+        "explanation": "In C++17 this is typically guaranteed elision, not a move constructor call."
+      },
+      {
+        "id": "C",
+        "text": "`Buffer b; Buffer a = b;`",
+        "isCorrect": false,
+        "explanation": "Copy construction from lvalue."
+      },
+      {
+        "id": "D",
+        "text": "`Buffer b; Buffer a(b);`",
+        "isCorrect": false,
+        "explanation": "Copy construction from lvalue."
+      },
+      {
+        "id": "E",
+        "text": "`Buffer b(10); Buffer a(std::move(b));`",
+        "isCorrect": true,
+        "explanation": "Correct. `std::move(b)` is an xvalue and selects move construction."
+      }
+    ],
+    "explanation": "In modern C++, distinguish true moves from guaranteed copy elision cases.",
+    "tags": [
+      "move-semantics",
+      "constructors",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0280",
+    "prompt": "A class increments static `instance_count` from multiple threads. Which approaches are thread-safe?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "Use `static std::atomic<int> instance_count;` and `++instance_count`",
+        "isCorrect": true,
+        "explanation": "Correct. Atomic increment avoids data race."
+      },
+      {
+        "id": "B",
+        "text": "Use plain `int` but guard both increment and reads with the same mutex",
+        "isCorrect": true,
+        "explanation": "Correct. Consistent mutex synchronization is also safe."
+      },
+      {
+        "id": "C",
+        "text": "Use `static constexpr std::atomic<int> instance_count{0};` in C++17",
+        "isCorrect": false,
+        "explanation": "This form is not the normal valid C++17 pattern for mutable runtime counter."
+      },
+      {
+        "id": "D",
+        "text": "Use `static std::atomic(int) instance_count;` syntax",
+        "isCorrect": false,
+        "explanation": "Invalid atomic template syntax."
+      },
+      {
+        "id": "E",
+        "text": "Use plain `int` and hope object construction is naturally serialized",
+        "isCorrect": false,
+        "explanation": "Unsynchronized concurrent writes are a data race."
+      }
+    ],
+    "explanation": "Prefer atomic counters for simple increments; use mutex if compound invariants are involved.",
+    "tags": [
+      "concurrency",
+      "atomic",
+      "mutex",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0281",
+    "prompt": "Given `std::shared_ptr<double> sp; std::unique_ptr<double> up(new double(3.14));` which line transfers ownership from `up` to `sp` correctly?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`sp.reset(up.get());`",
+        "isCorrect": false,
+        "explanation": "Leads to double-delete risk because both smart pointers think they own same raw pointer."
+      },
+      {
+        "id": "B",
+        "text": "`up = std::move(sp);`",
+        "isCorrect": false,
+        "explanation": "Cannot move shared ownership into unique ownership this way."
+      },
+      {
+        "id": "C",
+        "text": "`sp = up;`",
+        "isCorrect": false,
+        "explanation": "`unique_ptr` is non-copyable."
+      },
+      {
+        "id": "D",
+        "text": "`up = sp;`",
+        "isCorrect": false,
+        "explanation": "Invalid ownership conversion and copy attempt."
+      },
+      {
+        "id": "E",
+        "text": "`sp = std::move(up);`",
+        "isCorrect": true,
+        "explanation": "Correct. This moves ownership from `unique_ptr` into `shared_ptr`."
+      }
+    ],
+    "explanation": "After move, `up` becomes empty and `sp` owns the object.",
+    "tags": [
+      "memory",
+      "smart-pointers",
+      "ownership",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0282",
+    "prompt": "What value does `main` return?\n\n```cpp\nint main() {\n  int n = 5;\n  int total = 0;\n\n  switch (n) {\n    case 3:  total += n;\n    case 5:  total += n * 2;\n    case 10: total += n * 3; break;\n    case 12: total -= n;\n  }\n\n  for (; total > 0; --total) {\n    if (5 == total) break;\n    ++n;\n  }\n\n  return n;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`5`",
+        "isCorrect": false,
+        "explanation": "Loop increments `n` many times before break."
+      },
+      {
+        "id": "B",
+        "text": "`10`",
+        "isCorrect": false,
+        "explanation": "Too small after loop increments."
+      },
+      {
+        "id": "C",
+        "text": "`15`",
+        "isCorrect": false,
+        "explanation": "Still too small."
+      },
+      {
+        "id": "D",
+        "text": "`25`",
+        "isCorrect": true,
+        "explanation": "Correct. `total` becomes 25, loop increments `n` for totals 25 down to 6 (20 increments)."
+      },
+      {
+        "id": "E",
+        "text": "`30`",
+        "isCorrect": false,
+        "explanation": "`n` does not increase that far."
+      }
+    ],
+    "explanation": "Fallthrough in `switch` and loop control details both matter in this trace question.",
+    "tags": [
+      "basics",
+      "switch",
+      "loops",
+      "control-flow",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0283",
+    "prompt": "Which handler matches this throw?\n\n```cpp\ntemplate <typename T>\ndouble SafeDivide(T n, T d) {\n  if (d == 0) throw \"Division by 0 attempt.\";\n  return static_cast<double>(n) / d;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`catch (const std::exception& e)`",
+        "isCorrect": false,
+        "explanation": "Thrown value is a C-string literal (`const char*`), not `std::exception`."
+      },
+      {
+        "id": "B",
+        "text": "`catch ()`",
+        "isCorrect": false,
+        "explanation": "Invalid catch syntax."
+      },
+      {
+        "id": "C",
+        "text": "`catch (*)`",
+        "isCorrect": false,
+        "explanation": "Invalid catch syntax/type form."
+      },
+      {
+        "id": "D",
+        "text": "`catch (const char* err)`",
+        "isCorrect": true,
+        "explanation": "Correct. Type matches thrown string literal pointer type."
+      },
+      {
+        "id": "E",
+        "text": "`catch (int)`",
+        "isCorrect": false,
+        "explanation": "Type mismatch."
+      }
+    ],
+    "explanation": "Exact catch type (or `catch(...)`) matters. Prefer throwing typed exceptions in larger codebases.",
+    "tags": [
+      "exceptions",
+      "throw",
+      "catch",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0284",
+    "prompt": "Which statements about overloaded functions are true?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "Overloads must differ in parameter list (count/types/order/cv/ref qualifiers as applicable)",
+        "isCorrect": true,
+        "explanation": "Correct. Parameter list differences define overloadability."
+      },
+      {
+        "id": "B",
+        "text": "`typedef int A; typedef int B; void f(A); void f(B);` declares two overloads",
+        "isCorrect": false,
+        "explanation": "Both aliases are the same type (`int`), so signatures are identical."
+      },
+      {
+        "id": "C",
+        "text": "Different return type alone is enough to overload",
+        "isCorrect": false,
+        "explanation": "Return type alone cannot distinguish overloads."
+      },
+      {
+        "id": "D",
+        "text": "`void f();` and `void f(int);` are valid overloads",
+        "isCorrect": true,
+        "explanation": "Correct. Parameter count differs."
+      },
+      {
+        "id": "E",
+        "text": "Only the last parameter may differ between overloads",
+        "isCorrect": false,
+        "explanation": "Any valid signature difference can form overloads."
+      }
+    ],
+    "explanation": "Think in terms of function signature, not return type, when reasoning about overloads.",
+    "tags": [
+      "functions",
+      "overloading",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0285",
+    "prompt": "Which change fixes access to `ReleaseYear` in this program?\n\n```cpp\nclass GameConsole {\npublic:\n  int ReleaseYear;\n};\n\nclass Switch : GameConsole {\n  int weight;\npublic:\n  Switch(int w = 0) : weight(w) { ReleaseYear = 2017; }\n  friend void SetSwitchWeight(Switch&, int);\n};\n\nvoid SetSwitchWeight(Switch& s, int w) { s.weight = w; }\n\nint main() {\n  Switch my_switch;\n  SetSwitchWeight(my_switch, 2);\n  std::cout << my_switch.ReleaseYear << std::endl;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Make `weight` public",
+        "isCorrect": false,
+        "explanation": "Issue is access to inherited `ReleaseYear` from outside, not `weight`."
+      },
+      {
+        "id": "B",
+        "text": "Use public inheritance: `class Switch : public GameConsole`",
+        "isCorrect": true,
+        "explanation": "Correct. Public base members stay public in the derived interface."
+      },
+      {
+        "id": "C",
+        "text": "Make `SetSwitchWeight` a member function only",
+        "isCorrect": false,
+        "explanation": "Not required for fixing `ReleaseYear` access."
+      },
+      {
+        "id": "D",
+        "text": "Pass an integer to `SetSwitchWeight` constructor call",
+        "isCorrect": false,
+        "explanation": "No constructor call issue here."
+      },
+      {
+        "id": "E",
+        "text": "Remove `friend` declaration",
+        "isCorrect": false,
+        "explanation": "Friend relation is unrelated to `ReleaseYear` public accessibility in `main`."
+      }
+    ],
+    "explanation": "Default inheritance for `class` is private. Use `public` inheritance for an is-a public interface.",
+    "tags": [
+      "oop",
+      "inheritance",
+      "access-control",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0286",
+    "prompt": "For `auto fut = std::async(threaded_func);` (no launch policy), which statement is true?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`threaded_func` must start immediately on a new OS thread",
+        "isCorrect": false,
+        "explanation": "Default policy may choose async or deferred."
+      },
+      {
+        "id": "B",
+        "text": "`fut.valid()` returning true means work has finished",
+        "isCorrect": false,
+        "explanation": "`valid()` only means future has an associated shared state."
+      },
+      {
+        "id": "C",
+        "text": "`threaded_func` may be deferred and run later on `get()`/`wait()`",
+        "isCorrect": true,
+        "explanation": "Correct. Default launch policy allows deferred execution."
+      },
+      {
+        "id": "D",
+        "text": "Exceptions from `threaded_func` can never be observed by caller",
+        "isCorrect": false,
+        "explanation": "They propagate via `future::get()`."
+      },
+      {
+        "id": "E",
+        "text": "Function is guaranteed to run synchronously only",
+        "isCorrect": false,
+        "explanation": "Not guaranteed either way."
+      }
+    ],
+    "explanation": "Use explicit launch flags when behavior must be deterministic: `std::launch::async` or `deferred`.",
+    "tags": [
+      "concurrency",
+      "async",
+      "future",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0287",
+    "prompt": "Choose reasonable container choices for these datasets:\n#1 book titles by author name, duplicates per author allowed, iteration by author order\n#2 one student numeric grades over time in insertion order\n#3 first names and ages for ~400 children, duplicate names allowed, fast name lookup",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "#1 -> `std::multimap<std::string, std::string>`",
+        "isCorrect": true,
+        "explanation": "Correct. Ordered by key and allows duplicate authors."
+      },
+      {
+        "id": "B",
+        "text": "#2 -> `std::vector<int>`",
+        "isCorrect": true,
+        "explanation": "Correct. Natural fit for ordered sequence of grades."
+      },
+      {
+        "id": "C",
+        "text": "#3 -> `std::unordered_multimap<std::string, int>`",
+        "isCorrect": true,
+        "explanation": "Correct. Duplicate names + average fast lookup by name."
+      },
+      {
+        "id": "D",
+        "text": "#1 -> `std::unordered_map<std::string, std::string>` if sorted traversal by author is required",
+        "isCorrect": false,
+        "explanation": "Unordered map does not provide sorted traversal by key."
+      },
+      {
+        "id": "E",
+        "text": "#2 -> `std::multimap<int, int>` is required for a simple chronological grade list",
+        "isCorrect": false,
+        "explanation": "Usually unnecessary complexity for a linear grade sequence."
+      }
+    ],
+    "explanation": "Choose containers by access pattern first: ordering, duplicates, lookup, and mutation costs.",
+    "tags": [
+      "stl",
+      "containers",
+      "map",
+      "vector",
+      "unordered",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0288",
+    "prompt": "You want to mask `123-45-6789` into `XXX-XX-6789` using `std::regex_replace` with replacement string `\"XXX-XX\"` for the first part. Which regex should match the part to replace?",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`[0-9]*-[0-9]*`",
+        "isCorrect": false,
+        "explanation": "Too broad and can match unintended lengths."
+      },
+      {
+        "id": "B",
+        "text": "`[[:digit:]]*-[[:digit:]]*`",
+        "isCorrect": false,
+        "explanation": "Also too broad."
+      },
+      {
+        "id": "C",
+        "text": "`[[:digit:]]?-[[::digit:]]?`",
+        "isCorrect": false,
+        "explanation": "Malformed and incorrect quantifiers/classes."
+      },
+      {
+        "id": "D",
+        "text": "`[[:digit:]]{3}-[[:digit:]]{2}`",
+        "isCorrect": true,
+        "explanation": "Correct. Matches exactly the first five digits with dash format."
+      },
+      {
+        "id": "E",
+        "text": "`[[:digit:]]\\3-[[:digit:]]\\2`",
+        "isCorrect": false,
+        "explanation": "Incorrect syntax for quantifiers."
+      }
+    ],
+    "explanation": "Use fixed-width quantifiers for format-constrained input patterns.",
+    "tags": [
+      "regex",
+      "strings",
+      "utilities",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0289",
+    "prompt": "In a member function, which lambda capture explicitly captures the current object pointer so member `normalization_factor` is usable?\n\n```cpp\nstd::for_each(samples.begin(), samples.end(),\n  ***** (double& elem) { elem *= normalization_factor; });\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`[this]`",
+        "isCorrect": true,
+        "explanation": "Correct. Explicitly captures current object pointer."
+      },
+      {
+        "id": "B",
+        "text": "`[]`",
+        "isCorrect": false,
+        "explanation": "No captures; member access without object capture fails."
+      },
+      {
+        "id": "C",
+        "text": "`[normalization_factor]`",
+        "isCorrect": false,
+        "explanation": "Member is not a local variable directly capturable by name this way."
+      },
+      {
+        "id": "D",
+        "text": "`[=]`",
+        "isCorrect": false,
+        "explanation": "May work in this context, but does not explicitly capture object pointer as asked."
+      },
+      {
+        "id": "E",
+        "text": "`[*]`",
+        "isCorrect": false,
+        "explanation": "Invalid capture syntax."
+      }
+    ],
+    "explanation": "Explicit captures improve readability when lambdas use member state.",
+    "tags": [
+      "lambda",
+      "captures",
+      "oop",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0290",
+    "prompt": "Which statements are true for this code?\n\n```cpp\n#define MASK_DAY   0xFFFF\n#define MASK_NIGHT 0xFFFF0000\n\nvoid MainProcessing() {\n  const unsigned int rawBits = getBits();\n  if (const bool morning = isMorning(); morning && rawBits) {\n    processBits(rawBits & MASK_DAY);\n  } else {\n    processBits(rawBits & MASK_NIGHT);\n  }\n}\n```",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "The `if` condition can be true when `rawBits == 0`",
+        "isCorrect": false,
+        "explanation": "`morning && rawBits` is false when `rawBits` is zero."
+      },
+      {
+        "id": "B",
+        "text": "Declaring `morning` in the `if` initializer is valid C++17 syntax",
+        "isCorrect": true,
+        "explanation": "Correct. This is exactly the C++17 if-initializer feature."
+      },
+      {
+        "id": "C",
+        "text": "Bitwise `&` with `unsigned int` and hexadecimal masks is valid",
+        "isCorrect": true,
+        "explanation": "Correct. This is standard bitmasking."
+      },
+      {
+        "id": "D",
+        "text": "When true branch executes, low-order bits are passed to `processBits`",
+        "isCorrect": true,
+        "explanation": "Correct. `MASK_DAY` keeps low 16 bits."
+      },
+      {
+        "id": "E",
+        "text": "Else branch processes both high and low bits together",
+        "isCorrect": false,
+        "explanation": "`MASK_NIGHT` keeps high bits and clears low bits."
+      }
+    ],
+    "explanation": "Bitmask code is easier to verify if mask meaning is encoded in names and comments.",
+    "tags": [
+      "bitmask",
+      "if-initializer",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0291",
+    "prompt": "What is the bug here?\n\n```cpp\nconst double PI = 3.14159265358979;\ndouble& calculateCircumference(double r) {\n  double c = 2 * PI * r;\n  return c;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`PI` cannot be declared outside a function",
+        "isCorrect": false,
+        "explanation": "Global `const` is fine."
+      },
+      {
+        "id": "B",
+        "text": "Multiplying integer `2` and `double` `PI` is invalid",
+        "isCorrect": false,
+        "explanation": "That arithmetic is valid with usual promotions."
+      },
+      {
+        "id": "C",
+        "text": "Returning reference to local `c` creates dangling reference",
+        "isCorrect": true,
+        "explanation": "Correct. `c` is destroyed when function returns."
+      },
+      {
+        "id": "D",
+        "text": "Parameter `r` must be pass-by-reference for correctness",
+        "isCorrect": false,
+        "explanation": "Pass-by-value is fine for `double` here."
+      },
+      {
+        "id": "E",
+        "text": "Function must return `float` instead of `double&`",
+        "isCorrect": false,
+        "explanation": "Return by value `double` is appropriate; `float` is not required."
+      }
+    ],
+    "explanation": "Fix:\n```cpp\ndouble calculateCircumference(double r) {\n  return 2.0 * PI * r;\n}\n```",
+    "tags": [
+      "lifetime",
+      "references",
+      "functions",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0292",
+    "prompt": "Which are valid standard C++ `main` signatures?",
+    "type": "multi",
+    "options": [
+      {
+        "id": "A",
+        "text": "`char main() { return \"0\"[0]; }`",
+        "isCorrect": false,
+        "explanation": "Return type must be `int` for standard hosted implementation main."
+      },
+      {
+        "id": "B",
+        "text": "`int main(int argc, char** argv) { return \"0\"[0]; }`",
+        "isCorrect": true,
+        "explanation": "Correct signature. Return expression is odd (48), but signature is valid."
+      },
+      {
+        "id": "C",
+        "text": "`void main() {}`",
+        "isCorrect": false,
+        "explanation": "Non-standard in hosted C++."
+      },
+      {
+        "id": "D",
+        "text": "`int main() { return 0; }`",
+        "isCorrect": true,
+        "explanation": "Correct standard signature."
+      },
+      {
+        "id": "E",
+        "text": "`float main() { return 0.f; }`",
+        "isCorrect": false,
+        "explanation": "Non-standard return type."
+      }
+    ],
+    "explanation": "Canonical forms are `int main()` and `int main(int, char**)` (or equivalent argv form).",
+    "tags": [
+      "functions",
+      "main",
+      "fundamentals",
+      "c++17"
+    ],
+    "difficulty": "easy",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0293",
+    "prompt": "What prints when `Truck theTruck;` goes out of scope?\n\n```cpp\nclass Vehicle {\npublic:\n  ~Vehicle() { std::cout << \"Vehicle\" << std::endl; }\n};\n\nclass Engine {\npublic:\n  ~Engine() { std::cout << \"Engine\" << std::endl; }\n};\n\nclass Truck : public Vehicle {\npublic:\n  ~Truck() { std::cout << \"Truck\" << std::endl; }\nprivate:\n  Engine theEngine;\n};\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vehicle, Engine, Truck",
+        "isCorrect": false,
+        "explanation": "Destructor body of most-derived class runs first."
+      },
+      {
+        "id": "B",
+        "text": "Truck, Engine, Vehicle",
+        "isCorrect": true,
+        "explanation": "Correct. Derived dtor body, then members, then base subobject."
+      },
+      {
+        "id": "C",
+        "text": "Engine, Truck, Vehicle",
+        "isCorrect": false,
+        "explanation": "Member destruction happens after derived destructor body."
+      },
+      {
+        "id": "D",
+        "text": "Truck, Vehicle, Engine",
+        "isCorrect": false,
+        "explanation": "Base is destroyed after members."
+      },
+      {
+        "id": "E",
+        "text": "Compilation error because base destructor is not virtual",
+        "isCorrect": false,
+        "explanation": "No polymorphic delete here; object is automatic and valid."
+      }
+    ],
+    "explanation": "Destruction order: most-derived destructor body, then members (reverse declaration), then bases (reverse base construction).",
+    "tags": [
+      "oop",
+      "destructors",
+      "order",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0294",
+    "prompt": "What does this print?\n\n```cpp\ntemplate <class T>\nclass Some {\npublic:\n  static int stat;\n};\n\ntemplate <class T>\nint Some<T>::stat = 10;\n\nint main() {\n  Some<int>::stat = 5;\n  std::cout << Some<int>::stat << \" \";\n  std::cout << Some<float>::stat << \" \";\n  std::cout << Some<long>::stat << std::endl;\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "`10 5 10`",
+        "isCorrect": false,
+        "explanation": "The `int` specialization was changed to 5."
+      },
+      {
+        "id": "B",
+        "text": "`5 10 10`",
+        "isCorrect": true,
+        "explanation": "Correct. Each template specialization has its own static member."
+      },
+      {
+        "id": "C",
+        "text": "`5 5 5`",
+        "isCorrect": false,
+        "explanation": "Only `Some<int>::stat` was modified."
+      },
+      {
+        "id": "D",
+        "text": "`10 10 10`",
+        "isCorrect": false,
+        "explanation": "Again, `Some<int>::stat` was explicitly set to 5."
+      },
+      {
+        "id": "E",
+        "text": "Compilation error",
+        "isCorrect": false,
+        "explanation": "Code is valid."
+      }
+    ],
+    "explanation": "Static data members of class templates are instantiated per specialization.",
+    "tags": [
+      "templates",
+      "static",
+      "specialization",
+      "c++17"
+    ],
+    "difficulty": "medium",
+    "standard": "C++17"
+  },
+  {
+    "id": "cpp-0295",
+    "prompt": "What output sequence is possible here?\n\n```cpp\nclass WaterSystem {\npublic:\n  virtual ~WaterSystem() { cleanup(); }\n  virtual void cleanup() {\n    std::cout << \"WaterSystem cleanup\" << std::endl;\n  }\n};\n\nclass PumpUnit : public WaterSystem {\npublic:\n  void cleanup() override {\n    std::cout << \"PumpUnit cleanup\" << std::endl;\n    WaterSystem::cleanup();\n  }\n};\n\nint main() {\n  std::unique_ptr<PumpUnit> uptr(new PumpUnit);\n  uptr->cleanup();\n}\n```",
+    "type": "single",
+    "options": [
+      {
+        "id": "A",
+        "text": "WaterSystem cleanup\nWaterSystem cleanup",
+        "isCorrect": false,
+        "explanation": "Missing explicit `PumpUnit cleanup` from direct call."
+      },
+      {
+        "id": "B",
+        "text": "PumpUnit cleanup\nPumpUnit cleanup",
+        "isCorrect": false,
+        "explanation": "Base cleanup line is produced in both direct and destructor-triggered cleanup paths."
+      },
+      {
+        "id": "C",
+        "text": "PumpUnit cleanup\nWaterSystem cleanup\nWaterSystem cleanup",
+        "isCorrect": true,
+        "explanation": "Correct. First two from explicit call; final base cleanup from base destructor virtual-call context."
+      },
+      {
+        "id": "D",
+        "text": "WaterSystem cleanup\nPumpUnit cleanup\nWaterSystem cleanup",
+        "isCorrect": false,
+        "explanation": "Order does not match call sequence."
+      },
+      {
+        "id": "E",
+        "text": "Compilation error due to virtual call in destructor",
+        "isCorrect": false,
+        "explanation": "It is legal (though design can be surprising)."
+      }
+    ],
+    "explanation": "Virtual calls inside base destructor dispatch to base version, not derived override.",
+    "tags": [
+      "oop",
+      "virtual",
+      "destructors",
+      "polymorphism",
+      "c++17"
+    ],
+    "difficulty": "hard",
+    "standard": "C++17"
   }
 ]
