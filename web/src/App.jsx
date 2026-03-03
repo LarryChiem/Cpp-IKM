@@ -1072,7 +1072,12 @@ const q = exam[idx]
       </main>
 
       <footer className="foot">
-        <span className="muted">Hosted via GitHub Pages • Export CSV available</span>
+        <span className="muted">
+          Hosted via GitHub Pages • Export CSV available •{" "}
+          <a href="https://github.com/LarryChiem/Cpp-IKM" target="_blank" rel="noreferrer">
+            View GitHub Repo
+          </a>
+        </span>
       </footer>
     </div>
   )
